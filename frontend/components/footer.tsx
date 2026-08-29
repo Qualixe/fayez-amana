@@ -138,7 +138,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="relative mx-auto flex max-w-7xl flex-col gap-3 border-t border-steel px-6 py-5 font-mono text-[10px] uppercase tracking-[0.18em] text-dust sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+            <div className="relative mx-auto flex max-w-full flex-col gap-3 border-t border-steel px-6 py-5 font-mono text-[10px] uppercase tracking-[0.18em] text-dust sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
                 <span>© {new Date().getFullYear()} Building Reference United Company. All rights reserved.</span>
                 <span>Building Reference, your first reference in construction, since 2000</span>
             </div>
