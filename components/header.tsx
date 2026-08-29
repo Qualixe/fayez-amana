@@ -1,0 +1,186 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+
+const navLinks = [
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Projects", href: "/projects" },
+    { label: "Process", href: "/process" },
+    { label: "Contact", href: "/contact" },
+];
+
+const menuLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Projects", href: "/projects" },
+    { label: "Process", href: "/process" },
+    { label: "News", href: "/news" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
+];
+
+export default function Header() {
+    const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 24);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [menuOpen]);
+
+    return (
+        <header
+            className={`fixed inset-x-0 top-0 z-100 transition-[background-color,border-color] duration-500 ease-out ${
+                scrolled || menuOpen ? "border-b border-edge bg-void/50" : "border-b border-transparent bg-transparent"
+            }`}
+        >
+            {!scrolled && !menuOpen && (
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-40"
+                    style={{ background: "linear-gradient(to bottom, rgba(6,8,11,0.85), transparent)" }}
+                />
+            )}
+
+            <div className="relative mx-auto flex h-20 max-w-full items-center justify-between gap-6 px-6 sm:px-8 lg:px-12">
+                <Link href="/" aria-label="BRU CO. home" className="shrink-0">
+                    <span className="text-2xl font-bold tracking-[-0.02em] text-bone">
+                        BRU<span className="text-azure-glow">CO.</span>
+                    </span>
+                </Link>
+
+                <nav aria-label="Primary" className="hidden items-center gap-9 xl:flex">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className="group relative py-1 font-mono text-[12.5px] uppercase tracking-[0.13em] text-dust transition-colors duration-300 hover:text-bone"
+                        >
+                            {link.label}
+                            <span
+                                aria-hidden="true"
+                                className="pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-azure-glow transition-transform duration-500 ease-out group-hover:scale-x-100"
+                            />
+                        </Link>
+                    ))}
+                </nav>
+
+                <div className="flex items-center gap-4">
+                    <a
+                        href="tel:+966555352526"
+                        className="hidden font-mono text-[12px] tracking-[0.14em] text-dust transition-colors hover:text-azure-glow 2xl:block"
+                    >
+                        +966 55 535 2526
+                    </a>
+
+                    <a
+                        href="/contact"
+                        className="hidden min-h-[44px] items-center justify-center px-6 py-3.5 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-white transition-[filter] duration-500 hover:brightness-110 sm:inline-flex"
+                        style={{
+                            backgroundImage:
+                                "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
+                        }}
+                    >
+                        Start a Project
+                    </a>
+
+                    <a
+                        href="/ar"
+                        hrefLang="ar-SA"
+                        lang="ar"
+                        aria-label="Switch to العربية"
+                        title="Switch to العربية"
+                        className="grid h-11 w-11 shrink-0 place-items-center border border-steel text-bone transition-colors duration-300 hover:border-azure hover:text-azure-glow"
+                    >
+                        <span className="text-lg leading-none">ع</span>
+                    </a>
+
+                    <button
+                        type="button"
+                        aria-expanded={menuOpen}
+                        aria-label={menuOpen ? "Close menu" : "Open menu"}
+                        onClick={() => setMenuOpen((open) => !open)}
+                        className="group relative z-110 grid h-11 w-11 shrink-0 place-items-center border border-steel transition-colors duration-300 hover:border-azure"
+                    >
+                        <span className="relative block h-3 w-5">
+                            <span
+                                className={`absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-bone transition-transform duration-300 ${
+                                    menuOpen ? "rotate-45" : "-translate-y-[5px] rotate-0"
+                                }`}
+                            />
+                            <span
+                                className={`absolute left-0 top-1/2 h-px -translate-y-1/2 bg-bone transition-all duration-300 ${
+                                    menuOpen ? "w-full -rotate-45" : "w-3/5 translate-y-[5px] rotate-0 group-hover:w-full"
+                                }`}
+                            />
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div
+                className={`fixed inset-0 z-90 flex flex-col bg-void transition-opacity duration-500 ${
+                    menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+                }`}
+            >
+                <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
+
+                <nav
+                    aria-label="Full menu"
+                    className="relative mx-auto flex w-full max-w-full flex-1 flex-col justify-center gap-0 px-6 sm:px-8 lg:px-12 bg-void "
+                >
+                    {menuLinks.map((link, index) => {
+                        const isActive = pathname === link.href;
+                        return (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                onClick={() => setMenuOpen(false)}
+                                className={`group flex items-baseline gap-4 border-b border-edge py-4 transition-colors duration-300 sm:py-5 ${
+                                    isActive ? "text-azure-glow" : "text-bone hover:text-azure-glow"
+                                }`}
+                            >
+                                <span className="font-mono text-[11px] text-amber">{String(index).padStart(2, "0")}</span>
+                                <span className="text-[clamp(2rem,7vw,3.5rem)] font-bold leading-none tracking-[-0.02em]">
+                                    {link.label}
+                                </span>
+                            </Link>
+                        );
+                    })}
+                </nav>
+
+                <div className="relative mx-auto flex w-full max-w-full flex-wrap items-center gap-x-8 gap-y-2 px-6 py-8 font-mono text-[11px] uppercase tracking-[0.14em] text-dust sm:px-8 lg:px-12 bg-void">
+                    <a href="tel:+966555352526" className="transition-colors hover:text-azure-glow">
+                        +966 55 535 2526
+                    </a>
+                    <a href="mailto:info@bru.com.sa" className="transition-colors hover:text-azure-glow">
+                        info@bru.com.sa
+                    </a>
+                    <a
+                        href="https://instagram.com/bru.co.sa"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="transition-colors hover:text-azure-glow"
+                    >
+                        Instagram @bru.co.sa
+                    </a>
+                    <span>Jeddah, Saudi Arabia</span>
+                </div>
+            </div>
+        </header>
+    );
+}

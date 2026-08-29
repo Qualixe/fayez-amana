@@ -3,6 +3,25 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* BRU brand palette (from bru.com.sa) */
+  --void: #1c242e;
+  --ink: #26313d;
+  --slab: #2f3b49;
+  --concrete: #374453;
+  --steel: #465464;
+  --rebar: #677484;
+  --edge: #2e3c4e;
+  --bone: #f5f3ef;
+  --paper: #ffffff;
+  --dust: #b9b6ae;
+  --ash: #96999f;
+  --azure: #1e68ac;
+  --azure-lift: #3d8fd8;
+  --azure-glow: #6fb4f0;
+  --azure-deep: #0f3f6d;
+  --amber: #d9a441;
+  --amber-soft: #f0cd8a;
 }
 
 @theme inline {
@@ -10,6 +29,24 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-void: var(--void);
+  --color-ink: var(--ink);
+  --color-slab: var(--slab);
+  --color-concrete: var(--concrete);
+  --color-steel: var(--steel);
+  --color-rebar: var(--rebar);
+  --color-edge: var(--edge);
+  --color-bone: var(--bone);
+  --color-paper: var(--paper);
+  --color-dust: var(--dust);
+  --color-ash: var(--ash);
+  --color-azure: var(--azure);
+  --color-azure-lift: var(--azure-lift);
+  --color-azure-glow: var(--azure-glow);
+  --color-azure-deep: var(--azure-deep);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +60,38 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--azure) 22%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--azure) 22%, transparent) 1px, transparent 1px),
+    linear-gradient(to right, color-mix(in oklab, var(--azure) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--azure) 9%, transparent) 1px, transparent 1px);
+  background-size:
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px;
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--steel) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--steel) 55%, transparent) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+.marquee-track {
+  animation: bru-marquee var(--marquee-duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+@keyframes bru-marquee {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-50%);
+  }
 }
