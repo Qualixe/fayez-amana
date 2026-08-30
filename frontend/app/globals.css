@@ -22,13 +22,16 @@
   --azure-deep: #0f3f6d;
   --amber: #d9a441;
   --amber-soft: #f0cd8a;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-serif: var(--font-instrument-serif);
 
   --color-void: var(--void);
   --color-ink: var(--ink);
@@ -59,7 +62,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .blueprint-grid {
@@ -87,11 +90,95 @@ body {
   will-change: transform;
 }
 
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-steel) transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-steel);
+  border-radius: 9999px;
+}
+
 @keyframes bru-marquee {
   from {
     transform: translate(0);
   }
   to {
     transform: translate(-50%);
+  }
+}
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.95s var(--ease-out-expo),
+    transform 0.95s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal-ready [data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-ready [data-reveal-clip] {
+  position: relative;
+}
+
+.reveal-ready [data-reveal-clip]::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 5;
+  background: var(--color-void);
+  transform-origin: bottom;
+  transform: scaleY(1);
+  transition: transform 1.15s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0s);
+  pointer-events: none;
+}
+
+.reveal-ready [data-reveal-clip="in"]::after {
+  transform: scaleY(0);
+}
+
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word-mask > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1s var(--ease-out-expo);
+  transition-delay: var(--word-delay, 0s);
+}
+
+[data-reveal="in"] .word-mask > span {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .word-mask > span {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  [data-reveal-clip]::after {
+    transition: none !important;
+    transform: scaleY(0) !important;
   }
 }
