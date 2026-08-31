@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --background: #1c242e;
+  --foreground: #f5f3ef;
 
   /* BRU brand palette (from bru.com.sa) */
   --void: #1c242e;
@@ -50,13 +51,6 @@
   --color-azure-deep: var(--azure-deep);
   --color-amber: var(--amber);
   --color-amber-soft: var(--amber-soft);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -113,6 +107,49 @@ body {
   backdrop-filter: blur(22px) saturate(1.3);
   -webkit-backdrop-filter: blur(22px) saturate(1.3);
   border: 1px solid color-mix(in oklab, var(--color-bone) 8%, transparent);
+}
+
+@keyframes bru-hero-settle {
+  0% {
+    transform: scale(1.09);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-settle {
+  animation: bru-hero-settle 2.8s var(--ease-out-expo) both;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-settle {
+    animation: none;
+  }
+}
+
+@keyframes bru-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.fade-up-in {
+  animation: bru-fade-up 0.55s var(--ease-out-expo) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up-in {
+    animation: none;
+  }
 }
 
 @keyframes bru-marquee {
