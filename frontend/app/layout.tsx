@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SmoothScroll from "@/components/smoothScroll";
+import Preloader from "@/components/preloader";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <Preloader/>
         <Header/>
         <SmoothScroll/>
         {children}

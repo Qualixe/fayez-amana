@@ -108,6 +108,13 @@ body {
   border-radius: 9999px;
 }
 
+.glass {
+  background: color-mix(in oklab, var(--color-slab) 55%, transparent);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  border: 1px solid color-mix(in oklab, var(--color-bone) 8%, transparent);
+}
+
 @keyframes bru-marquee {
   from {
     transform: translate(0);
