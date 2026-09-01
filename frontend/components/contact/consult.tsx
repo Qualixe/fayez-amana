@@ -4,7 +4,16 @@ import { disciplines } from "@/components/contact/data";
 
 export default function ContactConsult() {
   return (
-    <section className="border-b border-steel py-20 sm:py-28">
+    <section className="relative isolate border-b border-steel py-20 sm:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(58% 42% at 78% 10%, rgba(30,104,172,0.07), transparent 70%), radial-gradient(50% 40% at 6% 90%, rgba(15,63,109,0.12), transparent 72%)",
+        }}
+      />
+
       <div className="mx-auto grid max-w-full gap-14 px-6 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-12">
         <div className="flex flex-col gap-8 lg:sticky lg:top-32 lg:h-fit">
           <Reveal
@@ -54,7 +63,22 @@ export default function ContactConsult() {
           </Reveal>
         </div>
 
-        <div className="border border-steel bg-ink p-6 sm:p-10 lg:p-12 xl:p-14">
+        <div
+          className="relative isolate overflow-hidden rounded-3xl border border-edge p-6 backdrop-blur-[6px] backdrop-saturate-[1.08] sm:p-10 lg:p-12 xl:p-14"
+          style={{
+            background:
+              "radial-gradient(105% 65% at 50% -8%, rgba(30,104,172,0.11), transparent 62%), radial-gradient(80% 60% at 0% 105%, rgba(61,143,216,0.06), transparent 60%), linear-gradient(168deg, rgba(47,59,73,0.58), rgba(28,36,46,0.92))",
+            boxShadow:
+              "inset 0 1px 0 rgba(245,243,239,0.11), inset 0 0 0 1px rgba(245,243,239,0.03), inset 0 -60px 90px -70px rgba(0,0,0,0.85), 0 32px 72px -48px rgba(3,10,20,0.9), 0 4px 16px -12px rgba(3,10,20,0.6)",
+          }}
+        >
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-px opacity-70"
+            style={{
+              background: "linear-gradient(to right, transparent, var(--color-azure-lift), transparent)",
+            }}
+          />
           <ContactForm />
         </div>
       </div>

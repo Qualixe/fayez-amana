@@ -37,10 +37,24 @@ const sectorIcons: Record<string, ComponentType<{ className?: string }>> = {
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+const fieldShellClasses =
+  "group relative rounded-[14px] border border-edge bg-void/68 transition-colors duration-200 hover:border-steel/85 focus-within:border-azure-lift focus-within:bg-void/90 focus-within:shadow-[0_0_0_1px_rgba(61,143,216,0.6),0_0_0_4px_rgba(30,104,172,0.18),0_8px_26px_-14px_rgba(61,143,216,0.55)]";
+const fieldShellInvalidClasses = "border-amber-soft";
+
+const controlClasses =
+  "peer relative z-10 min-h-16 w-full rounded-[inherit] border-0 bg-transparent pb-3 pl-12 pr-4 pt-7 text-base text-bone outline-none placeholder:text-rebar placeholder:opacity-0 placeholder:transition-opacity placeholder:duration-200 focus:placeholder:opacity-100";
+
+const iconClasses =
+  "pointer-events-none absolute left-[18px] top-6 text-rebar transition-[color,transform] duration-200 group-focus-within:scale-110 group-focus-within:text-azure-glow peer-[&:not(:placeholder-shown)]:text-dust";
+const iconInvalidClasses = "text-amber-soft";
+
 const labelClasses =
-  "pointer-events-none absolute left-11 top-1/2 -translate-y-1/2 font-mono uppercase tracking-[0.15em] text-[13px] text-ash transition-all duration-200";
-const labelFloatedClasses =
-  "peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-[9px] peer-focus:text-azure-glow peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-[9px] peer-[&:not(:placeholder-shown)]:text-dust";
+  "pointer-events-none absolute left-12 top-6 origin-left text-base font-normal leading-none text-ash transition-transform duration-200 [transform-origin:0_0] peer-focus:-translate-y-[13px] peer-focus:scale-[0.7] peer-focus:text-azure-glow peer-[&:not(:placeholder-shown)]:-translate-y-[13px] peer-[&:not(:placeholder-shown)]:scale-[0.7] peer-[&:not(:placeholder-shown)]:text-dust";
+const labelInvalidClasses = "peer-focus:text-amber-soft";
+
+function RequiredDot() {
+  return <span aria-hidden="true" className="ms-2 inline-block h-1 w-1 rounded-full bg-azure-lift align-[2px]" />;
+}
 
 function Field({
   id,
@@ -50,6 +64,7 @@ function Field({
   type = "text",
   required,
   autoComplete,
+  placeholder,
   invalid,
 }: {
   id: string;
@@ -59,13 +74,11 @@ function Field({
   type?: string;
   required?: boolean;
   autoComplete?: string;
+  placeholder?: string;
   invalid?: boolean;
 }) {
   return (
-    <div className="relative">
-      <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ash">
-        {icon}
-      </span>
+    <div className={`${fieldShellClasses} ${invalid ? fieldShellInvalidClasses : ""}`}>
       <input
         id={id}
         name={name}
@@ -73,14 +86,13 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         aria-invalid={invalid || undefined}
-        placeholder=" "
-        className={`peer w-full border bg-white/[0.03] pb-2.5 pl-11 pr-4 pt-6 text-sm text-bone outline-none transition-colors focus:border-azure ${
-          invalid ? "border-amber-soft" : "border-steel"
-        }`}
+        placeholder={placeholder ?? " "}
+        className={controlClasses}
       />
-      <label htmlFor={id} className={`${labelClasses} ${labelFloatedClasses}`}>
+      <span className={`${iconClasses} ${invalid ? iconInvalidClasses : ""}`}>{icon}</span>
+      <label htmlFor={id} className={`${labelClasses} ${invalid ? labelInvalidClasses : ""}`}>
         {label}
-        {required ? <span className="ml-1 text-azure-glow">*</span> : null}
+        {required ? <RequiredDot /> : null}
       </label>
     </div>
   );
@@ -156,11 +168,8 @@ function Dropdown({
   const labelId = `${id}-label`;
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className={`${fieldShellClasses} ${open ? "border-azure-lift" : ""}`}>
       <input type="hidden" name={name} value={value} />
-      <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ash">
-        {icon}
-      </span>
       <button
         ref={triggerRef}
         id={id}
@@ -175,23 +184,30 @@ function Dropdown({
           setOpen((o) => !o);
         }}
         onKeyDown={onKeyDown}
-        className="w-full border border-steel bg-white/[0.03] pb-2.5 pl-11 pr-9 pt-6 text-left text-sm text-bone outline-none transition-colors focus:border-azure"
+        className={`${controlClasses} cursor-pointer text-left`}
       >
         <span id={`${id}-value`} className="block truncate">
-          {value || " "}
+          {value || " "}
         </span>
       </button>
       <span
-        id={labelId}
-        className={`${labelClasses} ${
-          floated ? "top-2 translate-y-0 text-[9px] text-azure-glow" : ""
+        className={`pointer-events-none absolute left-[18px] top-6 transition-[color,transform] duration-200 ${
+          open ? "scale-110 text-azure-glow" : "text-rebar group-hover:text-dust"
         }`}
+      >
+        {icon}
+      </span>
+      <span
+        id={labelId}
+        className={`pointer-events-none absolute left-12 top-6 origin-left text-base leading-none text-ash transition-transform duration-200 ${
+          floated ? "-translate-y-[13px] scale-[0.7] text-dust" : ""
+        } ${open ? "text-azure-glow" : ""}`}
       >
         {label}
       </span>
       <ChevronDownIcon
-        className={`pointer-events-none absolute right-4 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ash transition-transform duration-300 ${
-          open ? "rotate-180" : ""
+        className={`pointer-events-none absolute right-[18px] top-6 h-3.5 w-3.5 transition-[color,transform] duration-200 ${
+          open ? "rotate-180 text-azure-glow" : "text-rebar group-hover:text-dust"
         }`}
       />
 
@@ -200,7 +216,7 @@ function Dropdown({
           id={listboxId}
           role="listbox"
           aria-labelledby={labelId}
-          className="absolute inset-x-0 top-full z-20 mt-1 max-h-60 overflow-auto border border-steel bg-ink shadow-[0_20px_40px_-12px_rgba(0,0,0,0.6)]"
+          className="absolute inset-x-0 top-[calc(100%+8px)] z-30 max-h-72 overflow-y-auto rounded-2xl border border-edge bg-[#212b36] p-2 shadow-[inset_0_1px_0_rgba(245,243,239,0.09),0_24px_60px_-36px_rgba(3,10,20,0.95)]"
         >
           {options.map((option, index) => (
             <li
@@ -210,8 +226,8 @@ function Dropdown({
               aria-selected={option === value}
               onMouseEnter={() => setActiveIndex(index)}
               onClick={() => select(option)}
-              className={`cursor-pointer px-4 py-3 text-sm transition-colors ${
-                index === activeIndex ? "bg-azure/15 text-bone" : "text-dust"
+              className={`cursor-pointer rounded-[10px] px-4 py-3 text-sm leading-[1.45] transition-colors duration-150 ${
+                index === activeIndex ? "bg-azure/22 text-bone" : option === value ? "text-azure-glow" : "text-dust"
               }`}
             >
               {option}
@@ -310,8 +326,11 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <div className="flex h-full flex-col items-start justify-center gap-6 py-2">
-        <span className="grid h-14 w-14 place-items-center rounded-full border border-azure-glow/50 bg-azure/10 text-azure-glow">
-          <CheckIcon className="h-7 w-7" />
+        <span
+          className="grid h-16 w-16 place-items-center rounded-full border border-azure-lift/55"
+          style={{ background: "radial-gradient(80% 80% at 50% 20%, rgba(30,104,172,0.3), transparent 70%)" }}
+        >
+          <CheckIcon className="h-7 w-7 text-azure-glow" />
         </span>
         <div className="flex flex-col gap-3">
           <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
@@ -341,7 +360,7 @@ export default function ContactForm() {
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate
-      className={`flex flex-col gap-10 ${status === "error" ? "animate-[shake_0.4s]" : ""}`}
+      className={`flex flex-col gap-10 ${status === "error" ? "animate-[shake_0.42s_cubic-bezier(0.36,0.07,0.19,0.97)]" : ""}`}
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <Field
@@ -351,6 +370,7 @@ export default function ContactForm() {
           icon={<UserIcon className="h-4 w-4" />}
           required
           autoComplete="name"
+          placeholder="Your name"
           invalid={isInvalid("name")}
         />
         <Field
@@ -361,6 +381,7 @@ export default function ContactForm() {
           icon={<MailIcon className="h-4 w-4" />}
           required
           autoComplete="email"
+          placeholder="you@company.com"
           invalid={isInvalid("email")}
         />
         <Field
@@ -370,6 +391,7 @@ export default function ContactForm() {
           label="Phone"
           icon={<PhoneIcon className="h-4 w-4" />}
           autoComplete="tel"
+          placeholder="+966 …"
         />
         <Dropdown
           id="scope"
@@ -384,6 +406,7 @@ export default function ContactForm() {
           label="Project location"
           icon={<PinIcon className="h-4 w-4" />}
           autoComplete="off"
+          placeholder="Jeddah, Makkah, district…"
         />
         <Dropdown
           id="budget"
@@ -404,11 +427,11 @@ export default function ContactForm() {
             return (
               <label
                 key={option}
-                className="group flex cursor-pointer flex-col items-center gap-2.5 border border-steel bg-white/[0.03] px-3 py-5 text-center transition-colors duration-300 hover:border-rebar has-[:checked]:border-azure has-[:checked]:bg-azure/10"
+                className="group relative flex min-h-24 cursor-pointer flex-col justify-between gap-4 overflow-hidden rounded-[14px] border border-edge bg-void/66 p-4 transition-[transform,border-color,box-shadow,background-color] duration-200 hover:-translate-y-0.5 hover:border-steel hover:shadow-[0_14px_28px_-22px_rgba(3,10,20,0.95)] active:translate-y-0 active:scale-[0.99] has-[:checked]:border-azure-lift has-[:checked]:shadow-[0_0_0_1px_rgba(61,143,216,0.5),0_10px_30px_-18px_rgba(61,143,216,0.55)] has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-azure-glow"
               >
                 <input type="radio" name="sector" value={option} className="sr-only" />
-                <SectorIcon className="h-[22px] w-[22px] text-dust transition-colors duration-300 group-has-[:checked]:text-azure-glow" />
-                <span className="text-[13px] font-medium leading-snug text-dust transition-colors duration-300 group-has-[:checked]:text-bone">
+                <SectorIcon className="h-[22px] w-[22px] text-dust transition-colors duration-200 group-has-[:checked]:text-azure-glow" />
+                <span className="text-[13px] font-medium leading-snug text-bone">
                   {option}
                 </span>
               </label>
@@ -418,10 +441,7 @@ export default function ContactForm() {
       </fieldset>
 
       <div className="flex flex-col gap-2">
-        <div className="relative">
-          <span className="pointer-events-none absolute left-4 top-4 text-ash">
-            <DocumentIcon className="h-4 w-4" />
-          </span>
+        <div className={`${fieldShellClasses} ${isInvalid("body") ? fieldShellInvalidClasses : ""}`}>
           <textarea
             ref={textareaRef}
             id="body"
@@ -430,31 +450,33 @@ export default function ContactForm() {
             required
             maxLength={1200}
             aria-invalid={isInvalid("body") || undefined}
-            placeholder=" "
+            placeholder="Plot location and size, what you want built, the standard you have in mind, and when you need to start on site…"
             onInput={(e) => {
               setBodyLength(e.currentTarget.value.length);
               autoResizeTextarea();
             }}
-            className={`peer w-full resize-none border bg-white/[0.03] py-6 pl-11 pr-4 text-sm text-bone outline-none transition-colors focus:border-azure ${
-              isInvalid("body") ? "border-amber-soft" : "border-steel"
-            }`}
+            className={`${controlClasses} min-h-[176px] resize-none pt-8 leading-[1.65]`}
+            style={{ scrollbarWidth: "thin" }}
           />
-          <label htmlFor="body" className={`${labelClasses} top-6 ${labelFloatedClasses}`}>
-            Project details<span className="ml-1 text-azure-glow">*</span>
+          <span className={`${iconClasses} ${isInvalid("body") ? iconInvalidClasses : ""}`}>
+            <DocumentIcon className="h-4 w-4" />
+          </span>
+          <label htmlFor="body" className={`${labelClasses} ${isInvalid("body") ? labelInvalidClasses : ""}`}>
+            Project details
+            <RequiredDot />
           </label>
-        </div>
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-[12px] leading-relaxed text-ash">
-            Plot location and size, what you want built, the standard you
-            have in mind, and when you need to start on site.
-          </p>
-          <p
-            className={`shrink-0 font-mono text-[11px] tabular-nums transition-colors ${
-              bodyLength > 0.9 * 1200 ? "text-amber-soft" : "text-rebar"
-            }`}
-          >
-            {bodyLength}/1200
-          </p>
+          <div className="mx-4 flex items-center justify-between gap-4 border-t border-edge/85 py-3">
+            <p className="text-[12px] leading-relaxed text-ash">
+              The more specific the brief, the more useful our first reply.
+            </p>
+            <p
+              className={`shrink-0 font-mono text-[11px] tabular-nums transition-colors ${
+                bodyLength > 0.9 * 1200 ? "text-amber-soft" : "text-rebar"
+              }`}
+            >
+              {bodyLength}/1200
+            </p>
+          </div>
         </div>
       </div>
 
@@ -464,7 +486,14 @@ export default function ContactForm() {
         {trustItems.map((item, index) => {
           const TrustIcon = [ShieldIcon, BoltIcon, RulerIcon][index];
           return (
-            <li key={item.title} className="flex flex-col gap-3 border border-steel/70 p-5">
+            <li
+              key={item.title}
+              className="flex flex-col gap-3 rounded-[14px] border border-edge p-5 transition-colors duration-200 hover:border-steel/90"
+              style={{
+                background:
+                  "linear-gradient(160deg, rgba(47,59,73,0.26), transparent 65%), rgba(28,36,46,0.5)",
+              }}
+            >
               <span className="text-azure-glow">
                 <TrustIcon className="h-[18px] w-[18px]" />
               </span>
