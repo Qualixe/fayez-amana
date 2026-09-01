@@ -76,19 +76,27 @@ export default function Header() {
           aria-label="Primary"
           className="hidden items-center gap-9 justify-self-center xl:flex"
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group relative py-1 font-mono text-[12.5px] uppercase tracking-[0.13em] text-dust transition-colors duration-300 hover:text-bone"
-            >
-              {link.label}
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-azure-glow transition-transform duration-500 ease-out group-hover:scale-x-100"
-              />
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`group relative py-1 font-mono text-[12.5px] uppercase tracking-[0.13em] transition-colors duration-300 ${
+                  isActive ? "text-azure-glow" : "text-dust hover:text-bone"
+                }`}
+              >
+                {link.label}
+                <span
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left bg-azure-glow transition-transform duration-500 ease-out ${
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-4 justify-self-end">
@@ -164,12 +172,14 @@ export default function Header() {
           className="relative mx-auto flex w-full max-w-full flex-1 flex-col justify-center gap-0 px-6 sm:px-8 lg:px-12 bg-void "
         >
           {menuLinks.map((link, index) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              pathname === link.href || (link.href !== "/" && pathname.startsWith(`${link.href}/`));
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
+                aria-current={isActive ? "page" : undefined}
                 className={`group flex items-baseline gap-4 border-b border-edge py-4 transition-colors duration-300 sm:py-5 ${
                   isActive
                     ? "text-azure-glow"

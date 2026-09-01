@@ -9,7 +9,9 @@ export default function ProjectsFilterableGrid() {
   const [active, setActive] = useState<(typeof projectCategories)[number]>("All");
   const tablistRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const [pillStyle, setPillStyle] = useState<{ left: number; width: number } | null>(null);
+  const [pillStyle, setPillStyle] = useState<{ left: number; top: number; width: number; height: number } | null>(
+    null,
+  );
 
   const filtered = useMemo(
     () => (active === "All" ? projects : projects.filter((p) => p.category === active)),
@@ -28,7 +30,12 @@ export default function ProjectsFilterableGrid() {
     if (!list || !button) return;
     const listRect = list.getBoundingClientRect();
     const buttonRect = button.getBoundingClientRect();
-    setPillStyle({ left: buttonRect.left - listRect.left, width: buttonRect.width });
+    setPillStyle({
+      left: buttonRect.left - listRect.left,
+      top: buttonRect.top - listRect.top,
+      width: buttonRect.width,
+      height: buttonRect.height,
+    });
   };
 
   useLayoutEffect(() => {
@@ -82,8 +89,13 @@ export default function ProjectsFilterableGrid() {
             {pillStyle ? (
               <span
                 aria-hidden="true"
-                className="absolute top-0 h-full rounded-full bg-azure transition-[left,width] duration-400 ease-out"
-                style={{ left: pillStyle.left, width: pillStyle.width }}
+                className="absolute rounded-full bg-azure transition-[left,top,width,height] duration-400 ease-out"
+                style={{
+                  left: pillStyle.left,
+                  top: pillStyle.top,
+                  width: pillStyle.width,
+                  height: pillStyle.height,
+                }}
               />
             ) : null}
             {projectCategories.map((category) => {
