@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import Reveal from "@/components/reveal";
+import type { Locale } from "@/lib/locale";
 
 const clients = [
   { name: "Starbucks", image: "/images/client-img1.avif" },
@@ -15,42 +16,77 @@ const clients = [
   { name: "Saudi Enaya", image: "/images/client-img11.avif" },
 ];
 
-const highlights = [
-  {
-    title: "25+ Years of Experience",
-    description:
-      "Over a quarter century shaping the construction landscape of Saudi Arabia with precision, quality, and continuous innovation.",
+const content = {
+  en: {
+    eyebrow: "Valued Clients",
+    title1: "Trusted across",
+    title2: "every sector.",
+    lede: "A trusted partner to leading developers, government entities, and private clients, built on long-term relationships and consistent excellence.",
+    highlights: [
+      {
+        title: "25+ Years of Experience",
+        description: "Over a quarter century shaping the construction landscape of Saudi Arabia with precision, quality, and continuous innovation.",
+      },
+      {
+        title: "ISO-Certified Quality",
+        description: "Certified in Quality, Safety, and Environmental Management, ensuring every project meets the highest international standards, without compromise.",
+      },
+      {
+        title: "300+ Completed Projects",
+        description: "A proven track record spanning residential, commercial, hospitality, and public developments, delivered on time and on budget.",
+      },
+      {
+        title: "Trusted Across All Sectors",
+        description: "A trusted partner to leading developers, government entities, and private clients, built on long-term relationships and consistent excellence.",
+      },
+    ],
+    marqueeItems: [
+      "Leading Developers",
+      "Government Entities",
+      "Private Clients",
+      "Real Estate Developers",
+      "Hospitality Operators",
+      "Healthcare Providers",
+    ],
   },
-  {
-    title: "ISO-Certified Quality",
-    description:
-      "Certified in Quality, Safety, and Environmental Management, ensuring every project meets the highest international standards, without compromise.",
+  ar: {
+    eyebrow: "عملاء نعتز بهم",
+    title1: "ثقة راسخة",
+    title2: "في كل قطاع.",
+    lede: "شريك موثوق للمطورين الرائدين والجهات الحكومية والعملاء من القطاع الخاص، مبني على علاقات طويلة الأمد وتميز مستمر.",
+    highlights: [
+      {
+        title: "أكثر من 25 عامًا من الخبرة",
+        description: "أكثر من ربع قرن نشكّل ملامح قطاع الإنشاءات في المملكة العربية السعودية بدقة وجودة وابتكار مستمر.",
+      },
+      {
+        title: "جودة معتمدة من ISO",
+        description: "معتمدون في إدارة الجودة والسلامة والبيئة، لضمان مطابقة كل مشروع لأعلى المعايير الدولية دون تهاون.",
+      },
+      {
+        title: "أكثر من 300 مشروع منجز",
+        description: "سجل حافل يشمل المشاريع السكنية والتجارية والفندقية والحكومية، مُسلَّمة في الوقت المحدد وضمن الميزانية.",
+      },
+      {
+        title: "ثقة راسخة في جميع القطاعات",
+        description: "شريك موثوق للمطورين الرائدين والجهات الحكومية والعملاء من القطاع الخاص، مبني على علاقات طويلة الأمد وتميز مستمر.",
+      },
+    ],
+    marqueeItems: [
+      "مطورون رائدون",
+      "جهات حكومية",
+      "عملاء من القطاع الخاص",
+      "مطورون عقاريون",
+      "مشغلو قطاع الضيافة",
+      "مقدمو الرعاية الصحية",
+    ],
   },
-  {
-    title: "300+ Completed Projects",
-    description:
-      "A proven track record spanning residential, commercial, hospitality, and public developments, delivered on time and on budget.",
-  },
-  {
-    title: "Trusted Across All Sectors",
-    description:
-      "A trusted partner to leading developers, government entities, and private clients, built on long-term relationships and consistent excellence.",
-  },
-];
+} as const;
 
-const marqueeItems = [
-  "Leading Developers",
-  "Government Entities",
-  "Private Clients",
-  "Real Estate Developers",
-  "Hospitality Operators",
-  "Healthcare Providers",
-];
-
-function MarqueeGroup() {
+function MarqueeGroup({ items }: { items: readonly string[] }) {
   return (
     <span className="flex items-center gap-10 whitespace-nowrap">
-      {marqueeItems.map((item) => (
+      {items.map((item) => (
         <span key={item} className="flex items-center gap-10 whitespace-nowrap">
           <span>{item}</span>
           <span className="text-azure">·</span>
@@ -60,7 +96,8 @@ function MarqueeGroup() {
   );
 }
 
-export default function Clients() {
+export default function Clients({ locale }: { locale: Locale }) {
+  const t = content[locale];
   return (
     <section
       id="clients"
@@ -73,7 +110,7 @@ export default function Clients() {
             className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
           >
             <span aria-hidden="true" className="h-px w-8 bg-azure" />
-            Valued Clients
+            {t.eyebrow}
           </Reveal>
 
           <Reveal
@@ -81,9 +118,9 @@ export default function Clients() {
             delay={80}
             className="text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bone"
           >
-            Trusted across
+            {t.title1}
             <br />
-            every sector.
+            {t.title2}
           </Reveal>
 
           <Reveal
@@ -91,9 +128,7 @@ export default function Clients() {
             delay={160}
             className="max-w-2xl text-[1.0625rem] leading-relaxed text-dust"
           >
-            A trusted partner to leading developers, government entities, and
-            private clients, built on long-term relationships and consistent
-            excellence.
+            {t.lede}
           </Reveal>
         </div>
 
@@ -126,15 +161,15 @@ export default function Clients() {
             className="marquee-track flex w-max items-center gap-10"
             style={{ "--marquee-duration": "46s" } as CSSProperties}
           >
-            <MarqueeGroup />
-            <MarqueeGroup />
+            <MarqueeGroup items={t.marqueeItems} />
+            <MarqueeGroup items={t.marqueeItems} />
           </div>
         </div>
       </div>
 
       <div className="mx-auto mt-14 max-w-full px-6 sm:px-8 lg:px-12">
         <div className="grid gap-px bg-steel sm:grid-cols-2 lg:grid-cols-4">
-          {highlights.map((highlight, index) => (
+          {t.highlights.map((highlight, index) => (
             <Reveal
               key={highlight.title}
               tag="div"

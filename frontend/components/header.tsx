@@ -3,30 +3,70 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import type { Locale } from "@/lib/locale";
 
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
-  { label: "Process", href: "/process" },
-  { label: "Contact", href: "/contact" },
-];
+const content = {
+  en: {
+    navLinks: [
+      { label: "About", href: "/about" },
+      { label: "Services", href: "/services" },
+      { label: "Projects", href: "/projects" },
+      { label: "Process", href: "/process" },
+      { label: "Contact", href: "/contact" },
+    ],
+    menuLinks: [
+      { label: "Home", href: "/" },
+      { label: "About", href: "/about" },
+      { label: "Services", href: "/services" },
+      { label: "Projects", href: "/projects" },
+      { label: "Process", href: "/process" },
+      { label: "News", href: "/news" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
+    ],
+    startProject: "Start a Project",
+    switchLabel: "Switch to العربية",
+    switchGlyph: "ع",
+    menuAria: "Full menu",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    instagram: "Instagram @bru.co.sa",
+    location: "Jeddah, Saudi Arabia",
+  },
+  ar: {
+    navLinks: [
+      { label: "من نحن", href: "/about" },
+      { label: "خدماتنا", href: "/services" },
+      { label: "مشاريعنا", href: "/projects" },
+      { label: "آلية العمل", href: "/process" },
+      { label: "تواصل معنا", href: "/contact" },
+    ],
+    menuLinks: [
+      { label: "الرئيسية", href: "/" },
+      { label: "من نحن", href: "/about" },
+      { label: "خدماتنا", href: "/services" },
+      { label: "مشاريعنا", href: "/projects" },
+      { label: "آلية العمل", href: "/process" },
+      { label: "الأخبار", href: "/news" },
+      { label: "الوظائف", href: "/careers" },
+      { label: "تواصل معنا", href: "/contact" },
+    ],
+    startProject: "ابدأ مشروعك",
+    switchLabel: "Switch to English",
+    switchGlyph: "EN",
+    menuAria: "القائمة الكاملة",
+    openMenu: "فتح القائمة",
+    closeMenu: "إغلاق القائمة",
+    instagram: "انستغرام bru.co.sa@",
+    location: "جدة، السعودية",
+  },
+} as const;
 
-const menuLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
-  { label: "Process", href: "/process" },
-  { label: "News", href: "/news" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
-];
-
-export default function Header() {
+export default function Header({ locale }: { locale: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const t = content[locale];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -41,6 +81,15 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  function toggleLocale() {
+    const next: Locale = locale === "ar" ? "en" : "ar";
+    document.cookie = `locale=${next}; path=/; max-age=31536000; samesite=lax`;
+    // A full reload (rather than router.refresh()) guarantees every client
+    // component remounts with the new locale, instead of some keeping
+    // state/effects initialized from the old one.
+    window.location.reload();
+  }
 
   return (
     <header
@@ -76,7 +125,7 @@ export default function Header() {
           aria-label="Primary"
           className="hidden items-center gap-9 justify-self-center xl:flex"
         >
-          {navLinks.map((link) => {
+          {t.navLinks.map((link) => {
             const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <Link
@@ -102,6 +151,7 @@ export default function Header() {
         <div className="flex items-center gap-4 justify-self-end">
           <a
             href="tel:+966555352526"
+            dir="ltr"
             className="hidden font-mono text-[12px] tracking-[0.14em] text-dust transition-colors hover:text-azure-glow 2xl:block"
           >
             +966 55 535 2526
@@ -115,24 +165,23 @@ export default function Header() {
                 "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
             }}
           >
-            Start a Project
-          </a>
-
-          <a
-            href="/ar"
-            hrefLang="ar-SA"
-            lang="ar"
-            aria-label="Switch to العربية"
-            title="Switch to العربية"
-            className="grid h-11 w-11 shrink-0 place-items-center border border-steel text-bone transition-colors duration-300 hover:border-azure hover:text-azure-glow"
-          >
-            <span className="text-lg leading-none">ع</span>
+            {t.startProject}
           </a>
 
           <button
             type="button"
+            onClick={toggleLocale}
+            aria-label={t.switchLabel}
+            title={t.switchLabel}
+            className="grid h-11 w-11 shrink-0 place-items-center border border-steel text-bone transition-colors duration-300 hover:border-azure hover:text-azure-glow"
+          >
+            <span className="text-sm font-semibold leading-none">{t.switchGlyph}</span>
+          </button>
+
+          <button
+            type="button"
             aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? t.closeMenu : t.openMenu}
             onClick={() => setMenuOpen((open) => !open)}
             className="group relative z-110 grid h-11 w-11 shrink-0 place-items-center border border-steel transition-colors duration-300 hover:border-azure"
           >
@@ -168,10 +217,10 @@ export default function Header() {
         />
 
         <nav
-          aria-label="Full menu"
+          aria-label={t.menuAria}
           className="relative mx-auto flex w-full max-w-full flex-1 flex-col justify-center gap-0 px-6 sm:px-8 lg:px-12 bg-void "
         >
-          {menuLinks.map((link, index) => {
+          {t.menuLinks.map((link, index) => {
             const isActive =
               pathname === link.href || (link.href !== "/" && pathname.startsWith(`${link.href}/`));
             return (
@@ -186,7 +235,7 @@ export default function Header() {
                     : "text-bone hover:text-azure-glow"
                 }`}
               >
-                <span className="font-mono text-[11px] text-amber">
+                <span dir="ltr" className="font-mono text-[11px] text-amber">
                   {String(index).padStart(2, "0")}
                 </span>
                 <span className="text-[clamp(2rem,7vw,3.5rem)] font-bold leading-none tracking-[-0.02em]">
@@ -200,12 +249,14 @@ export default function Header() {
         <div className="relative mx-auto flex w-full max-w-full flex-wrap items-center gap-x-8 gap-y-2 px-6 py-8 font-mono text-[11px] uppercase tracking-[0.14em] text-dust sm:px-8 lg:px-12 bg-void">
           <a
             href="tel:+966555352526"
+            dir="ltr"
             className="transition-colors hover:text-azure-glow"
           >
             +966 55 535 2526
           </a>
           <a
             href="mailto:info@bru.com.sa"
+            dir="ltr"
             className="transition-colors hover:text-azure-glow"
           >
             info@bru.com.sa
@@ -216,9 +267,9 @@ export default function Header() {
             rel="noreferrer"
             className="transition-colors hover:text-azure-glow"
           >
-            Instagram @bru.co.sa
+            {t.instagram}
           </a>
-          <span>Jeddah, Saudi Arabia</span>
+          <span>{t.location}</span>
         </div>
       </div>
     </header>

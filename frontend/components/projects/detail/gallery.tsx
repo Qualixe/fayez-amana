@@ -2,7 +2,35 @@
 
 import { useEffect, useRef, useState } from "react";
 import Reveal from "@/components/reveal";
-import { Project, galleryImages } from "@/components/projects/data";
+import { Project, galleryImages, localize } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
+
+const content = {
+  en: {
+    eyebrow: "Gallery",
+    heading: ["The delivered", "project."],
+    lede: (count: number, category: string) =>
+      `${count} frames of the completed ${category.toLowerCase()} project. Select any image to view it full screen.`,
+    close: "Close",
+    prevImage: "Previous image",
+    nextImage: "Next image",
+    zoomOut: "Zoom out",
+    zoomIn: "Zoom in",
+    image: (index: number) => `Image ${index}`,
+  },
+  ar: {
+    eyebrow: "معرض الصور",
+    heading: ["المشروع", "بعد التسليم."],
+    lede: (count: number, category: string) =>
+      `${count} صورة من المشروع المكتمل في قطاع ${category}. اختر أي صورة لعرضها بملء الشاشة.`,
+    close: "إغلاق",
+    prevImage: "الصورة السابقة",
+    nextImage: "الصورة التالية",
+    zoomOut: "تصغير",
+    zoomIn: "تكبير",
+    image: (index: number) => `صورة ${index}`,
+  },
+} as const;
 
 const TILE_PATTERN = [
   "col-span-2 row-span-2",
@@ -25,7 +53,9 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
-export default function ProjectDetailGallery({ project }: { project: Project }) {
+export default function ProjectDetailGallery({ project, locale }: { project: Project; locale: Locale }) {
+  const t = content[locale];
+  const p = localize(project, locale);
   const images = galleryImages(project, 10);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [scale, setScale] = useState(1);
@@ -119,7 +149,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
           className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
         >
           <span aria-hidden="true" className="h-px w-8 bg-azure" />
-          Gallery
+          {t.eyebrow}
         </Reveal>
 
         <Reveal
@@ -127,14 +157,13 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
           delay={80}
           className="mt-6 max-w-2xl text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-bone"
         >
-          The delivered
+          {t.heading[0]}
           <br />
-          project.
+          {t.heading[1]}
         </Reveal>
 
         <Reveal tag="p" delay={140} className="mt-6 max-w-2xl text-[1.0625rem] leading-[1.55] tracking-[-0.011em] text-dust">
-          {images.length} frames of the completed {project.category.toLowerCase()} project.
-          Select any image to view it full screen.
+          {t.lede(images.length, p.category)}
         </Reveal>
 
         <div className="mt-12 grid grid-flow-row-dense grid-cols-2 auto-rows-[140px] gap-3 sm:grid-cols-3 sm:auto-rows-[160px] lg:grid-cols-4 lg:auto-rows-[180px]">
@@ -147,7 +176,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
             >
               <img
                 src={image}
-                alt={`${project.title}, image ${index + 1}`}
+                alt={`${p.title}, ${t.image(index + 1)}`}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
               />
               <span
@@ -169,7 +198,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
         >
           <button
             type="button"
-            aria-label="Close"
+            aria-label={t.close}
             onClick={() => setOpenIndex(null)}
             className="absolute right-6 top-6 z-10 grid h-11 w-11 place-items-center border border-steel text-bone transition-colors duration-300 hover:border-azure hover:text-azure-glow"
           >
@@ -182,7 +211,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
           {scale === MIN_SCALE ? (
             <button
               type="button"
-              aria-label="Previous image"
+              aria-label={t.prevImage}
               onClick={(e) => {
                 e.stopPropagation();
                 setOpenIndex((i) => (i === null ? i : (i - 1 + images.length) % images.length));
@@ -197,7 +226,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
 
           <img
             src={images[openIndex]}
-            alt={`${project.title}, image ${openIndex + 1}`}
+            alt={`${p.title}, ${t.image(openIndex + 1)}`}
             onClick={onImageClick}
             onWheel={onWheel}
             onPointerDown={onPointerDown}
@@ -215,7 +244,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
           {scale === MIN_SCALE ? (
             <button
               type="button"
-              aria-label="Next image"
+              aria-label={t.nextImage}
               onClick={(e) => {
                 e.stopPropagation();
                 setOpenIndex((i) => (i === null ? i : (i + 1) % images.length));
@@ -240,7 +269,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
 
             <button
               type="button"
-              aria-label="Zoom out"
+              aria-label={t.zoomOut}
               onClick={() => zoomBy(-ZOOM_STEP)}
               disabled={scale <= MIN_SCALE}
               className="grid h-8 w-8 place-items-center border border-steel text-bone transition-colors duration-300 hover:border-azure hover:text-azure-glow disabled:opacity-30 disabled:hover:border-steel disabled:hover:text-bone"
@@ -261,7 +290,7 @@ export default function ProjectDetailGallery({ project }: { project: Project }) 
 
             <button
               type="button"
-              aria-label="Zoom in"
+              aria-label={t.zoomIn}
               onClick={() => zoomBy(ZOOM_STEP)}
               disabled={scale >= MAX_SCALE}
               className="grid h-8 w-8 place-items-center border border-steel text-bone transition-colors duration-300 hover:border-azure hover:text-azure-glow disabled:opacity-30 disabled:hover:border-steel disabled:hover:text-bone"

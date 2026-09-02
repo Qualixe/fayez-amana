@@ -1,6 +1,24 @@
-import { Project } from "@/components/projects/data";
+import { Project, localize } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
 
-export default function ProjectDetailPrevNext({ prev, next }: { prev: Project; next: Project }) {
+const content = {
+  en: { prev: "Previous Project", next: "Next Project" },
+  ar: { prev: "المشروع السابق", next: "المشروع التالي" },
+} as const;
+
+export default function ProjectDetailPrevNext({
+  prev,
+  next,
+  locale,
+}: {
+  prev: Project;
+  next: Project;
+  locale: Locale;
+}) {
+  const t = content[locale];
+  const prevP = localize(prev, locale);
+  const nextP = localize(next, locale);
+
   return (
     <section className="border-b border-steel">
       <div className="grid md:grid-cols-2">
@@ -19,10 +37,10 @@ export default function ProjectDetailPrevNext({ prev, next }: { prev: Project; n
           />
           <div className="relative flex w-full flex-col gap-3">
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
-              Previous Project
+              {t.prev}
             </span>
             <span className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-bone transition-colors duration-500 group-hover:text-azure-glow">
-              {prev.title}
+              {prevP.title}
             </span>
           </div>
         </a>
@@ -42,10 +60,10 @@ export default function ProjectDetailPrevNext({ prev, next }: { prev: Project; n
           />
           <div className="relative flex w-full flex-col gap-3 md:items-end md:text-right">
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
-              Next Project
+              {t.next}
             </span>
             <span className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-bone transition-colors duration-500 group-hover:text-azure-glow">
-              {next.title}
+              {nextP.title}
             </span>
           </div>
         </a>

@@ -1,77 +1,156 @@
 import Reveal from "@/components/reveal";
+import type { Locale } from "@/lib/locale";
 
-const projects = [
-  {
-    number: "01",
-    category: "Hospitality",
-    title: "Chalets Redevelopment, Durrat Al-Arous",
-    description:
-      "24 chalets fully redesigned & executed, La Fontaine Hotels & Resorts.",
-    href: "/projects/chalets-durrat-al-arous",
-    image: "/images/work-img1.avif",
+const content = {
+  en: {
+    eyebrow: "Our Work",
+    title1: "What We've",
+    title2: "Built",
+    lede: "A selection from our portfolio of 300+ completed projects across Saudi Arabia, each delivered with precision, quality, and dedication.",
+    allProjects: "All Projects",
+    viewProject: "View Project",
+    projects: [
+      {
+        number: "01",
+        category: "Hospitality",
+        title: "Chalets Redevelopment, Durrat Al-Arous",
+        description: "24 chalets fully redesigned & executed, La Fontaine Hotels & Resorts.",
+        href: "/projects/chalets-durrat-al-arous",
+        image: "/images/work-img1.avif",
+      },
+      {
+        number: "02",
+        category: "Residential",
+        title: "48 Duplex Villas Complex, Diyar Al Khayal",
+        description: "Red brick construction, 2 floors + annex per unit.",
+        href: "/projects/diyar-al-khayal-duplex-villas",
+        image: "/images/work-img2.avif",
+      },
+      {
+        number: "03",
+        category: "Residential",
+        title: "16 Contemporary Villas",
+        description: "Spacious, functional & elegantly finished living environments.",
+        href: "/projects/sixteen-contemporary-villas",
+        image: "/images/work-img3.avif",
+      },
+      {
+        number: "04",
+        category: "Commercial",
+        title: "Sport Center, Prince Sultan Road",
+        description: "Retail spaces + gym, structural phase design & build.",
+        href: "/projects/sport-center-prince-sultan",
+        image: "/images/work-img4.avif",
+      },
+      {
+        number: "05",
+        category: "Healthcare",
+        title: "Enaya Medical Building",
+        description: "State-of-the-art healthcare facility, advanced infrastructure & modern design.",
+        href: "/projects/enaya-medical-building",
+        image: "/images/work-img5.avif",
+      },
+      {
+        number: "06",
+        category: "F&B",
+        title: "Asli Basha Restaurant",
+        description: "Modern & traditional fusion, refined finishes reflecting authentic identity.",
+        href: "/projects/asli-basha-restaurant",
+        image: "/images/work-img6.avif",
+      },
+      {
+        number: "07",
+        category: "Residential",
+        title: "Andalusian / Islamic Style Villa",
+        description: "Arches, geometric patterns, and decorative motifs with modern functional layouts.",
+        href: "/projects/andalusian-islamic-villa",
+        image: "/images/work-img7.avif",
+      },
+      {
+        number: "08",
+        category: "Residential",
+        title: "Modern Villa",
+        description: "Integrated wooden elements and façade lighting per the architectural design.",
+        href: "/projects/modern-villa",
+        image: "/images/work-img8.avif",
+      },
+    ],
   },
-  {
-    number: "02",
-    category: "Residential",
-    title: "48 Duplex Villas Complex, Diyar Al Khayal",
-    description: "Red brick construction, 2 floors + annex per unit.",
-    href: "/projects/diyar-al-khayal-duplex-villas",
-    image: "/images/work-img2.avif",
+  ar: {
+    eyebrow: "أعمالنا",
+    title1: "ما الذي",
+    title2: "بنيناه",
+    lede: "مجموعة مختارة من محفظتنا التي تضم أكثر من 300 مشروع منجز في أنحاء السعودية، كلٌّ منها مُسلَّم بدقة وجودة وتفانٍ.",
+    allProjects: "كل المشاريع",
+    viewProject: "عرض المشروع",
+    projects: [
+      {
+        number: "01",
+        category: "ضيافة",
+        title: "إعادة تطوير شاليهات، درة العروس",
+        description: "24 شاليه أُعيد تصميمها وتنفيذها بالكامل، لافونتين للفنادق والمنتجعات.",
+        href: "/projects/chalets-durrat-al-arous",
+        image: "/images/work-img1.avif",
+      },
+      {
+        number: "02",
+        category: "سكني",
+        title: "مجمع 48 فيلا دوبلكس، ديار الخيال",
+        description: "إنشاء بالطوب الأحمر، دوران وملحق لكل وحدة.",
+        href: "/projects/diyar-al-khayal-duplex-villas",
+        image: "/images/work-img2.avif",
+      },
+      {
+        number: "03",
+        category: "سكني",
+        title: "16 فيلا معاصرة",
+        description: "بيئات معيشة رحبة وعملية وبتشطيب أنيق.",
+        href: "/projects/sixteen-contemporary-villas",
+        image: "/images/work-img3.avif",
+      },
+      {
+        number: "04",
+        category: "تجاري",
+        title: "المركز الرياضي، طريق الأمير سلطان",
+        description: "محلات تجارية وصالة رياضية، تصميم وتنفيذ المرحلة الإنشائية.",
+        href: "/projects/sport-center-prince-sultan",
+        image: "/images/work-img4.avif",
+      },
+      {
+        number: "05",
+        category: "رعاية صحية",
+        title: "مبنى عناية الطبي",
+        description: "منشأة طبية عالية الجودة، بنية تحتية متطورة وتصميم عصري.",
+        href: "/projects/enaya-medical-building",
+        image: "/images/work-img5.avif",
+      },
+      {
+        number: "06",
+        category: "مطاعم ومقاهٍ",
+        title: "مطعم أصلي باشا",
+        description: "مزيج عصري وتقليدي، تشطيبات راقية تعكس الهوية الأصيلة.",
+        href: "/projects/asli-basha-restaurant",
+        image: "/images/work-img6.avif",
+      },
+      {
+        number: "07",
+        category: "سكني",
+        title: "فيلا بطراز أندلسي/إسلامي",
+        description: "أقواس وزخارف هندسية وعناصر زخرفية مع مخططات وظيفية عصرية.",
+        href: "/projects/andalusian-islamic-villa",
+        image: "/images/work-img7.avif",
+      },
+      {
+        number: "08",
+        category: "سكني",
+        title: "فيلا عصرية",
+        description: "عناصر خشبية وإضاءة واجهات متكاملة وفق التصميم المعماري.",
+        href: "/projects/modern-villa",
+        image: "/images/work-img8.avif",
+      },
+    ],
   },
-  {
-    number: "03",
-    category: "Residential",
-    title: "16 Contemporary Villas",
-    description:
-      "Spacious, functional & elegantly finished living environments.",
-    href: "/projects/sixteen-contemporary-villas",
-    image: "/images/work-img3.avif",
-  },
-  {
-    number: "04",
-    category: "Commercial",
-    title: "Sport Center, Prince Sultan Road",
-    description: "Retail spaces + gym, structural phase design & build.",
-    href: "/projects/sport-center-prince-sultan",
-    image: "/images/work-img4.avif",
-  },
-  {
-    number: "05",
-    category: "Healthcare",
-    title: "Enaya Medical Building",
-    description:
-      "State-of-the-art healthcare facility, advanced infrastructure & modern design.",
-    href: "/projects/enaya-medical-building",
-    image: "/images/work-img5.avif",
-  },
-  {
-    number: "06",
-    category: "F&B",
-    title: "Asli Basha Restaurant",
-    description:
-      "Modern & traditional fusion, refined finishes reflecting authentic identity.",
-    href: "/projects/asli-basha-restaurant",
-    image: "/images/work-img6.avif",
-  },
-  {
-    number: "07",
-    category: "Residential",
-    title: "Andalusian / Islamic Style Villa",
-    description:
-      "Arches, geometric patterns, and decorative motifs with modern functional layouts.",
-    href: "/projects/andalusian-islamic-villa",
-    image: "/images/work-img7.avif",
-  },
-  {
-    number: "08",
-    category: "Residential",
-    title: "Modern Villa",
-    description:
-      "Integrated wooden elements and façade lighting per the architectural design.",
-    href: "/projects/modern-villa",
-    image: "/images/work-img8.avif",
-  },
-];
+} as const;
 
 function ArrowIcon() {
   return (
@@ -90,7 +169,8 @@ function ArrowIcon() {
   );
 }
 
-export default function Work() {
+export default function Work({ locale }: { locale: Locale }) {
+  const t = content[locale];
   return (
     <section
       id="work"
@@ -104,7 +184,7 @@ export default function Work() {
               className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
             >
               <span aria-hidden="true" className="h-px w-8 bg-azure" />
-              Our Work
+              {t.eyebrow}
             </Reveal>
 
             <Reveal
@@ -112,9 +192,9 @@ export default function Work() {
               delay={80}
               className="text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bone"
             >
-              What We&apos;ve
+              {t.title1}
               <br />
-              Built
+              {t.title2}
             </Reveal>
 
             <Reveal
@@ -122,9 +202,7 @@ export default function Work() {
               delay={160}
               className="max-w-2xl text-[1.0625rem] leading-relaxed text-dust"
             >
-              A selection from our portfolio of 300+ completed projects across
-              Saudi Arabia, each delivered with precision, quality, and
-              dedication.
+              {t.lede}
             </Reveal>
           </div>
 
@@ -133,14 +211,14 @@ export default function Work() {
               href="/projects"
               className="group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
             >
-              All Projects
+              {t.allProjects}
               <ArrowIcon />
             </a>
           </Reveal>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, index) => (
+          {t.projects.map((project, index) => (
             <Reveal
               key={project.href}
               delay={(index % 3) * 110}
@@ -187,7 +265,7 @@ export default function Work() {
                     </p>
                     <div className="mt-4 flex items-center gap-2 overflow-hidden">
                       <span className="translate-y-6 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow transition-transform duration-500 ease-out group-hover:translate-y-0">
-                        View Project
+                        {t.viewProject}
                       </span>
                       <svg
                         viewBox="0 0 24 24"

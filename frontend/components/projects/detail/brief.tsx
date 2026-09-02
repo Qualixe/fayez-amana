@@ -1,14 +1,44 @@
 import Reveal from "@/components/reveal";
-import { Project } from "@/components/projects/data";
+import { Project, categoryLabel, localize } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
 
-const timeline = ["Planning", "Design", "Engineering", "Construction", "Quality Control", "Completion"];
+const content = {
+  en: {
+    eyebrow: "Project Brief",
+    client: "Client",
+    location: "Location",
+    scope: "Scope of Work",
+    size: "Project Size",
+    sector: "Sector",
+    contractor: "Contractor",
+    contractorValue: "BRU CO., Building Reference United",
+    fallbackClient: "BRU CO.",
+    cta: "Enquire About Similar Work",
+    timelineLabel: "Construction Timeline",
+    timeline: ["Planning", "Design", "Engineering", "Construction", "Quality Control", "Completion"],
+  },
+  ar: {
+    eyebrow: "موجز المشروع",
+    client: "العميل",
+    location: "الموقع",
+    scope: "نطاق العمل",
+    size: "مساحة المشروع",
+    sector: "القطاع",
+    contractor: "المقاول",
+    contractorValue: "BRU CO.، مرجع المباني المتحدة",
+    fallbackClient: "BRU CO.",
+    cta: "استفسر عن عمل مشابه",
+    timelineLabel: "الجدول الزمني للإنشاء",
+    timeline: ["التخطيط", "التصميم", "الهندسة", "التنفيذ", "ضبط الجودة", "التسليم"],
+  },
+} as const;
 
 function ArrowIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
       aria-hidden="true"
-      className="h-3.5 w-3.5 shrink-0 transition-transform duration-500 group-hover:translate-x-1"
+      className="h-3.5 w-3.5 shrink-0 transition-transform duration-500 group-hover:translate-x-1 rtl:rotate-180"
       fill="none"
       stroke="currentColor"
       strokeWidth={2}
@@ -20,14 +50,17 @@ function ArrowIcon() {
   );
 }
 
-export default function ProjectDetailBrief({ project }: { project: Project }) {
+export default function ProjectDetailBrief({ project, locale }: { project: Project; locale: Locale }) {
+  const t = content[locale];
+  const p = localize(project, locale);
+
   const fields = [
-    { label: "Client", value: project.client ?? "BRU CO." },
-    { label: "Location", value: project.location },
-    { label: "Scope of Work", value: project.scope },
-    { label: "Project Size", value: project.size ?? "—" },
-    { label: "Sector", value: project.category },
-    { label: "Contractor", value: "BRU CO., Building Reference United" },
+    { label: t.client, value: p.client ?? t.fallbackClient },
+    { label: t.location, value: p.location },
+    { label: t.scope, value: p.scope },
+    { label: t.size, value: p.size ?? "—" },
+    { label: t.sector, value: categoryLabel(p.category, locale) },
+    { label: t.contractor, value: t.contractorValue },
   ];
 
   return (
@@ -39,7 +72,7 @@ export default function ProjectDetailBrief({ project }: { project: Project }) {
             className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
           >
             <span aria-hidden="true" className="h-px w-8 bg-azure" />
-            Project Brief
+            {t.eyebrow}
           </Reveal>
 
           <dl className="flex flex-col">
@@ -63,14 +96,14 @@ export default function ProjectDetailBrief({ project }: { project: Project }) {
                 "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
             }}
           >
-            Enquire About Similar Work
+            {t.cta}
             <ArrowIcon />
           </a>
         </div>
 
         <div className="flex flex-col gap-10">
           <Reveal tag="p" className="max-w-[24ch] font-serif text-[clamp(1.5rem,3.4vw,3rem)] italic leading-[1.18] tracking-[-0.02em] text-bone/90">
-            {project.subtitle}
+            {p.subtitle}
           </Reveal>
 
           <Reveal
@@ -78,17 +111,17 @@ export default function ProjectDetailBrief({ project }: { project: Project }) {
             delay={120}
             className="max-w-[68ch] text-[1.0625rem] leading-[1.72] tracking-[-0.004em] text-dust"
           >
-            {project.description}
+            {p.description}
           </Reveal>
 
           <div className="mt-4">
             <p className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-dust">
               <span aria-hidden="true" className="h-px w-8 bg-rebar" />
-              Construction Timeline
+              {t.timelineLabel}
             </p>
 
             <ol className="mt-8 grid gap-px bg-steel sm:grid-cols-2 lg:grid-cols-3">
-              {timeline.map((stage, index) => (
+              {t.timeline.map((stage, index) => (
                 <Reveal
                   key={stage}
                   tag="li"

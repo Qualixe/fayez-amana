@@ -1,12 +1,28 @@
 import Reveal from "@/components/reveal";
 import { Project, scopeDisciplines } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
+
+const content = {
+  en: {
+    eyebrow: "Scope Delivered",
+    heading: ["Services on", "this project."],
+    jeddahCta: "Our Construction Work in Jeddah",
+    allProjectsCta: "All Projects",
+  },
+  ar: {
+    eyebrow: "النطاق المنجز",
+    heading: ["الخدمات في", "هذا المشروع."],
+    jeddahCta: "أعمالنا الإنشائية في جدة",
+    allProjectsCta: "جميع المشاريع",
+  },
+} as const;
 
 function ArrowIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
       aria-hidden="true"
-      className="h-3.5 w-3.5 shrink-0 transition-transform duration-500 group-hover:translate-x-1"
+      className="h-3.5 w-3.5 shrink-0 transition-transform duration-500 group-hover:translate-x-1 rtl:rotate-180"
       fill="none"
       stroke="currentColor"
       strokeWidth={2}
@@ -18,7 +34,8 @@ function ArrowIcon() {
   );
 }
 
-export default function ProjectDetailScopeDelivered({ project }: { project: Project }) {
+export default function ProjectDetailScopeDelivered({ project, locale }: { project: Project; locale: Locale }) {
+  const t = content[locale];
   const disciplines = scopeDisciplines(project);
 
   return (
@@ -29,7 +46,7 @@ export default function ProjectDetailScopeDelivered({ project }: { project: Proj
           className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
         >
           <span aria-hidden="true" className="h-px w-8 bg-azure" />
-          Scope Delivered
+          {t.eyebrow}
         </Reveal>
 
         <Reveal
@@ -37,9 +54,9 @@ export default function ProjectDetailScopeDelivered({ project }: { project: Proj
           delay={80}
           className="mt-6 max-w-2xl text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-bone"
         >
-          Services on
+          {t.heading[0]}
           <br />
-          this project.
+          {t.heading[1]}
         </Reveal>
 
         <Reveal tag="ul" delay={140} className="mt-12 grid gap-px bg-steel sm:grid-cols-2">
@@ -54,7 +71,7 @@ export default function ProjectDetailScopeDelivered({ project }: { project: Proj
                   {discipline.number}
                 </span>
                 <span className="text-xl font-semibold leading-snug tracking-[-0.02em] text-bone transition-colors duration-500 group-hover:text-azure-glow">
-                  {discipline.label}
+                  {discipline.label[locale]}
                 </span>
               </a>
             </li>
@@ -66,14 +83,14 @@ export default function ProjectDetailScopeDelivered({ project }: { project: Proj
             href="/construction-company-jeddah"
             className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
           >
-            Our Construction Work in Jeddah
+            {t.jeddahCta}
             <ArrowIcon />
           </a>
           <a
             href="/projects"
             className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
           >
-            All Projects
+            {t.allProjectsCta}
             <ArrowIcon />
           </a>
         </Reveal>

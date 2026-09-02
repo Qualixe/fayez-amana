@@ -11,6 +11,7 @@ import Team from "@/components/about/team";
 import Certifications from "@/components/about/certifications";
 import SelectedClients from "@/components/about/selected-clients";
 import ContactCta from "@/components/home/contact-cta";
+import { getLocale } from "@/lib/locale";
 
 export const metadata: Metadata = {
     title: "About | Fayez Amana Construction Company",
@@ -18,21 +19,22 @@ export const metadata: Metadata = {
         "BRU CO. (Building Reference United) is a Jeddah general contractor with 25+ years and 300+ completed projects. ISO-certified, Saudi Contractors Authority classified.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+    const locale = await getLocale();
     return (
         <>
-            <AboutHero />
-            <Expertise />
-            <Journey />
-            <Stats />
-            <WhyChoose />
-            <VisionMission />
-            <ValuesList />
-            <Founder />
-            <Team />
-            <Certifications />
-            <SelectedClients />
-            <ContactCta />
+            <AboutHero locale={locale} />
+            <Expertise locale={locale} />
+            <Journey locale={locale} />
+            <Stats locale={locale} />
+            <WhyChoose locale={locale} />
+            <VisionMission locale={locale} />
+            <ValuesList locale={locale} />
+            <Founder locale={locale} />
+            <Team locale={locale} />
+            <Certifications locale={locale} />
+            <SelectedClients locale={locale} />
+            <ContactCta locale={locale} />
         </>
     );
 }

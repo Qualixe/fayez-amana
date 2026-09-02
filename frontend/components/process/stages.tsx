@@ -2,9 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 import Reveal from "@/components/reveal";
-import { stages, categoryForStage, stageImages } from "@/components/process/data";
+import { stages, categoryForStage, stageImages, stageTitle, stageBody, categoryLabelText } from "@/components/process/data";
+import type { Locale } from "@/lib/locale";
 
-export default function ProcessStages() {
+const content = {
+  en: {
+    eyebrow: "Structural (Shell) Programme",
+    heading: ["Stage by", "stage."],
+    lede: "The original Arabic method statement from the company profile, set alongside its English rendering. Scroll to advance the sequence.",
+    stageLabel: (no: number) => `Stage ${String(no).padStart(2, "0")} / 21`,
+    caption: "Structural method statement",
+  },
+  ar: {
+    eyebrow: "برنامج مرحلة العظم",
+    heading: ["مرحلة", "بعد مرحلة."],
+    lede: "بيان الأسلوب الأصلي من ملف الشركة باللغة العربية، مقابل ترجمته الإنجليزية. مرّر للانتقال بين المراحل.",
+    stageLabel: (no: number) => `المرحلة ${String(no).padStart(2, "0")} / 21`,
+    caption: "بيان الأسلوب الإنشائي",
+  },
+} as const;
+
+export default function ProcessStages({ locale }: { locale: Locale }) {
+  const t = content[locale];
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -38,7 +57,7 @@ export default function ProcessStages() {
           className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
         >
           <span aria-hidden="true" className="h-px w-8 bg-azure" />
-          Structural (Shell) Programme
+          {t.eyebrow}
         </Reveal>
 
         <Reveal
@@ -46,15 +65,13 @@ export default function ProcessStages() {
           delay={80}
           className="mt-6 text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-bone"
         >
-          Stage by
+          {t.heading[0]}
           <br />
-          stage.
+          {t.heading[1]}
         </Reveal>
 
         <Reveal tag="p" delay={140} className="mt-6 max-w-2xl text-[1.0625rem] leading-[1.55] tracking-[-0.011em] text-dust">
-          The original Arabic method statement from the company profile,
-          set alongside its English rendering. Scroll to advance the
-          sequence.
+          {t.lede}
         </Reveal>
 
         <div className="mt-16 grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
@@ -63,7 +80,7 @@ export default function ProcessStages() {
               <img
                 key={activeImage}
                 src={activeImage}
-                alt={`Stage ${activeStage.no}, ${activeStage.title}`}
+                alt={`${t.stageLabel(activeStage.no)}, ${stageTitle(activeStage, locale)}`}
                 className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
               />
               <div
@@ -76,13 +93,13 @@ export default function ProcessStages() {
               />
               <div className="absolute inset-x-0 bottom-0 p-7">
                 <span className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
-                  Stage {String(activeStage.no).padStart(2, "0")} / 21
+                  {t.stageLabel(activeStage.no)}
                   {activeCategory ? (
-                    <span className="text-dust"> &middot; {activeCategory.label}</span>
+                    <span className="text-dust"> &middot; {categoryLabelText(activeCategory, locale)}</span>
                   ) : null}
                 </span>
                 <h3 className="mt-3 text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-bone">
-                  {activeStage.title}
+                  {stageTitle(activeStage, locale)}
                 </h3>
               </div>
               <div className="absolute inset-y-0 right-0 flex w-1 flex-col gap-px">
@@ -98,7 +115,7 @@ export default function ProcessStages() {
             </div>
 
             <div className="mt-5 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-ash">
-              <span>Structural method statement</span>
+              <span>{t.caption}</span>
               <span className="tabular-nums text-bone">
                 {String(activeIndex + 1).padStart(2, "0")} / 21
               </span>
@@ -125,7 +142,7 @@ export default function ProcessStages() {
                   {showCategory ? (
                     <p className="flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
                       <span aria-hidden="true" className="h-px w-6 bg-azure-glow/60" />
-                      {category.label}
+                      {categoryLabelText(category, locale)}
                       <span className="text-ash">
                         {String(category.from).padStart(2, "0")}
                         {category.to !== category.from ? `–${String(category.to).padStart(2, "0")}` : ""}
@@ -142,12 +159,12 @@ export default function ProcessStages() {
                       {String(stage.no).padStart(2, "0")}
                     </span>
                     <h3 className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-bone">
-                      {stage.title}
+                      {stageTitle(stage, locale)}
                     </h3>
                   </div>
 
                   <p className="max-w-xl border-s border-steel ps-5 text-[0.9875rem] leading-[1.72] tracking-[-0.004em] text-dust">
-                    {stage.body}
+                    {stageBody(stage, locale)}
                   </p>
                 </li>
               );

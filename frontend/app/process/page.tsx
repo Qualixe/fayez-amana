@@ -5,6 +5,7 @@ import ProcessWorkflow from "@/components/process/workflow";
 import ProcessStages from "@/components/process/stages";
 import ProcessFinishing from "@/components/process/finishing";
 import ContactCta from "@/components/home/contact-cta";
+import { getLocale } from "@/lib/locale";
 
 export const metadata: Metadata = {
   title: "Construction Process | The 21 Structural Stages · Fayez Amana Construction Company",
@@ -12,15 +13,16 @@ export const metadata: Metadata = {
     "How BRU CO. builds: 21 consecutive structural stages from excavation to a completed structure, governed by approved engineering specifications and inspected throughout.",
 };
 
-export default function ProcessPage() {
+export default async function ProcessPage() {
+  const locale = await getLocale();
   return (
     <>
-      <ProcessHero />
+      <ProcessHero locale={locale} />
       <ProcessBilingualIntro />
-      <ProcessWorkflow />
-      <ProcessStages />
-      <ProcessFinishing />
-      <ContactCta />
+      <ProcessWorkflow locale={locale} />
+      <ProcessStages locale={locale} />
+      <ProcessFinishing locale={locale} />
+      <ContactCta locale={locale} />
     </>
   );
 }

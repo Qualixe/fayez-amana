@@ -1,13 +1,35 @@
 import Reveal from "@/components/reveal";
+import type { Locale } from "@/lib/locale";
 
-const meta = [
-  { label: "Completed Projects", value: "300+" },
-  { label: "Documented Here", value: "18 case studies" },
-  { label: "Sectors", value: "6" },
-  { label: "Territory", value: "Kingdom-wide, HQ Jeddah" },
-];
+const content = {
+  en: {
+    eyebrow: "Portfolio",
+    title1: "What We've",
+    title2: "Built",
+    lede: "A selection from our portfolio of 300+ completed projects across Saudi Arabia, each delivered with precision, quality, and dedication.",
+    meta: [
+      { label: "Completed Projects", value: "300+" },
+      { label: "Documented Here", value: "18 case studies" },
+      { label: "Sectors", value: "6" },
+      { label: "Territory", value: "Kingdom-wide, HQ Jeddah" },
+    ],
+  },
+  ar: {
+    eyebrow: "أعمالنا",
+    title1: "ما الذي",
+    title2: "بنيناه",
+    lede: "مجموعة مختارة من محفظتنا التي تضم أكثر من 300 مشروع منجز في أنحاء السعودية، كلٌّ منها مُسلَّم بدقة وجودة وتفانٍ.",
+    meta: [
+      { label: "مشاريع منجزة", value: "+300" },
+      { label: "موثّقة هنا", value: "18 دراسة حالة" },
+      { label: "القطاعات", value: "6" },
+      { label: "النطاق", value: "المملكة كاملة، المقر جدة" },
+    ],
+  },
+} as const;
 
-export default function ProjectsHero() {
+export default function ProjectsHero({ locale }: { locale: Locale }) {
+  const t = content[locale];
   return (
     <header className="relative flex min-h-[92svh] items-end overflow-hidden border-b border-steel">
       <div className="absolute inset-[-8%] overflow-hidden" aria-hidden="true">
@@ -41,7 +63,7 @@ export default function ProjectsHero() {
           className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
         >
           <span aria-hidden="true" className="h-px w-8 bg-azure" />
-          Portfolio
+          {t.eyebrow}
         </Reveal>
 
         <Reveal
@@ -49,9 +71,9 @@ export default function ProjectsHero() {
           delay={80}
           className="mt-7 text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-bone [text-shadow:0_2px_30px_rgba(11,15,20,0.45)]"
         >
-          What We&apos;ve
+          {t.title1}
           <br />
-          <span className="text-azure-glow">Built</span>
+          <span className="text-azure-glow">{t.title2}</span>
         </Reveal>
 
         <Reveal
@@ -59,9 +81,7 @@ export default function ProjectsHero() {
           delay={220}
           className="mt-8 max-w-2xl text-[clamp(1.0625rem,1.45vw,1.375rem)] leading-[1.55] tracking-[-0.011em] text-bone/80"
         >
-          A selection from our portfolio of 300+ completed projects across
-          Saudi Arabia, each delivered with precision, quality, and
-          dedication.
+          {t.lede}
         </Reveal>
 
         <Reveal
@@ -69,7 +89,7 @@ export default function ProjectsHero() {
           delay={300}
           className="mt-12 grid w-full gap-px border border-steel/70 bg-steel/70 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {meta.map((item) => (
+          {t.meta.map((item) => (
             <div
               key={item.label}
               className="group flex flex-col gap-2.5 bg-void/92 p-6 backdrop-blur-sm transition-colors duration-500 hover:bg-void"

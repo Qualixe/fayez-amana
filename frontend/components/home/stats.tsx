@@ -1,37 +1,68 @@
 import Reveal from "@/components/reveal";
 import Counter from "@/components/counter";
+import type { Locale } from "@/lib/locale";
 
-const stats = [
-  {
-    value: 300,
-    suffix: "+",
-    label: "Completed Projects",
-    description:
-      "Across residential, commercial, hospitality and public sectors",
+const content = {
+  en: {
+    stats: [
+      {
+        value: 300,
+        suffix: "+",
+        label: "Completed Projects",
+        description: "Across residential, commercial, hospitality and public sectors",
+      },
+      {
+        value: 25,
+        suffix: "+",
+        label: "Years of Experience",
+        description: "Shaping the construction landscape of Saudi Arabia since 2000",
+      },
+      {
+        value: 80,
+        suffix: "+",
+        label: "Team Members",
+        description: "Engineers, architects, project managers and skilled professionals",
+      },
+      {
+        value: 4,
+        suffix: "",
+        label: "Core Disciplines",
+        description: "Structural · Architectural · Electromechanical · Interior",
+      },
+    ],
   },
-  {
-    value: 25,
-    suffix: "+",
-    label: "Years of Experience",
-    description:
-      "Shaping the construction landscape of Saudi Arabia since 2000",
+  ar: {
+    stats: [
+      {
+        value: 300,
+        suffix: "+",
+        label: "مشروع منجز",
+        description: "في القطاعات السكنية والتجارية والفندقية والحكومية",
+      },
+      {
+        value: 25,
+        suffix: "+",
+        label: "عامًا من الخبرة",
+        description: "نشكّل ملامح قطاع الإنشاءات في المملكة العربية السعودية منذ عام 2000",
+      },
+      {
+        value: 80,
+        suffix: "+",
+        label: "عضو فريق",
+        description: "مهندسون ومعماريون ومديرو مشاريع وكوادر فنية ماهرة",
+      },
+      {
+        value: 4,
+        suffix: "",
+        label: "تخصصات أساسية",
+        description: "إنشائي · معماري · كهروميكانيكي · داخلي",
+      },
+    ],
   },
-  {
-    value: 80,
-    suffix: "+",
-    label: "Team Members",
-    description:
-      "Engineers, architects, project managers and skilled professionals",
-  },
-  {
-    value: 4,
-    suffix: "",
-    label: "Core Disciplines",
-    description: "Structural · Architectural · Electromechanical · Interior",
-  },
-];
+} as const;
 
-export default function Stats() {
+export default function Stats({ locale }: { locale: Locale }) {
+  const { stats } = content[locale];
   return (
     <section className="relative border-t border-steel bg-void">
       <div className="mx-auto max-w-full px-6 sm:px-8 lg:px-12">

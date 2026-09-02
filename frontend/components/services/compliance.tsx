@@ -1,11 +1,36 @@
 import Reveal from "@/components/reveal";
+import type { Locale } from "@/lib/locale";
 
-const standards = [
-  "Member of the Saudi Contractors Authority",
-  "Formally classified by regulatory bodies for structural, architectural, and MEP works",
-  "All engineers hold verified professional qualifications and active memberships with relevant bodies",
-  "Compliant with Saudi nationalization (Saudization) requirements",
-];
+const content = {
+  en: {
+    eyebrow: "Compliance",
+    title: "Standards, in full.",
+    standards: [
+      "Member of the Saudi Contractors Authority",
+      "Formally classified by regulatory bodies for structural, architectural, and MEP works",
+      "All engineers hold verified professional qualifications and active memberships with relevant bodies",
+      "Compliant with Saudi nationalization (Saudization) requirements",
+    ],
+    requestDocs: "Request Our Documents",
+    certifications: "Certifications",
+    certBody: "ISO certification in quality, safety and environmental management, membership of the Saudi Contractors Authority, and formal classification for structural, architectural and MEP works.",
+    certCta: "Certifications & Licenses",
+  },
+  ar: {
+    eyebrow: "الالتزام",
+    title: "معايير متكاملة.",
+    standards: [
+      "عضو في الهيئة السعودية للمقاولين",
+      "مصنّفة رسميًا من الجهات التنظيمية للأعمال الإنشائية والمعمارية والكهروميكانيكية",
+      "جميع المهندسين لديهم مؤهلات مهنية موثقة وعضويات فعّالة في الجهات ذات الصلة",
+      "ملتزمة بمتطلبات التوطين السعودية (السعودة)",
+    ],
+    requestDocs: "اطلب مستنداتنا",
+    certifications: "الاعتمادات",
+    certBody: "شهادة ISO في إدارة الجودة والسلامة والبيئة، وعضوية الهيئة السعودية للمقاولين، وتصنيف رسمي للأعمال الإنشائية والمعمارية والكهروميكانيكية.",
+    certCta: "الشهادات والتراخيص",
+  },
+} as const;
 
 function ArrowIcon() {
   return (
@@ -24,7 +49,8 @@ function ArrowIcon() {
   );
 }
 
-export default function Compliance() {
+export default function Compliance({ locale }: { locale: Locale }) {
+  const t = content[locale];
   return (
     <section className="border-b border-steel py-20 sm:py-28 bg-void">
       <div className="mx-auto grid max-w-full gap-14 px-6 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12">
@@ -34,7 +60,7 @@ export default function Compliance() {
             className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
           >
             <span aria-hidden="true" className="h-px w-8 bg-azure" />
-            Compliance
+            {t.eyebrow}
           </Reveal>
 
           <Reveal
@@ -42,11 +68,11 @@ export default function Compliance() {
             delay={80}
             className="text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-bone"
           >
-            Standards, in full.
+            {t.title}
           </Reveal>
 
           <ul className="mt-2 flex flex-col gap-4">
-            {standards.map((standard, index) => (
+            {t.standards.map((standard, index) => (
               <Reveal
                 key={standard}
                 tag="li"
@@ -68,7 +94,7 @@ export default function Compliance() {
                   "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
               }}
             >
-              Request Our Documents
+              {t.requestDocs}
               <ArrowIcon />
             </a>
           </Reveal>
@@ -77,20 +103,17 @@ export default function Compliance() {
         <Reveal tag="div" delay={100} className="self-start border border-steel bg-ink p-8">
           <p className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-dust">
             <span aria-hidden="true" className="h-px w-8 bg-rebar" />
-            Certifications
+            {t.certifications}
           </p>
           <p className="mt-6 max-w-md text-[0.9875rem] leading-[1.72] tracking-[-0.004em] text-dust">
-            ISO certification in quality, safety and environmental
-            management, membership of the Saudi Contractors Authority, and
-            formal classification for structural, architectural and MEP
-            works.
+            {t.certBody}
           </p>
           <div className="mt-8">
             <a
               href="/about#certifications"
               className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
             >
-              Certifications &amp; Licenses
+              {t.certCta}
               <ArrowIcon />
             </a>
           </div>

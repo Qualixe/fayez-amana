@@ -1,7 +1,23 @@
 import Reveal from "@/components/reveal";
 import { workflowPhases } from "@/components/process/data";
+import type { Locale } from "@/lib/locale";
 
-export default function ProcessWorkflow() {
+const content = {
+  en: {
+    eyebrow: "Workflow",
+    heading: ["Planning to", "completion."],
+    lede: "Six phases wrap the technical programme, every project moves through them in sequence, with continuous follow-up between execution and supervision teams.",
+  },
+  ar: {
+    eyebrow: "آلية العمل",
+    heading: ["من التخطيط", "إلى التسليم."],
+    lede: "ست مراحل تحيط بالبرنامج الفني، يمر كل مشروع عبرها بالتسلسل، مع متابعة مستمرة بين فرق التنفيذ والإشراف.",
+  },
+} as const;
+
+export default function ProcessWorkflow({ locale }: { locale: Locale }) {
+  const t = content[locale];
+
   return (
     <section className="border-b border-steel bg-ink py-20 sm:py-28">
       <div className="mx-auto max-w-full px-6 sm:px-8 lg:px-12">
@@ -10,7 +26,7 @@ export default function ProcessWorkflow() {
           className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
         >
           <span aria-hidden="true" className="h-px w-8 bg-azure" />
-          Workflow
+          {t.eyebrow}
         </Reveal>
 
         <Reveal
@@ -18,15 +34,13 @@ export default function ProcessWorkflow() {
           delay={80}
           className="mt-6 text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-bone"
         >
-          Planning to
+          {t.heading[0]}
           <br />
-          completion.
+          {t.heading[1]}
         </Reveal>
 
         <Reveal tag="p" delay={140} className="mt-6 max-w-2xl text-[1.0625rem] leading-[1.55] tracking-[-0.011em] text-dust">
-          Six phases wrap the technical programme, every project moves
-          through them in sequence, with continuous follow-up between
-          execution and supervision teams.
+          {t.lede}
         </Reveal>
 
         <ol className="mt-16 flex flex-col lg:flex-row">
@@ -41,9 +55,9 @@ export default function ProcessWorkflow() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <h3 className="text-[clamp(1.15rem,1.6vw,1.75rem)] font-semibold leading-tight text-bone">
-                {phase.title}
+                {locale === "ar" ? phase.titleAr : phase.title}
               </h3>
-              <p className="text-sm leading-relaxed text-ash">{phase.body}</p>
+              <p className="text-sm leading-relaxed text-ash">{locale === "ar" ? phase.bodyAr : phase.body}</p>
             </Reveal>
           ))}
         </ol>

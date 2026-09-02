@@ -1,12 +1,21 @@
 import Reveal from "@/components/reveal";
-import { Project } from "@/components/projects/data";
+import { Project, categoryLabel, localize } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
 
-export default function ProjectDetailHero({ project }: { project: Project }) {
+const content = {
+  en: { category: "Category", location: "Location", client: "Client", size: "Size", fallbackClient: "BRU CO." },
+  ar: { category: "التصنيف", location: "الموقع", client: "العميل", size: "المساحة", fallbackClient: "BRU CO." },
+} as const;
+
+export default function ProjectDetailHero({ project, locale }: { project: Project; locale: Locale }) {
+  const t = content[locale];
+  const p = localize(project, locale);
+
   const meta = [
-    { label: "Category", value: project.category },
-    { label: "Location", value: project.location },
-    { label: "Client", value: project.client ?? "BRU CO." },
-    { label: "Size", value: project.size ?? "—" },
+    { label: t.category, value: categoryLabel(p.category, locale) },
+    { label: t.location, value: p.location },
+    { label: t.client, value: p.client ?? t.fallbackClient },
+    { label: t.size, value: p.size ?? "—" },
   ];
 
   return (
@@ -42,7 +51,7 @@ export default function ProjectDetailHero({ project }: { project: Project }) {
           className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
         >
           <span aria-hidden="true" className="h-px w-8 bg-azure" />
-          {project.category} &middot; {project.subtitle}
+          {categoryLabel(p.category, locale)} &middot; {p.subtitle}
         </Reveal>
 
         <Reveal
@@ -50,7 +59,7 @@ export default function ProjectDetailHero({ project }: { project: Project }) {
           delay={80}
           className="mt-7 text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-bone [text-shadow:0_2px_30px_rgba(11,15,20,0.45)]"
         >
-          {project.displayTitle.map((line, index) => (
+          {p.displayTitle.map((line, index) => (
             <span key={index} className="block">
               {line}
             </span>
@@ -62,7 +71,7 @@ export default function ProjectDetailHero({ project }: { project: Project }) {
           delay={220}
           className="mt-8 max-w-2xl text-[clamp(1.0625rem,1.45vw,1.375rem)] leading-[1.55] tracking-[-0.011em] text-bone/80"
         >
-          {project.teaser}
+          {p.teaser}
         </Reveal>
 
         <Reveal

@@ -1,4 +1,5 @@
-import { Project, projectCity } from "@/components/projects/data";
+import { Project, projectCity, localize, categoryLabel } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
 
 function ArrowIcon() {
   return (
@@ -21,15 +22,20 @@ export default function ProjectCard({
   project,
   rank,
   lead = false,
+  locale,
 }: {
   project: Project;
   rank: number;
   lead?: boolean;
+  locale: Locale;
 }) {
+  const p = localize(project, locale);
+  const viewProject = locale === "ar" ? "عرض المشروع" : "View Project";
+
   return (
     <a
-      href={`/projects/${project.slug}`}
-      aria-label={`${project.title}, ${project.category}, ${projectCity(project)}`}
+      href={`/projects/${p.slug}`}
+      aria-label={`${p.title}, ${categoryLabel(p.category, locale)}, ${projectCity(p)}`}
       className="group relative block overflow-hidden"
     >
       <div
@@ -38,8 +44,8 @@ export default function ProjectCard({
         }`}
       >
         <img
-          src={project.image}
-          alt={project.title}
+          src={p.image}
+          alt={p.title}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
         />
         <div
@@ -51,7 +57,7 @@ export default function ProjectCard({
           }}
         />
         <span className="absolute start-6 top-6 border border-bone/15 bg-void/50 px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow backdrop-blur-md">
-          {project.category}
+          {categoryLabel(p.category, locale)}
         </span>
         <span className="absolute end-6 top-6 font-mono text-[10px] tabular-nums tracking-[0.22em] text-bone/55">
           {String(rank + 1).padStart(2, "0")}
@@ -65,21 +71,21 @@ export default function ProjectCard({
                 : "max-w-xl text-[1.375rem] sm:text-[1.75rem]"
             }`}
           >
-            {project.title}
+            {p.title}
           </h3>
           <p className={`max-w-[52ch] leading-relaxed text-dust ${lead ? "text-[0.9375rem] sm:text-base" : "text-[0.9375rem]"}`}>
-            {project.teaser}
+            {p.teaser}
           </p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-dust">
-            <span className="text-bone">{projectCity(project)}</span>
-            {project.size ? (
+            <span className="text-bone">{projectCity(p)}</span>
+            {p.size ? (
               <>
                 <span aria-hidden="true" className="h-3 w-px bg-steel" />
-                <span className="normal-case tracking-[0.1em]">{project.size}</span>
+                <span className="normal-case tracking-[0.1em]">{p.size}</span>
               </>
             ) : null}
             <span className="ms-auto flex translate-y-[10px] items-center gap-2 whitespace-nowrap text-azure-glow opacity-0 transition-[opacity,transform] duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
-              View Project
+              {viewProject}
               <ArrowIcon />
             </span>
           </div>

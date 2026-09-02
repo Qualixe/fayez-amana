@@ -1,18 +1,51 @@
 import Reveal from "@/components/reveal";
-import { Project, scopeDisciplines } from "@/components/projects/data";
+import { Project, scopeDisciplines, categoryLabel, localize } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
 
-export default function ProjectDetailSummary({ project }: { project: Project }) {
-  const quickLinks = [
-    { label: "Construction services", href: "/services" },
-    { label: "The 21-stage process", href: "/process" },
-    { label: "General contractor in Jeddah", href: "/construction-company-jeddah" },
-  ];
+const content = {
+  en: {
+    eyebrow: "Project summary",
+    quickLinks: [
+      { label: "Construction services", href: "/services" },
+      { label: "The 21-stage process", href: "/process" },
+      { label: "General contractor in Jeddah", href: "/construction-company-jeddah" },
+    ],
+    scopeOfWork: "Scope of work",
+    deliveredBy: "Delivered by",
+    deliveredByValue: "BRU CO., general contractor, Jeddah",
+    disciplinesOnSite: "Disciplines on site",
+    certification: "Certification",
+    certificationValue: "ISO certified, Saudi Contractors Authority",
+    body: (p: ReturnType<typeof localize>) =>
+      `${p.title} is a ${p.category.toLowerCase()} construction project in ${p.location}, built by BRU CO. (Building Reference United) as general contractor. The scope covered ${p.scope.toLowerCase()}. BRU CO. has worked across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia since 2000, with more than 300 completed projects.`,
+  },
+  ar: {
+    eyebrow: "ملخص المشروع",
+    quickLinks: [
+      { label: "خدماتنا الإنشائية", href: "/services" },
+      { label: "منهجية العمل بمراحلها الـ 21", href: "/process" },
+      { label: "شركة مقاولات في جدة", href: "/construction-company-jeddah" },
+    ],
+    scopeOfWork: "نطاق العمل",
+    deliveredBy: "التنفيذ بواسطة",
+    deliveredByValue: "BRU CO.، مقاول عام، جدة",
+    disciplinesOnSite: "التخصصات في الموقع",
+    certification: "الشهادات",
+    certificationValue: "معتمدة بمواصفة الآيزو، الهيئة السعودية للمقاولين",
+    body: (p: ReturnType<typeof localize>) =>
+      `${p.title} مشروع إنشائي ${categoryLabel(p.category, "ar").toLowerCase()} في ${p.location}، نفّذته BRU CO. (مرجع المباني المتحدة) كمقاول عام. شمل النطاق ${p.scope}. تعمل BRU CO. في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة العربية السعودية منذ عام 2000، وأنجزت أكثر من 300 مشروع.`,
+  },
+} as const;
+
+export default function ProjectDetailSummary({ project, locale }: { project: Project; locale: Locale }) {
+  const t = content[locale];
+  const p = localize(project, locale);
 
   const stats = [
-    { label: "Scope of work", value: project.scope },
-    { label: "Delivered by", value: "BRU CO., general contractor, Jeddah" },
-    { label: "Disciplines on site", value: String(scopeDisciplines(project).length || 1) },
-    { label: "Certification", value: "ISO certified, Saudi Contractors Authority" },
+    { label: t.scopeOfWork, value: p.scope },
+    { label: t.deliveredBy, value: t.deliveredByValue },
+    { label: t.disciplinesOnSite, value: String(scopeDisciplines(project).length || 1) },
+    { label: t.certification, value: t.certificationValue },
   ];
 
   return (
@@ -24,19 +57,15 @@ export default function ProjectDetailSummary({ project }: { project: Project }) 
             className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
           >
             <span aria-hidden="true" className="h-px w-8 bg-azure" />
-            Project summary
+            {t.eyebrow}
           </Reveal>
 
           <Reveal tag="p" delay={80} className="text-[1.0625rem] leading-[1.55] tracking-[-0.011em] text-bone/90">
-            {project.title} is a {project.category.toLowerCase()} construction project in{" "}
-            {project.location}, built by BRU CO. (Building Reference United) as general
-            contractor. The scope covered {project.scope.toLowerCase()}. BRU CO. has worked
-            across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia
-            since 2000, with more than 300 completed projects.
+            {t.body(p)}
           </Reveal>
 
           <Reveal tag="ul" delay={160} className="mt-2 flex flex-wrap gap-x-6 gap-y-3">
-            {quickLinks.map((link) => (
+            {t.quickLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}

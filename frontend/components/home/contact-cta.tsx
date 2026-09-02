@@ -1,4 +1,22 @@
 import Reveal from "@/components/reveal";
+import type { Locale } from "@/lib/locale";
+
+const content = {
+    en: {
+        eyebrow: "Let's Build Together.",
+        title1: "Your vision,",
+        title2: "our craft.",
+        lede: "Building Reference United Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
+        startProject: "Start a Project",
+    },
+    ar: {
+        eyebrow: "لنبنِ معًا.",
+        title1: "رؤيتك،",
+        title2: "حرفتنا.",
+        lede: "شركة مرجع المباني المتحدة · تأسست 2000 · معتمدة ISO · جدة، السعودية",
+        startProject: "ابدأ مشروعك",
+    },
+} as const;
 
 function ArrowIcon() {
     return (
@@ -17,7 +35,8 @@ function ArrowIcon() {
     );
 }
 
-export default function ContactCta() {
+export default function ContactCta({ locale }: { locale: Locale }) {
+    const t = content[locale];
     return (
         <section className="relative overflow-hidden border-t border-steel">
             <div className="absolute inset-0" aria-hidden="true">
@@ -37,7 +56,7 @@ export default function ContactCta() {
                         className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
                     >
                         <span aria-hidden="true" className="h-px w-8 bg-azure" />
-                        Let&apos;s Build Together.
+                        {t.eyebrow}
                     </Reveal>
 
                     <Reveal
@@ -45,13 +64,13 @@ export default function ContactCta() {
                         delay={80}
                         className="mt-7 text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-bone"
                     >
-                        Your vision,
+                        {t.title1}
                         <br />
-                        <span className="text-azure-glow">our craft.</span>
+                        <span className="text-azure-glow">{t.title2}</span>
                     </Reveal>
 
                     <Reveal tag="p" delay={160} className="mt-7 max-w-xl text-[clamp(1.0625rem,1.45vw,1.375rem)] leading-[1.55] text-dust">
-                        Building Reference United Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA
+                        {t.lede}
                     </Reveal>
 
                     <Reveal tag="div" delay={240} className="mt-10 flex flex-wrap items-center gap-5">
@@ -63,17 +82,19 @@ export default function ContactCta() {
                                     "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
                             }}
                         >
-                            Start a Project
+                            {t.startProject}
                             <ArrowIcon />
                         </a>
                         <a
                             href="tel:+966555352526"
+                            dir="ltr"
                             className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold text-bone transition-colors duration-500 hover:text-azure-glow"
                         >
                             +966 55 535 2526
                         </a>
                         <a
                             href="mailto:info@bru.com.sa"
+                            dir="ltr"
                             className="text-sm text-dust transition-colors duration-500 hover:text-bone"
                         >
                             info@bru.com.sa

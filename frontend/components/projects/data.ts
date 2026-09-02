@@ -1,8 +1,24 @@
+import type { Locale } from "@/lib/locale";
+
+export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Healthcare" | "F&B";
+
+type ProjectAr = {
+  title: string;
+  displayTitle: string[];
+  subtitle: string;
+  teaser: string;
+  description: string;
+  client?: string;
+  location: string;
+  scope: string;
+  size?: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
   displayTitle: string[];
-  category: "Residential" | "Commercial" | "Hospitality" | "Healthcare" | "F&B";
+  category: ProjectCategory;
   subtitle: string;
   teaser: string;
   description: string;
@@ -12,7 +28,21 @@ export type Project = {
   size?: string;
   image: string;
   featured?: boolean;
+  ar: ProjectAr;
 };
+
+export const categoryLabels: Record<ProjectCategory | "All", { en: string; ar: string }> = {
+  All: { en: "All", ar: "الكل" },
+  Residential: { en: "Residential", ar: "سكني" },
+  Commercial: { en: "Commercial", ar: "تجاري" },
+  Hospitality: { en: "Hospitality", ar: "ضيافة" },
+  Healthcare: { en: "Healthcare", ar: "رعاية صحية" },
+  "F&B": { en: "F&B", ar: "مطاعم ومقاهٍ" },
+};
+
+export function categoryLabel(category: ProjectCategory | "All", locale: Locale) {
+  return categoryLabels[category][locale];
+}
 
 export const projectCategories = [
   "All",
@@ -39,6 +69,18 @@ export const projects: Project[] = [
     size: "24 chalets",
     image: "/images/spotlight-img1.avif",
     featured: true,
+    ar: {
+      title: "إعادة تطوير شاليهات، درة العروس",
+      displayTitle: ["إعادة تطوير وتنفيذ", "شاليهات في", "درة العروس"],
+      subtitle: "مشروع تصميم وتنفيذ، درة العروس",
+      teaser: "24 شاليه أُعيد تصميمها وتنفيذها بالكامل، لافونتين للفنادق والمنتجعات.",
+      description:
+        "إعادة تطوير 24 شاليه، صُممت ونُفذت بالكامل بواسطة فريقنا، لتحويل الموقع إلى وجهة عصرية متناغمة وفاخرة عبر ترقية العمارة وتحسين الجماليات ودمج المرافق. يركّز المشروع على إنشاء شاليهات حديثة تمزج التصميم المعاصر بجمال الطبيعة الساحلية. صُمم كل شاليه لتحقيق أقصى قدر من الراحة والخصوصية، بمساحات رحبة وتراسات خاصة وإطلالات بحرية آسرة.",
+      client: "لافونتين للفنادق والمنتجعات",
+      location: "درة العروس، جدة",
+      scope: "تصميم وتنفيذ · عمارة · تشطيبات · مرافق",
+      size: "24 شاليه",
+    },
   },
   {
     slug: "diyar-al-khayal-duplex-villas",
@@ -55,6 +97,18 @@ export const projects: Project[] = [
     size: "48 duplex villas · 2 floors + annex each",
     image: "/images/work-img2.avif",
     featured: true,
+    ar: {
+      title: "مجمع 48 فيلا دوبلكس، ديار الخيال",
+      displayTitle: ["مشروع إنشاء", "مجمع فلل", "سكنية"],
+      subtitle: "مجمع سكني، 48 فيلا دوبلكس",
+      teaser: "إنشاء بالطوب الأحمر، دوران وملحق لكل وحدة.",
+      description:
+        "تطوير سكني بالتعاون مع ديار الخيال، يضم 48 فيلا دوبلكس مبنية بالطوب الأحمر. تشمل كل وحدة دورين وملحقًا، بتصميم يوفّر مساحات معيشة متينة وعملية وأنيقة للعائلات العصرية.",
+      client: "ديار الخيال",
+      location: "جدة، السعودية",
+      scope: "إنشاء كامل · طوب أحمر · أعمال إنشائية وتشطيبات",
+      size: "48 فيلا دوبلكس · دوران وملحق لكل منها",
+    },
   },
   {
     slug: "sixteen-contemporary-villas",
@@ -71,6 +125,18 @@ export const projects: Project[] = [
     size: "16 villas",
     image: "/images/work-img3.avif",
     featured: true,
+    ar: {
+      title: "16 فيلا معاصرة",
+      displayTitle: ["إنشاء", "فيلتين", "سكنيتين"],
+      subtitle: "فلل سكنية حديثة، 16 وحدة",
+      teaser: "بيئات معيشة رحبة وعملية وبتشطيب أنيق.",
+      description:
+        "إنشاء 16 فيلا معاصرة ضمن تطوير مكوّن من 16 فيلا لمطوّر عقاري، مصممة لتقديم بيئات معيشة رحبة وعملية وبتشطيبات أنيقة.",
+      client: "مطوّر عقاري خاص",
+      location: "جدة، السعودية",
+      scope: "إنشاء · أعمال معمارية · تشطيبات",
+      size: "16 فيلا",
+    },
   },
   {
     slug: "sport-center-prince-sultan",
@@ -86,6 +152,17 @@ export const projects: Project[] = [
     size: "Retail + gym",
     image: "/images/work-img4.avif",
     featured: true,
+    ar: {
+      title: "المركز الرياضي، طريق الأمير سلطان",
+      displayTitle: ["المركز", "الرياضي"],
+      subtitle: "مبنى تجاري، طريق الأمير سلطان",
+      teaser: "محلات تجارية وصالة رياضية، تصميم وتنفيذ المرحلة الإنشائية.",
+      description:
+        "تصميم وإنشاء المرحلة الإنشائية لمبنى تجاري يضم محلات تجارية وصالة رياضية، بتسليم نظام إنشائي متين جاهز للتشطيب الكامل والتشغيل.",
+      location: "طريق الأمير سلطان، جدة",
+      scope: "تصميم وتنفيذ · المرحلة الإنشائية",
+      size: "محلات تجارية وصالة رياضية",
+    },
   },
   {
     slug: "enaya-medical-building",
@@ -100,6 +177,16 @@ export const projects: Project[] = [
     scope: "Construction · MEP · Modern Design",
     image: "/images/work-img5.avif",
     featured: true,
+    ar: {
+      title: "مبنى عناية الطبي",
+      displayTitle: ["مبنى عناية", "الطبي"],
+      subtitle: "منشأة رعاية صحية",
+      teaser: "منشأة صحية بأحدث المعايير، بنية تحتية متقدمة وتصميم عصري.",
+      description:
+        "يتضمن تنفيذ مبنى عناية الطبي إنشاء منشأة رعاية صحية بأحدث المعايير مصممة لتقديم خدمات طبية من الطراز الأول. يركّز المشروع على معايير إنشاء عالية الجودة وبنية تحتية متقدمة وتصميم عصري لضمان بيئة آمنة وفعّالة ومحورها المريض.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · أعمال كهروميكانيكية · تصميم عصري",
+    },
   },
   {
     slug: "asli-basha-restaurant",
@@ -114,6 +201,16 @@ export const projects: Project[] = [
     scope: "Façade Works · Interior Works · Finishing",
     image: "/images/work-img6.avif",
     featured: true,
+    ar: {
+      title: "مطعم أصلي باشا",
+      displayTitle: ["تنفيذ", "مطعم أصلي", "باشا"],
+      subtitle: "الواجهة والتصميم الداخلي",
+      teaser: "مزيج حديث وتقليدي، تشطيبات راقية تعكس هوية أصيلة.",
+      description:
+        "يتضمن المشروع تنفيذ أعمال الواجهة والديكور الداخلي لمطعم أصلي باشا. يدمج التصميم عناصر حديثة بلمسات تقليدية لخلق أجواء طعام مميزة وجاذبة. استُخدمت مواد عالية الجودة وتشطيبات راقية وتفاصيل دقيقة لتعكس الهوية الأصيلة للمطعم وترتقي بتجربة العملاء.",
+      location: "جدة، السعودية",
+      scope: "أعمال الواجهات · الأعمال الداخلية · التشطيبات",
+    },
   },
   {
     slug: "naamah-bakery",
@@ -127,6 +224,16 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Façade Works · Interior Works · Finishing",
     image: "/images/work-img7.avif",
+    ar: {
+      title: "مخبز نعمة",
+      displayTitle: ["تنفيذ", "مخبز نعمة"],
+      subtitle: "معرض، واجهة وتصميم داخلي",
+      teaser: "مواد حديثة مع تشطيبات خشبية دافئة، أجواء جاذبة وأنيقة.",
+      description:
+        "يتضمن المشروع تنفيذ أعمال الواجهة والديكور الداخلي لمعرض مخبز نعمة. يجمع التصميم بين المواد الحديثة والتشطيبات الخشبية الدافئة لخلق أجواء جاذبة وأنيقة. نُفذت المخططات الداخلية والتفاصيل بعناية لتعكس هوية العلامة مع ضمان الوظيفية وجودة الحرفية.",
+      location: "جدة، السعودية",
+      scope: "أعمال الواجهات · الأعمال الداخلية · التشطيبات",
+    },
   },
   {
     slug: "residential-building",
@@ -140,6 +247,16 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Full Construction · Structural & Finishing",
     image: "/images/work-img8.avif",
+    ar: {
+      title: "مبنى سكني",
+      displayTitle: ["تنفيذ", "مبنى", "سكني"],
+      subtitle: "مجمع سكني",
+      teaser: "مساحة معيشة عالية الجودة مصممة للراحة والوظيفية والحياة العصرية.",
+      description:
+        "يركّز تنفيذ المبنى السكني على إنشاء مساحة معيشة عالية الجودة مصممة للراحة والوظيفية والحياة العصرية. يهدف المشروع إلى إيجاد مجمع سكني جيد التخطيط يلبّي احتياجات السكن المعاصرة مع ضمان المتانة والجاذبية الجمالية.",
+      location: "جدة، السعودية",
+      scope: "إنشاء كامل · أعمال إنشائية وتشطيبات",
+    },
   },
   {
     slug: "modern-residential-villa",
@@ -154,6 +271,17 @@ export const projects: Project[] = [
     scope: "Construction · Architecture · Finishing",
     size: "2 floors + annex + outdoor seating",
     image: "/images/service1.avif",
+    ar: {
+      title: "فيلا سكنية حديثة",
+      displayTitle: ["مشروع إنشاء", "فيلا", "سكنية"],
+      subtitle: "طراز حديث ومعاصر",
+      teaser: "دوران وملحق وجلسة خارجية، مواد متنوعة عالية الجودة.",
+      description:
+        "يتضمن المشروع إنشاء فيلا سكنية بطراز معماري حديث ومعاصر، تُبرز استخدام مواد متنوعة عالية الجودة. تتكوّن الفيلا من دورين وملحق وجلسة خارجية، بما يوازن بين الوظيفية والراحة والتصميم الأنيق.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · عمارة · تشطيبات",
+      size: "دوران + ملحق + جلسة خارجية",
+    },
   },
   {
     slug: "residential-villa-elegant",
@@ -166,6 +294,15 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Construction · Finishing",
     image: "/images/service2.avif",
+    ar: {
+      title: "فيلا سكنية، تصميم أنيق",
+      displayTitle: ["مشروع إنشاء", "فيلا", "سكنية"],
+      subtitle: "تصميم أنيق وجماليات عصرية",
+      teaser: "فيلا سكنية تتميّز بتصميم أنيق وجماليات عصرية.",
+      description: "يتضمن المشروع إنشاء فيلا سكنية تتميّز بتصميم أنيق وجماليات عصرية.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · تشطيبات",
+    },
   },
   {
     slug: "andalusian-islamic-villa",
@@ -180,6 +317,16 @@ export const projects: Project[] = [
     scope: "Construction · Architectural Detailing · Finishing",
     image: "/images/service3.avif",
     featured: true,
+    ar: {
+      title: "فيلا بالطراز الأندلسي/الإسلامي",
+      displayTitle: ["إنشاء فيلا", "بالطراز الأندلسي", "الإسلامي"],
+      subtitle: "عمارة أندلسية/إسلامية",
+      teaser: "عقود وزخارف هندسية ووحدات تشكيلية مع مخططات عملية حديثة.",
+      description:
+        "يتضمن المشروع إنشاء فيلا سكنية مصممة بطراز معماري أندلسي/إسلامي. تدمج الفيلا عناصر التصميم الإسلامي التقليدية، من عقود وزخارف هندسية ووحدات تشكيلية، مع توفير مخططات عملية حديثة. والنتيجة مساحة معيشة متناغمة تجمع بين التراث الثقافي والراحة والأناقة.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · تفاصيل معمارية · تشطيبات",
+    },
   },
   {
     slug: "semi-classic-villa",
@@ -193,6 +340,16 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Construction · Architectural Detailing · Finishing",
     image: "/images/service4.avif",
+    ar: {
+      title: "فيلا بالطراز شبه الكلاسيكي",
+      displayTitle: ["إنشاء", "فيلا بالطراز", "شبه الكلاسيكي"],
+      subtitle: "عمارة شبه كلاسيكية",
+      teaser: "عناصر كلاسيكية تقليدية ممزوجة بملامح تصميم حديثة.",
+      description:
+        "يتضمن المشروع إنشاء فيلا سكنية مصممة بطراز معماري شبه كلاسيكي. تمزج الفيلا العناصر الكلاسيكية التقليدية بملامح التصميم الحديثة، مع مساحات معيشة رحبة وتشطيبات أنيقة وبيئة مريحة وراقية.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · تفاصيل معمارية · تشطيبات",
+    },
   },
   {
     slug: "neoclassical-villa",
@@ -206,6 +363,16 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Construction · Architectural Detailing · Finishing",
     image: "/images/about-img1.avif",
+    ar: {
+      title: "فيلا كلاسيكية حديثة",
+      displayTitle: ["إنشاء", "فيلا", "كلاسيكية حديثة"],
+      subtitle: "عمارة كلاسيكية حديثة",
+      teaser: "عناصر كلاسيكية أنيقة مع وظيفية عصرية.",
+      description:
+        "يتضمن المشروع إنشاء فيلا سكنية مصممة بطراز معماري كلاسيكي حديث. تجمع الفيلا بين العناصر الكلاسيكية الأنيقة والوظيفية العصرية، مع مساحات معيشة رحبة وتشطيبات راقية وبيئة فاخرة ومريحة.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · تفاصيل معمارية · تشطيبات",
+    },
   },
   {
     slug: "courtyard-villa",
@@ -219,6 +386,16 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Construction · Architecture · Landscape Integration",
     image: "/images/about-hero-banner.avif",
+    ar: {
+      title: "فيلا سكنية بفناء داخلي",
+      displayTitle: ["إنشاء", "فيلا سكنية", "بفناء داخلي"],
+      subtitle: "نمط الفناء الخاص",
+      teaser: "عمارة حديثة تدمج المساحة الخارجية للاسترخاء والتجمّعات.",
+      description:
+        "يتضمن المشروع إنشاء فيلا سكنية بفناء خاص. يجمع التصميم بين العناصر المعمارية الحديثة والمخططات العملية، ليخلق بيئة معيشة مريحة وأنيقة تدمج المساحة الخارجية للاسترخاء والتجمّعات الاجتماعية.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · عمارة · دمج التنسيق الخارجي",
+    },
   },
   {
     slug: "two-residential-villas",
@@ -233,6 +410,17 @@ export const projects: Project[] = [
     scope: "Construction · Architecture · Finishing",
     size: "2 villas",
     image: "/images/why-choose-bg.avif",
+    ar: {
+      title: "فيلتان سكنيتان",
+      displayTitle: ["إنشاء", "فيلتين", "سكنيتين"],
+      subtitle: "ثنائية معاصرة",
+      teaser: "فيلتان حديثتان بعناصر معاصرة ومخططات عملية.",
+      description:
+        "يتضمن المشروع إنشاء فيلتين سكنيتين حديثتين، كل منهما مصممة بعناصر معمارية معاصرة ومخططات عملية. توفّر الفيلتان مساحات معيشة رحبة وتشطيبات أنيقة وبيئات مريحة تجمع بين الأناقة والعملية.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · عمارة · تشطيبات",
+      size: "فيلتان",
+    },
   },
   {
     slug: "modern-villa",
@@ -247,6 +435,16 @@ export const projects: Project[] = [
     scope: "Construction · Joinery · Façade Lighting · Finishing",
     image: "/images/work-img1.avif",
     featured: true,
+    ar: {
+      title: "فيلا حديثة",
+      displayTitle: ["إنشاء", "فيلا", "حديثة"],
+      subtitle: "عناصر خشبية وإنارة واجهات",
+      teaser: "عناصر خشبية مدمجة وإنارة واجهات وفق التصميم المعماري.",
+      description:
+        "يتضمن المشروع إنشاء فيلا سكنية حديثة، بعناصر خشبية مدمجة وإنارة للواجهات وفق التصميم المعماري. تجمع الفيلا بين الجماليات المعاصرة والمخططات العملية، بما يعزّز المظهر البصري وتجربة المعيشة عمومًا.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · نجارة · إنارة واجهات · تشطيبات",
+    },
   },
   {
     slug: "modern-duplex-villa",
@@ -260,6 +458,16 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Construction · Architecture · Finishing",
     image: "/images/work-img2.avif",
+    ar: {
+      title: "فيلا دوبلكس حديثة",
+      displayTitle: ["إنشاء", "فيلا دوبلكس", "حديثة"],
+      subtitle: "دوبلكس معاصر",
+      teaser: "مساحات معيشة رحبة وتشطيبات أنيقة وتوازن بين الجمال والعملية.",
+      description:
+        "يتضمن المشروع إنشاء فيلا دوبلكس حديثة، مصممة بعناصر معمارية معاصرة ومخططات عملية. توفّر الفيلا مساحات معيشة رحبة وتشطيبات أنيقة وبيئة مريحة توازن بين الجماليات والعملية.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · عمارة · تشطيبات",
+    },
   },
   {
     slug: "modern-duplex-villa-ii",
@@ -273,11 +481,43 @@ export const projects: Project[] = [
     location: "Jeddah, Saudi Arabia",
     scope: "Construction · Architecture · Finishing",
     image: "/images/work-img3.avif",
+    ar: {
+      title: "فيلا دوبلكس حديثة II",
+      displayTitle: ["إنشاء", "فيلا دوبلكس", "حديثة"],
+      subtitle: "دوبلكس معاصر",
+      teaser: "مساحات معيشة رحبة وتشطيبات أنيقة وتوازن بين الجمال والعملية.",
+      description:
+        "يتضمن المشروع إنشاء فيلا دوبلكس حديثة، مصممة بعناصر معمارية معاصرة ومخططات عملية. توفّر الفيلا مساحات معيشة رحبة وتشطيبات أنيقة وبيئة مريحة توازن بين الجماليات والعملية.",
+      location: "جدة، السعودية",
+      scope: "إنشاء · عمارة · تشطيبات",
+    },
   },
 ];
 
-export function projectCity(project: Project) {
-  return project.location.split(",")[0].trim();
+export type LocalizedProject = Omit<Project, "ar">;
+
+export function localize(project: Project, locale: Locale): LocalizedProject {
+  if (locale === "en") {
+    const { ar: _ar, ...rest } = project;
+    return rest;
+  }
+  const { ar, ...rest } = project;
+  return {
+    ...rest,
+    title: ar.title,
+    displayTitle: ar.displayTitle,
+    subtitle: ar.subtitle,
+    teaser: ar.teaser,
+    description: ar.description,
+    client: ar.client ?? rest.client,
+    location: ar.location,
+    scope: ar.scope,
+    size: ar.size ?? rest.size,
+  };
+}
+
+export function projectCity(project: LocalizedProject) {
+  return project.location.split(/[,،]/)[0].trim();
 }
 
 export function getProject(slug: string) {
@@ -305,10 +545,30 @@ export function spotlightProjects(): Project[] {
 }
 
 const DISCIPLINE_SLUGS = [
-  { slug: "structural-construction-works", label: "Structural & Construction Works", number: "01", keywords: ["structural", "full construction", "red brick"] },
-  { slug: "architectural-works", label: "Architectural Works", number: "02", keywords: ["architect", "landscape"] },
-  { slug: "electromechanical-works", label: "Electromechanical Works", number: "03", keywords: ["mep", "electromechanical"] },
-  { slug: "interior-finishing-works", label: "Interior & Finishing Works", number: "04", keywords: ["finishing", "interior", "façade", "joinery", "amenities"] },
+  {
+    slug: "structural-construction-works",
+    label: { en: "Structural & Construction Works", ar: "الأعمال الإنشائية والبناء" },
+    number: "01",
+    keywords: ["structural", "full construction", "red brick"],
+  },
+  {
+    slug: "architectural-works",
+    label: { en: "Architectural Works", ar: "الأعمال المعمارية" },
+    number: "02",
+    keywords: ["architect", "landscape"],
+  },
+  {
+    slug: "electromechanical-works",
+    label: { en: "Electromechanical Works", ar: "الأعمال الكهروميكانيكية" },
+    number: "03",
+    keywords: ["mep", "electromechanical"],
+  },
+  {
+    slug: "interior-finishing-works",
+    label: { en: "Interior & Finishing Works", ar: "التصميم الداخلي والتشطيبات" },
+    number: "04",
+    keywords: ["finishing", "interior", "façade", "joinery", "amenities"],
+  },
 ] as const;
 
 export function scopeDisciplines(project: Project) {

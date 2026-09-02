@@ -1,4 +1,5 @@
 import Reveal from "@/components/reveal";
+import type { Locale } from "@/lib/locale";
 
 const clients = [
     { name: "Starbucks", image: "/images/client-img1.avif" },
@@ -14,7 +15,21 @@ const clients = [
     { name: "Saudi Enaya", image: "/images/client-img11.avif" },
 ];
 
-export default function SelectedClients() {
+const content = {
+    en: {
+        eyebrow: "Selected Clients",
+        title: "Who we build for.",
+        lede: "Trusted relationships built through construction delivery, across real-estate development, hospitality, healthcare and Saudi retail.",
+    },
+    ar: {
+        eyebrow: "عملاء مختارون",
+        title: "لمن نبني.",
+        lede: "علاقات موثوقة بُنيت عبر تنفيذ مشاريع إنشائية، في قطاعات التطوير العقاري والضيافة والرعاية الصحية والتجزئة السعودية.",
+    },
+} as const;
+
+export default function SelectedClients({ locale }: { locale: Locale }) {
+    const t = content[locale];
     return (
         <section className="border-t border-steel bg-ink py-20 sm:py-28">
             <div className="mx-auto max-w-full px-6 sm:px-8 lg:px-12">
@@ -24,7 +39,7 @@ export default function SelectedClients() {
                         className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
                     >
                         <span aria-hidden="true" className="h-px w-8 bg-azure" />
-                        Selected Clients
+                        {t.eyebrow}
                     </Reveal>
 
                     <Reveal
@@ -32,12 +47,11 @@ export default function SelectedClients() {
                         delay={80}
                         className="text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bone"
                     >
-                        Who we build for.
+                        {t.title}
                     </Reveal>
 
                     <Reveal tag="p" delay={160} className="max-w-2xl text-[1.0625rem] leading-relaxed text-dust">
-                        Trusted relationships built through construction delivery, across real-estate development,
-                        hospitality, healthcare and Saudi retail.
+                        {t.lede}
                     </Reveal>
                 </div>
 

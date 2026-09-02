@@ -3,9 +3,30 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Reveal from "@/components/reveal";
 import EditorialProjectCard from "@/components/projects/editorial-project-card";
-import { projectCategories, projects } from "@/components/projects/data";
+import { projectCategories, projects, categoryLabel } from "@/components/projects/data";
+import type { Locale } from "@/lib/locale";
 
-export default function ProjectsFilterableGrid() {
+const content = {
+  en: {
+    eyebrow: "The Archive",
+    title: "Every project documented here.",
+    lede: "Filter by sector to browse completed construction projects in Jeddah and Makkah, from villa and residential complexes to commercial buildings and hospitality work. Each card opens a full case study with the scope, the site, the construction method, and photography of the delivered building.",
+    filterAria: "Filter projects by sector",
+    ofProjects: (count: number, total: number) => `${count} of ${total} projects`,
+    empty: "No projects in this sector.",
+  },
+  ar: {
+    eyebrow: "الأرشيف",
+    title: "كل مشروع موثّق هنا.",
+    lede: "صفِّ حسب القطاع لتصفح المشاريع الإنشائية المنجزة في جدة ومكة، من المجمعات السكنية والفلل إلى المباني التجارية وأعمال الضيافة. كل بطاقة تفتح دراسة حالة كاملة بالنطاق والموقع وطريقة التنفيذ وصور المبنى المُسلَّم.",
+    filterAria: "تصفية المشاريع حسب القطاع",
+    ofProjects: (count: number, total: number) => `${count} من ${total} مشروعًا`,
+    empty: "لا توجد مشاريع في هذا القطاع.",
+  },
+} as const;
+
+export default function ProjectsFilterableGrid({ locale }: { locale: Locale }) {
+  const t = content[locale];
   const [active, setActive] = useState<(typeof projectCategories)[number]>("All");
   const tablistRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -59,7 +80,7 @@ export default function ProjectsFilterableGrid() {
             className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
           >
             <span aria-hidden="true" className="h-px w-8 bg-azure" />
-            The Archive
+            {t.eyebrow}
           </Reveal>
 
           <Reveal
@@ -67,15 +88,11 @@ export default function ProjectsFilterableGrid() {
             delay={80}
             className="max-w-3xl text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-bone"
           >
-            Every project documented here.
+            {t.title}
           </Reveal>
 
           <Reveal tag="p" delay={140} className="max-w-2xl text-[1.0625rem] leading-[1.55] tracking-[-0.011em] text-dust">
-            Filter by sector to browse completed construction projects in
-            Jeddah and Makkah, from villa and residential complexes to
-            commercial buildings and hospitality work. Each card opens a full
-            case study with the scope, the site, the construction method, and
-            photography of the delivered building.
+            {t.lede}
           </Reveal>
         </div>
 
@@ -83,7 +100,7 @@ export default function ProjectsFilterableGrid() {
           <div
             ref={tablistRef}
             role="tablist"
-            aria-label="Filter projects by sector"
+            aria-label={t.filterAria}
             className="relative -mx-1 flex flex-wrap gap-1.5 px-1"
           >
             {pillStyle ? (
@@ -116,7 +133,7 @@ export default function ProjectsFilterableGrid() {
                       : "border-steel/80 text-dust hover:border-rebar hover:bg-slab/40 hover:text-bone"
                   }`}
                 >
-                  <span className="relative">{category}</span>
+                  <span className="relative">{categoryLabel(category, locale)}</span>
                   <span
                     className={`relative font-mono text-[9px] tabular-nums ${
                       isActive ? "text-white/75" : "text-dust/70"
@@ -130,7 +147,7 @@ export default function ProjectsFilterableGrid() {
           </div>
 
           <p aria-live="polite" className="shrink-0 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-dust">
-            {filtered.length} of {projects.length} projects
+            {t.ofProjects(filtered.length, projects.length)}
           </p>
         </div>
 
@@ -142,13 +159,13 @@ export default function ProjectsFilterableGrid() {
                 className="fade-up-in"
                 style={{ animationDelay: `${(index % 3) * 70}ms` }}
               >
-                <EditorialProjectCard project={project} rank={index} />
+                <EditorialProjectCard project={project} rank={index} locale={locale} />
               </div>
             ))}
           </div>
         ) : (
           <p key={active} className="fade-up-in py-24 text-center font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ash">
-            No projects in this sector.
+            {t.empty}
           </p>
         )}
       </div>

@@ -7,19 +7,21 @@ import Clients from "@/components/home/clients";
 import Values from "@/components/home/values";
 import Process from "@/components/home/process";
 import ContactCta from "@/components/home/contact-cta";
+import { getLocale } from "@/lib/locale";
 
-export default function Home() {
+export default async function Home() {
+  const locale = await getLocale();
   return (
     <>
-    <Hero/>
-    <About/>
-    <Stats/>
-    <Services/>
-    <Work/>
-    <Clients/>
-    <Values/>
-    <Process/>
-    <ContactCta/>
+    <Hero locale={locale}/>
+    <About locale={locale}/>
+    <Stats locale={locale}/>
+    <Services locale={locale}/>
+    <Work locale={locale}/>
+    <Clients locale={locale}/>
+    <Values locale={locale}/>
+    <Process locale={locale}/>
+    <ContactCta locale={locale}/>
     </>
   );
 }

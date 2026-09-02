@@ -5,6 +5,7 @@ import QualityMetrics from "@/components/services/quality-metrics";
 import InspectionProcess from "@/components/services/inspection-process";
 import Compliance from "@/components/services/compliance";
 import ContactCta from "@/components/home/contact-cta";
+import { getLocale } from "@/lib/locale";
 
 export const metadata: Metadata = {
   title: "Services | Fayez Amana Construction Company",
@@ -12,15 +13,16 @@ export const metadata: Metadata = {
     "Structural & construction, architectural, electromechanical and interior & finishing works, delivered under one roof by BRU CO., a Jeddah general contractor with 25+ years and 300+ completed projects.",
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const locale = await getLocale();
   return (
     <>
-      <ServicesHero />
-      <ServicesDetail />
-      <QualityMetrics />
-      <InspectionProcess />
-      <Compliance />
-      <ContactCta />
+      <ServicesHero locale={locale} />
+      <ServicesDetail locale={locale} />
+      <QualityMetrics locale={locale} />
+      <InspectionProcess locale={locale} />
+      <Compliance locale={locale} />
+      <ContactCta locale={locale} />
     </>
   );
 }
