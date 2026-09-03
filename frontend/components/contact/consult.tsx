@@ -1,8 +1,30 @@
 import Reveal from "@/components/reveal";
 import ContactForm from "@/components/contact/form";
 import { disciplines } from "@/components/contact/data";
+import type { Locale } from "@/lib/locale";
 
-export default function ContactConsult() {
+const content = {
+  en: {
+    eyebrow: "Start a Project",
+    heading: "Tell us what you're building.",
+    lede: "Foundation to finish, under one roof. Send the location, the scope and the programme you have in mind, and our team in Jeddah will come back with next steps and comparable projects from the portfolio.",
+    disciplinesLabel: "Disciplines",
+    responseLabel: "Response",
+    responseBody: "One business day, from our office in Jeddah. Urgent programmes: call the number above.",
+  },
+  ar: {
+    eyebrow: "ابدأ مشروعك",
+    heading: "أخبرنا بما تنوي بناءه.",
+    lede: "من الأساسات حتى التشطيب، تحت مظلة واحدة. أرسل الموقع والنطاق والبرنامج الزمني الذي تتصوره، وسيعود إليك فريقنا في جدة بالخطوات التالية ومشاريع مماثلة من أعمالنا.",
+    disciplinesLabel: "التخصصات",
+    responseLabel: "زمن الرد",
+    responseBody: "خلال يوم عمل واحد، من مكتبنا في جدة. للبرامج العاجلة: اتصل بالرقم أعلاه.",
+  },
+} as const;
+
+export default function ContactConsult({ locale }: { locale: Locale }) {
+  const t = content[locale];
+
   return (
     <section className="relative isolate border-b border-steel py-20 sm:py-28">
       <div
@@ -21,7 +43,7 @@ export default function ContactConsult() {
             className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
           >
             <span aria-hidden="true" className="h-px w-8 bg-azure" />
-            Start a Project
+            {t.eyebrow}
           </Reveal>
 
           <Reveal
@@ -29,24 +51,21 @@ export default function ContactConsult() {
             delay={80}
             className="text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-bone"
           >
-            Tell us what you&apos;re building.
+            {t.heading}
           </Reveal>
 
           <Reveal tag="p" delay={140} className="max-w-md text-[1.0625rem] leading-[1.55] tracking-[-0.011em] text-dust">
-            Foundation to finish, under one roof. Send the location, the
-            scope and the programme you have in mind, and our team in
-            Jeddah will come back with next steps and comparable projects
-            from the portfolio.
+            {t.lede}
           </Reveal>
 
           <Reveal tag="div" delay={200} className="mt-2 flex flex-col gap-4 border-t border-steel pt-8">
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ash">
-              Disciplines
+              {t.disciplinesLabel}
             </span>
             <ul className="flex flex-col gap-2">
               {disciplines.map((item) => (
-                <li key={item} className="text-sm text-dust">
-                  {item}
+                <li key={item.en} className="text-sm text-dust">
+                  {locale === "ar" ? item.ar : item.en}
                 </li>
               ))}
             </ul>
@@ -54,11 +73,10 @@ export default function ContactConsult() {
 
           <Reveal tag="div" delay={260} className="flex flex-col gap-4 border-t border-steel pt-8">
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ash">
-              Response
+              {t.responseLabel}
             </span>
             <p className="text-sm leading-relaxed text-dust">
-              One business day, from our office in Jeddah. Urgent
-              programmes: call the number above.
+              {t.responseBody}
             </p>
           </Reveal>
         </div>
@@ -79,7 +97,7 @@ export default function ContactConsult() {
               background: "linear-gradient(to right, transparent, var(--color-azure-lift), transparent)",
             }}
           />
-          <ContactForm />
+          <ContactForm locale={locale} />
         </div>
       </div>
     </section>

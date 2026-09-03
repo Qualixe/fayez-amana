@@ -22,7 +22,8 @@ import {
   CupIcon,
   GoalIcon,
 } from "@/components/contact/icons";
-import { scopeOptions, budgetOptions, sectorOptions, trustItems } from "@/components/contact/data";
+import { scopeOptions, budgetOptions, sectorOptions, trustItems, optionLabel, type LocalizedOption } from "@/components/contact/data";
+import type { Locale } from "@/lib/locale";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -37,19 +38,78 @@ const sectorIcons: Record<string, ComponentType<{ className?: string }>> = {
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+const content = {
+  en: {
+    name: "Full name",
+    namePlaceholder: "Your name",
+    email: "Email",
+    emailPlaceholder: "you@company.com",
+    phone: "Phone",
+    phonePlaceholder: "+966 …",
+    scope: "Scope of work",
+    location: "Project location",
+    locationPlaceholder: "Jeddah, Makkah, district…",
+    budget: "Estimated budget",
+    sectorLegend: "Sector",
+    bodyLabel: "Project details",
+    bodyPlaceholder: "Plot location and size, what you want built, the standard you have in mind, and when you need to start on site…",
+    bodyHint: "The more specific the brief, the more useful our first reply.",
+    sending: "Sending…",
+    send: "Send enquiry",
+    call: "Call +966 55 535 2526",
+    footerNote: "Sent straight to info@bru.com.sa. We respond within 1 business day.",
+    validationError: "Please add your name, a valid email, and a note about the work.",
+    sendError: "We couldn't send that just now. Please try again, or email us at info@bru.com.sa.",
+    networkError: "We couldn't reach our server. Please check your connection and try again, or email us at info@bru.com.sa.",
+    successKicker: "Consultation request received",
+    successHeading: "Thank you for contacting BRU.",
+    successBody: "Our engineering team will review your enquiry and come back to you with next steps and comparable projects from the portfolio.",
+    successCall: "Urgent? Call +966 55 535 2526",
+    sentMessage: "Your enquiry is with our team in Jeddah. We respond within one business day.",
+  },
+  ar: {
+    name: "الاسم الكامل",
+    namePlaceholder: "اسمك",
+    email: "البريد الإلكتروني",
+    emailPlaceholder: "you@company.com",
+    phone: "الهاتف",
+    phonePlaceholder: "+966 …",
+    scope: "نطاق العمل",
+    location: "موقع المشروع",
+    locationPlaceholder: "جدة، مكة، الحي…",
+    budget: "الميزانية التقديرية",
+    sectorLegend: "القطاع",
+    bodyLabel: "تفاصيل المشروع",
+    bodyPlaceholder: "موقع الأرض ومساحتها، ما تريد بناءه، المستوى الذي تتصوره، ومتى تحتاج لبدء العمل في الموقع…",
+    bodyHint: "كلما كان الموجز أكثر تحديدًا، كانت ردّنا الأول أكثر فائدة.",
+    sending: "جارٍ الإرسال…",
+    send: "إرسال الاستفسار",
+    call: "اتصل بـ +966 55 535 2526",
+    footerNote: "يُرسَل مباشرة إلى info@bru.com.sa. نستجيب خلال يوم عمل واحد.",
+    validationError: "يرجى إضافة اسمك، وبريد إلكتروني صحيح، وملاحظة عن العمل المطلوب.",
+    sendError: "تعذّر إرسال الطلب الآن. يرجى المحاولة مجددًا، أو مراسلتنا على info@bru.com.sa.",
+    networkError: "تعذّر الوصول إلى الخادم. يرجى التحقق من اتصالك والمحاولة مجددًا، أو مراسلتنا على info@bru.com.sa.",
+    successKicker: "تم استلام طلب الاستشارة",
+    successHeading: "شكرًا لتواصلك مع BRU.",
+    successBody: "سيراجع فريقنا الهندسي طلبك ويعود إليك بالخطوات التالية ومشاريع مماثلة من أعمالنا.",
+    successCall: "عاجل؟ اتصل بـ +966 55 535 2526",
+    sentMessage: "استفسارك الآن لدى فريقنا في جدة. نستجيب خلال يوم عمل واحد.",
+  },
+} as const;
+
 const fieldShellClasses =
   "group relative rounded-[14px] border border-edge bg-void/68 transition-colors duration-200 hover:border-steel/85 focus-within:border-azure-lift focus-within:bg-void/90 focus-within:shadow-[0_0_0_1px_rgba(61,143,216,0.6),0_0_0_4px_rgba(30,104,172,0.18),0_8px_26px_-14px_rgba(61,143,216,0.55)]";
 const fieldShellInvalidClasses = "border-amber-soft";
 
 const controlClasses =
-  "peer relative z-10 min-h-16 w-full rounded-[inherit] border-0 bg-transparent pb-3 pl-12 pr-4 pt-7 text-base text-bone outline-none placeholder:text-rebar placeholder:opacity-0 placeholder:transition-opacity placeholder:duration-200 focus:placeholder:opacity-100";
+  "peer relative z-10 min-h-16 w-full rounded-[inherit] border-0 bg-transparent pb-3 ps-12 pe-4 pt-7 text-base text-bone outline-none placeholder:text-rebar placeholder:opacity-0 placeholder:transition-opacity placeholder:duration-200 focus:placeholder:opacity-100";
 
 const iconClasses =
-  "pointer-events-none absolute left-[18px] top-6 text-rebar transition-[color,transform] duration-200 group-focus-within:scale-110 group-focus-within:text-azure-glow peer-[&:not(:placeholder-shown)]:text-dust";
+  "pointer-events-none absolute start-[18px] top-6 text-rebar transition-[color,transform] duration-200 group-focus-within:scale-110 group-focus-within:text-azure-glow peer-[&:not(:placeholder-shown)]:text-dust";
 const iconInvalidClasses = "text-amber-soft";
 
 const labelClasses =
-  "pointer-events-none absolute left-12 top-6 origin-left text-base font-normal leading-none text-ash transition-transform duration-200 [transform-origin:0_0] peer-focus:-translate-y-[13px] peer-focus:scale-[0.7] peer-focus:text-azure-glow peer-[&:not(:placeholder-shown)]:-translate-y-[13px] peer-[&:not(:placeholder-shown)]:scale-[0.7] peer-[&:not(:placeholder-shown)]:text-dust";
+  "pointer-events-none absolute start-12 top-6 origin-left rtl:origin-right text-base font-normal leading-none text-ash transition-transform duration-200 peer-focus:-translate-y-[13px] peer-focus:scale-[0.7] peer-focus:text-azure-glow peer-[&:not(:placeholder-shown)]:-translate-y-[13px] peer-[&:not(:placeholder-shown)]:scale-[0.7] peer-[&:not(:placeholder-shown)]:text-dust";
 const labelInvalidClasses = "peer-focus:text-amber-soft";
 
 function RequiredDot() {
@@ -104,12 +164,14 @@ function Dropdown({
   label,
   icon,
   options,
+  locale,
 }: {
   id: string;
   name: string;
   label: string;
   icon: ReactNode;
-  options: string[];
+  options: LocalizedOption[];
+  locale: Locale;
 }) {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -117,6 +179,7 @@ function Dropdown({
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const floated = open || value.length > 0;
+  const selectedLabel = value ? optionLabel(options.find((o) => o.value === value) ?? options[0], locale) : "";
 
   useEffect(() => {
     if (!open) return;
@@ -144,7 +207,7 @@ function Dropdown({
     if (!open) {
       if (["ArrowDown", "ArrowUp", "Enter", " "].includes(e.key)) {
         e.preventDefault();
-        setActiveIndex(Math.max(0, options.findIndex((o) => o === value)));
+        setActiveIndex(Math.max(0, options.findIndex((o) => o.value === value)));
         setOpen(true);
       }
       return;
@@ -158,7 +221,7 @@ function Dropdown({
     } else if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       const option = options[activeIndex];
-      if (option) select(option);
+      if (option) select(option.value);
     } else if (e.key === "Tab") {
       setOpen(false);
     }
@@ -180,18 +243,18 @@ function Dropdown({
         aria-haspopup="listbox"
         aria-labelledby={`${labelId} ${id}-value`}
         onClick={() => {
-          setActiveIndex(Math.max(0, options.findIndex((o) => o === value)));
+          setActiveIndex(Math.max(0, options.findIndex((o) => o.value === value)));
           setOpen((o) => !o);
         }}
         onKeyDown={onKeyDown}
-        className={`${controlClasses} cursor-pointer text-left`}
+        className={`${controlClasses} cursor-pointer text-start`}
       >
         <span id={`${id}-value`} className="block truncate">
-          {value || " "}
+          {selectedLabel || " "}
         </span>
       </button>
       <span
-        className={`pointer-events-none absolute left-[18px] top-6 transition-[color,transform] duration-200 ${
+        className={`pointer-events-none absolute start-[18px] top-6 transition-[color,transform] duration-200 ${
           open ? "scale-110 text-azure-glow" : "text-rebar group-hover:text-dust"
         }`}
       >
@@ -199,14 +262,14 @@ function Dropdown({
       </span>
       <span
         id={labelId}
-        className={`pointer-events-none absolute left-12 top-6 origin-left text-base leading-none text-ash transition-transform duration-200 ${
+        className={`pointer-events-none absolute start-12 top-6 origin-left rtl:origin-right text-base leading-none text-ash transition-transform duration-200 ${
           floated ? "-translate-y-[13px] scale-[0.7] text-dust" : ""
         } ${open ? "text-azure-glow" : ""}`}
       >
         {label}
       </span>
       <ChevronDownIcon
-        className={`pointer-events-none absolute right-[18px] top-6 h-3.5 w-3.5 transition-[color,transform] duration-200 ${
+        className={`pointer-events-none absolute end-[18px] top-6 h-3.5 w-3.5 transition-[color,transform] duration-200 ${
           open ? "rotate-180 text-azure-glow" : "text-rebar group-hover:text-dust"
         }`}
       />
@@ -220,17 +283,17 @@ function Dropdown({
         >
           {options.map((option, index) => (
             <li
-              key={option}
+              key={option.value}
               id={`${id}-opt-${index}`}
               role="option"
-              aria-selected={option === value}
+              aria-selected={option.value === value}
               onMouseEnter={() => setActiveIndex(index)}
-              onClick={() => select(option)}
+              onClick={() => select(option.value)}
               className={`cursor-pointer rounded-[10px] px-4 py-3 text-sm leading-[1.45] transition-colors duration-150 ${
-                index === activeIndex ? "bg-azure/22 text-bone" : option === value ? "text-azure-glow" : "text-dust"
+                index === activeIndex ? "bg-azure/22 text-bone" : option.value === value ? "text-azure-glow" : "text-dust"
               }`}
             >
-              {option}
+              {optionLabel(option, locale)}
             </li>
           ))}
         </ul>
@@ -239,7 +302,8 @@ function Dropdown({
   );
 }
 
-export default function ContactForm() {
+export default function ContactForm({ locale }: { locale: Locale }) {
+  const t = content[locale];
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const [invalidFields, setInvalidFields] = useState<string[]>([]);
@@ -281,7 +345,7 @@ export default function ContactForm() {
     if (errors.length) {
       setInvalidFields(errors);
       setStatus("error");
-      setMessage("Please add your name, a valid email, and a note about the work.");
+      setMessage(t.validationError);
       form.querySelector<HTMLElement>(`[name="${errors[0]}"]`)?.focus();
       return;
     }
@@ -308,18 +372,18 @@ export default function ContactForm() {
 
       if (!res.ok || !result?.ok) {
         setStatus("error");
-        setMessage(result?.message || "We couldn't send that just now. Please try again, or email us at info@bru.com.sa.");
+        setMessage(result?.message || t.sendError);
         return;
       }
 
       setStatus("sent");
-      setMessage("Your enquiry is with our team in Jeddah. We respond within one business day.");
+      setMessage(t.sentMessage);
       formRef.current?.reset();
       setBodyLength(0);
       if (textareaRef.current) textareaRef.current.style.height = "auto";
     } catch {
       setStatus("error");
-      setMessage("We couldn't reach our server. Please check your connection and try again, or email us at info@bru.com.sa.");
+      setMessage(t.networkError);
     }
   }
 
@@ -334,22 +398,21 @@ export default function ContactForm() {
         </span>
         <div className="flex flex-col gap-3">
           <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
-            Consultation request received
+            {t.successKicker}
           </p>
           <h3 className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-bone">
-            Thank you for contacting BRU.
+            {t.successHeading}
           </h3>
         </div>
         <p className="max-w-md text-[1.0625rem] leading-[1.55] tracking-[-0.011em] text-dust">
-          Our engineering team will review your enquiry and come back to you
-          with next steps and comparable projects from the portfolio.
+          {t.successBody}
         </p>
         {message ? <p className="max-w-md text-[12px] leading-relaxed text-ash">{message}</p> : null}
         <a
           href="tel:+966555352526"
           className="border-b border-steel pb-1 font-mono text-[0.75rem] tracking-[0.1em] text-dust transition-colors duration-200 hover:border-azure-lift hover:text-azure-glow"
         >
-          Urgent? Call +966 55 535 2526
+          {t.successCall}
         </a>
       </div>
     );
@@ -366,73 +429,75 @@ export default function ContactForm() {
         <Field
           id="name"
           name="name"
-          label="Full name"
+          label={t.name}
           icon={<UserIcon className="h-4 w-4" />}
           required
           autoComplete="name"
-          placeholder="Your name"
+          placeholder={t.namePlaceholder}
           invalid={isInvalid("name")}
         />
         <Field
           id="email"
           name="email"
           type="email"
-          label="Email"
+          label={t.email}
           icon={<MailIcon className="h-4 w-4" />}
           required
           autoComplete="email"
-          placeholder="you@company.com"
+          placeholder={t.emailPlaceholder}
           invalid={isInvalid("email")}
         />
         <Field
           id="phone"
           name="phone"
           type="tel"
-          label="Phone"
+          label={t.phone}
           icon={<PhoneIcon className="h-4 w-4" />}
           autoComplete="tel"
-          placeholder="+966 …"
+          placeholder={t.phonePlaceholder}
         />
         <Dropdown
           id="scope"
           name="scope"
-          label="Scope of work"
+          label={t.scope}
           icon={<LayersIcon className="h-4 w-4" />}
           options={scopeOptions}
+          locale={locale}
         />
         <Field
           id="location"
           name="location"
-          label="Project location"
+          label={t.location}
           icon={<PinIcon className="h-4 w-4" />}
           autoComplete="off"
-          placeholder="Jeddah, Makkah, district…"
+          placeholder={t.locationPlaceholder}
         />
         <Dropdown
           id="budget"
           name="budget"
-          label="Estimated budget"
+          label={t.budget}
           icon={<BudgetIcon className="h-4 w-4" />}
           options={budgetOptions}
+          locale={locale}
         />
       </div>
 
       <fieldset className="flex flex-col gap-4">
         <legend className="mb-2 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ash">
-          Sector
+          {t.sectorLegend}
         </legend>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {sectorOptions.map((option) => {
-            const SectorIcon = sectorIcons[option];
+            const SectorIcon = sectorIcons[option.value];
             return (
               <label
-                key={option}
+                key={option.value}
                 className="group relative flex min-h-24 cursor-pointer flex-col justify-between gap-4 overflow-hidden rounded-[14px] border border-edge bg-void/66 p-4 transition-[transform,border-color,box-shadow,background-color] duration-200 hover:-translate-y-0.5 hover:border-steel hover:shadow-[0_14px_28px_-22px_rgba(3,10,20,0.95)] active:translate-y-0 active:scale-[0.99] has-[:checked]:border-azure-lift has-[:checked]:shadow-[0_0_0_1px_rgba(61,143,216,0.5),0_10px_30px_-18px_rgba(61,143,216,0.55)] has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-azure-glow"
               >
-                <input type="radio" name="sector" value={option} className="sr-only" />
+                <input type="radio" name="sector" value={option.value} className="sr-only" />
                 <SectorIcon className="h-[22px] w-[22px] text-dust transition-colors duration-200 group-has-[:checked]:text-azure-glow" />
                 <span className="text-[13px] font-medium leading-snug text-bone">
-                  {option}
+                  {optionLabel(option, locale)}
                 </span>
               </label>
             );
@@ -450,7 +515,7 @@ export default function ContactForm() {
             required
             maxLength={1200}
             aria-invalid={isInvalid("body") || undefined}
-            placeholder="Plot location and size, what you want built, the standard you have in mind, and when you need to start on site…"
+            placeholder={t.bodyPlaceholder}
             onInput={(e) => {
               setBodyLength(e.currentTarget.value.length);
               autoResizeTextarea();
@@ -462,14 +527,15 @@ export default function ContactForm() {
             <DocumentIcon className="h-4 w-4" />
           </span>
           <label htmlFor="body" className={`${labelClasses} ${isInvalid("body") ? labelInvalidClasses : ""}`}>
-            Project details
+            {t.bodyLabel}
             <RequiredDot />
           </label>
           <div className="mx-4 flex items-center justify-between gap-4 border-t border-edge/85 py-3">
             <p className="text-[12px] leading-relaxed text-ash">
-              The more specific the brief, the more useful our first reply.
+              {t.bodyHint}
             </p>
             <p
+              dir="ltr"
               className={`shrink-0 font-mono text-[11px] tabular-nums transition-colors ${
                 bodyLength > 0.9 * 1200 ? "text-amber-soft" : "text-rebar"
               }`}
@@ -487,7 +553,7 @@ export default function ContactForm() {
           const TrustIcon = [ShieldIcon, BoltIcon, RulerIcon][index];
           return (
             <li
-              key={item.title}
+              key={item.title.en}
               className="flex flex-col gap-3 rounded-[14px] border border-edge p-5 transition-colors duration-200 hover:border-steel/90"
               style={{
                 background:
@@ -498,9 +564,9 @@ export default function ContactForm() {
                 <TrustIcon className="h-[18px] w-[18px]" />
               </span>
               <span className="text-[13px] font-semibold leading-snug tracking-[0.01em] text-bone">
-                {item.title}
+                {item.title[locale]}
               </span>
-              <span className="text-[12px] leading-relaxed text-ash">{item.body}</span>
+              <span className="text-[12px] leading-relaxed text-ash">{item.body[locale]}</span>
             </li>
           );
         })}
@@ -517,14 +583,14 @@ export default function ContactForm() {
           }}
         >
           {isSending ? <SpinnerIcon className="h-4 w-4 animate-spin" /> : <MailIcon className="h-4 w-4" />}
-          {isSending ? "Sending…" : "Send enquiry"}
+          {isSending ? t.sending : t.send}
         </button>
         <a
           href="tel:+966555352526"
           className="flex min-h-[56px] w-full grow basis-60 items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08] sm:w-auto"
         >
           <PhoneIcon className="h-4 w-4" />
-          Call +966 55 535 2526
+          {t.call}
         </a>
       </div>
 
@@ -534,7 +600,7 @@ export default function ContactForm() {
         </p>
       ) : (
         <p className="text-[12px] leading-relaxed text-ash">
-          Sent straight to info@bru.com.sa. We respond within 1 business day.
+          {t.footerNote}
         </p>
       )}
     </form>

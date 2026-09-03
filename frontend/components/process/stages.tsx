@@ -102,7 +102,7 @@ export default function ProcessStages({ locale }: { locale: Locale }) {
                   {stageTitle(activeStage, locale)}
                 </h3>
               </div>
-              <div className="absolute inset-y-0 right-0 flex w-1 flex-col gap-px">
+              <div className="absolute inset-y-0 end-0 flex w-1 flex-col gap-px">
                 {stages.map((stage, index) => (
                   <span
                     key={stage.no}

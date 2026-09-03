@@ -498,8 +498,7 @@ export type LocalizedProject = Omit<Project, "ar">;
 
 export function localize(project: Project, locale: Locale): LocalizedProject {
   if (locale === "en") {
-    const { ar: _ar, ...rest } = project;
-    return rest;
+    return project;
   }
   const { ar, ...rest } = project;
   return {

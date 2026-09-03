@@ -67,7 +67,7 @@ export default function ValuesList({ locale }: { locale: Locale }) {
                     <Reveal tag="div" delay={80}>
                         <h2
                             dir="ltr"
-                            className="text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bone"
+                            className={`text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bone ${locale === "ar" ? "text-right" : "text-left"}`}
                         >
                             {t.title}
                         </h2>
@@ -89,7 +89,9 @@ export default function ValuesList({ locale }: { locale: Locale }) {
                             <span
                                 aria-hidden="true"
                                 dir="ltr"
-                                className="text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-[0.8] text-azure/30 transition-colors duration-700 group-hover:text-azure/70"
+                                className={`text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-[0.8] text-azure/30 transition-colors duration-700 group-hover:text-azure/70 ${
+                                    locale === "ar" ? "text-right" : "text-left"
+                                }`}
                             >
                                 {value.letter}
                             </span>

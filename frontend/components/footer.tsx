@@ -120,7 +120,7 @@ export default function Footer({ locale }: { locale: Locale }) {
 
       <div className="relative mx-auto grid max-w-full gap-10 px-6 py-10 sm:px-8 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:px-12">
         <div className="flex flex-col gap-4">
-          <span dir="ltr" className="text-2xl font-bold tracking-[-0.02em] text-bone">
+          <span dir="ltr" className={`text-2xl font-bold tracking-[-0.02em] text-bone ${locale === "ar" ? "text-right" : "text-left"}`}>
             BRU<span className="text-azure-glow">CO.</span>
           </span>
           <p className="max-w-sm font-serif text-[clamp(1rem,1.5vw,1.25rem)] italic text-bone/90">
@@ -184,7 +184,7 @@ export default function Footer({ locale }: { locale: Locale }) {
             <a
               href="tel:+966555352526"
               dir="ltr"
-              className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-tight text-bone transition-colors hover:text-azure-glow"
+              className={`text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-tight text-bone transition-colors hover:text-azure-glow ${locale === "ar" ? "text-right" : "text-left"}`}
             >
               +966 55 535 2526
             </a>

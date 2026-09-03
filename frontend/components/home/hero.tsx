@@ -218,8 +218,8 @@ export default function Hero({ locale }: { locale: Locale }) {
                             </p>
 
                             <h1 className="text-[clamp(2.75rem,15vw,8rem)] leading-[0.88] font-bold tracking-[-0.03em] text-bone sm:leading-[0.85]">
-                                <span dir="ltr" className="block">BRU</span>
-                                <span dir="ltr" className="block text-azure-glow">CO.</span>
+                                <span dir="ltr" className={`block ${locale === "ar" ? "text-right" : "text-left"}`}>BRU</span>
+                                <span dir="ltr" className={`block text-azure-glow ${locale === "ar" ? "text-right" : "text-left"}`}>CO.</span>
                                 <span className="sr-only">
                                     {t.srOnly}
                                 </span>
@@ -317,7 +317,7 @@ export default function Hero({ locale }: { locale: Locale }) {
                                 </div>
                                 <div className="hidden shrink-0 gap-8 md:flex">
                                     {stats.map((stat) => (
-                                        <div key={stat.label} className="text-right">
+                                        <div key={stat.label} className="text-end">
                                             <div className="text-2xl font-bold leading-none text-bone">{stat.value}</div>
                                             <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-dust">
                                                 {stat.label}
@@ -328,7 +328,7 @@ export default function Hero({ locale }: { locale: Locale }) {
                             </div>
 
                             <div className="relative h-px w-full bg-steel">
-                                <div ref={progressFillRef} className="absolute inset-y-0 left-0 bg-azure" style={{ width: "0%" }} />
+                                <div ref={progressFillRef} className="absolute inset-y-0 start-0 bg-azure" style={{ width: "0%" }} />
                                 {stages.map((stage, index) => (
                                     <span
                                         key={stage.code}

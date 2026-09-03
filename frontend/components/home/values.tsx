@@ -68,7 +68,7 @@ export default function Values({ locale }: { locale: Locale }) {
                     <Reveal tag="div" delay={80}>
                         <h2
                             dir="ltr"
-                            className="text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bone"
+                            className={`text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bone ${locale === "ar" ? "text-right" : "text-left"}`}
                         >
                             {t.title}
                         </h2>
@@ -91,7 +91,13 @@ export default function Values({ locale }: { locale: Locale }) {
                                             "radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(30,104,172,0.22), transparent 60%)",
                                     }}
                                 />
-                                <span aria-hidden="true" dir="ltr" className="text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-none text-azure/35">
+                                <span
+                                    aria-hidden="true"
+                                    dir="ltr"
+                                    className={`text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-none text-azure/35 ${
+                                        locale === "ar" ? "text-right" : "text-left"
+                                    }`}
+                                >
                                     {value.letter}
                                 </span>
                                 <h3 className="text-[clamp(1.5rem,1.9vw,2rem)] font-semibold text-bone [text-wrap:balance]">

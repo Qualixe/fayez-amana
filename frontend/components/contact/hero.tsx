@@ -1,6 +1,22 @@
 import Reveal from "@/components/reveal";
+import type { Locale } from "@/lib/locale";
 
-export default function ContactHero() {
+const content = {
+  en: {
+    eyebrow: "Let's Build Together · Jeddah, KSA",
+    heading: ["Let's Build", "Together."],
+    lede: "Building Reference United Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
+  },
+  ar: {
+    eyebrow: "لنبنِ معًا · جدة، السعودية",
+    heading: ["لنبنِ", "معًا."],
+    lede: "شركة مرجع المباني المتحدة · تأسست عام 2000 · معتمدة آيزو · جدة، السعودية",
+  },
+} as const;
+
+export default function ContactHero({ locale }: { locale: Locale }) {
+  const t = content[locale];
+
   return (
     <header className="relative flex min-h-[68svh] items-end overflow-hidden border-b border-steel">
       <div className="absolute inset-[-8%] overflow-hidden" aria-hidden="true">
@@ -34,7 +50,7 @@ export default function ContactHero() {
           className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow"
         >
           <span aria-hidden="true" className="h-px w-8 bg-azure" />
-          Let&apos;s Build Together &middot; Jeddah, KSA
+          {t.eyebrow}
         </Reveal>
 
         <Reveal
@@ -42,9 +58,9 @@ export default function ContactHero() {
           delay={80}
           className="mt-7 text-[clamp(2.5rem,7.5vw,7.5rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-bone [text-shadow:0_2px_30px_rgba(11,15,20,0.45)]"
         >
-          Let&apos;s Build
+          {t.heading[0]}
           <br />
-          Together.
+          {t.heading[1]}
         </Reveal>
 
         <Reveal
@@ -52,8 +68,7 @@ export default function ContactHero() {
           delay={220}
           className="mt-8 max-w-2xl text-[clamp(1.0625rem,1.45vw,1.375rem)] leading-[1.55] tracking-[-0.011em] text-bone/80"
         >
-          Building Reference United Company &middot; EST. 2000 &middot; ISO
-          CERTIFIED &middot; JEDDAH, KSA
+          {t.lede}
         </Reveal>
       </div>
     </header>

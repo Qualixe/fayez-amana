@@ -58,7 +58,7 @@ export default function ProjectDetailPrevNext({
             aria-hidden="true"
             className="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-transparent"
           />
-          <div className="relative flex w-full flex-col gap-3 md:items-end md:text-right">
+          <div className="relative flex w-full flex-col gap-3 md:items-end md:text-end">
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
               {t.next}
             </span>

@@ -133,17 +133,17 @@ export default function Journey({ locale }: { locale: Locale }) {
                 </div>
 
                 <ol className="relative mt-20">
-                    <span aria-hidden="true" className="absolute left-0 top-0 hidden h-full w-px bg-steel md:block" />
+                    <span aria-hidden="true" className="absolute start-0 top-0 hidden h-full w-px bg-steel md:block" />
                     {t.milestones.map((milestone, index) => (
                         <Reveal
                             key={milestone.year}
                             tag="li"
                             delay={index * 100}
-                            className="group relative grid gap-5 border-b border-edge pb-16 last:border-b-0 md:grid-cols-[220px_1fr] md:gap-14 md:border-b-0 md:pl-12"
+                            className="group relative grid gap-5 border-b border-edge pb-16 last:border-b-0 md:grid-cols-[220px_1fr] md:gap-14 md:border-b-0 md:ps-12"
                         >
                             <span
                                 aria-hidden="true"
-                                className="absolute -left-[5px] top-2 hidden h-2.5 w-2.5 rotate-45 bg-rebar transition-colors duration-500 group-hover:bg-azure md:block"
+                                className="absolute -start-[5px] top-2 hidden h-2.5 w-2.5 rotate-45 bg-rebar transition-colors duration-500 group-hover:bg-azure md:block"
                             />
                             <div className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-azure-glow">
                                 {milestone.year}
