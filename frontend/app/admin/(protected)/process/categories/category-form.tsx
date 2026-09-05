@@ -34,7 +34,7 @@ export default function CategoryForm({
         التسمية (عربي)
         <input name="label_ar" dir="rtl" required defaultValue={v.label_ar} className={fieldClasses} />
       </label>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         <label className={labelClasses}>
           From stage no.
           <input name="from_stage" type="number" required defaultValue={v.from_stage} className={fieldClasses} />

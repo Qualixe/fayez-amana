@@ -5,12 +5,12 @@ import type { Locale } from "@/lib/locale";
 const content = {
   en: {
     eyebrow: "Questions",
-    title: "About BRU CO. projects.",
+    title: "About Fayez Amana projects.",
     lede: "What clients ask before choosing a construction company to build in Jeddah or Makkah.",
   },
   ar: {
     eyebrow: "أسئلة شائعة",
-    title: "عن مشاريع BRU CO.",
+    title: "عن مشاريع Fayez Amana",
     lede: "ما يسأل عنه العملاء قبل اختيار شركة مقاولات للبناء في جدة أو مكة المكرمة.",
   },
 } as const;

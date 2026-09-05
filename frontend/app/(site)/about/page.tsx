@@ -27,7 +27,7 @@ import { getHomeStats, getCoreValues, getCoreValuesSettings, getHomeHighlights, 
 export const metadata: Metadata = {
     title: "About | Fayez Amana Construction Company",
     description:
-        "BRU CO. (Building Reference United) is a Jeddah general contractor with 25+ years and 300+ completed projects. ISO-certified, Saudi Contractors Authority classified.",
+        "Fayez Amana Construction Company is a Jeddah general contractor with 25+ years and 300+ completed projects. ISO-certified, Saudi Contractors Authority classified.",
 };
 
 export default async function AboutPage() {

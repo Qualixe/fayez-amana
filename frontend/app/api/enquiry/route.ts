@@ -38,7 +38,7 @@ export async function POST(request: Request) {
   if (error) {
     console.error("[contact enquiry] insert failed", error);
     return NextResponse.json(
-      { ok: false, message: "We couldn't send that just now. Please try again, or email us at info@bru.com.sa." },
+      { ok: false, message: "We couldn't send that just now. Please try again, or email us at info@fayezamana.com.sa." },
       { status: 500 },
     );
   }

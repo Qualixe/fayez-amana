@@ -59,13 +59,13 @@ export default function Process({
                     </Reveal>
                 </div>
 
-                <ol className="mt-16 grid gap-px border-x border-t border-b-2 border-steel bg-steel sm:grid-cols-2 lg:grid-cols-3">
+                <ol className="mt-16 grid auto-rows-fr border-x border-t border-b-2 border-steel sm:grid-cols-2 lg:grid-cols-3">
                     {phases.map((phase, index) => (
                         <Reveal
                             key={phase.title}
                             tag="li"
                             delay={index * 80}
-                            className="group relative flex flex-col gap-4 bg-ink p-8 transition-colors duration-500 hover:bg-slab"
+                            className="group relative flex flex-col gap-4 border-t-[0.5px] border-steel bg-ink p-8 transition-colors duration-500 first:border-t-0 hover:bg-slab sm:nth-[-n+2]:border-t-0 sm:even:border-s-[0.5px] sm:border-s-steel lg:nth-[-n+3]:border-t-0 lg:not-nth-[3n+1]:border-s-[0.5px] lg:border-s-steel"
                         >
                             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
                                 {String(index + 1).padStart(2, "0")}
@@ -87,7 +87,7 @@ export default function Process({
                 <Reveal tag="div" delay={480} className="mt-12">
                     <a
                         href="/process"
-                        className="group inline-flex min-h-[56px] items-center justify-center gap-3 border border-white/10 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white transition-[filter] duration-500 hover:brightness-110"
+                        className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 border border-white/10 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
                         style={{
                             backgroundImage:
                                 "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",

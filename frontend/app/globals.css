@@ -108,6 +108,74 @@ body {
   border-radius: 9999px;
 }
 
+.scrollbar-azure {
+  scrollbar-color: var(--color-azure) transparent;
+}
+
+.scrollbar-azure::-webkit-scrollbar-thumb {
+  background-color: var(--color-azure);
+}
+
+.scrollbar-azure::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-azure-lift);
+}
+
+.btn-premium {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform 0.45s var(--ease-out-expo),
+    box-shadow 0.45s var(--ease-out-expo),
+    filter 0.45s var(--ease-out-expo),
+    background-color 0.45s var(--ease-out-expo),
+    border-color 0.45s var(--ease-out-expo),
+    color 0.45s var(--ease-out-expo);
+}
+
+.btn-premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in oklab, white 35%, transparent) 46%,
+    color-mix(in oklab, white 35%, transparent) 50%,
+    transparent 66%
+  );
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+
+.btn-premium:hover::after {
+  transform: translateX(130%);
+  transition: transform 0.85s var(--ease-out-expo);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+}
+
+.btn-premium-fill:hover {
+  box-shadow: 0 14px 34px -12px color-mix(in oklab, var(--color-azure) 65%, transparent);
+}
+
+.btn-premium-outline:hover {
+  box-shadow: 0 10px 26px -14px color-mix(in oklab, var(--color-bone) 35%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-premium,
+  .btn-premium::after {
+    transition: none !important;
+  }
+  .btn-premium:hover {
+    transform: none;
+  }
+}
+
 .glass {
   background: color-mix(in oklab, var(--color-slab) 55%, transparent);
   backdrop-filter: blur(22px) saturate(1.3);

@@ -3,8 +3,8 @@ import { Project, categoryLabel, localize } from "@/components/projects/data";
 import type { Locale } from "@/lib/locale";
 
 const content = {
-  en: { category: "Category", location: "Location", client: "Client", size: "Size", fallbackClient: "BRU CO." },
-  ar: { category: "التصنيف", location: "الموقع", client: "العميل", size: "المساحة", fallbackClient: "BRU CO." },
+  en: { category: "Category", location: "Location", client: "Client", size: "Size", fallbackClient: "Fayez Amana" },
+  ar: { category: "التصنيف", location: "الموقع", client: "العميل", size: "المساحة", fallbackClient: "Fayez Amana" },
 } as const;
 
 export default function ProjectDetailHero({ project, locale }: { project: Project; locale: Locale }) {
@@ -74,11 +74,7 @@ export default function ProjectDetailHero({ project, locale }: { project: Projec
           {p.teaser}
         </Reveal>
 
-        <Reveal
-          tag="dl"
-          delay={300}
-          className="mt-12 grid w-full gap-px border border-steel/70 bg-steel/70 sm:grid-cols-2 lg:grid-cols-4"
-        >
+        <dl className="mt-12 grid w-full gap-px border border-steel/70 bg-steel/70 sm:grid-cols-2 lg:grid-cols-4">
           {meta.map((item) => (
             <div
               key={item.label}
@@ -92,7 +88,7 @@ export default function ProjectDetailHero({ project, locale }: { project: Projec
               </dd>
             </div>
           ))}
-        </Reveal>
+        </dl>
       </div>
     </header>
   );

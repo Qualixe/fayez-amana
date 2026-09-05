@@ -653,8 +653,8 @@ const founder = {
   name_ar: "المهندس خالد بدر الدين",
   role: "CEO & Co-Founder",
   role_ar: "الرئيس التنفيذي والمؤسس المشارك",
-  quote: "“Since the establishment of BRU in the year 2000, I have been determined to work with dedication and integrity, attracting top qualified talents, while training and empowering ambitious young Saudi professionals and refining their practical capabilities.”",
-  quote_ar: "«منذ تأسيس BRU عام 2000، وأنا مصمم على العمل بتفانٍ ونزاهة، واستقطاب أفضل الكفاءات، مع تدريب وتمكين الشباب السعودي الطموح وصقل قدراتهم العملية.»",
+  quote: "“Since the establishment of Fayez Amana in the year 2000, I have been determined to work with dedication and integrity, attracting top qualified talents, while training and empowering ambitious young Saudi professionals and refining their practical capabilities.”",
+  quote_ar: "«منذ تأسيس Fayez Amana عام 2000، وأنا مصمم على العمل بتفانٍ ونزاهة، واستقطاب أفضل الكفاءات، مع تدريب وتمكين الشباب السعودي الطموح وصقل قدراتهم العملية.»",
   p1: "This foundation marked the beginning of realizing our aspirations. With the grace of Allah Almighty, the company has continued to thrive and has become one of the entities making a real difference in development.",
   p1_ar: "شكّل هذا التأسيس بداية تحقيق طموحاتنا. وبفضل الله عز وجل، واصلت الشركة ازدهارها وأصبحت من الجهات التي تُحدث فرقًا حقيقيًا في التنمية.",
   p2: "Aligned with Saudi Vision 2030, we remain committed to delivering innovative solutions, strengthening the private sector's role in urban development, and building a sustainable future for our nation.",
@@ -728,22 +728,22 @@ const processPhases = [
 ];
 
 const contactFaqs = [
-  { question: "Where does BRU CO. work?", question_ar: "أين تعمل BRU CO.؟", answer: "BRU CO. is based in Jeddah and delivers construction and contracting projects across Jeddah, Makkah and the wider Kingdom of Saudi Arabia.", answer_ar: "يقع مقر BRU CO. في جدة، وتنفّذ مشاريع البناء والمقاولات في جدة ومكة المكرمة وسائر أنحاء المملكة العربية السعودية." },
-  { question: "What does BRU CO. do as a general contractor?", question_ar: "ماذا تقدّم BRU CO. بصفتها مقاولًا عامًا؟", answer: "We deliver integrated construction under one roof, from foundation to finish: structural and construction works, architectural works, electromechanical (MEP) systems, and interior and finishing.", answer_ar: "نقدّم إنشاءً متكاملًا تحت مظلة واحدة، من الأساسات حتى التشطيب: الأعمال الإنشائية والبناء، الأعمال المعمارية، الأنظمة الكهروميكانيكية (MEP)، والتصميم الداخلي والتشطيبات." },
+  { question: "Where does Fayez Amana work?", question_ar: "أين تعمل Fayez Amana؟", answer: "Fayez Amana is based in Jeddah and delivers construction and contracting projects across Jeddah, Makkah and the wider Kingdom of Saudi Arabia.", answer_ar: "يقع مقر Fayez Amana في جدة، وتنفّذ مشاريع البناء والمقاولات في جدة ومكة المكرمة وسائر أنحاء المملكة العربية السعودية." },
+  { question: "What does Fayez Amana do as a general contractor?", question_ar: "ماذا تقدّم Fayez Amana بصفتها مقاولًا عامًا؟", answer: "We deliver integrated construction under one roof, from foundation to finish: structural and construction works, architectural works, electromechanical (MEP) systems, and interior and finishing.", answer_ar: "نقدّم إنشاءً متكاملًا تحت مظلة واحدة، من الأساسات حتى التشطيب: الأعمال الإنشائية والبناء، الأعمال المعمارية، الأنظمة الكهروميكانيكية (MEP)، والتصميم الداخلي والتشطيبات." },
   { question: "What types of projects do you build?", question_ar: "ما أنواع المشاريع التي تنفّذونها؟", answer: "Residential and villa construction, commercial buildings, hospitality, healthcare and F&B fit-out, and industrial and public works. More than 300 completed projects to date.", answer_ar: "بناء الفلل والمشاريع السكنية، والمباني التجارية، والضيافة، والرعاية الصحية، وتجهيزات المطاعم والمقاهي، والأعمال الصناعية والعامة. أكثر من 300 مشروع منجز حتى الآن." },
   { question: "Do you offer design-build and turnkey delivery?", question_ar: "هل تقدّمون خدمة التصميم والتنفيذ وتسليم المفتاح؟", answer: "Yes. We take projects from concept and design through to a completed, handed-over building, coordinating architecture, structure and MEP as a single turnkey package.", answer_ar: "نعم. نأخذ المشاريع من الفكرة والتصميم وحتى تسليم مبنى مكتمل، وننسّق بين التصميم المعماري والإنشائي والكهروميكانيكي ضمن حزمة واحدة بنظام تسليم مفتاح." },
-  { question: "Is BRU CO. licensed and certified?", question_ar: "هل BRU CO. مرخّصة ومعتمدة؟", answer: "Yes. BRU CO. is certified to ISO (International Organization for Standardization) standards in quality, safety and environmental management, a member of the Saudi Contractors Authority, and formally classified for structural, architectural and MEP works.", answer_ar: "نعم. BRU CO. معتمدة وفق مواصفات الآيزو (المنظمة الدولية للمعايير) للجودة والسلامة والبيئة، وهي عضو في الهيئة السعودية للمقاولين، ومصنّفة رسميًا في الأعمال الإنشائية والمعمارية والكهروميكانيكية." },
+  { question: "Is Fayez Amana licensed and certified?", question_ar: "هل Fayez Amana مرخّصة ومعتمدة؟", answer: "Yes. Fayez Amana is certified to ISO (International Organization for Standardization) standards in quality, safety and environmental management, a member of the Saudi Contractors Authority, and formally classified for structural, architectural and MEP works.", answer_ar: "نعم. Fayez Amana معتمدة وفق مواصفات الآيزو (المنظمة الدولية للمعايير) للجودة والسلامة والبيئة، وهي عضو في الهيئة السعودية للمقاولين، ومصنّفة رسميًا في الأعمال الإنشائية والمعمارية والكهروميكانيكية." },
   { question: "How is a construction project delivered?", question_ar: "كيف يُسلَّم المشروع الإنشائي؟", answer: "Our structural (shell) phase follows a documented 21-stage programme from excavation to a completed structure, followed by the finishing programme through to handover, with continuous quality inspection at every stage.", answer_ar: "تسير مرحلة العظم وفق برنامج موثق من 21 مرحلة، من الحفر حتى اكتمال الهيكل، تليها مرحلة التشطيب حتى التسليم، مع فحص جودة مستمر في كل مرحلة." },
-  { question: "How do I request a quote or start a project?", question_ar: "كيف أطلب عرض سعر أو أبدأ مشروعًا؟", answer: "Call us on +966 55 535 2526 or send your project details through the enquiry form on this page. Project enquiries submitted through this form are delivered directly to BRU's project team.", answer_ar: "تواصل معنا عبر +966 55 535 2526 أو أرسل تفاصيل مشروعك عبر نموذج الاستفسار في هذه الصفحة. تصل الاستفسارات المُرسَلة عبر هذا النموذج مباشرة إلى فريق مشاريع BRU." },
+  { question: "How do I request a quote or start a project?", question_ar: "كيف أطلب عرض سعر أو أبدأ مشروعًا؟", answer: "Call us on +966 55 535 2526 or send your project details through the enquiry form on this page. Project enquiries submitted through this form are delivered directly to Fayez Amana's project team.", answer_ar: "تواصل معنا عبر +966 55 535 2526 أو أرسل تفاصيل مشروعك عبر نموذج الاستفسار في هذه الصفحة. تصل الاستفسارات المُرسَلة عبر هذا النموذج مباشرة إلى فريق مشاريع Fayez Amana." },
 ];
 
 const projectsFaqs = [
-  { question: "What types of construction projects does BRU CO. build?", question_ar: "ما أنواع المشاريع الإنشائية التي تنفّذها BRU CO.؟", answer: "BRU CO. builds residential and villa construction, commercial buildings, hospitality projects, healthcare facilities, F&B fit-out and sports facilities. The work covers structural construction, architectural works, electromechanical (MEP) systems and interior and exterior finishing.", answer_ar: "تبني BRU CO. الفلل والمشاريع السكنية، والمباني التجارية، ومشاريع الضيافة، والمنشآت الصحية، وتجهيزات المطاعم والمقاهي، والمنشآت الرياضية. ويشمل العمل الأعمال الإنشائية والمعمارية والأنظمة الكهروميكانيكية (MEP) والتشطيبات الداخلية والخارجية." },
-  { question: "Where in Saudi Arabia does BRU CO. build?", question_ar: "أين تبني BRU CO. في المملكة العربية السعودية؟", answer: "BRU CO. is headquartered in Jeddah and builds across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia. Completed work includes buildings on Prince Sultan Road in Jeddah and chalets at Durrat Al-Arous.", answer_ar: "يقع المقر الرئيسي لـ BRU CO. في جدة، وتنفّذ أعمالها في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة. تشمل الأعمال المنجزة مبانٍ على طريق الأمير سلطان في جدة وشاليهات في درة العروس." },
-  { question: "Does BRU CO. build and finish villas?", question_ar: "هل تنفّذ BRU CO. بناء وتشطيب الفلل؟", answer: "Yes. Villa construction is one of the company's largest activities: reinforced concrete structure, masonry, and interior and exterior finishing, in contemporary, neoclassical, semi-classic and Andalusian/Islamic idioms. The projects documented here range from single villas to residential complexes of up to 48 duplex villas.", answer_ar: "نعم. يُعد بناء الفلل من أكبر أنشطة الشركة: هيكل خرساني مسلح، أعمال بناء، وتشطيبات داخلية وخارجية، بطرز معاصرة وكلاسيكية حديثة وشبه كلاسيكية وأندلسية/إسلامية. تتراوح المشاريع الموثقة هنا بين فلل مفردة ومجمعات سكنية تصل إلى 48 فيلا دوبلكس." },
-  { question: "Does BRU CO. offer turnkey and design-build contracts?", question_ar: "هل تقدّم BRU CO. عقود تسليم مفتاح وتصميم وتنفيذ؟", answer: "Yes. BRU CO. works design-build and turnkey: architectural, structural and MEP design plus execution under a single contract, from excavation and foundations to a building handed over ready for use.", answer_ar: "نعم. تعمل BRU CO. بنظامي التصميم والتنفيذ وتسليم المفتاح: تصميم معماري وإنشائي وكهروميكانيكي مع التنفيذ ضمن عقد واحد، من الحفر والأساسات حتى تسليم مبنى جاهز للاستخدام." },
-  { question: "How many projects has BRU CO. completed?", question_ar: "كم عدد المشاريع التي أنجزتها BRU CO.؟", answer: "More than 300 completed projects since the company was founded in 2000, of which 18 are documented in detail with photography on this page.", answer_ar: "أكثر من 300 مشروع منجز منذ تأسيس الشركة عام 2000، منها 18 مشروعًا موثقًا بالتفصيل مع صور في هذه الصفحة." },
-  { question: "How do I request a construction quote?", question_ar: "كيف أطلب عرض سعر لمشروع إنشائي؟", answer: "Contact BRU CO. on +966 55 535 2526 or through the form on the contact page with the site location, building type, approximate area and the scope you need: structural shell only, finishing, or full turnkey delivery.", answer_ar: "تواصل مع BRU CO. عبر +966 55 535 2526 أو من خلال نموذج صفحة التواصل، مع تحديد موقع الأرض ونوع المبنى والمساحة التقريبية والنطاق المطلوب: الهيكل الإنشائي فقط، أو التشطيب، أو التسليم الكامل بنظام تسليم مفتاح." },
+  { question: "What types of construction projects does Fayez Amana build?", question_ar: "ما أنواع المشاريع الإنشائية التي تنفّذها Fayez Amana؟", answer: "Fayez Amana builds residential and villa construction, commercial buildings, hospitality projects, healthcare facilities, F&B fit-out and sports facilities. The work covers structural construction, architectural works, electromechanical (MEP) systems and interior and exterior finishing.", answer_ar: "تبني Fayez Amana الفلل والمشاريع السكنية، والمباني التجارية، ومشاريع الضيافة، والمنشآت الصحية، وتجهيزات المطاعم والمقاهي، والمنشآت الرياضية. ويشمل العمل الأعمال الإنشائية والمعمارية والأنظمة الكهروميكانيكية (MEP) والتشطيبات الداخلية والخارجية." },
+  { question: "Where in Saudi Arabia does Fayez Amana build?", question_ar: "أين تبني Fayez Amana في المملكة العربية السعودية؟", answer: "Fayez Amana is headquartered in Jeddah and builds across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia. Completed work includes buildings on Prince Sultan Road in Jeddah and chalets at Durrat Al-Arous.", answer_ar: "يقع المقر الرئيسي لـ Fayez Amana في جدة، وتنفّذ أعمالها في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة. تشمل الأعمال المنجزة مبانٍ على طريق الأمير سلطان في جدة وشاليهات في درة العروس." },
+  { question: "Does Fayez Amana build and finish villas?", question_ar: "هل تنفّذ Fayez Amana بناء وتشطيب الفلل؟", answer: "Yes. Villa construction is one of the company's largest activities: reinforced concrete structure, masonry, and interior and exterior finishing, in contemporary, neoclassical, semi-classic and Andalusian/Islamic idioms. The projects documented here range from single villas to residential complexes of up to 48 duplex villas.", answer_ar: "نعم. يُعد بناء الفلل من أكبر أنشطة الشركة: هيكل خرساني مسلح، أعمال بناء، وتشطيبات داخلية وخارجية، بطرز معاصرة وكلاسيكية حديثة وشبه كلاسيكية وأندلسية/إسلامية. تتراوح المشاريع الموثقة هنا بين فلل مفردة ومجمعات سكنية تصل إلى 48 فيلا دوبلكس." },
+  { question: "Does Fayez Amana offer turnkey and design-build contracts?", question_ar: "هل تقدّم Fayez Amana عقود تسليم مفتاح وتصميم وتنفيذ؟", answer: "Yes. Fayez Amana works design-build and turnkey: architectural, structural and MEP design plus execution under a single contract, from excavation and foundations to a building handed over ready for use.", answer_ar: "نعم. تعمل Fayez Amana بنظامي التصميم والتنفيذ وتسليم المفتاح: تصميم معماري وإنشائي وكهروميكانيكي مع التنفيذ ضمن عقد واحد، من الحفر والأساسات حتى تسليم مبنى جاهز للاستخدام." },
+  { question: "How many projects has Fayez Amana completed?", question_ar: "كم عدد المشاريع التي أنجزتها Fayez Amana؟", answer: "More than 300 completed projects since the company was founded in 2000, of which 18 are documented in detail with photography on this page.", answer_ar: "أكثر من 300 مشروع منجز منذ تأسيس الشركة عام 2000، منها 18 مشروعًا موثقًا بالتفصيل مع صور في هذه الصفحة." },
+  { question: "How do I request a construction quote?", question_ar: "كيف أطلب عرض سعر لمشروع إنشائي؟", answer: "Contact Fayez Amana on +966 55 535 2526 or through the form on the contact page with the site location, building type, approximate area and the scope you need: structural shell only, finishing, or full turnkey delivery.", answer_ar: "تواصل مع Fayez Amana عبر +966 55 535 2526 أو من خلال نموذج صفحة التواصل، مع تحديد موقع الأرض ونوع المبنى والمساحة التقريبية والنطاق المطلوب: الهيكل الإنشائي فقط، أو التشطيب، أو التسليم الكامل بنظام تسليم مفتاح." },
 ];
 
 const contactOptions = [
@@ -782,8 +782,8 @@ const contactSettings = {
   faq_kicker_ar: "الأسئلة الشائعة",
   faq_headline: "Common\nquestions.",
   faq_headline_ar: "أسئلة\nشائعة.",
-  faq_lede: "What clients ask before they build with BRU CO., from where we work to how a project is delivered.",
-  faq_lede_ar: "ما يسأله العملاء قبل البناء مع BRU CO.، من أماكن عملنا إلى طريقة تسليم المشروع.",
+  faq_lede: "What clients ask before they build with Fayez Amana, from where we work to how a project is delivered.",
+  faq_lede_ar: "ما يسأله العملاء قبل البناء مع Fayez Amana، من أماكن عملنا إلى طريقة تسليم المشروع.",
 };
 
 /**
@@ -873,10 +873,10 @@ async function seedRemainingContent() {
 }
 
 const homeSettings = {
-  hero_brand_line1: "BRU",
-  hero_brand_line1_ar: "BRU",
-  hero_brand_line2: "CO.",
-  hero_brand_line2_ar: "CO.",
+  hero_brand_line1: "Fayez",
+  hero_brand_line1_ar: "فايز",
+  hero_brand_line2: "Amana",
+  hero_brand_line2_ar: "أمانة",
   hero_eyebrow: "EST. 2000 · Jeddah, Saudi Arabia",
   hero_eyebrow_ar: "تأسست 2000 · جدة، السعودية",
   hero_quote: "“Your vision our craft, built with precision, delivered with integrity.”",
@@ -893,17 +893,17 @@ const homeSettings = {
   hero_handover_title1_ar: "من أرض فارغة",
   hero_handover_title2: "to handover.",
   hero_handover_title2_ar: "إلى التسليم.",
-  hero_handover_body: "21 structural stages, 300+ completed projects, 25 years. This is how BRU CO. builds.",
-  hero_handover_body_ar: "21 مرحلة إنشائية، أكثر من 300 مشروع منجز، 25 عامًا من الخبرة. هكذا تبني BRU CO.",
+  hero_handover_body: "21 structural stages, 300+ completed projects, 25 years. This is how Fayez Amana builds.",
+  hero_handover_body_ar: "21 مرحلة إنشائية، أكثر من 300 مشروع منجز، 25 عامًا من الخبرة. هكذا تبني Fayez Amana",
   hero_scroll_hint: "Scroll to explore",
   hero_scroll_hint_ar: "مرر للاستكشاف",
 
-  about_eyebrow: "Building Reference United · Est. 2000",
-  about_eyebrow_ar: "شركة مرجع المباني المتحدة · تأسست 2000",
+  about_eyebrow: "Fayez Amana Construction Company · Est. 2000",
+  about_eyebrow_ar: "شركة فايز أمانة للمقاولات · تأسست 2000",
   about_title: "Building\nReference\nUnited",
   about_title_ar: "مرجع\nالمباني\nالمتحدة",
-  about_body: "BRU CO. (Building Reference United) is a Jeddah-based construction company and general contractor delivering integrated construction under one roof: structural, architectural, electromechanical and interior works. 25+ years, 300+ completed projects, ISO-certified and classified by the Saudi Contractors Authority, serving Jeddah, Makkah and the wider Kingdom of Saudi Arabia.",
-  about_body_ar: "شركة مرجع المباني المتحدة (BRU) هي شركة مقاولات عامة مقرها جدة، تقدّم أعمال إنشاء متكاملة تحت مظلة واحدة: الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية. أكثر من 25 عامًا من الخبرة، وأكثر من 300 مشروع منجز، معتمدة ISO ومصنّفة من الهيئة السعودية للمقاولين، تخدم جدة ومكة المكرمة وسائر أنحاء المملكة العربية السعودية.",
+  about_body: "Fayez Amana Construction Company is a Jeddah-based construction company and general contractor delivering integrated construction under one roof: structural, architectural, electromechanical and interior works. 25+ years, 300+ completed projects, ISO-certified and classified by the Saudi Contractors Authority, serving Jeddah, Makkah and the wider Kingdom of Saudi Arabia.",
+  about_body_ar: "شركة فايز أمانة للمقاولات هي شركة مقاولات عامة مقرها جدة، تقدّم أعمال إنشاء متكاملة تحت مظلة واحدة: الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية. أكثر من 25 عامًا من الخبرة، وأكثر من 300 مشروع منجز، معتمدة ISO ومصنّفة من الهيئة السعودية للمقاولين، تخدم جدة ومكة المكرمة وسائر أنحاء المملكة العربية السعودية.",
   about_stat1_value: "300+",
   about_stat1_label: "Projects Delivered",
   about_stat1_label_ar: "مشروع منجز",
@@ -914,8 +914,8 @@ const homeSettings = {
   about_our_story_ar: "قصتنا",
   about_expertise_eyebrow: "Our Expertise",
   about_expertise_eyebrow_ar: "خبراتنا",
-  about_expertise_p1: "Founded in the year 2000, BRU (Building Reference United Company) was established with a bold vision: to integrate architecture, construction, and engineering expertise into one unified entity. From a modest beginning driven by great ambition, BRU has grown into an integrated construction and engineering company, and one of the most trusted contracting firms in Saudi Arabia.",
-  about_expertise_p1_ar: "تأسست BRU (شركة مرجع المباني المتحدة) عام 2000 برؤية جريئة: دمج خبرات العمارة والإنشاء والهندسة في كيان واحد متكامل. من بداية متواضعة مدفوعة بطموح كبير، نمت BRU لتصبح شركة إنشاء وهندسة متكاملة، وواحدة من أوثق شركات المقاولات في المملكة العربية السعودية.",
+  about_expertise_p1: "Founded in the year 2000, Fayez Amana Construction Company was established with a bold vision: to integrate architecture, construction, and engineering expertise into one unified entity. From a modest beginning driven by great ambition, Fayez Amana has grown into an integrated construction and engineering company, and one of the most trusted contracting firms in Saudi Arabia.",
+  about_expertise_p1_ar: "تأسست Fayez Amana (شركة فايز أمانة للمقاولات) عام 2000 برؤية جريئة: دمج خبرات العمارة والإنشاء والهندسة في كيان واحد متكامل. من بداية متواضعة مدفوعة بطموح كبير، نمت Fayez Amana لتصبح شركة إنشاء وهندسة متكاملة، وواحدة من أوثق شركات المقاولات في المملكة العربية السعودية.",
   about_expertise_p2: "Our team of engineers, architects, project managers, and skilled site personnel work in seamless collaboration, turning ideas into reality, whether executing complex structural projects, delivering precise finishes, or implementing advanced MEP systems. Aligned with Saudi Vision 2030, we remain committed to innovation and the advancement of the nation's built environment, proud partners to developers, government entities, and private clients across the Kingdom.",
   about_expertise_p2_ar: "يعمل فريقنا من المهندسين والمعماريين ومديري المشاريع والكوادر الفنية الماهرة في تناغم تام، لتحويل الأفكار إلى واقع، سواء في تنفيذ المشاريع الإنشائية المعقدة، أو تسليم تشطيبات دقيقة، أو تنفيذ أنظمة كهروميكانيكية متطورة. وانسجامًا مع رؤية المملكة 2030، نبقى ملتزمين بالابتكار وتطوير البيئة العمرانية للوطن، شركاء فخورون للمطورين والجهات الحكومية والعملاء من القطاع الخاص في أنحاء المملكة.",
   about_expertise_tags: "Residential\nCommercial\nHospitality\nPublic Works\nGovernment",
@@ -927,8 +927,8 @@ const homeSettings = {
   services_title1_ar: "أربعة تخصصات،",
   services_title2: "one roof.",
   services_title2_ar: "تحت سقف واحد.",
-  services_lede: "Comprehensive construction solutions under one roof, from foundation to finish, BRU delivers with precision and excellence.",
-  services_lede_ar: "حلول إنشائية متكاملة تحت مظلة واحدة، من الأساسات حتى التشطيب النهائي، تقدّمها BRU بدقة وتميّز.",
+  services_lede: "Comprehensive construction solutions under one roof, from foundation to finish, Fayez Amana delivers with precision and excellence.",
+  services_lede_ar: "حلول إنشائية متكاملة تحت مظلة واحدة، من الأساسات حتى التشطيب النهائي، تقدّمها Fayez Amana بدقة وتميّز.",
   services_note: "Every service is backed by our ISO certifications in Quality, Safety, and Environmental Management, ensuring every project meets the highest international standards.",
   services_note_ar: "كل خدمة مدعومة بشهاداتنا المعتمدة من ISO في الجودة والسلامة والبيئة، لضمان مطابقة كل مشروع لأعلى المعايير الدولية.",
   services_explore: "Explore Services",
@@ -1006,8 +1006,8 @@ const coreValuesSettings = {
   title_ar: "B · R · U",
   lede: "Our principles are not statements on a wall, they are practiced on every site, in every decision, on every project we deliver.",
   lede_ar: "مبادئنا ليست شعارات على الجدار، بل تُمارَس في كل موقع، وفي كل قرار، وفي كل مشروع نسلّمه.",
-  closing: "Building Reference United, our name is our identity, our values are our foundation.",
-  closing_ar: "مرجع المباني المتحدة، اسمنا هويتنا، وقيمنا أساسنا.",
+  closing: "Fayez Amana Construction Company, our name is our identity, our values are our foundation.",
+  closing_ar: "فايز أمانة للمقاولات، اسمنا هويتنا، وقيمنا أساسنا.",
 };
 
 async function seedHomeContent() {
@@ -1049,21 +1049,21 @@ async function seedHomeContent() {
 }
 
 const aboutPageSettings = {
-  hero_eyebrow: "Building Reference United · Est. 2000",
-  hero_eyebrow_ar: "شركة مرجع المباني المتحدة · تأسست 2000",
+  hero_eyebrow: "Fayez Amana Construction Company · Est. 2000",
+  hero_eyebrow_ar: "شركة فايز أمانة للمقاولات · تأسست 2000",
   hero_title1: "Building", hero_title1_ar: "مرجع",
   hero_title2: "Reference", hero_title2_ar: "المباني",
   hero_title3: "United", hero_title3_ar: "المتحدة",
-  hero_body: "BRU CO. (Building Reference United) is a Jeddah-based construction company and general contractor delivering integrated construction under one roof: structural, architectural, electromechanical and interior works. 25+ years, 300+ completed projects, ISO-certified and classified by the Saudi Contractors Authority, serving Jeddah, Makkah and the wider Kingdom of Saudi Arabia.",
-  hero_body_ar: "شركة مرجع المباني المتحدة (BRU) هي شركة مقاولات عامة مقرها جدة، تقدّم أعمال إنشاء متكاملة تحت مظلة واحدة: الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية. أكثر من 25 عامًا من الخبرة، وأكثر من 300 مشروع منجز، معتمدة ISO ومصنّفة من الهيئة السعودية للمقاولين، تخدم جدة ومكة المكرمة وسائر أنحاء المملكة العربية السعودية.",
+  hero_body: "Fayez Amana Construction Company is a Jeddah-based construction company and general contractor delivering integrated construction under one roof: structural, architectural, electromechanical and interior works. 25+ years, 300+ completed projects, ISO-certified and classified by the Saudi Contractors Authority, serving Jeddah, Makkah and the wider Kingdom of Saudi Arabia.",
+  hero_body_ar: "شركة فايز أمانة للمقاولات هي شركة مقاولات عامة مقرها جدة، تقدّم أعمال إنشاء متكاملة تحت مظلة واحدة: الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية. أكثر من 25 عامًا من الخبرة، وأكثر من 300 مشروع منجز، معتمدة ISO ومصنّفة من الهيئة السعودية للمقاولين، تخدم جدة ومكة المكرمة وسائر أنحاء المملكة العربية السعودية.",
   hero_stat1_label: "Established", hero_stat1_label_ar: "تأسست", hero_stat1_value: "2000", hero_stat1_value_ar: "2000",
   hero_stat2_label: "Headquarters", hero_stat2_label_ar: "المقر الرئيسي", hero_stat2_value: "Jeddah, Saudi Arabia", hero_stat2_value_ar: "جدة، السعودية",
   hero_stat3_label: "Projects Delivered", hero_stat3_label_ar: "مشاريع منجزة", hero_stat3_value: "300+", hero_stat3_value_ar: "+300",
   hero_stat4_label: "Team", hero_stat4_label_ar: "الفريق", hero_stat4_value: "80+ members", hero_stat4_value_ar: "+80 عضو",
 
   expertise_eyebrow: "Our Expertise", expertise_eyebrow_ar: "خبراتنا",
-  expertise_p1: "Founded in the year 2000, BRU (Building Reference United Company) was established with a bold vision: to integrate architecture, construction, and engineering expertise into one unified entity. From a modest beginning driven by great ambition, BRU has grown into an integrated construction and engineering company, and one of the most trusted contracting firms in Saudi Arabia.",
-  expertise_p1_ar: "تأسست BRU (شركة مرجع المباني المتحدة) عام 2000 برؤية جريئة: دمج خبرات العمارة والإنشاء والهندسة في كيان واحد متكامل. من بداية متواضعة مدفوعة بطموح كبير، نمت BRU لتصبح شركة إنشاء وهندسة متكاملة، وواحدة من أوثق شركات المقاولات في المملكة العربية السعودية.",
+  expertise_p1: "Founded in the year 2000, Fayez Amana Construction Company was established with a bold vision: to integrate architecture, construction, and engineering expertise into one unified entity. From a modest beginning driven by great ambition, Fayez Amana has grown into an integrated construction and engineering company, and one of the most trusted contracting firms in Saudi Arabia.",
+  expertise_p1_ar: "تأسست Fayez Amana (شركة فايز أمانة للمقاولات) عام 2000 برؤية جريئة: دمج خبرات العمارة والإنشاء والهندسة في كيان واحد متكامل. من بداية متواضعة مدفوعة بطموح كبير، نمت Fayez Amana لتصبح شركة إنشاء وهندسة متكاملة، وواحدة من أوثق شركات المقاولات في المملكة العربية السعودية.",
   expertise_p2: "Our team of engineers, architects, project managers, and skilled site personnel work in seamless collaboration, turning ideas into reality, whether executing complex structural projects, delivering precise finishes, or implementing advanced MEP systems. Aligned with Saudi Vision 2030, we remain committed to innovation and the advancement of the nation's built environment, proud partners to developers, government entities, and private clients across the Kingdom.",
   expertise_p2_ar: "يعمل فريقنا من المهندسين والمعماريين ومديري المشاريع والكوادر الفنية الماهرة في تناغم تام، لتحويل الأفكار إلى واقع، سواء في تنفيذ المشاريع الإنشائية المعقدة، أو تسليم تشطيبات دقيقة، أو تنفيذ أنظمة كهروميكانيكية متطورة. وانسجامًا مع رؤية المملكة 2030، نبقى ملتزمين بالابتكار وتطوير البيئة العمرانية للوطن، شركاء فخورون للمطورين والجهات الحكومية والعملاء من القطاع الخاص في أنحاء المملكة.",
   expertise_tags: "Residential\nCommercial\nHospitality\nPublic Works\nGovernment",
@@ -1079,10 +1079,10 @@ const aboutPageSettings = {
   journey_counter_label_ar: "مشروع منجز في القطاعات السكنية والتجارية والفندقية والحكومية",
   journey_cta: "How we build: our process", journey_cta_ar: "كيف نبني: منهجيتنا",
 
-  why_eyebrow: "Why BRU CO.", why_eyebrow_ar: "لماذا BRU CO.",
-  why_tagline: "Building Reference, Your First Reference in Construction, Since 2000",
-  why_tagline_ar: "مرجع المباني، مرجعك الأول في البناء، منذ عام 2000",
-  why_title: "Why Choose BRU CO.?", why_title_ar: "لماذا تختار BRU CO.؟",
+  why_eyebrow: "Why Fayez Amana", why_eyebrow_ar: "لماذا Fayez Amana",
+  why_tagline: "Fayez Amana, Your First Reference in Construction, Since 2000",
+  why_tagline_ar: "فايز أمانة، مرجعك الأول في البناء، منذ عام 2000",
+  why_title: "Why Choose Fayez Amana?", why_title_ar: "لماذا تختار Fayez Amana؟",
 
   vision_eyebrow: "Vision & Mission", vision_eyebrow_ar: "الرؤية والرسالة",
   vision_title: "Our Direction & Vision 2030 Commitment", vision_title_ar: "توجهنا والتزامنا برؤية 2030",
@@ -1091,11 +1091,11 @@ const aboutPageSettings = {
 };
 
 const aboutMilestones = [
-  { year: "2000", year_ar: "2000", title: "The Launch, Building Foundations", title_ar: "الانطلاقة، إرساء الأسس", description: "BRU was founded with a bold vision to integrate architecture, construction, and engineering into one unified entity. The company entered the Saudi market with a focus on residential and commercial projects, quickly earning a reputation for blending modern methods with local identity.", description_ar: "تأسست BRU برؤية جريئة لدمج العمارة والإنشاء والهندسة في كيان واحد متكامل. دخلت الشركة السوق السعودي بتركيز على المشاريع السكنية والتجارية، واكتسبت بسرعة سمعة في الجمع بين الأساليب الحديثة والهوية المحلية." },
-  { year: "2005 to 2017", year_ar: "2005 إلى 2017", title: "Expanding Horizons", title_ar: "توسيع الآفاق", description: "BRU successfully delivered over 250 projects, ranging from residential and commercial developments to administrative and entertainment facilities. This period marked BRU's transformation into a trusted partner in diverse sectors of the Saudi construction industry.", description_ar: "نفّذت BRU بنجاح أكثر من 250 مشروعًا، تراوحت بين التطويرات السكنية والتجارية والمنشآت الإدارية والترفيهية. مثّلت هذه المرحلة تحوّل BRU إلى شريك موثوق في قطاعات متنوعة من صناعة الإنشاءات السعودية." },
-  { year: "2017 to 2019", year_ar: "2017 إلى 2019", title: "Recognition & Growth", title_ar: "الاعتراف والنمو", description: "BRU evolved into a multidisciplinary company, adding engineering construction, project management, and supervision services to its portfolio. ISO certification was achieved, cementing the company's commitment to international quality standards.", description_ar: "تطورت BRU لتصبح شركة متعددة التخصصات، مضيفةً خدمات الإنشاءات الهندسية وإدارة المشاريع والإشراف إلى محفظتها. تم الحصول على شهادة ISO، مما رسّخ التزام الشركة بالمعايير الدولية للجودة." },
+  { year: "2000", year_ar: "2000", title: "The Launch, Building Foundations", title_ar: "الانطلاقة، إرساء الأسس", description: "Fayez Amana was founded with a bold vision to integrate architecture, construction, and engineering into one unified entity. The company entered the Saudi market with a focus on residential and commercial projects, quickly earning a reputation for blending modern methods with local identity.", description_ar: "تأسست Fayez Amana برؤية جريئة لدمج العمارة والإنشاء والهندسة في كيان واحد متكامل. دخلت الشركة السوق السعودي بتركيز على المشاريع السكنية والتجارية، واكتسبت بسرعة سمعة في الجمع بين الأساليب الحديثة والهوية المحلية." },
+  { year: "2005 to 2017", year_ar: "2005 إلى 2017", title: "Expanding Horizons", title_ar: "توسيع الآفاق", description: "Fayez Amana successfully delivered over 250 projects, ranging from residential and commercial developments to administrative and entertainment facilities. This period marked Fayez Amana's transformation into a trusted partner in diverse sectors of the Saudi construction industry.", description_ar: "نفّذت Fayez Amana بنجاح أكثر من 250 مشروعًا، تراوحت بين التطويرات السكنية والتجارية والمنشآت الإدارية والترفيهية. مثّلت هذه المرحلة تحوّل Fayez Amana إلى شريك موثوق في قطاعات متنوعة من صناعة الإنشاءات السعودية." },
+  { year: "2017 to 2019", year_ar: "2017 إلى 2019", title: "Recognition & Growth", title_ar: "الاعتراف والنمو", description: "Fayez Amana evolved into a multidisciplinary company, adding engineering construction, project management, and supervision services to its portfolio. ISO certification was achieved, cementing the company's commitment to international quality standards.", description_ar: "تطورت Fayez Amana لتصبح شركة متعددة التخصصات، مضيفةً خدمات الإنشاءات الهندسية وإدارة المشاريع والإشراف إلى محفظتها. تم الحصول على شهادة ISO، مما رسّخ التزام الشركة بالمعايير الدولية للجودة." },
   { year: "2019 to 2025", year_ar: "2019 إلى 2025", title: "Driving Innovation", title_ar: "دفع عجلة الابتكار", description: "Focus on enhancing internal systems, upgrading construction methods, and investing in professional development, building a more resilient, agile organization.", description_ar: "التركيز على تعزيز الأنظمة الداخلية، وتطوير أساليب البناء، والاستثمار في التطوير المهني، لبناء منظومة أكثر مرونة وصلابة." },
-  { year: "2026", year_ar: "2026", title: "Future Outlook, Vision 2030", title_ar: "نظرة مستقبلية، رؤية 2030", description: "BRU continues to innovate, expand its portfolio, and contribute to Saudi Arabia's development in alignment with Vision 2030, ensuring sustainable growth and excellence in every project.", description_ar: "تواصل BRU الابتكار وتوسيع محفظتها والمساهمة في تنمية المملكة العربية السعودية انسجامًا مع رؤية 2030، لضمان نمو مستدام وتميز في كل مشروع." },
+  { year: "2026", year_ar: "2026", title: "Future Outlook, Vision 2030", title_ar: "نظرة مستقبلية، رؤية 2030", description: "Fayez Amana continues to innovate, expand its portfolio, and contribute to Saudi Arabia's development in alignment with Vision 2030, ensuring sustainable growth and excellence in every project.", description_ar: "تواصل Fayez Amana الابتكار وتوسيع محفظتها والمساهمة في تنمية المملكة العربية السعودية انسجامًا مع رؤية 2030، لضمان نمو مستدام وتميز في كل مشروع." },
 ];
 
 const aboutVisionItems = [
@@ -1125,8 +1125,8 @@ const processPageSettings = {
   finishing_body: "The finishing phase consists of several precise steps that begin with preparatory works and end with handing over the project ready for use. Each stage focuses on precision of execution, quality of materials, and adherence to the approved design, with continuous follow-up from the supervision teams to ensure all works are harmonised across the different departments.",
   finishing_body_ar: "تتكوّن مرحلة التشطيب من عدة خطوات دقيقة تبدأ من الأعمال التحضيرية وتنتهي بتسليم المشروع جاهزًا للاستخدام. تركّز كل مرحلة على الدقة في التنفيذ، جودة المواد، والالتزام بالتصميم المعتمد، مع متابعة مستمرة من فرق الإشراف لضمان تناغم جميع الأعمال بين الأقسام المختلفة.",
   finishing_cta: "Interior & Finishing Works", finishing_cta_ar: "أعمال التصميم الداخلي والتشطيبات",
-  finishing_image_alt: "Interior finishing works on a BRU CO. construction project in Jeddah",
-  finishing_image_alt_ar: "أعمال التشطيبات الداخلية في مشروع إنشائي لشركة مرجع المباني المتحدة في جدة",
+  finishing_image_alt: "Interior finishing works on a Fayez Amana construction project in Jeddah",
+  finishing_image_alt_ar: "أعمال التشطيبات الداخلية في مشروع إنشائي لشركة فايز أمانة للمقاولات في جدة",
 };
 
 const projectsPageSettings = {
@@ -1141,8 +1141,8 @@ const projectsPageSettings = {
   hero_meta4_label: "Territory", hero_meta4_label_ar: "النطاق", hero_meta4_value: "Kingdom-wide, HQ Jeddah", hero_meta4_value_ar: "المملكة كاملة، المقر جدة",
 
   summary_eyebrow: "Summary", summary_eyebrow_ar: "نبذة",
-  summary_body: "BRU CO. (Building Reference United) is a general contractor headquartered in Jeddah, founded in 2000, with more than 300 completed projects across Saudi Arabia: villa and residential construction, commercial buildings, hospitality, healthcare, F&B and sports facilities. Structural, architectural, electromechanical (MEP) and interior finishing works are delivered by one general contractor, from excavation and foundations through to handover.",
-  summary_body_ar: "شركة مرجع المباني المتحدة (BRU) شركة مقاولات عامة مقرها جدة، تأسست عام 2000، وأنجزت أكثر من 300 مشروع في أنحاء المملكة العربية السعودية: بناء الفلل والمشاريع السكنية، المباني التجارية، الضيافة، الرعاية الصحية، المطاعم والمقاهي، والمنشآت الرياضية. تُنفَّذ الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية عبر مقاول عام واحد، من الحفر والأساسات وحتى التسليم.",
+  summary_body: "Fayez Amana Construction Company is a general contractor headquartered in Jeddah, founded in 2000, with more than 300 completed projects across Saudi Arabia: villa and residential construction, commercial buildings, hospitality, healthcare, F&B and sports facilities. Structural, architectural, electromechanical (MEP) and interior finishing works are delivered by one general contractor, from excavation and foundations through to handover.",
+  summary_body_ar: "شركة فايز أمانة للمقاولات شركة مقاولات عامة مقرها جدة، تأسست عام 2000، وأنجزت أكثر من 300 مشروع في أنحاء المملكة العربية السعودية: بناء الفلل والمشاريع السكنية، المباني التجارية، الضيافة، الرعاية الصحية، المطاعم والمقاهي، والمنشآت الرياضية. تُنفَّذ الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية عبر مقاول عام واحد، من الحفر والأساسات وحتى التسليم.",
   summary_link1_label: "Construction services", summary_link1_label_ar: "خدماتنا الإنشائية", summary_link1_href: "/services",
   summary_link2_label: "The 21-stage process", summary_link2_label_ar: "منهجية العمل بمراحلها الـ 21", summary_link2_href: "/process",
   summary_link3_label: "Construction company in Jeddah", summary_link3_label_ar: "شركة مقاولات في جدة", summary_link3_href: "/construction-company-jeddah",
@@ -1166,28 +1166,28 @@ const projectDetailSettings = {
   method_eyebrow: "Method & Materials", method_eyebrow_ar: "الأسلوب والمواد",
   method_heading1: "How this project", method_heading1_ar: "كيف نُفِّذ",
   method_heading2: "was built.", method_heading2_ar: "هذا المشروع.",
-  method_lede: "Structural work, materials and quality control on a BRU CO. project run on documented programmes rather than site improvisation.",
-  method_lede_ar: "الأعمال الإنشائية والمواد وضبط الجودة في مشاريع BRU CO. تسير وفق برامج موثقة لا ارتجال في الموقع.",
+  method_lede: "Structural work, materials and quality control on a Fayez Amana project run on documented programmes rather than site improvisation.",
+  method_lede_ar: "الأعمال الإنشائية والمواد وضبط الجودة في مشاريع Fayez Amana تسير وفق برامج موثقة لا ارتجال في الموقع.",
 };
 
 const methodArticles = [
   { number: "01", title: "Structural method", title_ar: "الأسلوب الإنشائي", body: "The structural (shell) phase runs on a documented 21-stage programme: site hoarding, excavation and foundation setting-out, then the reinforced concrete frame stage by stage, through to a building complete in its structural state. The sequence is the same on every project, which is what makes a construction programme estimable rather than optimistic.", body_ar: "تسير المرحلة الإنشائية (الهيكل) وفق برنامج موثق من 21 مرحلة: تسوير الموقع، الحفر وتحديد الأساسات، ثم الهيكل الخرساني المسلح مرحلة تلو الأخرى، حتى اكتمال المبنى في حالته الإنشائية. التسلسل ذاته يُطبَّق في كل مشروع، وهو ما يجعل برنامج البناء قابلاً للتقدير الدقيق لا للتقدير التفاؤلي.", href: "/process", label: "See the 21 stages", label_ar: "اطّلع على المراحل الـ 21" },
   { number: "02", title: "Design and build", title_ar: "التصميم والتنفيذ", body: "This project was delivered design-build: architectural, structural and MEP design plus execution under one contract and one accountable party. It removes the usual gap between designer and contractor, so clashes between systems are resolved on the drawings rather than in poured concrete.", body_ar: "نُفِّذ هذا المشروع بنظام التصميم والتنفيذ: تصميم معماري وإنشائي وكهروميكانيكي مع التنفيذ ضمن عقد واحد وجهة واحدة مسؤولة. هذا يُلغي الفجوة المعتادة بين المصمم والمقاول، فتُحل تعارضات الأنظمة على المخططات لا في الخرسانة المصبوبة.", href: "/services#architectural-works", label: "Architectural works", label_ar: "الأعمال المعمارية" },
   { number: "03", title: "Interior and external finishing", title_ar: "التشطيبات الداخلية والخارجية", body: "The finishing phase begins with preparatory works and ends with the project handed over ready for use. It covers full interior design implementation, interior and exterior finishing, façade works, joinery and façade lighting, with material quality control and adherence to the approved design under continuous supervision that harmonises every trade on site.", body_ar: "تبدأ مرحلة التشطيب بالأعمال التحضيرية وتنتهي بتسليم المشروع جاهزًا للاستخدام. وتشمل التنفيذ الكامل للتصميم الداخلي، والتشطيبات الداخلية والخارجية، وأعمال الواجهات، والنجارة وإضاءة الواجهات، مع ضبط جودة المواد والالتزام بالتصميم المعتمد تحت إشراف مستمر ينسّق بين جميع الحرف في الموقع.", href: "/services#interior-finishing-works", label: "Finishing works", label_ar: "أعمال التشطيب" },
-  { number: "04", title: "Quality control and safety", title_ar: "ضبط الجودة والسلامة", body: "Each of the 21 structural stages carries its own verification, and supervision re-inspects after every strike of formwork. BRU CO. is certified to ISO standards for quality, safety and environmental management, and site safety requirements apply for the full duration of the works.", body_ar: "تحمل كل مرحلة من المراحل الإنشائية الـ 21 تحققًا خاصًا بها، ويعيد الإشراف الفحص بعد كل فك للشدة الخشبية. BRU CO. معتمدة وفق مواصفات الآيزو للجودة والسلامة والبيئة، وتُطبَّق متطلبات السلامة في الموقع طوال مدة الأعمال.", href: "/services#quality-assurance", label: "Quality and safety", label_ar: "الجودة والسلامة" },
+  { number: "04", title: "Quality control and safety", title_ar: "ضبط الجودة والسلامة", body: "Each of the 21 structural stages carries its own verification, and supervision re-inspects after every strike of formwork. Fayez Amana is certified to ISO standards for quality, safety and environmental management, and site safety requirements apply for the full duration of the works.", body_ar: "تحمل كل مرحلة من المراحل الإنشائية الـ 21 تحققًا خاصًا بها، ويعيد الإشراف الفحص بعد كل فك للشدة الخشبية. Fayez Amana معتمدة وفق مواصفات الآيزو للجودة والسلامة والبيئة، وتُطبَّق متطلبات السلامة في الموقع طوال مدة الأعمال.", href: "/services#quality-assurance", label: "Quality and safety", label_ar: "الجودة والسلامة" },
 ];
 
 const servicesPageSettings = {
   hero_eyebrow: "Our Services", hero_eyebrow_ar: "خدماتنا",
   hero_title1: "Four disciplines,", hero_title1_ar: "أربعة تخصصات،",
   hero_title2: "one roof.", hero_title2_ar: "تحت سقف واحد.",
-  hero_lede: "Comprehensive construction solutions under one roof, from foundation to finish, BRU delivers with precision and excellence.",
-  hero_lede_ar: "حلول إنشائية متكاملة تحت مظلة واحدة، من الأساسات حتى التشطيب النهائي، تقدّمها BRU بدقة وتميّز.",
+  hero_lede: "Comprehensive construction solutions under one roof, from foundation to finish, Fayez Amana delivers with precision and excellence.",
+  hero_lede_ar: "حلول إنشائية متكاملة تحت مظلة واحدة، من الأساسات حتى التشطيب النهائي، تقدّمها Fayez Amana بدقة وتميّز.",
 
   inspection_eyebrow: "Inspection Process", inspection_eyebrow_ar: "عملية الفحص",
   inspection_title: "Checked, then checked again.", inspection_title_ar: "فُحص، ثم فُحص مرة أخرى.",
-  inspection_lede: "Quality assurance at BRU is written into the method statement itself, each of the 21 structural stages carries its own verification, and supervision re-inspects after every formwork strike.",
-  inspection_lede_ar: "ضمان الجودة في BRU مكتوب في بيان الطريقة ذاته، فكل مرحلة من المراحل الإنشائية الـ 21 تحمل تحققها الخاص، ويعيد الإشراف الفحص بعد كل عملية فك للشدة الخشبية.",
+  inspection_lede: "Quality assurance at Fayez Amana is written into the method statement itself, each of the 21 structural stages carries its own verification, and supervision re-inspects after every formwork strike.",
+  inspection_lede_ar: "ضمان الجودة في Fayez Amana مكتوب في بيان الطريقة ذاته، فكل مرحلة من المراحل الإنشائية الـ 21 تحمل تحققها الخاص، ويعيد الإشراف الفحص بعد كل عملية فك للشدة الخشبية.",
   inspection_phases: "SOIL & FOUNDING LEVEL\nSTRUCTURAL FRAME\nENVELOPE & MEP\nHANDOVER",
   inspection_phases_ar: "التربة ومنسوب التأسيس\nالهيكل الإنشائي\nالغلاف والكهروميكانيكا\nالتسليم",
 
@@ -1220,35 +1220,35 @@ const servicesInspectionSteps = [
 
 const contactSettingsExtra = {
   phone: "+966 55 535 2526",
-  email: "info@bru.com.sa",
+  email: "info@fayezamana.com.sa",
   location: "Jeddah, Saudi Arabia",
   location_ar: "جدة، المملكة العربية السعودية",
   established_year: "2000",
-  website_url: "https://www.bru.com.sa",
-  website_display: "www.bru.com.sa",
-  instagram_url: "https://instagram.com/bru.co.sa",
-  instagram_display: "@bru.co.sa",
-  x_url: "https://x.com/BruCompany",
-  x_display: "@BruCompany",
-  marquee_items: "Let's Build Together.\nYour vision, our craft, since 2000\nBuilding Reference, your first reference in construction, since 2000",
-  marquee_items_ar: "لنبنِ معًا.\nرؤيتكم، حرفتنا، منذ 2000\nمرجع المباني، مرجعك الأول في البناء، منذ 2000",
+  website_url: "https://www.fayezamana.com.sa",
+  website_display: "www.fayezamana.com.sa",
+  instagram_url: "https://instagram.com/fayezamana",
+  instagram_display: "@fayezamana",
+  x_url: "https://x.com/FayezAmana",
+  x_display: "@FayezAmana",
+  marquee_items: "Let's Build Together.\nYour vision, our craft, since 2000\nFayez Amana, your first reference in construction, since 2000",
+  marquee_items_ar: "لنبنِ معًا.\nرؤيتكم، حرفتنا، منذ 2000\nفايز أمانة، مرجعك الأول في البناء، منذ 2000",
   hero_eyebrow: "Let's Build Together · Jeddah, KSA", hero_eyebrow_ar: "لنبنِ معًا · جدة، السعودية",
   hero_heading1: "Let's Build", hero_heading1_ar: "لنبنِ",
   hero_heading2: "Together.", hero_heading2_ar: "معًا.",
-  hero_lede: "Building Reference United Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
-  hero_lede_ar: "شركة مرجع المباني المتحدة · تأسست عام 2000 · معتمدة آيزو · جدة، السعودية",
+  hero_lede: "Fayez Amana Construction Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
+  hero_lede_ar: "شركة فايز أمانة للمقاولات · تأسست عام 2000 · معتمدة آيزو · جدة، السعودية",
   map_eyebrow: "Office", map_eyebrow_ar: "المكتب",
   map_heading1: "Jeddah,", map_heading1_ar: "جدة،",
   map_heading2: "Saudi Arabia.", map_heading2_ar: "المملكة العربية السعودية.",
-  map_caption: "BRU CO., Head Office", map_caption_ar: "BRU CO.، المقر الرئيسي",
+  map_caption: "Fayez Amana, Head Office", map_caption_ar: "Fayez Amana، المقر الرئيسي",
 };
 
 const siteCtaSettings = {
   eyebrow: "Let's Build Together.", eyebrow_ar: "لنبنِ معًا.",
   title1: "Your vision,", title1_ar: "رؤيتك،",
   title2: "our craft.", title2_ar: "حرفتنا.",
-  lede: "Building Reference United Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
-  lede_ar: "شركة مرجع المباني المتحدة · تأسست 2000 · معتمدة ISO · جدة، السعودية",
+  lede: "Fayez Amana Construction Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
+  lede_ar: "شركة فايز أمانة للمقاولات · تأسست 2000 · معتمدة ISO · جدة، السعودية",
   start_project: "Start a Project", start_project_ar: "ابدأ مشروعك",
 };
 
@@ -1286,6 +1286,41 @@ async function seedRemainingPagesContent() {
   await supabase.from("site_cta_settings").upsert({ id: 1, ...siteCtaSettings });
 
   console.log("Remaining pages content seeded.");
+}
+
+const siteSettings = {
+  header_logo: "/images/fayez-amana-logo.png",
+  footer_logo: "/images/fayez-amana-logo.png",
+  footer_quote: "Your vision, our craft, since 2000",
+  footer_quote_ar: "رؤيتك، حرفتنا، منذ عام 2000",
+  footer_est_line: "EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
+  footer_est_line_ar: "تأسست 2000 · معتمدة ISO · جدة، السعودية",
+  footer_marquee: "Your vision, our craft, since 2000\nEST. 2000 · ISO CERTIFIED · JEDDAH, KSA\n300+ Completed Projects\n25+ Years of Experience\nISO Certified",
+  footer_marquee_ar: "رؤيتك، حرفتنا، منذ عام 2000\nتأسست 2000 · معتمدة ISO · جدة، السعودية\n+300 مشروع منجز\n+25 عامًا من الخبرة\nمعتمدة ISO",
+};
+
+const navLinks = [
+  { label: "Home", label_ar: "الرئيسية", href: "/", show_in_primary_nav: false },
+  { label: "About", label_ar: "من نحن", href: "/about", show_in_primary_nav: true },
+  { label: "Services", label_ar: "خدماتنا", href: "/services", show_in_primary_nav: true },
+  { label: "Projects", label_ar: "مشاريعنا", href: "/projects", show_in_primary_nav: true },
+  { label: "Process", label_ar: "آلية العمل", href: "/process", show_in_primary_nav: true },
+  { label: "News", label_ar: "الأخبار", href: "/news", show_in_primary_nav: false },
+  { label: "Careers", label_ar: "الوظائف", href: "/careers", show_in_primary_nav: false },
+  { label: "Contact", label_ar: "تواصل معنا", href: "/contact", show_in_primary_nav: true },
+];
+
+async function seedSiteChrome() {
+  const supabase = createAdminClient();
+  console.log("Seeding site-wide header/footer settings...");
+  await supabase.from("site_settings").upsert({ id: 1, ...siteSettings });
+  console.log("Seeding navigation links...");
+  await replaceAll(
+    supabase,
+    "site_nav_links",
+    navLinks.map((row, i) => ({ ...row, sort_order: i })),
+  );
+  console.log("Site chrome seeded.");
 }
 
 async function main() {
@@ -1381,6 +1416,7 @@ async function main() {
   await seedRemainingContent();
   await seedHomeContent();
   await seedRemainingPagesContent();
+  await seedSiteChrome();
 
   console.log("Done.");
 }

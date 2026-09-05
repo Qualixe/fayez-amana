@@ -37,7 +37,7 @@ export default function AdminLoginPage() {
       >
         <div className="flex flex-col gap-1">
           <span className="text-xl font-bold tracking-[-0.02em] text-bone">
-            BRU<span className="text-azure-glow">CO.</span>
+            Fayez<span className="text-azure-glow">Amana</span>
           </span>
           <h1 className="font-mono text-[11px] uppercase tracking-[0.22em] text-dust">Admin sign in</h1>
         </div>

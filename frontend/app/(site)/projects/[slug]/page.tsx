@@ -24,7 +24,7 @@ export async function generateMetadata(props: PageProps<"/projects/[slug]">): Pr
 
   return {
     title: `${p.title} | ${categoryLabel(p.category, locale)} · Fayez Amana Construction Company`,
-    description: `${p.teaser} A ${p.category.toLowerCase()} project by BRU CO., general contractor in ${p.location}.`,
+    description: `${p.teaser} A ${p.category.toLowerCase()} project by Fayez Amana, general contractor in ${p.location}.`,
   };
 }
 

@@ -16,7 +16,7 @@ export default function ProjectDetailCompletedFigure({ project, locale }: { proj
         <div className="relative aspect-[16/9] w-full overflow-hidden bg-slab lg:aspect-[21/9]">
           <img
             src={project.image}
-            alt={`${p.title}, a ${p.category.toLowerCase()} project by BRU CO. in ${p.location}`}
+            alt={`${p.title}, a ${p.category.toLowerCase()} project by Fayez Amana in ${p.location}`}
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div

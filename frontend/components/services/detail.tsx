@@ -143,7 +143,7 @@ export default function ServicesDetail({ locale, services }: { locale: Locale; s
                   <Reveal tag="div" delay={260} className="mt-6 flex flex-wrap gap-4">
                     <a
                       href="/contact"
-                      className="group inline-flex min-h-[52px] items-center justify-center gap-3 px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white transition-[filter] duration-500 hover:brightness-110"
+                      className="btn-premium btn-premium-fill group inline-flex min-h-[52px] items-center justify-center gap-3 px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
                       style={{
                         backgroundImage:
                           "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
@@ -154,7 +154,7 @@ export default function ServicesDetail({ locale, services }: { locale: Locale; s
                     </a>
                     <a
                       href="/projects"
-                      className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
+                      className="btn-premium btn-premium-outline group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
                     >
                       {t.relatedWork}
                       <ArrowIcon />
@@ -166,7 +166,7 @@ export default function ServicesDetail({ locale, services }: { locale: Locale; s
                   <Reveal clip className="relative aspect-[4/3] overflow-hidden bg-slab">
                     <img
                       src={service.image}
-                      alt={`${service.title} carried out by BRU CO. on a construction site in Jeddah`}
+                      alt={`${service.title} carried out by Fayez Amana on a construction site in Jeddah`}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                     <span className="absolute left-5 top-5 bg-void/70 px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow backdrop-blur-sm">

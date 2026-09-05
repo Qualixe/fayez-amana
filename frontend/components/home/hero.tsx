@@ -5,8 +5,8 @@ import type { Locale } from "@/lib/locale";
 import type { HomeSettings, HeroStage, HomeStat } from "@/lib/db/home";
 
 const srOnly = {
-    en: ", Building Reference United, a construction company and general contractor in Jeddah, Saudi Arabia",
-    ar: "، شركة مرجع المباني المتحدة، شركة مقاولات عامة في جدة، المملكة العربية السعودية",
+    en: ", Fayez Amana Construction Company, a construction company and general contractor in Jeddah, Saudi Arabia",
+    ar: "، شركة فايز أمانة للمقاولات، شركة مقاولات عامة في جدة، المملكة العربية السعودية",
 } as const;
 
 const INTRO_FADE_END = 0.15;
@@ -198,7 +198,7 @@ export default function Hero({
                             <div className="pointer-events-auto mt-8 flex flex-col gap-4 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center">
                                 <a
                                     href="/contact"
-                                    className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/10 px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white transition-[filter] duration-500 hover:brightness-110 sm:min-h-[56px] sm:px-9 sm:py-5"
+                                    className="btn-premium btn-premium-fill group inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/10 px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white hover:brightness-110 sm:min-h-[56px] sm:px-9 sm:py-5"
                                     style={{
                                         backgroundImage:
                                             "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
@@ -209,7 +209,7 @@ export default function Hero({
                                 </a>
                                 <a
                                     href="/projects"
-                                    className="inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent bg-white/[0.03] px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-bone transition-colors duration-400 hover:bg-white/[0.06] sm:min-h-[56px] sm:px-9 sm:py-5"
+                                    className="btn-premium btn-premium-outline inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent bg-white/[0.03] px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-bone hover:bg-white/[0.06] sm:min-h-[56px] sm:px-9 sm:py-5"
                                 >
                                     {t.viewPortfolio}
                                 </a>
@@ -235,13 +235,13 @@ export default function Hero({
                             <div className="pointer-events-auto mt-8 flex flex-wrap gap-4">
                                 <a
                                     href="/projects"
-                                    className="inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent bg-white/[0.03] px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-bone transition-colors duration-400 hover:bg-white/[0.06] sm:min-h-[56px] sm:px-9 sm:py-5"
+                                    className="btn-premium btn-premium-outline inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent bg-white/[0.03] px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-bone hover:bg-white/[0.06] sm:min-h-[56px] sm:px-9 sm:py-5"
                                 >
                                     {t.viewPortfolio}
                                 </a>
                                 <a
                                     href="/contact"
-                                    className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/10 px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white transition-[filter] duration-500 hover:brightness-110 sm:min-h-[56px] sm:px-9 sm:py-5"
+                                    className="btn-premium btn-premium-fill group inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/10 px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white hover:brightness-110 sm:min-h-[56px] sm:px-9 sm:py-5"
                                     style={{
                                         backgroundImage:
                                             "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
@@ -302,7 +302,7 @@ export default function Hero({
                                     </span>
                                     {t.scrollHint}
                                 </span>
-                                <span dir="ltr" className="hidden sm:inline">www.bru.com.sa</span>
+                                <span dir="ltr" className="hidden sm:inline">www.fayezamana.com.sa</span>
                                 <span ref={periodRef}>{firstStage?.period}</span>
                             </div>
                         </div>

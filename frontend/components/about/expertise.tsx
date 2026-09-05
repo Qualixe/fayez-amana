@@ -44,7 +44,7 @@ export default function Expertise({
                 <Reveal clip className="relative aspect-[16/11] self-center overflow-hidden bg-slab">
                     <img
                         src={image}
-                        alt="BRU CO. RB Villa, a modern residential villa façade at night in Jeddah, Saudi Arabia"
+                        alt="Fayez Amana RB Villa, a modern residential villa façade at night in Jeddah, Saudi Arabia"
                         className="absolute inset-0 h-full w-full object-cover"
                     />
                 </Reveal>

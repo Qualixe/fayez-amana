@@ -13,7 +13,7 @@ const stages = [
 
 const DURATION = 2200;
 
-export default function Preloader() {
+export default function Preloader({ logo }: { logo: string }) {
     const pathname = usePathname();
     const [progress, setProgress] = useState(0);
     const [visible, setVisible] = useState(true);
@@ -64,14 +64,12 @@ export default function Preloader() {
             <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-30" aria-hidden="true" />
 
             <div className="relative flex flex-col items-center gap-3 text-center">
-                <span className="text-3xl font-bold tracking-[-0.02em] text-bone">
-                    BRU<span className="text-azure-glow">CO.</span>
-                </span>
+                <img src={logo} alt="Fayez Amana" className="h-12 w-auto object-contain" />
                 <span dir="rtl" className="text-sm text-dust">
-                    شركة مرجع المباني المتحدة
+                    شركة فايز أمانة للمقاولات
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ash">
-                    Building Reference United Company
+                    Fayez Amana Construction Company
                 </span>
             </div>
 

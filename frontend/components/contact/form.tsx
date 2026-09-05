@@ -57,12 +57,12 @@ const content = {
     sending: "Sending…",
     send: "Send enquiry",
     call: "Call +966 55 535 2526",
-    footerNote: "Sent straight to info@bru.com.sa. We respond within 1 business day.",
+    footerNote: "Sent straight to info@fayezamana.com.sa. We respond within 1 business day.",
     validationError: "Please add your name, a valid email, and a note about the work.",
-    sendError: "We couldn't send that just now. Please try again, or email us at info@bru.com.sa.",
-    networkError: "We couldn't reach our server. Please check your connection and try again, or email us at info@bru.com.sa.",
+    sendError: "We couldn't send that just now. Please try again, or email us at info@fayezamana.com.sa.",
+    networkError: "We couldn't reach our server. Please check your connection and try again, or email us at info@fayezamana.com.sa.",
     successKicker: "Consultation request received",
-    successHeading: "Thank you for contacting BRU.",
+    successHeading: "Thank you for contacting Fayez Amana.",
     successBody: "Our engineering team will review your enquiry and come back to you with next steps and comparable projects from the portfolio.",
     successCall: "Urgent? Call +966 55 535 2526",
     sentMessage: "Your enquiry is with our team in Jeddah. We respond within one business day.",
@@ -85,12 +85,12 @@ const content = {
     sending: "جارٍ الإرسال…",
     send: "إرسال الاستفسار",
     call: "اتصل بـ +966 55 535 2526",
-    footerNote: "يُرسَل مباشرة إلى info@bru.com.sa. نستجيب خلال يوم عمل واحد.",
+    footerNote: "يُرسَل مباشرة إلى info@fayezamana.com.sa. نستجيب خلال يوم عمل واحد.",
     validationError: "يرجى إضافة اسمك، وبريد إلكتروني صحيح، وملاحظة عن العمل المطلوب.",
-    sendError: "تعذّر إرسال الطلب الآن. يرجى المحاولة مجددًا، أو مراسلتنا على info@bru.com.sa.",
-    networkError: "تعذّر الوصول إلى الخادم. يرجى التحقق من اتصالك والمحاولة مجددًا، أو مراسلتنا على info@bru.com.sa.",
+    sendError: "تعذّر إرسال الطلب الآن. يرجى المحاولة مجددًا، أو مراسلتنا على info@fayezamana.com.sa.",
+    networkError: "تعذّر الوصول إلى الخادم. يرجى التحقق من اتصالك والمحاولة مجددًا، أو مراسلتنا على info@fayezamana.com.sa.",
     successKicker: "تم استلام طلب الاستشارة",
-    successHeading: "شكرًا لتواصلك مع BRU.",
+    successHeading: "شكرًا لتواصلك مع Fayez Amana.",
     successBody: "سيراجع فريقنا الهندسي طلبك ويعود إليك بالخطوات التالية ومشاريع مماثلة من أعمالنا.",
     successCall: "عاجل؟ اتصل بـ +966 55 535 2526",
     sentMessage: "استفسارك الآن لدى فريقنا في جدة. نستجيب خلال يوم عمل واحد.",
@@ -589,7 +589,7 @@ export default function ContactForm({
         <button
           type="submit"
           disabled={isSending}
-          className="group flex min-h-[56px] w-full grow basis-60 items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white transition-[filter] duration-500 hover:brightness-110 disabled:opacity-60 sm:w-auto"
+          className="btn-premium btn-premium-fill group flex min-h-[56px] w-full grow basis-60 items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110 disabled:opacity-60 sm:w-auto"
           style={{
             backgroundImage:
               "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
@@ -600,7 +600,7 @@ export default function ContactForm({
         </button>
         <a
           href="tel:+966555352526"
-          className="flex min-h-[56px] w-full grow basis-60 items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08] sm:w-auto"
+          className="btn-premium btn-premium-outline flex min-h-[56px] w-full grow basis-60 items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08] sm:w-auto"
         >
           <PhoneIcon className="h-4 w-4" />
           {t.call}

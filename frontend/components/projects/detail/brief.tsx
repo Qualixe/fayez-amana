@@ -11,8 +11,8 @@ const content = {
     size: "Project Size",
     sector: "Sector",
     contractor: "Contractor",
-    contractorValue: "BRU CO., Building Reference United",
-    fallbackClient: "BRU CO.",
+    contractorValue: "Fayez Amana, Fayez Amana Construction Company",
+    fallbackClient: "Fayez Amana",
     cta: "Enquire About Similar Work",
     timelineLabel: "Construction Timeline",
     timeline: ["Planning", "Design", "Engineering", "Construction", "Quality Control", "Completion"],
@@ -25,8 +25,8 @@ const content = {
     size: "مساحة المشروع",
     sector: "القطاع",
     contractor: "المقاول",
-    contractorValue: "BRU CO.، مرجع المباني المتحدة",
-    fallbackClient: "BRU CO.",
+    contractorValue: "Fayez Amana، فايز أمانة للمقاولات",
+    fallbackClient: "Fayez Amana",
     cta: "استفسر عن عمل مشابه",
     timelineLabel: "الجدول الزمني للإنشاء",
     timeline: ["التخطيط", "التصميم", "الهندسة", "التنفيذ", "ضبط الجودة", "التسليم"],
@@ -90,7 +90,7 @@ export default function ProjectDetailBrief({ project, locale }: { project: Proje
 
           <a
             href="/contact"
-            className="group inline-flex min-h-[56px] items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white transition-[filter] duration-500 hover:brightness-110"
+            className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
             style={{
               backgroundImage:
                 "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",

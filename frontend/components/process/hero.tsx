@@ -60,11 +60,7 @@ export default function ProcessHero({ settings }: { settings: ProcessPageSetting
           {t.lede}
         </Reveal>
 
-        <Reveal
-          tag="dl"
-          delay={300}
-          className="mt-12 grid w-full gap-px border border-steel/70 bg-steel/70 sm:grid-cols-2 lg:grid-cols-4"
-        >
+        <dl className="mt-12 grid w-full gap-px border border-steel/70 bg-steel/70 sm:grid-cols-2 lg:grid-cols-4">
           {t.meta.map((item) => (
             <div
               key={item.label}
@@ -78,7 +74,7 @@ export default function ProcessHero({ settings }: { settings: ProcessPageSetting
               </dd>
             </div>
           ))}
-        </Reveal>
+        </dl>
       </div>
     </header>
   );

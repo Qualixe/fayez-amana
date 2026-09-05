@@ -12,7 +12,7 @@ import { getHomeSettings } from "@/lib/db/home";
 export const metadata: Metadata = {
   title: "Services | Fayez Amana Construction Company",
   description:
-    "Structural & construction, architectural, electromechanical and interior & finishing works, delivered under one roof by BRU CO., a Jeddah general contractor with 25+ years and 300+ completed projects.",
+    "Structural & construction, architectural, electromechanical and interior & finishing works, delivered under one roof by Fayez Amana, a Jeddah general contractor with 25+ years and 300+ completed projects.",
 };
 
 export default async function ServicesPage() {

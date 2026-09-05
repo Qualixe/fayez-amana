@@ -96,13 +96,13 @@ export default function Clients({
       </div>
 
       <div className="mx-auto mt-14 max-w-full px-6 sm:px-8 lg:px-12">
-        <div className="grid gap-px bg-steel sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid auto-rows-fr sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((highlight, index) => (
             <Reveal
               key={highlight.title}
               tag="div"
               delay={index * 80}
-              className="flex flex-col gap-3 bg-ink p-8"
+              className="flex flex-col gap-3 border-t-[0.5px] border-steel bg-ink p-8 first:border-t-0 sm:nth-[-n+2]:border-t-0 sm:even:border-s-[0.5px] sm:border-s-steel lg:nth-[-n+4]:border-t-0 lg:not-nth-[4n+1]:border-s-[0.5px] lg:border-s-steel"
             >
               <h3 className="text-lg font-semibold text-bone">{highlight.title}</h3>
               <p className="text-sm leading-[1.72] tracking-[-0.004em] text-dust">{highlight.description}</p>

@@ -6,13 +6,13 @@ const content = {
     en: {
         eyebrow: "Credentials",
         title: "Certifications & Licenses",
-        lede: "BRU CO. operates in full compliance with all regulatory, quality, and professional standards required in the Saudi construction industry.",
+        lede: "Fayez Amana operates in full compliance with all regulatory, quality, and professional standards required in the Saudi construction industry.",
         cta: "Quality & Safety",
     },
     ar: {
         eyebrow: "الاعتمادات",
         title: "الشهادات والتراخيص",
-        lede: "تعمل BRU CO. في التزام تام بكل المعايير التنظيمية والجودة والمهنية المطلوبة في قطاع الإنشاءات السعودي.",
+        lede: "تعمل Fayez Amana في التزام تام بكل المعايير التنظيمية والجودة والمهنية المطلوبة في قطاع الإنشاءات السعودي.",
         cta: "الجودة والسلامة",
     },
 } as const;
@@ -76,7 +76,7 @@ export default function Certifications({ locale, certifications }: { locale: Loc
                 <Reveal tag="div" delay={420} className="mt-10">
                     <a
                         href="/services#quality-assurance"
-                        className="group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
+                        className="btn-premium btn-premium-outline group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
                     >
                         {t.cta}
                         <ArrowIcon />

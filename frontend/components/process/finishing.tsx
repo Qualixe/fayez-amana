@@ -53,7 +53,7 @@ export default function ProcessFinishing({ settings }: { settings: ProcessPageSe
             <Reveal tag="div" delay={140}>
               <a
                 href="/services#interior-finishing-works"
-                className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
+                className="btn-premium btn-premium-outline group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
               >
                 {t.cta}
                 <ArrowIcon />

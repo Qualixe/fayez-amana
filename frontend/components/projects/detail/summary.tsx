@@ -12,12 +12,12 @@ const content = {
     ],
     scopeOfWork: "Scope of work",
     deliveredBy: "Delivered by",
-    deliveredByValue: "BRU CO., general contractor, Jeddah",
+    deliveredByValue: "Fayez Amana, general contractor, Jeddah",
     disciplinesOnSite: "Disciplines on site",
     certification: "Certification",
     certificationValue: "ISO certified, Saudi Contractors Authority",
     body: (p: ReturnType<typeof localize>) =>
-      `${p.title} is a ${p.category.toLowerCase()} construction project in ${p.location}, built by BRU CO. (Building Reference United) as general contractor. The scope covered ${p.scope.toLowerCase()}. BRU CO. has worked across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia since 2000, with more than 300 completed projects.`,
+      `${p.title} is a ${p.category.toLowerCase()} construction project in ${p.location}, built by Fayez Amana Construction Company as general contractor. The scope covered ${p.scope.toLowerCase()}. Fayez Amana has worked across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia since 2000, with more than 300 completed projects.`,
   },
   ar: {
     eyebrow: "ملخص المشروع",
@@ -28,12 +28,12 @@ const content = {
     ],
     scopeOfWork: "نطاق العمل",
     deliveredBy: "التنفيذ بواسطة",
-    deliveredByValue: "BRU CO.، مقاول عام، جدة",
+    deliveredByValue: "Fayez Amana، مقاول عام، جدة",
     disciplinesOnSite: "التخصصات في الموقع",
     certification: "الشهادات",
     certificationValue: "معتمدة بمواصفة الآيزو، الهيئة السعودية للمقاولين",
     body: (p: ReturnType<typeof localize>) =>
-      `${p.title} مشروع إنشائي ${categoryLabel(p.category, "ar").toLowerCase()} في ${p.location}، نفّذته BRU CO. (مرجع المباني المتحدة) كمقاول عام. شمل النطاق ${p.scope}. تعمل BRU CO. في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة العربية السعودية منذ عام 2000، وأنجزت أكثر من 300 مشروع.`,
+      `${p.title} مشروع إنشائي ${categoryLabel(p.category, "ar").toLowerCase()} في ${p.location}، نفّذته Fayez Amana (فايز أمانة للمقاولات) كمقاول عام. شمل النطاق ${p.scope}. تعمل Fayez Amana في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة العربية السعودية منذ عام 2000، وأنجزت أكثر من 300 مشروع.`,
   },
 } as const;
 

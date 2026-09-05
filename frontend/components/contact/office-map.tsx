@@ -3,8 +3,8 @@ import type { Locale } from "@/lib/locale";
 import type { ContactSettings } from "@/lib/db/contact";
 
 const mapTitles = {
-  en: "BRU CO. office location, Jeddah, Saudi Arabia",
-  ar: "موقع مكتب BRU CO.، جدة، المملكة العربية السعودية",
+  en: "Fayez Amana office location, Jeddah, Saudi Arabia",
+  ar: "موقع مكتب Fayez Amana، جدة، المملكة العربية السعودية",
 } as const;
 
 export default function ContactOfficeMap({ locale, settings }: { locale: Locale; settings: ContactSettings }) {

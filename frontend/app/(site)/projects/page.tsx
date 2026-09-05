@@ -13,7 +13,7 @@ import { getFaqs } from "@/lib/db/contact";
 export const metadata: Metadata = {
   title: "Projects | Villa & Commercial Construction · Fayez Amana Construction Company",
   description:
-    "A selection of 300+ completed BRU CO. projects across Saudi Arabia: villa, residential, commercial, hospitality and F&B construction in Jeddah & Makkah.",
+    "A selection of 300+ completed Fayez Amana projects across Saudi Arabia: villa, residential, commercial, hospitality and F&B construction in Jeddah & Makkah.",
 };
 
 export default async function ProjectsPage() {

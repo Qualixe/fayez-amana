@@ -61,7 +61,7 @@ export default async function ContactCta({ locale }: { locale: Locale }) {
                     <Reveal tag="div" delay={240} className="mt-10 flex flex-wrap items-center gap-5">
                         <a
                             href="/contact"
-                            className="group inline-flex min-h-[56px] items-center justify-center gap-3 border border-white/10 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white transition-[filter] duration-500 hover:brightness-110"
+                            className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 border border-white/10 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
                             style={{
                                 backgroundImage:
                                     "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",

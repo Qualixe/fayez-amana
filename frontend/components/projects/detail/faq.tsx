@@ -10,26 +10,26 @@ const content = {
     faqs: (p: ReturnType<typeof localize>) => [
       {
         question: `Where is ${p.title} located?`,
-        answer: `The project is in ${p.location}. It was built by BRU CO. (Building Reference United), a general contractor headquartered in Jeddah and working across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia.`,
+        answer: `The project is in ${p.location}. It was built by Fayez Amana Construction Company, a general contractor headquartered in Jeddah and working across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia.`,
       },
       {
         question: `What was the scope of work on ${p.title}?`,
-        answer: `The scope covered ${p.scope.toLowerCase()}. BRU CO. delivers as a single general contractor, so structural, architectural, electromechanical (MEP) and interior finishing works sit with one accountable party rather than being split across separate trades contracts.`,
+        answer: `The scope covered ${p.scope.toLowerCase()}. Fayez Amana delivers as a single general contractor, so structural, architectural, electromechanical (MEP) and interior finishing works sit with one accountable party rather than being split across separate trades contracts.`,
       },
       {
         question: `How large is ${p.title}?`,
-        answer: `${p.size ?? "This project"}. The project sits in the ${p.category.toLowerCase()} sector, one of more than 300 projects BRU CO. has completed in Saudi Arabia.`,
+        answer: `${p.size ?? "This project"}. The project sits in the ${p.category.toLowerCase()} sector, one of more than 300 projects Fayez Amana has completed in Saudi Arabia.`,
       },
       {
         question: `Which construction company built ${p.title}?`,
-        answer: `BRU CO. (Building Reference United), a construction company founded in Jeddah in 2000, a member of the Saudi Contractors Authority and certified to ISO standards for quality, safety and environmental management.${
+        answer: `Fayez Amana Construction Company, a construction company founded in Jeddah in 2000, a member of the Saudi Contractors Authority and certified to ISO standards for quality, safety and environmental management.${
           p.client ? ` Client: ${p.client}.` : ""
         }`,
       },
       {
-        question: "How do I build a similar project with BRU CO.?",
+        question: "How do I build a similar project with Fayez Amana?",
         answer:
-          "Contact BRU CO. on +966 55 535 2526 or through the enquiry form on the contact page with the site location, building type and the scope you need. The company offers design-build and turnkey delivery, from excavation and foundations through to finishing and handover.",
+          "Contact Fayez Amana on +966 55 535 2526 or through the enquiry form on the contact page with the site location, building type and the scope you need. The company offers design-build and turnkey delivery, from excavation and foundations through to finishing and handover.",
       },
     ],
   },
@@ -40,26 +40,26 @@ const content = {
     faqs: (p: ReturnType<typeof localize>) => [
       {
         question: `أين يقع مشروع ${p.title}؟`,
-        answer: `يقع المشروع في ${p.location}. نفّذته BRU CO. (مرجع المباني المتحدة)، وهي شركة مقاولات عامة مقرها جدة، تعمل في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة العربية السعودية.`,
+        answer: `يقع المشروع في ${p.location}. نفّذته Fayez Amana (فايز أمانة للمقاولات)، وهي شركة مقاولات عامة مقرها جدة، تعمل في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة العربية السعودية.`,
       },
       {
         question: `ما نطاق العمل في ${p.title}؟`,
-        answer: `شمل النطاق ${p.scope}. تنفّذ BRU CO. الأعمال بصفتها مقاولًا عامًا واحدًا، بحيث تكون الأعمال الإنشائية والمعمارية والكهروميكانيكية (MEP) والتشطيبات الداخلية تحت مسؤولية جهة واحدة بدلًا من توزيعها على عقود حرف منفصلة.`,
+        answer: `شمل النطاق ${p.scope}. تنفّذ Fayez Amana الأعمال بصفتها مقاولًا عامًا واحدًا، بحيث تكون الأعمال الإنشائية والمعمارية والكهروميكانيكية (MEP) والتشطيبات الداخلية تحت مسؤولية جهة واحدة بدلًا من توزيعها على عقود حرف منفصلة.`,
       },
       {
         question: `ما مساحة مشروع ${p.title}؟`,
-        answer: `${p.size ?? "هذا المشروع"}. يقع المشروع في قطاع ${categoryLabel(p.category, "ar")}، وهو أحد أكثر من 300 مشروع أنجزتها BRU CO. في المملكة العربية السعودية.`,
+        answer: `${p.size ?? "هذا المشروع"}. يقع المشروع في قطاع ${categoryLabel(p.category, "ar")}، وهو أحد أكثر من 300 مشروع أنجزتها Fayez Amana في المملكة العربية السعودية.`,
       },
       {
         question: `ما شركة المقاولات التي نفّذت ${p.title}؟`,
-        answer: `BRU CO. (مرجع المباني المتحدة)، شركة مقاولات تأسست في جدة عام 2000، وهي عضو في الهيئة السعودية للمقاولين ومعتمدة وفق مواصفات الآيزو للجودة والسلامة والبيئة.${
+        answer: `Fayez Amana (فايز أمانة للمقاولات)، شركة مقاولات تأسست في جدة عام 2000، وهي عضو في الهيئة السعودية للمقاولين ومعتمدة وفق مواصفات الآيزو للجودة والسلامة والبيئة.${
           p.client ? ` العميل: ${p.client}.` : ""
         }`,
       },
       {
-        question: "كيف أنفّذ مشروعًا مشابهًا مع BRU CO.؟",
+        question: "كيف أنفّذ مشروعًا مشابهًا مع Fayez Amana؟",
         answer:
-          "تواصل مع BRU CO. عبر +966 55 535 2526 أو من خلال نموذج الاستفسار في صفحة التواصل، مع تحديد موقع الأرض ونوع المبنى والنطاق المطلوب. تقدّم الشركة التصميم والتنفيذ والتسليم بنظام تسليم مفتاح، من الحفر والأساسات حتى التشطيب والتسليم.",
+          "تواصل مع Fayez Amana عبر +966 55 535 2526 أو من خلال نموذج الاستفسار في صفحة التواصل، مع تحديد موقع الأرض ونوع المبنى والنطاق المطلوب. تقدّم الشركة التصميم والتنفيذ والتسليم بنظام تسليم مفتاح، من الحفر والأساسات حتى التشطيب والتسليم.",
       },
     ],
   },

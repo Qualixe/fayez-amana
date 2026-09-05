@@ -66,7 +66,7 @@ export default function About({ settings }: { settings: HomeSettings["about"] })
                     <Reveal tag="div" delay={320} className="mt-4">
                         <a
                             href="/about"
-                            className="group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
+                            className="btn-premium btn-premium-outline group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
                         >
                             {t.ourStory}
                             <ArrowIcon />
@@ -78,7 +78,7 @@ export default function About({ settings }: { settings: HomeSettings["about"] })
                     <Reveal clip className="relative aspect-[16/10] overflow-hidden bg-slab">
                         <img
                             src={t.image}
-                            alt="Architectural render of a modern BRU CO. residential villa in Jeddah, Saudi Arabia"
+                            alt="Architectural render of a modern Fayez Amana residential villa in Jeddah, Saudi Arabia"
                             className="absolute inset-0 h-full w-full object-cover"
                         />
                         <div

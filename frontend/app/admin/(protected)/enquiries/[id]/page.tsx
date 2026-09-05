@@ -26,7 +26,7 @@ export default async function EnquiryDetailPage({ params }: { params: Promise<{ 
     <div className="flex max-w-2xl flex-col gap-8">
       <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">{enquiry.name}</h1>
 
-      <dl className="grid grid-cols-2 gap-4 border border-steel p-6">
+      <dl className="grid gap-4 border border-steel p-6 sm:grid-cols-2">
         {fields.map(([label, value]) => (
           <div key={label} className="flex flex-col gap-1">
             <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-dust">{label}</dt>

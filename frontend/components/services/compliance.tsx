@@ -57,7 +57,7 @@ export default function Compliance({ settings }: { settings: ServicesPageSetting
           <Reveal tag="div" delay={220} className="mt-4">
             <a
               href="/contact"
-              className="group inline-flex min-h-[56px] items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white transition-[filter] duration-500 hover:brightness-110"
+              className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, var(--color-azure-deep), var(--color-azure) 45%, var(--color-azure-lift))",
@@ -80,7 +80,7 @@ export default function Compliance({ settings }: { settings: ServicesPageSetting
           <div className="mt-8">
             <a
               href="/about#certifications"
-              className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone transition-colors duration-400 hover:bg-white/[0.08]"
+              className="btn-premium btn-premium-outline group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
             >
               {t.certCta}
               <ArrowIcon />

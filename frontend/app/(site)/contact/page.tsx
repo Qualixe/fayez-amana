@@ -11,7 +11,7 @@ import { getContactOptions, getContactSettings, getFaqs } from "@/lib/db/contact
 export const metadata: Metadata = {
   title: "Contact | General Contractor in Jeddah & Makkah · Fayez Amana Construction Company",
   description:
-    "Contact BRU CO., general contractor in Jeddah & Makkah. Call +966 55 535 2526 or send your project details: structural, MEP, interior and villa construction.",
+    "Contact Fayez Amana, general contractor in Jeddah & Makkah. Call +966 55 535 2526 or send your project details: structural, MEP, interior and villa construction.",
 };
 
 export default async function ContactPage() {

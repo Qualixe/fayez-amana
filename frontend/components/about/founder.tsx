@@ -34,7 +34,7 @@ export default function Founder({ founder }: { founder: FounderData }) {
           >
             <img
               src={t.photo}
-              alt={`${t.name}, ${t.role} of BRU CO.`}
+              alt={`${t.name}, ${t.role} of Fayez Amana`}
               className="absolute inset-0 h-full w-full object-cover opacity-70"
             />
             <div
