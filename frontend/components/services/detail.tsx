@@ -1,5 +1,5 @@
 import Reveal from "@/components/reveal";
-import { projects, localize } from "@/components/projects/data";
+import type { Service } from "@/lib/db/services";
 import type { Locale } from "@/lib/locale";
 
 const icons = [
@@ -37,144 +37,12 @@ const content = {
     serviceLabel: "Service",
     discussScope: "Discuss This Scope",
     relatedWork: "Related Work",
-    services: [
-      {
-        number: "01",
-        id: "structural-construction-works",
-        title: "Structural & Construction Works",
-        description: "Establishing and building projects to the highest specifications and structural standards. Full concrete and steel execution, from excavation and foundation setting through the reinforced-concrete frame to a completed structural shell.",
-        capabilities: [
-          "Excavation & earthworks to the founding level in the soil report",
-          "Plate load testing & soil bearing verification",
-          "Reinforced raft foundations & isolated footings",
-          "Column necks, columns, tie beams & suspended slabs",
-          "Backfilling in 30 cm compacted layers to code",
-          "Structural steel & concrete execution",
-        ],
-        image: "/images/service-details-img1.avif",
-        gallery: ["sport-center-prince-sultan", "diyar-al-khayal-duplex-villas", "residential-building"],
-      },
-      {
-        number: "02",
-        id: "architectural-works",
-        title: "Architectural Works",
-        description: "Designing and executing architectural structures with precision, from concept to built reality, merging form with function. Our architects work alongside the site teams so the drawing and the building never drift apart.",
-        capabilities: [
-          "Concept & schematic architectural design",
-          "Design & build delivery",
-          "Façade design and execution",
-          "Contemporary, neoclassical, semi-classic and Andalusian/Islamic idioms",
-          "Compliance with the approved architectural plan on site",
-          "Room, bathroom and kitchen setting-out per plan",
-        ],
-        image: "/images/service-details-img2.avif",
-        gallery: ["andalusian-islamic-villa", "neoclassical-villa", "chalets-durrat-al-arous"],
-      },
-      {
-        number: "03",
-        id: "electromechanical-works",
-        title: "Electromechanical Works",
-        description: "Implementing advanced mechanical, electrical and plumbing (MEP) systems: heating, ventilation and air conditioning (HVAC), water supply, drainage and power distribution, with top-tier quality and compliance. Sanitary extensions are executed strictly per the sanitary drawings, covering water supply systems and their maintenance, sewage, and air-conditioning and heating drainage.",
-        capabilities: [
-          "Sanitary extensions per approved sanitary drawings",
-          "Water supply systems & maintenance",
-          "Sewage and drainage systems",
-          "Air-conditioning and heating drainage",
-          "Power distribution & electrical installations",
-          "HVAC systems",
-        ],
-        image: "/images/service-details-img3.avif",
-        gallery: ["enaya-medical-building", "sport-center-prince-sultan", "modern-villa"],
-      },
-      {
-        number: "04",
-        id: "interior-finishing-works",
-        title: "Interior & Finishing Works",
-        description: "High-quality interior and exterior finishes with meticulous detail, plus full interior design implementation. The finishing stage consists of several precise steps that begin with preparatory works and end with handing over the project ready for use.",
-        capabilities: [
-          "Full interior design implementation",
-          "Interior and exterior finishing",
-          "Façade works",
-          "Joinery, wooden elements & façade lighting",
-          "Material quality control & adherence to the approved design",
-          "Continuous supervision to harmonise all trades",
-        ],
-        image: "/images/service-details-img4.avif",
-        gallery: ["asli-basha-restaurant", "naamah-bakery", "chalets-durrat-al-arous"],
-      },
-    ],
   },
   ar: {
     intro: "تسير جميع أعمالنا ضمن منظومة معتمدة، بشهادات ISO في إدارة الجودة والسلامة والبيئة.",
     serviceLabel: "الخدمة",
     discussScope: "ناقش هذا النطاق",
     relatedWork: "أعمال ذات صلة",
-    services: [
-      {
-        number: "01",
-        id: "structural-construction-works",
-        title: "الأعمال الإنشائية والبناء",
-        description: "تأسيس وبناء المشاريع بأعلى المواصفات والمعايير الإنشائية. تنفيذ كامل للخرسانة والحديد، من الحفر وتأسيس الأساسات مرورًا بالهيكل الخرساني حتى اكتمال الهيكل الإنشائي.",
-        capabilities: [
-          "الحفر والأعمال الترابية حتى منسوب التأسيس المحدد بتقرير التربة",
-          "اختبار التحميل والتحقق من تحمل التربة",
-          "أساسات لبشة مسلحة وقواعد منفصلة",
-          "رقاب الأعمدة والأعمدة والميدات والأسقف المعلقة",
-          "الردم بطبقات مدكوكة بسمك 30 سم وفق الكود",
-          "تنفيذ الحديد والخرسانة الإنشائية",
-        ],
-        image: "/images/service-details-img1.avif",
-        gallery: ["sport-center-prince-sultan", "diyar-al-khayal-duplex-villas", "residential-building"],
-      },
-      {
-        number: "02",
-        id: "architectural-works",
-        title: "الأعمال المعمارية",
-        description: "تصميم وتنفيذ الهياكل المعمارية بدقة، من الفكرة حتى الواقع المبني، بالجمع بين الشكل والوظيفة. يعمل معماريونا جنبًا إلى جنب مع فرق الموقع حتى لا يتباعد المخطط عن المبنى.",
-        capabilities: [
-          "التصميم المعماري المفاهيمي والتخطيطي",
-          "تسليم التصميم والتنفيذ",
-          "تصميم وتنفيذ الواجهات",
-          "طرز معاصرة وكلاسيكية حديثة وشبه كلاسيكية وأندلسية/إسلامية",
-          "الالتزام بالمخطط المعماري المعتمد في الموقع",
-          "تحديد أبعاد الغرف والحمامات والمطابخ وفق المخطط",
-        ],
-        image: "/images/service-details-img2.avif",
-        gallery: ["andalusian-islamic-villa", "neoclassical-villa", "chalets-durrat-al-arous"],
-      },
-      {
-        number: "03",
-        id: "electromechanical-works",
-        title: "الأعمال الكهروميكانيكية",
-        description: "تنفيذ أنظمة ميكانيكية وكهربائية وسباكة متطورة (MEP): التكييف والتهوية، إمدادات المياه، الصرف، وتوزيع الطاقة، بأعلى مستويات الجودة والالتزام. تُنفَّذ التمديدات الصحية بدقة وفق المخططات الصحية المعتمدة، وتشمل أنظمة المياه وصيانتها والصرف الصحي وصرف التكييف والتدفئة.",
-        capabilities: [
-          "التمديدات الصحية وفق المخططات الصحية المعتمدة",
-          "أنظمة إمداد المياه وصيانتها",
-          "أنظمة الصرف الصحي والتصريف",
-          "صرف أنظمة التكييف والتدفئة",
-          "توزيع الطاقة والتمديدات الكهربائية",
-          "أنظمة التكييف (HVAC)",
-        ],
-        image: "/images/service-details-img3.avif",
-        gallery: ["enaya-medical-building", "sport-center-prince-sultan", "modern-villa"],
-      },
-      {
-        number: "04",
-        id: "interior-finishing-works",
-        title: "التصميم الداخلي والتشطيبات",
-        description: "تشطيبات داخلية وخارجية عالية الجودة بدقة متناهية، إضافة إلى تنفيذ كامل للتصميم الداخلي. تتكوّن مرحلة التشطيب من خطوات دقيقة تبدأ بالأعمال التحضيرية وتنتهي بتسليم المشروع جاهزًا للاستخدام.",
-        capabilities: [
-          "تنفيذ كامل للتصميم الداخلي",
-          "التشطيبات الداخلية والخارجية",
-          "أعمال الواجهات",
-          "النجارة والعناصر الخشبية وإضاءة الواجهات",
-          "ضبط جودة المواد والالتزام بالتصميم المعتمد",
-          "إشراف مستمر لتنسيق جميع الحرف",
-        ],
-        image: "/images/service-details-img4.avif",
-        gallery: ["asli-basha-restaurant", "naamah-bakery", "chalets-durrat-al-arous"],
-      },
-    ],
   },
 } as const;
 
@@ -195,7 +63,7 @@ function ArrowIcon() {
   );
 }
 
-export default function ServicesDetail({ locale }: { locale: Locale }) {
+export default function ServicesDetail({ locale, services }: { locale: Locale; services: Service[] }) {
   const t = content[locale];
   return (
     <section className="border-t border-steel bg-void">
@@ -208,12 +76,12 @@ export default function ServicesDetail({ locale }: { locale: Locale }) {
         </Reveal>
       </div>
 
-      {t.services.map((service, index) => {
+      {services.map((service, index) => {
         const reversed = index % 2 === 1;
         return (
           <div
-            key={service.number}
-            id={service.id}
+            key={service.id}
+            id={service.slug}
             className="scroll-mt-24 border-b border-steel py-20 sm:py-28"
           >
             <div className="mx-auto max-w-full px-6 sm:px-8 lg:px-12">
@@ -231,7 +99,7 @@ export default function ServicesDetail({ locale }: { locale: Locale }) {
                         strokeWidth={1.4}
                         className="h-8 w-8"
                       >
-                        {icons[index]}
+                        {icons[index % icons.length]}
                       </svg>
                     </span>
                     <span className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-azure-glow">
@@ -302,36 +170,31 @@ export default function ServicesDetail({ locale }: { locale: Locale }) {
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                     <span className="absolute left-5 top-5 bg-void/70 px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow backdrop-blur-sm">
-                      {service.number} / 04
+                      {service.number} / {String(services.length).padStart(2, "0")}
                     </span>
                   </Reveal>
 
                   <Reveal tag="div" delay={120} className="grid grid-cols-3 gap-3">
-                    {service.gallery.map((slug) => {
-                      const found = projects.find((p) => p.slug === slug);
-                      if (!found) return null;
-                      const related = localize(found, locale);
-                      return (
-                        <a
-                          key={slug}
-                          href={`/projects/${related.slug}`}
-                          className="group relative aspect-[4/3] overflow-hidden bg-slab"
-                        >
-                          <img
-                            src={related.image}
-                            alt={related.title}
-                            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
-                          />
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0 bg-gradient-to-t from-void/90 to-transparent"
-                          />
-                          <span className="absolute inset-x-0 bottom-0 p-3 text-[11px] font-medium leading-tight text-bone transition-colors duration-500 group-hover:text-azure-glow">
-                            {related.title}
-                          </span>
-                        </a>
-                      );
-                    })}
+                    {service.gallery.map((related) => (
+                      <a
+                        key={related.slug}
+                        href={`/projects/${related.slug}`}
+                        className="group relative aspect-[4/3] overflow-hidden bg-slab"
+                      >
+                        <img
+                          src={related.image}
+                          alt={related.title}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
+                        />
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 bg-gradient-to-t from-void/90 to-transparent"
+                        />
+                        <span className="absolute inset-x-0 bottom-0 p-3 text-[11px] font-medium leading-tight text-bone transition-colors duration-500 group-hover:text-azure-glow">
+                          {related.title}
+                        </span>
+                      </a>
+                    ))}
                   </Reveal>
                 </div>
               </div>

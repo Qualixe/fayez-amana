@@ -1,36 +1,5 @@
 import Reveal from "@/components/reveal";
-import type { Locale } from "@/lib/locale";
-
-const content = {
-  en: {
-    eyebrow: "Compliance",
-    title: "Standards, in full.",
-    standards: [
-      "Member of the Saudi Contractors Authority",
-      "Formally classified by regulatory bodies for structural, architectural, and MEP works",
-      "All engineers hold verified professional qualifications and active memberships with relevant bodies",
-      "Compliant with Saudi nationalization (Saudization) requirements",
-    ],
-    requestDocs: "Request Our Documents",
-    certifications: "Certifications",
-    certBody: "ISO certification in quality, safety and environmental management, membership of the Saudi Contractors Authority, and formal classification for structural, architectural and MEP works.",
-    certCta: "Certifications & Licenses",
-  },
-  ar: {
-    eyebrow: "الالتزام",
-    title: "معايير متكاملة.",
-    standards: [
-      "عضو في الهيئة السعودية للمقاولين",
-      "مصنّفة رسميًا من الجهات التنظيمية للأعمال الإنشائية والمعمارية والكهروميكانيكية",
-      "جميع المهندسين لديهم مؤهلات مهنية موثقة وعضويات فعّالة في الجهات ذات الصلة",
-      "ملتزمة بمتطلبات التوطين السعودية (السعودة)",
-    ],
-    requestDocs: "اطلب مستنداتنا",
-    certifications: "الاعتمادات",
-    certBody: "شهادة ISO في إدارة الجودة والسلامة والبيئة، وعضوية الهيئة السعودية للمقاولين، وتصنيف رسمي للأعمال الإنشائية والمعمارية والكهروميكانيكية.",
-    certCta: "الشهادات والتراخيص",
-  },
-} as const;
+import type { ServicesPageSettings } from "@/lib/db/services";
 
 function ArrowIcon() {
   return (
@@ -49,8 +18,8 @@ function ArrowIcon() {
   );
 }
 
-export default function Compliance({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function Compliance({ settings }: { settings: ServicesPageSettings["compliance"] }) {
+  const t = settings;
   return (
     <section className="border-b border-steel py-20 sm:py-28 bg-void">
       <div className="mx-auto grid max-w-full gap-14 px-6 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12">
@@ -103,7 +72,7 @@ export default function Compliance({ locale }: { locale: Locale }) {
         <Reveal tag="div" delay={100} className="self-start border border-steel bg-ink p-8">
           <p className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-dust">
             <span aria-hidden="true" className="h-px w-8 bg-rebar" />
-            {t.certifications}
+            {t.certificationsLabel}
           </p>
           <p className="mt-6 max-w-md text-[0.9875rem] leading-[1.72] tracking-[-0.004em] text-dust">
             {t.certBody}

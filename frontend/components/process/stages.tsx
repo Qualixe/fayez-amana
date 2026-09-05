@@ -2,7 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import Reveal from "@/components/reveal";
-import { stages, categoryForStage, stageImages, stageTitle, stageBody, categoryLabelText } from "@/components/process/data";
+import {
+  categoryForStage,
+  stageImages,
+  stageTitle,
+  stageBody,
+  categoryLabelText,
+  type Stage,
+  type StageCategory,
+} from "@/lib/process-shared";
 import type { Locale } from "@/lib/locale";
 
 const content = {
@@ -22,7 +30,15 @@ const content = {
   },
 } as const;
 
-export default function ProcessStages({ locale }: { locale: Locale }) {
+export default function ProcessStages({
+  locale,
+  stages,
+  categories,
+}: {
+  locale: Locale;
+  stages: Stage[];
+  categories: StageCategory[];
+}) {
   const t = content[locale];
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
@@ -46,7 +62,7 @@ export default function ProcessStages({ locale }: { locale: Locale }) {
   }, []);
 
   const activeStage = stages[activeIndex];
-  const activeCategory = categoryForStage(activeStage.no);
+  const activeCategory = categoryForStage(categories, activeStage.no);
   const activeImage = stageImages[activeIndex % stageImages.length];
 
   return (
@@ -124,7 +140,7 @@ export default function ProcessStages({ locale }: { locale: Locale }) {
 
           <ol className="flex flex-col">
             {stages.map((stage, index) => {
-              const category = categoryForStage(stage.no);
+              const category = categoryForStage(categories, stage.no);
               const showCategory = category?.from === stage.no;
               const isActive = index === activeIndex;
 

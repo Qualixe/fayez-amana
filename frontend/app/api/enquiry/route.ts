@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -21,19 +22,26 @@ export async function POST(request: Request) {
     );
   }
 
-  // No email service is configured yet. Log the enquiry server-side so it
-  // isn't silently dropped; wire this up to a real provider (e.g. Resend,
-  // SMTP) before relying on this endpoint in production.
-  console.log("[contact enquiry]", {
+  const supabase = await createClient();
+  const { error } = await supabase.from("enquiries").insert({
     name,
     email,
-    phone: body.phone,
-    scope: body.scope,
-    location: body.location,
-    budget: body.budget,
-    sector: body.sector,
-    body: message,
+    phone: body.phone ? String(body.phone) : null,
+    scope: body.scope ? String(body.scope) : null,
+    location: body.location ? String(body.location) : null,
+    budget: body.budget ? String(body.budget) : null,
+    sector: body.sector ? String(body.sector) : null,
+    message,
+    locale: body.locale === "ar" ? "ar" : "en",
   });
+
+  if (error) {
+    console.error("[contact enquiry] insert failed", error);
+    return NextResponse.json(
+      { ok: false, message: "We couldn't send that just now. Please try again, or email us at info@bru.com.sa." },
+      { status: 500 },
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }

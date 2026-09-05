@@ -22,7 +22,7 @@ import {
   CupIcon,
   GoalIcon,
 } from "@/components/contact/icons";
-import { scopeOptions, budgetOptions, sectorOptions, trustItems, optionLabel, type LocalizedOption } from "@/components/contact/data";
+import { optionLabel, type LocalizedOption } from "@/lib/contact-shared";
 import type { Locale } from "@/lib/locale";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -302,7 +302,19 @@ function Dropdown({
   );
 }
 
-export default function ContactForm({ locale }: { locale: Locale }) {
+export default function ContactForm({
+  locale,
+  scopeOptions,
+  budgetOptions,
+  sectorOptions,
+  trustItems,
+}: {
+  locale: Locale;
+  scopeOptions: LocalizedOption[];
+  budgetOptions: LocalizedOption[];
+  sectorOptions: LocalizedOption[];
+  trustItems: { title: string; body: string }[];
+}) {
   const t = content[locale];
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
@@ -366,6 +378,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           budget: get("budget"),
           sector: get("sector"),
           body,
+          locale,
         }),
       });
       const result = await res.json().catch(() => null);
@@ -553,7 +566,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           const TrustIcon = [ShieldIcon, BoltIcon, RulerIcon][index];
           return (
             <li
-              key={item.title.en}
+              key={item.title}
               className="flex flex-col gap-3 rounded-[14px] border border-edge p-5 transition-colors duration-200 hover:border-steel/90"
               style={{
                 background:
@@ -564,9 +577,9 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                 <TrustIcon className="h-[18px] w-[18px]" />
               </span>
               <span className="text-[13px] font-semibold leading-snug tracking-[0.01em] text-bone">
-                {item.title[locale]}
+                {item.title}
               </span>
-              <span className="text-[12px] leading-relaxed text-ash">{item.body[locale]}</span>
+              <span className="text-[12px] leading-relaxed text-ash">{item.body}</span>
             </li>
           );
         })}

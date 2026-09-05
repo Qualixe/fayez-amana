@@ -1,40 +1,13 @@
 import Reveal from "@/components/reveal";
-import type { Locale } from "@/lib/locale";
+import type { ProjectsPageSettings } from "@/lib/db/projects";
 
-const content = {
-  en: {
-    eyebrow: "Portfolio",
-    title1: "What We've",
-    title2: "Built",
-    lede: "A selection from our portfolio of 300+ completed projects across Saudi Arabia, each delivered with precision, quality, and dedication.",
-    meta: [
-      { label: "Completed Projects", value: "300+" },
-      { label: "Documented Here", value: "18 case studies" },
-      { label: "Sectors", value: "6" },
-      { label: "Territory", value: "Kingdom-wide, HQ Jeddah" },
-    ],
-  },
-  ar: {
-    eyebrow: "أعمالنا",
-    title1: "ما الذي",
-    title2: "بنيناه",
-    lede: "مجموعة مختارة من محفظتنا التي تضم أكثر من 300 مشروع منجز في أنحاء السعودية، كلٌّ منها مُسلَّم بدقة وجودة وتفانٍ.",
-    meta: [
-      { label: "مشاريع منجزة", value: "+300" },
-      { label: "موثّقة هنا", value: "18 دراسة حالة" },
-      { label: "القطاعات", value: "6" },
-      { label: "النطاق", value: "المملكة كاملة، المقر جدة" },
-    ],
-  },
-} as const;
-
-export default function ProjectsHero({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function ProjectsHero({ settings }: { settings: ProjectsPageSettings["hero"] }) {
+  const t = settings;
   return (
     <header className="relative flex min-h-[92svh] items-end overflow-hidden border-b border-steel">
       <div className="absolute inset-[-8%] overflow-hidden" aria-hidden="true">
         <img
-          src="/images/project-hero-bg.avif"
+          src={t.image}
           alt=""
           className="hero-settle h-full w-full object-cover"
           style={{ animationDelay: "2.9s" }}

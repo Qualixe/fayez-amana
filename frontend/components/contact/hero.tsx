@@ -1,27 +1,14 @@
 import Reveal from "@/components/reveal";
-import type { Locale } from "@/lib/locale";
+import type { ContactSettings } from "@/lib/db/contact";
 
-const content = {
-  en: {
-    eyebrow: "Let's Build Together · Jeddah, KSA",
-    heading: ["Let's Build", "Together."],
-    lede: "Building Reference United Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
-  },
-  ar: {
-    eyebrow: "لنبنِ معًا · جدة، السعودية",
-    heading: ["لنبنِ", "معًا."],
-    lede: "شركة مرجع المباني المتحدة · تأسست عام 2000 · معتمدة آيزو · جدة، السعودية",
-  },
-} as const;
-
-export default function ContactHero({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function ContactHero({ settings }: { settings: ContactSettings["hero"] }) {
+  const t = settings;
 
   return (
     <header className="relative flex min-h-[68svh] items-end overflow-hidden border-b border-steel">
       <div className="absolute inset-[-8%] overflow-hidden" aria-hidden="true">
         <img
-          src="/images/work-img6.avif"
+          src={t.image}
           alt=""
           className="hero-settle h-full w-full object-cover"
           style={{ animationDelay: "2.9s" }}

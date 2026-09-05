@@ -1,5 +1,5 @@
 import Reveal from "@/components/reveal";
-import { workflowPhases } from "@/components/process/data";
+import type { WorkflowPhase } from "@/lib/db/process";
 import type { Locale } from "@/lib/locale";
 
 const content = {
@@ -15,7 +15,7 @@ const content = {
   },
 } as const;
 
-export default function ProcessWorkflow({ locale }: { locale: Locale }) {
+export default function ProcessWorkflow({ locale, phases }: { locale: Locale; phases: WorkflowPhase[] }) {
   const t = content[locale];
 
   return (
@@ -44,7 +44,7 @@ export default function ProcessWorkflow({ locale }: { locale: Locale }) {
         </Reveal>
 
         <ol className="mt-16 flex flex-col lg:flex-row">
-          {workflowPhases.map((phase, index) => (
+          {phases.map((phase, index) => (
             <Reveal
               key={phase.title}
               tag="li"

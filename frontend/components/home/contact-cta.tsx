@@ -1,22 +1,7 @@
 import Reveal from "@/components/reveal";
 import type { Locale } from "@/lib/locale";
-
-const content = {
-    en: {
-        eyebrow: "Let's Build Together.",
-        title1: "Your vision,",
-        title2: "our craft.",
-        lede: "Building Reference United Company · EST. 2000 · ISO CERTIFIED · JEDDAH, KSA",
-        startProject: "Start a Project",
-    },
-    ar: {
-        eyebrow: "لنبنِ معًا.",
-        title1: "رؤيتك،",
-        title2: "حرفتنا.",
-        lede: "شركة مرجع المباني المتحدة · تأسست 2000 · معتمدة ISO · جدة، السعودية",
-        startProject: "ابدأ مشروعك",
-    },
-} as const;
+import { getSiteCtaSettings } from "@/lib/db/site";
+import { getContactSettings } from "@/lib/db/contact";
 
 function ArrowIcon() {
     return (
@@ -35,12 +20,12 @@ function ArrowIcon() {
     );
 }
 
-export default function ContactCta({ locale }: { locale: Locale }) {
-    const t = content[locale];
+export default async function ContactCta({ locale }: { locale: Locale }) {
+    const [t, contactSettings] = await Promise.all([getSiteCtaSettings(locale), getContactSettings(locale)]);
     return (
         <section className="relative overflow-hidden border-t border-steel">
             <div className="absolute inset-0" aria-hidden="true">
-                <img src="/images/work-img4.avif" alt="" className="h-full w-full object-cover opacity-25" />
+                <img src={t.backgroundImage} alt="" className="h-full w-full object-cover opacity-25" />
                 <div
                     className="absolute inset-0"
                     style={{
@@ -86,18 +71,18 @@ export default function ContactCta({ locale }: { locale: Locale }) {
                             <ArrowIcon />
                         </a>
                         <a
-                            href="tel:+966555352526"
+                            href={`tel:${contactSettings.phone.replace(/\s+/g, "")}`}
                             dir="ltr"
                             className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold text-bone transition-colors duration-500 hover:text-azure-glow"
                         >
-                            +966 55 535 2526
+                            {contactSettings.phone}
                         </a>
                         <a
-                            href="mailto:info@bru.com.sa"
+                            href={`mailto:${contactSettings.email}`}
                             dir="ltr"
                             className="text-sm text-dust transition-colors duration-500 hover:text-bone"
                         >
-                            info@bru.com.sa
+                            {contactSettings.email}
                         </a>
                     </Reveal>
                 </div>

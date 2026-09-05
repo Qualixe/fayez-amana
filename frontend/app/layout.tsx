@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, JetBrains_Mono, Instrument_Serif, Tajawal } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import SmoothScroll from "@/components/smoothScroll";
-import Preloader from "@/components/preloader";
 import { getLocale } from "@/lib/locale";
 
 const manrope = Manrope({
@@ -46,12 +42,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} ${tajawal.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <Preloader/>
-        <Header locale={locale}/>
-        <SmoothScroll/>
         {children}
-        <Footer locale={locale}/>
-        </body>
+      </body>
     </html>
   );
 }

@@ -1,84 +1,6 @@
 import Reveal from "@/components/reveal";
-import type { Locale } from "@/lib/locale";
-
-const content = {
-    en: {
-        eyebrow: "Our Services",
-        title1: "Four disciplines,",
-        title2: "one roof.",
-        lede: "Comprehensive construction solutions under one roof, from foundation to finish, BRU delivers with precision and excellence.",
-        note: "Every service is backed by our ISO certifications in Quality, Safety, and Environmental Management, ensuring every project meets the highest international standards.",
-        explore: "Explore Services",
-        services: [
-            {
-                number: "01",
-                title: "Structural & Construction Works",
-                description: "Establishing and building projects to the highest specifications and structural standards. Full concrete and steel execution.",
-                href: "/services#structural-construction-works",
-                image: "/images/service1.avif",
-            },
-            {
-                number: "02",
-                title: "Architectural Works",
-                description: "Designing and executing architectural structures with precision, from concept to built reality, merging form with function.",
-                href: "/services#architectural-works",
-                image: "/images/service2.avif",
-            },
-            {
-                number: "03",
-                title: "Electromechanical Works",
-                description: "Implementing advanced electrical and mechanical systems, HVAC, plumbing, power distribution, with top-tier quality and compliance.",
-                href: "/services#electromechanical-works",
-                image: "/images/service3.avif",
-            },
-            {
-                number: "04",
-                title: "Interior & Finishing Works",
-                description: "High-quality interior and exterior finishes with meticulous detail, plus full interior design implementation.",
-                href: "/services#interior-finishing-works",
-                image: "/images/service4.avif",
-            },
-        ],
-    },
-    ar: {
-        eyebrow: "خدماتنا",
-        title1: "أربعة تخصصات،",
-        title2: "تحت سقف واحد.",
-        lede: "حلول إنشائية متكاملة تحت مظلة واحدة، من الأساسات حتى التشطيب النهائي، تقدّمها BRU بدقة وتميّز.",
-        note: "كل خدمة مدعومة بشهاداتنا المعتمدة من ISO في الجودة والسلامة والبيئة، لضمان مطابقة كل مشروع لأعلى المعايير الدولية.",
-        explore: "استكشف خدماتنا",
-        services: [
-            {
-                number: "01",
-                title: "الأعمال الإنشائية والبناء",
-                description: "تأسيس وبناء المشاريع بأعلى المواصفات والمعايير الإنشائية. تنفيذ كامل للخرسانة والحديد.",
-                href: "/services#structural-construction-works",
-                image: "/images/service1.avif",
-            },
-            {
-                number: "02",
-                title: "الأعمال المعمارية",
-                description: "تصميم وتنفيذ الهياكل المعمارية بدقة، من الفكرة حتى الواقع المبني، بالجمع بين الشكل والوظيفة.",
-                href: "/services#architectural-works",
-                image: "/images/service2.avif",
-            },
-            {
-                number: "03",
-                title: "الأعمال الكهروميكانيكية",
-                description: "تنفيذ أنظمة كهربائية وميكانيكية متطورة، التكييف والسباكة وتوزيع الطاقة، بأعلى مستويات الجودة والالتزام.",
-                href: "/services#electromechanical-works",
-                image: "/images/service3.avif",
-            },
-            {
-                number: "04",
-                title: "التصميم الداخلي والتشطيبات",
-                description: "تشطيبات داخلية وخارجية عالية الجودة بدقة متناهية، إضافة إلى تنفيذ كامل للتصميم الداخلي.",
-                href: "/services#interior-finishing-works",
-                image: "/images/service4.avif",
-            },
-        ],
-    },
-} as const;
+import type { Service } from "@/lib/db/services";
+import type { HomeSettings } from "@/lib/db/home";
 
 function ArrowIcon() {
     return (
@@ -97,8 +19,8 @@ function ArrowIcon() {
     );
 }
 
-export default function Services({ locale }: { locale: Locale }) {
-    const t = content[locale];
+export default function Services({ settings, services }: { settings: HomeSettings["services"]; services: Service[] }) {
+    const t = settings;
     return (
         <section id="services" className="relative border-t border-steel bg-void py-20 sm:py-28">
             <div className="mx-auto grid max-w-full gap-12 px-6 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:px-12">
@@ -141,9 +63,9 @@ export default function Services({ locale }: { locale: Locale }) {
                 </div>
 
                 <ul className="flex flex-col">
-                    {t.services.map((service, index) => (
-                        <Reveal key={service.number} tag="li" delay={index * 90} className="list-none">
-                            <a href={service.href} className="group relative block border-t border-steel py-9 last:border-b">
+                    {services.map((service, index) => (
+                        <Reveal key={service.id} tag="li" delay={index * 90} className="list-none">
+                            <a href={`/services#${service.slug}`} className="group relative block border-t border-steel py-9 last:border-b">
                                 <div className="flex items-start gap-6">
                                     <span className="mt-2 shrink-0 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ash transition-colors duration-500 group-hover:text-azure-glow">
                                         {service.number}

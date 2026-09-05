@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Reveal from "@/components/reveal";
 import EditorialProjectCard from "@/components/projects/editorial-project-card";
-import { projectCategories, projects, categoryLabel } from "@/components/projects/data";
+import { projectCategories, categoryLabel, type Project } from "@/components/projects/data";
 import type { Locale } from "@/lib/locale";
 
 const content = {
@@ -25,7 +25,7 @@ const content = {
   },
 } as const;
 
-export default function ProjectsFilterableGrid({ locale }: { locale: Locale }) {
+export default function ProjectsFilterableGrid({ locale, projects }: { locale: Locale; projects: Project[] }) {
   const t = content[locale];
   const [active, setActive] = useState<(typeof projectCategories)[number]>("All");
   const tablistRef = useRef<HTMLDivElement>(null);
@@ -36,14 +36,14 @@ export default function ProjectsFilterableGrid({ locale }: { locale: Locale }) {
 
   const filtered = useMemo(
     () => (active === "All" ? projects : projects.filter((p) => p.category === active)),
-    [active],
+    [active, projects],
   );
 
   const counts = useMemo(() => {
     const map: Record<string, number> = { All: projects.length };
     for (const p of projects) map[p.category] = (map[p.category] ?? 0) + 1;
     return map;
-  }, []);
+  }, [projects]);
 
   const updatePill = () => {
     const list = tablistRef.current;

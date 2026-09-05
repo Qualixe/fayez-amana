@@ -1,28 +1,8 @@
 import Reveal from "@/components/reveal";
 import Counter from "@/components/counter";
-import type { Locale } from "@/lib/locale";
+import type { ServicesPageSettings } from "@/lib/db/services";
 
-const content = {
-  en: {
-    counters: [
-      { value: 21, suffix: "", label: "Structural stages with sign-off" },
-      { value: 95, suffix: "%", label: "Minimum compaction per layer" },
-      { value: 30, suffix: "cm", label: "Maximum backfill layer thickness" },
-      { value: 3, suffix: "×", label: "Anti-termite treatment passes" },
-    ],
-  },
-  ar: {
-    counters: [
-      { value: 21, suffix: "", label: "مرحلة إنشائية معتمدة" },
-      { value: 95, suffix: "%", label: "الحد الأدنى للدمك لكل طبقة" },
-      { value: 30, suffix: "سم", label: "الحد الأقصى لسمك طبقة الردم" },
-      { value: 3, suffix: "×", label: "مرات معالجة مضادة للنمل الأبيض" },
-    ],
-  },
-} as const;
-
-export default function QualityMetrics({ locale }: { locale: Locale }) {
-  const { counters } = content[locale];
+export default function QualityMetrics({ counters }: { counters: ServicesPageSettings["qualityMetrics"] }) {
   return (
     <section id="quality-assurance" className="scroll-mt-24 border-b border-steel">
       <div className="mx-auto bg-steel max-w-full px-6 sm:px-8 lg:px-12">

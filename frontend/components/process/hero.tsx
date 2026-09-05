@@ -1,39 +1,14 @@
 import Reveal from "@/components/reveal";
-import type { Locale } from "@/lib/locale";
+import type { ProcessPageSettings } from "@/lib/db/process";
 
-const content = {
-  en: {
-    eyebrow: "Stages of Work in a Structural (Shell) Project",
-    heading: ["The 21", "stages of a", "structural build."],
-    lede: "The structural (shell) phase consists of 21 consecutive stages, beginning with excavation works and the setting-out of foundations, proceeding through execution of the concrete frame, and reaching completion of the building in its structural state. Each stage is designed to guarantee quality, precision, and adherence to the schedule, with continuous follow-up between the execution and supervision teams to ensure safety and that work proceeds according to the approved engineering specifications.",
-    meta: [
-      { label: "Structural Stages", value: "21 consecutive" },
-      { label: "Starts With", value: "Excavation & foundations" },
-      { label: "Ends With", value: "Building in structural state" },
-      { label: "Governed By", value: "Approved engineering specifications" },
-    ],
-  },
-  ar: {
-    eyebrow: "مراحل العمل في مشروع عظم",
-    heading: ["مراحل بناء", "الهيكل الإنشائي", "الـ21."],
-    lede: "تتكوّن مرحلة العظم من 21 مرحلة متتابعة تبدأ من أعمال الحفر وتأسيس الأساسات، مرورًا بتنفيذ الهيكل الخرساني، وصولًا إلى اكتمال المبنى في حالته العظمية. كل مرحلة مصممة لضمان الجودة، الدقة، والالتزام بالجدول الزمني، مع متابعة مستمرة بين فرق التنفيذ والإشراف لضمان سلامة وسير العمل وفق المواصفات الهندسية المعتمدة.",
-    meta: [
-      { label: "المراحل الإنشائية", value: "21 مرحلة متتابعة" },
-      { label: "تبدأ بـ", value: "الحفر وتأسيس الأساسات" },
-      { label: "تنتهي بـ", value: "اكتمال المبنى في حالته الإنشائية" },
-      { label: "وفق", value: "المواصفات الهندسية المعتمدة" },
-    ],
-  },
-} as const;
-
-export default function ProcessHero({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function ProcessHero({ settings }: { settings: ProcessPageSettings["hero"] }) {
+  const t = settings;
 
   return (
     <header className="relative flex min-h-[92svh] items-end overflow-hidden border-b border-steel">
       <div className="absolute inset-[-8%] overflow-hidden" aria-hidden="true">
         <img
-          src="/images/work-img5.avif"
+          src={t.image}
           alt=""
           className="hero-settle h-full w-full object-cover"
           style={{ animationDelay: "2.9s" }}

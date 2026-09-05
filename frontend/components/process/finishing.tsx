@@ -1,23 +1,6 @@
 import Reveal from "@/components/reveal";
-import { stageImages } from "@/components/process/data";
-import type { Locale } from "@/lib/locale";
-
-const content = {
-  en: {
-    eyebrow: "Stages of Work in a Finishing Project",
-    heading: "Finishing.",
-    body: "The finishing phase consists of several precise steps that begin with preparatory works and end with handing over the project ready for use. Each stage focuses on precision of execution, quality of materials, and adherence to the approved design, with continuous follow-up from the supervision teams to ensure all works are harmonised across the different departments.",
-    cta: "Interior & Finishing Works",
-    imageAlt: "Interior finishing works on a BRU CO. construction project in Jeddah",
-  },
-  ar: {
-    eyebrow: "مراحل العمل في مشروع التشطيب",
-    heading: "التشطيب.",
-    body: "تتكوّن مرحلة التشطيب من عدة خطوات دقيقة تبدأ من الأعمال التحضيرية وتنتهي بتسليم المشروع جاهزًا للاستخدام. تركّز كل مرحلة على الدقة في التنفيذ، جودة المواد، والالتزام بالتصميم المعتمد، مع متابعة مستمرة من فرق الإشراف لضمان تناغم جميع الأعمال بين الأقسام المختلفة.",
-    cta: "أعمال التصميم الداخلي والتشطيبات",
-    imageAlt: "أعمال التشطيبات الداخلية في مشروع إنشائي لشركة مرجع المباني المتحدة في جدة",
-  },
-} as const;
+import { stageImages } from "@/lib/process-shared";
+import type { ProcessPageSettings } from "@/lib/db/process";
 
 function ArrowIcon() {
   return (
@@ -38,8 +21,8 @@ function ArrowIcon() {
 
 const finishingGallery = Array.from({ length: 12 }, (_, i) => stageImages[i % stageImages.length]);
 
-export default function ProcessFinishing({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function ProcessFinishing({ settings }: { settings: ProcessPageSettings["finishing"] }) {
+  const t = settings;
 
   return (
     <section className="border-b border-steel bg-ink py-16 sm:py-20">

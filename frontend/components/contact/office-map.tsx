@@ -1,25 +1,14 @@
 import Reveal from "@/components/reveal";
 import type { Locale } from "@/lib/locale";
+import type { ContactSettings } from "@/lib/db/contact";
 
-const content = {
-  en: {
-    eyebrow: "Office",
-    heading: ["Jeddah,", "Saudi Arabia."],
-    mapTitle: "BRU CO. office location, Jeddah, Saudi Arabia",
-    caption: "BRU CO., Head Office",
-    location: "Jeddah, Saudi Arabia",
-  },
-  ar: {
-    eyebrow: "المكتب",
-    heading: ["جدة،", "المملكة العربية السعودية."],
-    mapTitle: "موقع مكتب BRU CO.، جدة، المملكة العربية السعودية",
-    caption: "BRU CO.، المقر الرئيسي",
-    location: "جدة، المملكة العربية السعودية",
-  },
+const mapTitles = {
+  en: "BRU CO. office location, Jeddah, Saudi Arabia",
+  ar: "موقع مكتب BRU CO.، جدة، المملكة العربية السعودية",
 } as const;
 
-export default function ContactOfficeMap({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function ContactOfficeMap({ locale, settings }: { locale: Locale; settings: ContactSettings }) {
+  const t = settings.map;
 
   return (
     <section className="border-b border-steel">
@@ -45,7 +34,7 @@ export default function ContactOfficeMap({ locale }: { locale: Locale }) {
 
       <div className="relative h-[60svh] min-h-[380px] w-full border-t border-steel">
         <iframe
-          title={t.mapTitle}
+          title={mapTitles[locale]}
           src="https://www.google.com/maps?q=21.5996158,39.1377514&z=17&output=embed"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -57,7 +46,7 @@ export default function ContactOfficeMap({ locale }: { locale: Locale }) {
               {t.caption}
             </span>
             <span className="text-lg font-semibold text-bone">
-              {t.location}
+              {settings.location}
             </span>
           </div>
         </div>

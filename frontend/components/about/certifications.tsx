@@ -1,4 +1,5 @@
 import Reveal from "@/components/reveal";
+import type { Certification } from "@/lib/db/about";
 import type { Locale } from "@/lib/locale";
 
 const content = {
@@ -7,76 +8,12 @@ const content = {
         title: "Certifications & Licenses",
         lede: "BRU CO. operates in full compliance with all regulatory, quality, and professional standards required in the Saudi construction industry.",
         cta: "Quality & Safety",
-        certifications: [
-            {
-                number: "01",
-                title: "Commercial Registration",
-                description: "Officially registered with Saudi authorities, legal and regulatory compliance confirmed",
-            },
-            {
-                number: "02",
-                title: "Certified Contractor Membership Certificate",
-                description: "Member of the Saudi Contractors Authority, recognized professional contractor status",
-            },
-            {
-                number: "03",
-                title: "Contractor Classification Certificate",
-                description: "Formally classified by regulatory bodies for structural, architectural, and MEP works",
-            },
-            {
-                number: "04",
-                title: "ISO Certification",
-                description: "International standards certification for quality management, safety, and environmental responsibility",
-            },
-            {
-                number: "05",
-                title: "Engineers Qualifications & Memberships",
-                description: "All engineers have verified professional qualifications and active memberships with relevant bodies",
-            },
-            {
-                number: "06",
-                title: "Saudization Certificate",
-                description: "Compliant with Saudi nationalization requirements, investing in Saudi talent and workforce",
-            },
-        ],
     },
     ar: {
         eyebrow: "الاعتمادات",
         title: "الشهادات والتراخيص",
         lede: "تعمل BRU CO. في التزام تام بكل المعايير التنظيمية والجودة والمهنية المطلوبة في قطاع الإنشاءات السعودي.",
         cta: "الجودة والسلامة",
-        certifications: [
-            {
-                number: "01",
-                title: "السجل التجاري",
-                description: "مسجّلة رسميًا لدى الجهات السعودية، مع تأكيد الامتثال القانوني والتنظيمي",
-            },
-            {
-                number: "02",
-                title: "شهادة عضوية مقاول معتمد",
-                description: "عضو في الهيئة السعودية للمقاولين، بصفة مقاول محترف معترف بها",
-            },
-            {
-                number: "03",
-                title: "شهادة تصنيف المقاولين",
-                description: "مصنّفة رسميًا من الجهات التنظيمية للأعمال الإنشائية والمعمارية والكهروميكانيكية",
-            },
-            {
-                number: "04",
-                title: "شهادة ISO",
-                description: "شهادة معايير دولية لإدارة الجودة والسلامة والمسؤولية البيئية",
-            },
-            {
-                number: "05",
-                title: "مؤهلات وعضويات المهندسين",
-                description: "جميع المهندسين لديهم مؤهلات مهنية موثقة وعضويات فعّالة في الجهات ذات الصلة",
-            },
-            {
-                number: "06",
-                title: "شهادة السعودة",
-                description: "ملتزمة بمتطلبات التوطين السعودية، والاستثمار في الكفاءات والكوادر الوطنية",
-            },
-        ],
     },
 } as const;
 
@@ -97,7 +34,7 @@ function ArrowIcon() {
     );
 }
 
-export default function Certifications({ locale }: { locale: Locale }) {
+export default function Certifications({ locale, certifications }: { locale: Locale; certifications: Certification[] }) {
     const t = content[locale];
     return (
         <section id="certifications" className="scroll-mt-24 border-t border-steel bg-void py-20 sm:py-28">
@@ -125,8 +62,8 @@ export default function Certifications({ locale }: { locale: Locale }) {
                 </div>
 
                 <ul className="mt-14 grid gap-px bg-steel sm:grid-cols-2 lg:grid-cols-3">
-                    {t.certifications.map((cert, index) => (
-                        <Reveal key={cert.number} tag="li" delay={index * 70} className="flex flex-col gap-3 bg-void p-8">
+                    {certifications.map((cert, index) => (
+                        <Reveal key={cert.id} tag="li" delay={index * 70} className="flex flex-col gap-3 bg-void p-8">
                             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow">
                                 {cert.number}
                             </span>

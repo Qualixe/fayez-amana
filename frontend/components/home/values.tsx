@@ -1,58 +1,18 @@
 import Reveal from "@/components/reveal";
 import SpotlightCard from "@/components/spotlight-card";
+import type { CoreValue, CoreValuesSettings } from "@/lib/db/home";
 import type { Locale } from "@/lib/locale";
 
-const content = {
-    en: {
-        eyebrow: "Core Values",
-        title: "B · R · U",
-        lede: "Our principles are not statements on a wall, they are practiced on every site, in every decision, on every project we deliver.",
-        values: [
-            {
-                letter: "B",
-                title: "Building Excellence",
-                description: "We strive to achieve the highest levels of quality in all our projects, utilizing the latest technologies and premium materials to ensure outstanding results with precise, professional execution in full compliance with specifications and standards.",
-            },
-            {
-                letter: "R",
-                title: "Reliability & Trust",
-                description: "We are committed to meeting the needs and requirements of our clients and delivering projects on time, strengthening their trust in us and fostering long-term partnerships built on transparency and accountability.",
-            },
-            {
-                letter: "U",
-                title: "Unmatched Innovation",
-                description: "We continuously seek to improve our methods and create innovative construction solutions that keep pace with the latest standards, technologies, and practices in engineering and construction, aligned with Saudi Vision 2030.",
-            },
-        ],
-        closing: "Building Reference United, our name is our identity, our values are our foundation.",
-    },
-    ar: {
-        eyebrow: "قيمنا الأساسية",
-        title: "B · R · U",
-        lede: "مبادئنا ليست شعارات على الجدار، بل تُمارَس في كل موقع، وفي كل قرار، وفي كل مشروع نسلّمه.",
-        values: [
-            {
-                letter: "B",
-                title: "التميّز في البناء",
-                description: "نسعى لتحقيق أعلى مستويات الجودة في جميع مشاريعنا، مستخدمين أحدث التقنيات وأجود المواد لضمان نتائج متميزة بتنفيذ دقيق ومحترف يلتزم تمامًا بالمواصفات والمعايير.",
-            },
-            {
-                letter: "R",
-                title: "الموثوقية والثقة",
-                description: "نلتزم بتلبية احتياجات ومتطلبات عملائنا وتسليم المشاريع في مواعيدها، مما يعزز ثقتهم بنا ويرسّخ شراكات طويلة الأمد مبنية على الشفافية والمساءلة.",
-            },
-            {
-                letter: "U",
-                title: "ابتكار لا يُضاهى",
-                description: "نسعى باستمرار لتطوير أساليبنا وابتكار حلول إنشائية تواكب أحدث المعايير والتقنيات والممارسات في الهندسة والبناء، انسجامًا مع رؤية المملكة 2030.",
-            },
-        ],
-        closing: "مرجع المباني المتحدة، اسمنا هويتنا، وقيمنا أساسنا.",
-    },
-} as const;
-
-export default function Values({ locale }: { locale: Locale }) {
-    const t = content[locale];
+export default function Values({
+    locale,
+    settings,
+    values,
+}: {
+    locale: Locale;
+    settings: CoreValuesSettings;
+    values: CoreValue[];
+}) {
+    const t = settings;
     return (
         <section className="relative border-t border-steel bg-void py-20 sm:py-28">
             <div className="mx-auto max-w-full px-6 sm:px-8 lg:px-12">
@@ -80,8 +40,8 @@ export default function Values({ locale }: { locale: Locale }) {
                 </div>
 
                 <div className="mt-16 grid gap-6 lg:grid-cols-3">
-                    {t.values.map((value, index) => (
-                        <Reveal key={value.letter} delay={index * 110} className="h-full">
+                    {values.map((value, index) => (
+                        <Reveal key={value.id} delay={index * 110} className="h-full">
                             <SpotlightCard className="group glass relative flex h-full flex-col gap-5 overflow-hidden p-9">
                                 <div
                                     aria-hidden="true"

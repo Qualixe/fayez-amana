@@ -1,19 +1,6 @@
 import Reveal from "@/components/reveal";
+import type { Client } from "@/lib/db/about";
 import type { Locale } from "@/lib/locale";
-
-const clients = [
-    { name: "Starbucks", image: "/images/client-img1.avif" },
-    { name: "Saudi National Bank", image: "/images/client-img2.avif" },
-    { name: "Makarem Hotels", image: "/images/client-img3.avif" },
-    { name: "La Fontaine Hotels & Resorts", image: "/images/client-img4.avif" },
-    { name: "Diyar Al Khayyal", image: "/images/client-img5.avif" },
-    { name: "Manazil", image: "/images/client-img6.avif" },
-    { name: "Chef Adnan Yamani", image: "/images/client-img7.avif" },
-    { name: "Neamah", image: "/images/client-img8.avif" },
-    { name: "Al Mukmal", image: "/images/client-img9.avif" },
-    { name: "Thiyab", image: "/images/client-img10.avif" },
-    { name: "Saudi Enaya", image: "/images/client-img11.avif" },
-];
 
 const content = {
     en: {
@@ -28,7 +15,7 @@ const content = {
     },
 } as const;
 
-export default function SelectedClients({ locale }: { locale: Locale }) {
+export default function SelectedClients({ locale, clients }: { locale: Locale; clients: Client[] }) {
     const t = content[locale];
     return (
         <section className="border-t border-steel bg-ink py-20 sm:py-28">
@@ -58,7 +45,7 @@ export default function SelectedClients({ locale }: { locale: Locale }) {
                 <ul className="mt-14 flex flex-wrap justify-center gap-px bg-steel">
                     {clients.map((client, index) => (
                         <Reveal
-                            key={client.name}
+                            key={client.id}
                             tag="li"
                             delay={(index % 4) * 70}
                             className="group relative flex basis-[calc(50%-0.5px)] items-center justify-center bg-void p-5 sm:basis-[calc(33.333%-0.667px)] sm:p-7 lg:basis-[calc(25%-0.75px)]"

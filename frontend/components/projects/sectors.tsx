@@ -1,19 +1,8 @@
 import Reveal from "@/components/reveal";
-import type { Locale } from "@/lib/locale";
+import type { ProjectsPageSettings } from "@/lib/db/projects";
 
-const content = {
-  en: {
-    heading: "Sectors",
-    sectors: ["Residential", "Commercial", "Hospitality", "Healthcare", "F&B", "Sports Facilities"],
-  },
-  ar: {
-    heading: "القطاعات",
-    sectors: ["سكني", "تجاري", "ضيافة", "رعاية صحية", "مطاعم ومقاهٍ", "منشآت رياضية"],
-  },
-} as const;
-
-export default function ProjectsSectors({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function ProjectsSectors({ settings }: { settings: ProjectsPageSettings["sectors"] }) {
+  const t = settings;
   return (
     <section className="border-b border-steel py-14 sm:py-16" aria-labelledby="sectors-heading">
       <div className="mx-auto flex max-w-full flex-col gap-8 px-6 sm:px-8 lg:flex-row lg:items-start lg:gap-20 lg:px-12">
@@ -26,7 +15,7 @@ export default function ProjectsSectors({ locale }: { locale: Locale }) {
         </Reveal>
 
         <ul className="grid flex-1 gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
-          {t.sectors.map((sector, index) => (
+          {t.list.map((sector, index) => (
             <Reveal
               key={sector}
               tag="li"

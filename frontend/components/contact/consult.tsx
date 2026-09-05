@@ -1,6 +1,6 @@
 import Reveal from "@/components/reveal";
 import ContactForm from "@/components/contact/form";
-import { disciplines } from "@/components/contact/data";
+import type { LocalizedOption } from "@/lib/contact-shared";
 import type { Locale } from "@/lib/locale";
 
 const content = {
@@ -22,7 +22,21 @@ const content = {
   },
 } as const;
 
-export default function ContactConsult({ locale }: { locale: Locale }) {
+export default function ContactConsult({
+  locale,
+  disciplines,
+  scopeOptions,
+  budgetOptions,
+  sectorOptions,
+  trustItems,
+}: {
+  locale: Locale;
+  disciplines: string[];
+  scopeOptions: LocalizedOption[];
+  budgetOptions: LocalizedOption[];
+  sectorOptions: LocalizedOption[];
+  trustItems: { title: string; body: string }[];
+}) {
   const t = content[locale];
 
   return (
@@ -64,8 +78,8 @@ export default function ContactConsult({ locale }: { locale: Locale }) {
             </span>
             <ul className="flex flex-col gap-2">
               {disciplines.map((item) => (
-                <li key={item.en} className="text-sm text-dust">
-                  {locale === "ar" ? item.ar : item.en}
+                <li key={item} className="text-sm text-dust">
+                  {item}
                 </li>
               ))}
             </ul>
@@ -97,7 +111,13 @@ export default function ContactConsult({ locale }: { locale: Locale }) {
               background: "linear-gradient(to right, transparent, var(--color-azure-lift), transparent)",
             }}
           />
-          <ContactForm locale={locale} />
+          <ContactForm
+            locale={locale}
+            scopeOptions={scopeOptions}
+            budgetOptions={budgetOptions}
+            sectorOptions={sectorOptions}
+            trustItems={trustItems}
+          />
         </div>
       </div>
     </section>

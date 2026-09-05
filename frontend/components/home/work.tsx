@@ -1,156 +1,7 @@
 import Reveal from "@/components/reveal";
+import { localize, categoryLabel, type Project } from "@/components/projects/data";
+import type { HomeSettings } from "@/lib/db/home";
 import type { Locale } from "@/lib/locale";
-
-const content = {
-  en: {
-    eyebrow: "Our Work",
-    title1: "What We've",
-    title2: "Built",
-    lede: "A selection from our portfolio of 300+ completed projects across Saudi Arabia, each delivered with precision, quality, and dedication.",
-    allProjects: "All Projects",
-    viewProject: "View Project",
-    projects: [
-      {
-        number: "01",
-        category: "Hospitality",
-        title: "Chalets Redevelopment, Durrat Al-Arous",
-        description: "24 chalets fully redesigned & executed, La Fontaine Hotels & Resorts.",
-        href: "/projects/chalets-durrat-al-arous",
-        image: "/images/work-img1.avif",
-      },
-      {
-        number: "02",
-        category: "Residential",
-        title: "48 Duplex Villas Complex, Diyar Al Khayal",
-        description: "Red brick construction, 2 floors + annex per unit.",
-        href: "/projects/diyar-al-khayal-duplex-villas",
-        image: "/images/work-img2.avif",
-      },
-      {
-        number: "03",
-        category: "Residential",
-        title: "16 Contemporary Villas",
-        description: "Spacious, functional & elegantly finished living environments.",
-        href: "/projects/sixteen-contemporary-villas",
-        image: "/images/work-img3.avif",
-      },
-      {
-        number: "04",
-        category: "Commercial",
-        title: "Sport Center, Prince Sultan Road",
-        description: "Retail spaces + gym, structural phase design & build.",
-        href: "/projects/sport-center-prince-sultan",
-        image: "/images/work-img4.avif",
-      },
-      {
-        number: "05",
-        category: "Healthcare",
-        title: "Enaya Medical Building",
-        description: "State-of-the-art healthcare facility, advanced infrastructure & modern design.",
-        href: "/projects/enaya-medical-building",
-        image: "/images/work-img5.avif",
-      },
-      {
-        number: "06",
-        category: "F&B",
-        title: "Asli Basha Restaurant",
-        description: "Modern & traditional fusion, refined finishes reflecting authentic identity.",
-        href: "/projects/asli-basha-restaurant",
-        image: "/images/work-img6.avif",
-      },
-      {
-        number: "07",
-        category: "Residential",
-        title: "Andalusian / Islamic Style Villa",
-        description: "Arches, geometric patterns, and decorative motifs with modern functional layouts.",
-        href: "/projects/andalusian-islamic-villa",
-        image: "/images/work-img7.avif",
-      },
-      {
-        number: "08",
-        category: "Residential",
-        title: "Modern Villa",
-        description: "Integrated wooden elements and façade lighting per the architectural design.",
-        href: "/projects/modern-villa",
-        image: "/images/work-img8.avif",
-      },
-    ],
-  },
-  ar: {
-    eyebrow: "أعمالنا",
-    title1: "ما الذي",
-    title2: "بنيناه",
-    lede: "مجموعة مختارة من محفظتنا التي تضم أكثر من 300 مشروع منجز في أنحاء السعودية، كلٌّ منها مُسلَّم بدقة وجودة وتفانٍ.",
-    allProjects: "كل المشاريع",
-    viewProject: "عرض المشروع",
-    projects: [
-      {
-        number: "01",
-        category: "ضيافة",
-        title: "إعادة تطوير شاليهات، درة العروس",
-        description: "24 شاليه أُعيد تصميمها وتنفيذها بالكامل، لافونتين للفنادق والمنتجعات.",
-        href: "/projects/chalets-durrat-al-arous",
-        image: "/images/work-img1.avif",
-      },
-      {
-        number: "02",
-        category: "سكني",
-        title: "مجمع 48 فيلا دوبلكس، ديار الخيال",
-        description: "إنشاء بالطوب الأحمر، دوران وملحق لكل وحدة.",
-        href: "/projects/diyar-al-khayal-duplex-villas",
-        image: "/images/work-img2.avif",
-      },
-      {
-        number: "03",
-        category: "سكني",
-        title: "16 فيلا معاصرة",
-        description: "بيئات معيشة رحبة وعملية وبتشطيب أنيق.",
-        href: "/projects/sixteen-contemporary-villas",
-        image: "/images/work-img3.avif",
-      },
-      {
-        number: "04",
-        category: "تجاري",
-        title: "المركز الرياضي، طريق الأمير سلطان",
-        description: "محلات تجارية وصالة رياضية، تصميم وتنفيذ المرحلة الإنشائية.",
-        href: "/projects/sport-center-prince-sultan",
-        image: "/images/work-img4.avif",
-      },
-      {
-        number: "05",
-        category: "رعاية صحية",
-        title: "مبنى عناية الطبي",
-        description: "منشأة طبية عالية الجودة، بنية تحتية متطورة وتصميم عصري.",
-        href: "/projects/enaya-medical-building",
-        image: "/images/work-img5.avif",
-      },
-      {
-        number: "06",
-        category: "مطاعم ومقاهٍ",
-        title: "مطعم أصلي باشا",
-        description: "مزيج عصري وتقليدي، تشطيبات راقية تعكس الهوية الأصيلة.",
-        href: "/projects/asli-basha-restaurant",
-        image: "/images/work-img6.avif",
-      },
-      {
-        number: "07",
-        category: "سكني",
-        title: "فيلا بطراز أندلسي/إسلامي",
-        description: "أقواس وزخارف هندسية وعناصر زخرفية مع مخططات وظيفية عصرية.",
-        href: "/projects/andalusian-islamic-villa",
-        image: "/images/work-img7.avif",
-      },
-      {
-        number: "08",
-        category: "سكني",
-        title: "فيلا عصرية",
-        description: "عناصر خشبية وإضاءة واجهات متكاملة وفق التصميم المعماري.",
-        href: "/projects/modern-villa",
-        image: "/images/work-img8.avif",
-      },
-    ],
-  },
-} as const;
 
 function ArrowIcon() {
   return (
@@ -169,8 +20,16 @@ function ArrowIcon() {
   );
 }
 
-export default function Work({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function Work({
+  locale,
+  settings,
+  projects,
+}: {
+  locale: Locale;
+  settings: HomeSettings["work"];
+  projects: Project[];
+}) {
+  const t = settings;
   return (
     <section
       id="work"
@@ -218,71 +77,63 @@ export default function Work({ locale }: { locale: Locale }) {
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {t.projects.map((project, index) => (
-            <Reveal
-              key={project.href}
-              delay={(index % 3) * 110}
-              className="block"
-            >
-              <a href={project.href} className="group block">
-                <div className="relative aspect-[4/5] overflow-hidden bg-slab xl:aspect-[3/4]">
-                  {project.image ? (
+          {projects.map((project, index) => {
+            const p = localize(project, locale);
+            return (
+              <Reveal
+                key={p.slug}
+                delay={(index % 3) * 110}
+                className="block"
+              >
+                <a href={`/projects/${p.slug}`} className="group block">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-slab xl:aspect-[3/4]">
                     <img
-                      src={project.image}
-                      alt={project.title}
+                      src={p.image}
+                      alt={p.title}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                  ) : (
                     <div
                       aria-hidden="true"
-                      className="absolute inset-0"
+                      className="absolute inset-0 opacity-70 transition-opacity duration-700 group-hover:opacity-40"
                       style={{
                         background:
-                          "linear-gradient(135deg, var(--color-slab), var(--color-ink))",
+                          "linear-gradient(to top, rgba(4,6,9,0.92) 0%, rgba(4,6,9,0.15) 55%, transparent 100%)",
                       }}
                     />
-                  )}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 opacity-70 transition-opacity duration-700 group-hover:opacity-40"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(4,6,9,0.92) 0%, rgba(4,6,9,0.15) 55%, transparent 100%)",
-                    }}
-                  />
-                  <span className="absolute start-5 top-5 bg-void/70 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-azure-glow backdrop-blur-md">
-                    {project.category}
-                  </span>
-                  <span className="absolute end-5 top-5 font-mono text-[10px] tabular-nums tracking-[0.2em] text-dust">
-                    {project.number}
-                  </span>
-                  <div className="absolute inset-x-0 bottom-0 p-6">
-                    <h3 className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-bone transition-colors duration-500 group-hover:text-azure-glow">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2.5 max-w-md text-sm leading-relaxed text-dust">
-                      {project.description}
-                    </p>
-                    <div className="mt-4 flex items-center gap-2 overflow-hidden">
-                      <span className="translate-y-6 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow transition-transform duration-500 ease-out group-hover:translate-y-0">
-                        {t.viewProject}
-                      </span>
-                      <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        className="h-3 w-3 translate-y-6 text-azure-glow transition-transform duration-500 ease-out group-hover:translate-y-0"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
+                    <span className="absolute start-5 top-5 bg-void/70 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-azure-glow backdrop-blur-md">
+                      {categoryLabel(p.category, locale)}
+                    </span>
+                    <span className="absolute end-5 top-5 font-mono text-[10px] tabular-nums tracking-[0.2em] text-dust">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="absolute inset-x-0 bottom-0 p-6">
+                      <h3 className="text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-bone transition-colors duration-500 group-hover:text-azure-glow">
+                        {p.title}
+                      </h3>
+                      <p className="mt-2.5 max-w-md text-sm leading-relaxed text-dust">
+                        {p.teaser}
+                      </p>
+                      <div className="mt-4 flex items-center gap-2 overflow-hidden">
+                        <span className="translate-y-6 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-azure-glow transition-transform duration-500 ease-out group-hover:translate-y-0">
+                          {t.viewProject}
+                        </span>
+                        <svg
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          className="h-3 w-3 translate-y-6 text-azure-glow transition-transform duration-500 ease-out group-hover:translate-y-0"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </Reveal>
-          ))}
+                </a>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

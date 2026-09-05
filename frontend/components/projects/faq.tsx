@@ -1,4 +1,5 @@
 import Reveal from "@/components/reveal";
+import type { Faq } from "@/lib/db/contact";
 import type { Locale } from "@/lib/locale";
 
 const content = {
@@ -6,67 +7,15 @@ const content = {
     eyebrow: "Questions",
     title: "About BRU CO. projects.",
     lede: "What clients ask before choosing a construction company to build in Jeddah or Makkah.",
-    faqs: [
-      {
-        question: "What types of construction projects does BRU CO. build?",
-        answer: "BRU CO. builds residential and villa construction, commercial buildings, hospitality projects, healthcare facilities, F&B fit-out and sports facilities. The work covers structural construction, architectural works, electromechanical (MEP) systems and interior and exterior finishing.",
-      },
-      {
-        question: "Where in Saudi Arabia does BRU CO. build?",
-        answer: "BRU CO. is headquartered in Jeddah and builds across Jeddah, Makkah, the Western Region and the wider Kingdom of Saudi Arabia. Completed work includes buildings on Prince Sultan Road in Jeddah and chalets at Durrat Al-Arous.",
-      },
-      {
-        question: "Does BRU CO. build and finish villas?",
-        answer: "Yes. Villa construction is one of the company's largest activities: reinforced concrete structure, masonry, and interior and exterior finishing, in contemporary, neoclassical, semi-classic and Andalusian/Islamic idioms. The projects documented here range from single villas to residential complexes of up to 48 duplex villas.",
-      },
-      {
-        question: "Does BRU CO. offer turnkey and design-build contracts?",
-        answer: "Yes. BRU CO. works design-build and turnkey: architectural, structural and MEP design plus execution under a single contract, from excavation and foundations to a building handed over ready for use.",
-      },
-      {
-        question: "How many projects has BRU CO. completed?",
-        answer: "More than 300 completed projects since the company was founded in 2000, of which 18 are documented in detail with photography on this page.",
-      },
-      {
-        question: "How do I request a construction quote?",
-        answer: "Contact BRU CO. on +966 55 535 2526 or through the form on the contact page with the site location, building type, approximate area and the scope you need: structural shell only, finishing, or full turnkey delivery.",
-      },
-    ],
   },
   ar: {
     eyebrow: "أسئلة شائعة",
     title: "عن مشاريع BRU CO.",
     lede: "ما يسأل عنه العملاء قبل اختيار شركة مقاولات للبناء في جدة أو مكة المكرمة.",
-    faqs: [
-      {
-        question: "ما أنواع المشاريع الإنشائية التي تنفّذها BRU CO.؟",
-        answer: "تبني BRU CO. الفلل والمشاريع السكنية، والمباني التجارية، ومشاريع الضيافة، والمنشآت الصحية، وتجهيزات المطاعم والمقاهي، والمنشآت الرياضية. ويشمل العمل الأعمال الإنشائية والمعمارية والأنظمة الكهروميكانيكية (MEP) والتشطيبات الداخلية والخارجية.",
-      },
-      {
-        question: "أين تبني BRU CO. في المملكة العربية السعودية؟",
-        answer: "يقع المقر الرئيسي لـ BRU CO. في جدة، وتنفّذ أعمالها في جدة ومكة المكرمة والمنطقة الغربية وسائر أنحاء المملكة. تشمل الأعمال المنجزة مبانٍ على طريق الأمير سلطان في جدة وشاليهات في درة العروس.",
-      },
-      {
-        question: "هل تنفّذ BRU CO. بناء وتشطيب الفلل؟",
-        answer: "نعم. يُعد بناء الفلل من أكبر أنشطة الشركة: هيكل خرساني مسلح، أعمال بناء، وتشطيبات داخلية وخارجية، بطرز معاصرة وكلاسيكية حديثة وشبه كلاسيكية وأندلسية/إسلامية. تتراوح المشاريع الموثقة هنا بين فلل مفردة ومجمعات سكنية تصل إلى 48 فيلا دوبلكس.",
-      },
-      {
-        question: "هل تقدّم BRU CO. عقود تسليم مفتاح وتصميم وتنفيذ؟",
-        answer: "نعم. تعمل BRU CO. بنظامي التصميم والتنفيذ وتسليم المفتاح: تصميم معماري وإنشائي وكهروميكانيكي مع التنفيذ ضمن عقد واحد، من الحفر والأساسات حتى تسليم مبنى جاهز للاستخدام.",
-      },
-      {
-        question: "كم عدد المشاريع التي أنجزتها BRU CO.؟",
-        answer: "أكثر من 300 مشروع منجز منذ تأسيس الشركة عام 2000، منها 18 مشروعًا موثقًا بالتفصيل مع صور في هذه الصفحة.",
-      },
-      {
-        question: "كيف أطلب عرض سعر لمشروع إنشائي؟",
-        answer: "تواصل مع BRU CO. عبر +966 55 535 2526 أو من خلال نموذج صفحة التواصل، مع تحديد موقع الأرض ونوع المبنى والمساحة التقريبية والنطاق المطلوب: الهيكل الإنشائي فقط، أو التشطيب، أو التسليم الكامل بنظام تسليم مفتاح.",
-      },
-    ],
   },
 } as const;
 
-export default function ProjectsFaq({ locale }: { locale: Locale }) {
+export default function ProjectsFaq({ locale, faqs }: { locale: Locale; faqs: Faq[] }) {
   const t = content[locale];
   return (
     <section className="border-b border-steel py-20 sm:py-28">
@@ -94,8 +43,8 @@ export default function ProjectsFaq({ locale }: { locale: Locale }) {
         </div>
 
         <ul className="flex flex-col border-t border-steel">
-          {t.faqs.map((faq, index) => (
-            <Reveal key={faq.question} tag="li" delay={index * 60} className="border-b border-steel">
+          {faqs.map((faq, index) => (
+            <Reveal key={faq.id} tag="li" delay={index * 60} className="border-b border-steel">
               <details className="group">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
                   <h3 className="text-lg font-semibold text-bone transition-colors duration-400 group-open:text-azure-glow">

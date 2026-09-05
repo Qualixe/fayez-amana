@@ -2,70 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import type { Locale } from "@/lib/locale";
+import type { HomeSettings, HeroStage, HomeStat } from "@/lib/db/home";
 
-const content = {
-    en: {
-        eyebrow: "EST. 2000 · Jeddah, Saudi Arabia",
-        quote: "“Your vision our craft, built with precision, delivered with integrity.”",
-        services: [
-            "Structural & Construction Works",
-            "Architectural Works",
-            "Electromechanical Works",
-            "Interior Design & Finishing",
-        ],
-        startProject: "Start a Project",
-        viewPortfolio: "View the portfolio",
-        stats: [
-            { value: "300+", label: "Completed Projects" },
-            { value: "25+", label: "Years of Experience" },
-            { value: "80+", label: "Team Members" },
-        ],
-        stages: [
-            { code: "000", title: "Survey & Blueprint", detail: "Empty land · site outline · topographic grid", period: "Morning light" },
-            { code: "001", title: "Excavation & Foundation", detail: "Site clearance · footings · foundation pour", period: "Midday" },
-            { code: "002", title: "Structural Framework", detail: "Columns · beams · slab construction", period: "Midday" },
-            { code: "003", title: "Envelope & Roofing", detail: "Walls · roofing · waterproofing", period: "Afternoon" },
-            { code: "004", title: "MEP Rough-in", detail: "Electrical · plumbing · HVAC systems", period: "Golden hour" },
-            { code: "005", title: "Handover", detail: "Roads · landscape · lighting on", period: "Golden hour" },
-        ],
-        handoverLabel: "Handover · 100%",
-        handoverTitle1: "From empty land",
-        handoverTitle2: "to handover.",
-        handoverBody: "21 structural stages, 300+ completed projects, 25 years. This is how BRU CO. builds.",
-        scrollHint: "Scroll to explore",
-        srOnly: ", Building Reference United, a construction company and general contractor in Jeddah, Saudi Arabia",
-    },
-    ar: {
-        eyebrow: "تأسست 2000 · جدة، السعودية",
-        quote: "“رؤيتك، حرفتنا، نبني بدقة، ونسلّم بأمانة.”",
-        services: [
-            "الأعمال الإنشائية والبناء",
-            "الأعمال المعمارية",
-            "الأعمال الكهروميكانيكية",
-            "التصميم الداخلي والتشطيبات",
-        ],
-        startProject: "ابدأ مشروعك",
-        viewPortfolio: "تصفح أعمالنا",
-        stats: [
-            { value: "+300", label: "مشروع منجز" },
-            { value: "+25", label: "عامًا من الخبرة" },
-            { value: "+80", label: "عضو فريق" },
-        ],
-        stages: [
-            { code: "000", title: "المسح والمخطط", detail: "أرض فارغة · تحديد الموقع · شبكة طبوغرافية", period: "ضوء الصباح" },
-            { code: "001", title: "الحفر والأساسات", detail: "تجهيز الموقع · القواعد · صب الأساسات", period: "الظهيرة" },
-            { code: "002", title: "الهيكل الإنشائي", detail: "الأعمدة · الكمرات · صب الأسقف", period: "الظهيرة" },
-            { code: "003", title: "الغلاف والأسقف", detail: "الجدران · التسقيف · العزل المائي", period: "بعد الظهر" },
-            { code: "004", title: "الأعمال الكهروميكانيكية", detail: "الكهرباء · السباكة · أنظمة التكييف", period: "الساعة الذهبية" },
-            { code: "005", title: "التسليم", detail: "الطرق · تنسيق المواقع · الإضاءة", period: "الساعة الذهبية" },
-        ],
-        handoverLabel: "التسليم · 100%",
-        handoverTitle1: "من أرض فارغة",
-        handoverTitle2: "إلى التسليم.",
-        handoverBody: "21 مرحلة إنشائية، أكثر من 300 مشروع منجز، 25 عامًا من الخبرة. هكذا تبني BRU CO.",
-        scrollHint: "مرر للاستكشاف",
-        srOnly: "، شركة مرجع المباني المتحدة، شركة مقاولات عامة في جدة، المملكة العربية السعودية",
-    },
+const srOnly = {
+    en: ", Building Reference United, a construction company and general contractor in Jeddah, Saudi Arabia",
+    ar: "، شركة مرجع المباني المتحدة، شركة مقاولات عامة في جدة، المملكة العربية السعودية",
 } as const;
 
 const INTRO_FADE_END = 0.15;
@@ -90,9 +31,19 @@ function ArrowIcon() {
     );
 }
 
-export default function Hero({ locale }: { locale: Locale }) {
-    const t = content[locale];
-    const { services, stats, stages } = t;
+export default function Hero({
+    locale,
+    settings,
+    stages,
+    stats,
+}: {
+    locale: Locale;
+    settings: HomeSettings["hero"];
+    stages: HeroStage[];
+    stats: HomeStat[];
+}) {
+    const t = settings;
+    const services = t.services;
     const videoRef = useRef<HTMLVideoElement>(null);
     const sectionRef = useRef<HTMLElement>(null);
     const progressFillRef = useRef<HTMLDivElement>(null);
@@ -107,7 +58,7 @@ export default function Hero({ locale }: { locale: Locale }) {
     useEffect(() => {
         const video = videoRef.current;
         const section = sectionRef.current;
-        if (!video || !section) return;
+        if (!video || !section || stages.length === 0) return;
 
         let rafId: number;
         let lastStageIndex = -1;
@@ -183,19 +134,23 @@ export default function Hero({ locale }: { locale: Locale }) {
             video.removeEventListener("loadedmetadata", onLoadedMetadata);
             cancelAnimationFrame(rafId);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const firstStage = stages[0];
 
     return (
         <section ref={sectionRef} className="relative isolate bg-void">
             <div className="sticky top-0 flex h-svh w-full items-center overflow-hidden">
                 <video
                     ref={videoRef}
+                    key={t.video}
                     preload="auto"
                     muted
                     playsInline
                     className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
                 >
-                    <source type="video/mp4" src="/videos/construction-build.mp4" />
+                    <source src={t.video} />
                 </video>
                 <div
                     className="pointer-events-none absolute inset-0"
@@ -218,10 +173,10 @@ export default function Hero({ locale }: { locale: Locale }) {
                             </p>
 
                             <h1 className="text-[clamp(2.75rem,15vw,8rem)] leading-[0.88] font-bold tracking-[-0.03em] text-bone sm:leading-[0.85]">
-                                <span dir="ltr" className={`block ${locale === "ar" ? "text-right" : "text-left"}`}>BRU</span>
-                                <span dir="ltr" className={`block text-azure-glow ${locale === "ar" ? "text-right" : "text-left"}`}>CO.</span>
+                                <span dir="ltr" className={`block ${locale === "ar" ? "text-right" : "text-left"}`}>{t.brandLine1}</span>
+                                <span dir="ltr" className={`block text-azure-glow ${locale === "ar" ? "text-right" : "text-left"}`}>{t.brandLine2}</span>
                                 <span className="sr-only">
-                                    {t.srOnly}
+                                    {srOnly[locale]}
                                 </span>
                             </h1>
 
@@ -309,16 +264,18 @@ export default function Hero({ locale }: { locale: Locale }) {
                                         <span ref={progressPercentRef} className="tabular-nums">
                                             000
                                         </span>
-                                        % · <span ref={stageTitleRef}>{stages[0].title}</span>
+                                        % · <span ref={stageTitleRef}>{firstStage?.title}</span>
                                     </p>
                                     <p ref={stageDetailRef} className="mt-2 truncate font-mono text-[10px] uppercase tracking-[0.14em] text-dust">
-                                        {stages[0].detail}
+                                        {firstStage?.detail}
                                     </p>
                                 </div>
                                 <div className="hidden shrink-0 gap-8 md:flex">
-                                    {stats.map((stat) => (
+                                    {stats.slice(0, 3).map((stat) => (
                                         <div key={stat.label} className="text-end">
-                                            <div className="text-2xl font-bold leading-none text-bone">{stat.value}</div>
+                                            <div className="text-2xl font-bold leading-none text-bone">
+                                                {stat.value}{stat.suffix}
+                                            </div>
                                             <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-dust">
                                                 {stat.label}
                                             </div>
@@ -346,7 +303,7 @@ export default function Hero({ locale }: { locale: Locale }) {
                                     {t.scrollHint}
                                 </span>
                                 <span dir="ltr" className="hidden sm:inline">www.bru.com.sa</span>
-                                <span ref={periodRef}>{stages[0].period}</span>
+                                <span ref={periodRef}>{firstStage?.period}</span>
                             </div>
                         </div>
                     </div>

@@ -1,40 +1,19 @@
 import Reveal from "@/components/reveal";
-import type { Locale } from "@/lib/locale";
+import type { ServicesPageSettings } from "@/lib/db/services";
 
-const content = {
-  en: {
-    eyebrow: "Our Services",
-    title1: "Four disciplines,",
-    title2: "one roof.",
-    lede: "Comprehensive construction solutions under one roof, from foundation to finish, BRU delivers with precision and excellence.",
-    disciplines: [
-      { label: "01", value: "Structural & Construction Works" },
-      { label: "02", value: "Architectural Works" },
-      { label: "03", value: "Electromechanical Works" },
-      { label: "04", value: "Interior Design & Finishing" },
-    ],
-  },
-  ar: {
-    eyebrow: "خدماتنا",
-    title1: "أربعة تخصصات،",
-    title2: "تحت سقف واحد.",
-    lede: "حلول إنشائية متكاملة تحت مظلة واحدة، من الأساسات حتى التشطيب النهائي، تقدّمها BRU بدقة وتميّز.",
-    disciplines: [
-      { label: "01", value: "الأعمال الإنشائية والبناء" },
-      { label: "02", value: "الأعمال المعمارية" },
-      { label: "03", value: "الأعمال الكهروميكانيكية" },
-      { label: "04", value: "التصميم الداخلي والتشطيبات" },
-    ],
-  },
-} as const;
-
-export default function ServicesHero({ locale }: { locale: Locale }) {
-  const t = content[locale];
+export default function ServicesHero({
+  settings,
+  disciplines,
+}: {
+  settings: ServicesPageSettings["hero"];
+  disciplines: string[];
+}) {
+  const t = settings;
   return (
     <header className="relative flex min-h-[92svh] items-end overflow-hidden border-b border-steel">
       <div className="absolute inset-[-8%] overflow-hidden" aria-hidden="true">
         <img
-          src="/images/service-hero-bg.avif"
+          src={t.image}
           alt=""
           className="hero-settle h-full w-full object-cover"
           style={{ animationDelay: "2.9s" }}
@@ -89,16 +68,16 @@ export default function ServicesHero({ locale }: { locale: Locale }) {
           delay={300}
           className="mt-12 grid w-full gap-px border border-steel/70 bg-steel/70 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {t.disciplines.map((item) => (
+          {disciplines.map((value, index) => (
             <div
-              key={item.label}
+              key={value}
               className="group flex flex-col gap-2.5 bg-void/92 p-6 backdrop-blur-sm transition-colors duration-500 hover:bg-void"
             >
               <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-dust/85 transition-colors duration-500 group-hover:text-azure-glow">
-                {item.label}
+                {String(index + 1).padStart(2, "0")}
               </dt>
               <dd className="text-base font-medium leading-[1.5] tracking-[-0.012em] text-bone">
-                {item.value}
+                {value}
               </dd>
             </div>
           ))}
