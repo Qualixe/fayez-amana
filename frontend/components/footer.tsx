@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import type { Locale } from "@/lib/locale";
 
 type NavLink = { label: string; href: string };
@@ -110,12 +111,12 @@ export default function Footer({
           <ul className="flex flex-col gap-2.5">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="text-sm text-dust transition-colors hover:text-bone"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

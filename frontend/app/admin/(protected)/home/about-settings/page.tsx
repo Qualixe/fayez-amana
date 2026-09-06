@@ -11,7 +11,7 @@ export default async function AboutSectionSettingsPage() {
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Home page — About section</h1>
-        <p className="text-sm text-dust">The image here is also shown on the About page's Expertise section.</p>
+        <p className="text-sm text-dust">The image here is also shown on the About page&apos;s Expertise section.</p>
       </div>
 
       <form action={saveAboutSectionSettings} className="flex max-w-4xl flex-col gap-4">

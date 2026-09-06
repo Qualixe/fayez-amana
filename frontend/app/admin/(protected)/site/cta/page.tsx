@@ -12,7 +12,7 @@ export default async function SiteCtaSettingsPage() {
   return (
     <div className="flex max-w-3xl flex-col gap-8">
       <div className="flex flex-col gap-1">
-        <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Bottom "Start a Project" CTA</h1>
+        <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Bottom &quot;Start a Project&quot; CTA</h1>
         <p className="text-sm text-dust">
           Shown at the bottom of Home, About, Services, Projects, Project detail and Process pages. The phone and
           email shown in it come from Contact page → Settings → Business details.

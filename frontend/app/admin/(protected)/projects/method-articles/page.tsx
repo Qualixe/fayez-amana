@@ -15,7 +15,7 @@ export default async function AdminMethodArticlesPage() {
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-1">
           <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Method & materials articles</h1>
-          <p className="text-sm text-dust">Shown identically at the bottom of every individual project's page.</p>
+          <p className="text-sm text-dust">Shown identically at the bottom of every individual project&apos;s page.</p>
         </div>
         <Link
           href="/admin/projects/method-articles/new"

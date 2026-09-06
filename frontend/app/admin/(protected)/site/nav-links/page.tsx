@@ -16,7 +16,7 @@ export default async function AdminNavLinksPage() {
         <div className="flex flex-col gap-1">
           <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Navigation</h1>
           <p className="text-sm text-dust">
-            Every link here shows in the full site menu. Check "top bar" ones also show in the desktop header.
+            Every link here shows in the full site menu. Check &quot;top bar&quot; ones also show in the desktop header.
           </p>
         </div>
         <Link

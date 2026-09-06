@@ -72,7 +72,7 @@ export default function ServicesPageSettingsForm({ action, row }: { action: (for
     <form action={action} className="flex max-w-4xl flex-col gap-10">
       <fieldset className="flex flex-col gap-4">
         <legend className={legendClasses}>
-          Hero (the "4 disciplines" list is shared with Home → Home settings → Hero services)
+          Hero (the &quot;4 disciplines&quot; list is shared with Home → Home settings → Hero services)
         </legend>
         <FieldPair name="hero_eyebrow" label="Eyebrow (English)" labelAr="الشعار (عربي)" row={row} />
         <FieldPair name="hero_title1" label="Title line 1 (English)" labelAr="العنوان سطر 1 (عربي)" row={row} />

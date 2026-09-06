@@ -3,7 +3,36 @@ import { createClient } from "@/lib/supabase/server";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// Simple in-memory sliding-window rate limit (per server instance — good
+// enough to stop casual spam bots on a low-traffic contact form without
+// needing a Redis dependency). Resets on deploy/restart.
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const requestLog = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (requestLog.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  recent.push(now);
+  requestLog.set(ip, recent);
+  return recent.length > RATE_LIMIT_MAX;
+}
+
+function clientIp(request: Request): string {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  if (forwardedFor) return forwardedFor.split(",")[0].trim();
+  return request.headers.get("x-real-ip") ?? "unknown";
+}
+
 export async function POST(request: Request) {
+  const ip = clientIp(request);
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { ok: false, message: "Too many requests. Please try again in a few minutes." },
+      { status: 429 },
+    );
+  }
+
   let body: Record<string, unknown>;
   try {
     body = await request.json();

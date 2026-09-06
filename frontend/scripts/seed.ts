@@ -1310,6 +1310,996 @@ const navLinks = [
   { label: "Contact", label_ar: "تواصل معنا", href: "/contact", show_in_primary_nav: true },
 ];
 
+const locationPages = {
+  jeddah: {
+    hero_eyebrow: "Fayez Amana Construction Company · Jeddah, KSA",
+    hero_eyebrow_ar: "شركة فايز أمانة للمقاولات · جدة، السعودية",
+    hero_title1: "General Contractor",
+    hero_title1_ar: "مقاول عام",
+    hero_title2: "in Jeddah",
+    hero_title2_ar: "في جدة",
+    hero_lede:
+      "Fayez Amana has been Jeddah's trusted general contractor since 2000 — structural, architectural, electromechanical and interior & finishing works delivered under one roof, ISO-certified and Saudi Contractors Authority classified.",
+    hero_lede_ar:
+      "تُعد فايز أمانة مقاولاً عامًا موثوقًا في جدة منذ عام 2000، وتنفّذ الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية تحت سقف واحد، وهي معتمدة بمواصفة الآيزو ومصنّفة لدى الهيئة السعودية للمقاولين.",
+    hero_image: "/images/about-hero-banner.avif",
+    meta1_label: "Est.",
+    meta1_label_ar: "التأسيس",
+    meta1_value: "2000",
+    meta1_value_ar: "2000",
+    meta2_label: "Projects Delivered",
+    meta2_label_ar: "مشاريع منجزة",
+    meta2_value: "300+",
+    meta2_value_ar: "+300",
+    meta3_label: "Years in Jeddah",
+    meta3_label_ar: "سنوات العمل في جدة",
+    meta3_value: "25+",
+    meta3_value_ar: "+25",
+    body_eyebrow: "Our Home City",
+    body_eyebrow_ar: "مدينتنا الأم",
+    body_title: "Building Jeddah since 2000",
+    body_title_ar: "نبني جدة منذ عام 2000",
+    body_p1:
+      "Fayez Amana Construction Company is a Jeddah-based general contractor delivering structural, architectural, electromechanical and interior & finishing works under one roof. Since 2000, we've completed more than 300 projects across residential, commercial, hospitality, healthcare and F&B sectors throughout the city.",
+    body_p1_ar:
+      "شركة فايز أمانة للمقاولات مقاول عام مقرّه جدة، ينفّذ الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية تحت سقف واحد. منذ عام 2000 أنجزت الشركة أكثر من 300 مشروع في القطاعات السكنية والتجارية والضيافة والرعاية الصحية والمطاعم والمقاهي في أنحاء المدينة.",
+    body_p2:
+      "Every project is executed to ISO 9001 quality standards, classified with the Saudi Contractors Authority, and led end-to-end by our in-house team from foundation to handover — no subcontracted scope, no compromise on schedule or craftsmanship.",
+    body_p2_ar:
+      "يُنفَّذ كل مشروع وفق معايير الجودة ISO 9001، وهي مصنّفة لدى الهيئة السعودية للمقاولين، ويقودها فريقنا الداخلي من الأساس إلى التسليم دون إسناد النطاق لمقاولين من الباطن ودون أي تنازل عن الجدول الزمني أو جودة الحرفية.",
+    projects_eyebrow: "Featured Work",
+    projects_eyebrow_ar: "أعمال مختارة",
+    projects_title: "A selection of our Jeddah projects",
+    projects_title_ar: "نخبة من مشاريعنا في جدة",
+    seo_title: "General Contractor in Jeddah | Fayez Amana Construction Company",
+    seo_title_ar: "مقاول عام في جدة | شركة فايز أمانة للمقاولات",
+    seo_description:
+      "Fayez Amana is a Jeddah general contractor with 25+ years and 300+ completed projects — residential, commercial, hospitality, healthcare and F&B, ISO-certified and Saudi Contractors Authority classified.",
+    seo_description_ar:
+      "فايز أمانة مقاول عام في جدة بخبرة تتجاوز 25 عامًا وأكثر من 300 مشروع منجز في القطاعات السكنية والتجارية والضيافة والرعاية الصحية والمطاعم والمقاهي، معتمدة بمواصفة الآيزو ومصنّفة لدى الهيئة السعودية للمقاولين.",
+  },
+  makkah: {
+    hero_eyebrow: "Fayez Amana Construction Company · Western Region, KSA",
+    hero_eyebrow_ar: "شركة فايز أمانة للمقاولات · المنطقة الغربية، السعودية",
+    hero_title1: "General Contractor",
+    hero_title1_ar: "مقاول عام",
+    hero_title2: "in Makkah",
+    hero_title2_ar: "في مكة المكرمة",
+    hero_lede:
+      "From our base in Jeddah, Fayez Amana extends its full range of general contracting services to Makkah and the wider Western Region — ISO-certified, Saudi Contractors Authority classified, and backed by 25+ years of construction experience.",
+    hero_lede_ar:
+      "انطلاقًا من مقرّها في جدة، تقدّم فايز أمانة كامل خدماتها في المقاولات العامة لمكة المكرمة والمنطقة الغربية، وهي معتمدة بمواصفة الآيزو ومصنّفة لدى الهيئة السعودية للمقاولين، وتستند إلى خبرة تتجاوز 25 عامًا في قطاع الإنشاءات.",
+    hero_image: "/images/about-hero-banner.avif",
+    meta1_label: "Based In",
+    meta1_label_ar: "المقر",
+    meta1_value: "Jeddah, Western Region",
+    meta1_value_ar: "جدة، المنطقة الغربية",
+    meta2_label: "Years Active",
+    meta2_label_ar: "سنوات النشاط",
+    meta2_value: "25+",
+    meta2_value_ar: "+25",
+    meta3_label: "Certification",
+    meta3_label_ar: "الاعتماد",
+    meta3_value: "ISO 9001 · SCA Classified",
+    meta3_value_ar: "ISO 9001 · مصنّفة لدى الهيئة السعودية للمقاولين",
+    body_eyebrow: "Serving the Western Region",
+    body_eyebrow_ar: "خدمة المنطقة الغربية",
+    body_title: "General contracting for Makkah and beyond",
+    body_title_ar: "مقاولات عامة لمكة المكرمة وما حولها",
+    body_p1:
+      "From our base in Jeddah, Fayez Amana Construction Company extends its full range of construction services to Makkah and the wider Western Region of Saudi Arabia — structural, architectural, electromechanical and interior & finishing works delivered under one roof.",
+    body_p1_ar:
+      "انطلاقًا من مقرّها في جدة، تقدّم شركة فايز أمانة للمقاولات كامل خدماتها الإنشائية لمكة المكرمة والمنطقة الغربية من المملكة العربية السعودية، وتشمل الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية تحت سقف واحد.",
+    body_p2:
+      "With 25+ years of experience, ISO 9001 certification and Saudi Contractors Authority classification, our team brings the same quality standards and single-contractor accountability to projects across the region.",
+    body_p2_ar:
+      "بخبرة تتجاوز 25 عامًا واعتماد ISO 9001 وتصنيف لدى الهيئة السعودية للمقاولين، يقدّم فريقنا معايير الجودة ذاتها والمسؤولية الكاملة كمقاول واحد للمشاريع في أنحاء المنطقة.",
+    projects_eyebrow: "Featured Work",
+    projects_eyebrow_ar: "أعمال مختارة",
+    projects_title: "A selection of our portfolio",
+    projects_title_ar: "نخبة من أعمالنا",
+    seo_title: "General Contractor in Makkah | Fayez Amana Construction Company",
+    seo_title_ar: "مقاول عام في مكة المكرمة | شركة فايز أمانة للمقاولات",
+    seo_description:
+      "Fayez Amana extends its ISO-certified general contracting services to Makkah and the Western Region of Saudi Arabia, backed by 25+ years of construction experience.",
+    seo_description_ar:
+      "تقدّم فايز أمانة خدماتها في المقاولات العامة المعتمدة بمواصفة الآيزو لمكة المكرمة والمنطقة الغربية من المملكة العربية السعودية، بخبرة تتجاوز 25 عامًا في قطاع الإنشاءات.",
+  },
+} as const;
+
+async function seedLocationPages() {
+  const supabase = createAdminClient();
+  console.log("Seeding location pages (Jeddah/Makkah)...");
+  for (const [slug, data] of Object.entries(locationPages)) {
+    await supabase.from("location_pages").update(data).eq("slug", slug);
+  }
+  console.log("Location pages seeded.");
+}
+
+const careersPageSettings = {
+  hero_eyebrow: "Careers",
+  hero_eyebrow_ar: "الوظائف",
+  hero_title1: "Build Your Career",
+  hero_title1_ar: "ابنِ مسيرتك",
+  hero_title2: "With Us",
+  hero_title2_ar: "معنا",
+  hero_lede:
+    "We attract strong technical talent and invest in ambitious young Saudi professionals, sharpening their practical skills on real sites.",
+  hero_lede_ar:
+    "نستقطب كفاءات فنية متميزة، ونستثمر في الشباب السعودي الطموح، ونصقل مهاراتهم العملية على مواقع حقيقية.",
+  hero_image: "/images/about-hero-banner.avif",
+  meta1_label: "Team Size",
+  meta1_label_ar: "حجم الفريق",
+  meta1_value: "80+ members",
+  meta1_value_ar: "أكثر من 80 موظفًا",
+  meta2_label: "Disciplines",
+  meta2_label_ar: "التخصصات",
+  meta2_value: "8 technical tracks",
+  meta2_value_ar: "8 مسارات فنية",
+  meta3_label: "Base",
+  meta3_label_ar: "المقر",
+  meta3_value: "Jeddah, Saudi Arabia",
+  meta3_value_ar: "جدة، السعودية",
+  meta4_label: "Commitment",
+  meta4_label_ar: "الالتزام",
+  meta4_value: "Saudization certified",
+  meta4_value_ar: "معتمدة للسعودة",
+  culture_image: "/images/service-hero-bg.avif",
+  culture_eyebrow: "Company Culture",
+  culture_eyebrow_ar: "ثقافة الشركة",
+  culture_title: "People first, since 2000.",
+  culture_title_ar: "الإنسان أولاً، منذ عام 2000.",
+  benefits_eyebrow: "Benefits",
+  benefits_eyebrow_ar: "المزايا",
+  benefits_title: "What you get on day one.",
+  benefits_title_ar: "ما ستحصل عليه من اليوم الأول.",
+  positions_eyebrow: "Open Positions",
+  positions_eyebrow_ar: "الوظائف الشاغرة",
+  positions_title: "The disciplines we staff.",
+  positions_title_ar: "التخصصات التي نوظفها.",
+  positions_lede: "Our technical team breakdown, and the tracks we recruit into. Apply to any of them, or send an open application.",
+  positions_lede_ar: "توزيع فريقنا الفني، والمسارات التي نوظف فيها. تقدّم لأي منها، أو أرسل طلبًا مفتوحًا.",
+  application_eyebrow: "Application",
+  application_eyebrow_ar: "التقديم",
+  application_title: "Apply.",
+  application_title_ar: "قدّم الآن.",
+  application_note:
+    "Tell us which discipline you build in and what you have delivered. All engineers at Fayez Amana hold verified professional qualifications and active memberships with the relevant bodies — bring yours.",
+  application_note_ar:
+    "أخبرنا في أي تخصص تعمل وما الذي نفّذته. يحمل جميع مهندسي فايز أمانة مؤهلات مهنية موثقة وعضويات فعالة لدى الجهات المختصة — شاركنا مؤهلاتك.",
+  form_name_label: "Full name",
+  form_name_label_ar: "الاسم الكامل",
+  form_email_label: "Email",
+  form_email_label_ar: "البريد الإلكتروني",
+  form_position_label: "Position",
+  form_position_label_ar: "الوظيفة",
+  form_cv_label: "Attach your CV (PDF)",
+  form_cv_label_ar: "أرفق سيرتك الذاتية (PDF)",
+  form_cv_hint: "PDF only, up to 3 MB. Optional, but it speeds up the review.",
+  form_cv_hint_ar: "PDF فقط، حتى 3 ميجابايت. اختياري، لكنه يسرّع المراجعة.",
+  form_send_label: "Send application",
+  form_send_label_ar: "إرسال الطلب",
+  form_sending_label: "Sending…",
+  form_sending_label_ar: "جارٍ الإرسال…",
+  form_call_label: "Call",
+  form_call_label_ar: "اتصل بـ",
+  form_footer_note: "Sent straight to {email}. We respond within 1 business day.",
+  form_footer_note_ar: "يُرسَل مباشرة إلى {email}. نستجيب خلال يوم عمل واحد.",
+  form_validation_error: "Please add your name, a valid email, and the position you're applying for.",
+  form_validation_error_ar: "يرجى إضافة اسمك وبريد إلكتروني صحيح والوظيفة المتقدم إليها.",
+  form_send_error: "We couldn't send that just now. Please try again, or email us at {email}.",
+  form_send_error_ar: "تعذّر إرسال الطلب الآن. يرجى المحاولة مجددًا، أو مراسلتنا على {email}.",
+  form_network_error: "We couldn't reach our server. Please check your connection and try again.",
+  form_network_error_ar: "تعذّر الوصول إلى الخادم. يرجى التحقق من اتصالك والمحاولة مجددًا.",
+  form_success_heading: "Application received.",
+  form_success_heading_ar: "تم استلام طلبك.",
+  form_success_body: "Our team will review your application and get back to you within one business day.",
+  form_success_body_ar: "سيراجع فريقنا طلبك ويعود إليك خلال يوم عمل واحد.",
+  seo_title: "Careers | Join Our Engineering & Site Teams | Fayez Amana",
+  seo_title_ar: "الوظائف | انضم لفرقنا الهندسية والميدانية | فايز أمانة",
+  seo_description:
+    "Fayez Amana Construction Company is hiring architects, engineers and site staff in Jeddah. 25+ years, 300+ projects, ISO-certified, Saudization compliant.",
+  seo_description_ar:
+    "شركة فايز أمانة للمقاولات توظف معماريين ومهندسين وطاقمًا ميدانيًا في جدة. أكثر من 25 عامًا وخبرة تفوق 300 مشروع، معتمدة بمواصفة الآيزو وملتزمة بالسعودة.",
+};
+
+const careerCultureItems = [
+  {
+    title: "Empowering Saudi Talent",
+    title_ar: "تمكين الكفاءات السعودية",
+    body: "Training and empowering ambitious young Saudi professionals has been part of our commitment since 2000. We invest directly in Saudi talent and comply fully with Saudization requirements.",
+    body_ar: "تدريب وتمكين الشباب السعودي الطموح جزء من التزامنا منذ عام 2000. نستثمر مباشرة في الكفاءات السعودية ونلتزم بالكامل بمتطلبات السعودة.",
+  },
+  {
+    title: "One Unified Entity",
+    title_ar: "كيان واحد متكامل",
+    body: "Architecture, construction and engineering under one roof. Engineers, architects, project managers and skilled site personnel work in seamless collaboration.",
+    body_ar: "العمارة والإنشاء والهندسة تحت سقف واحد. يعمل المهندسون والمعماريون ومديرو المشاريع والفنيون المهرة بتنسيق كامل.",
+  },
+  {
+    title: "Professional Development",
+    title_ar: "التطوير المهني",
+    body: "We invest continuously in professional development, upgrading construction methods and internal systems to build a more resilient, agile organization.",
+    body_ar: "نستثمر باستمرار في التطوير المهني، ونحدّث أساليب البناء والأنظمة الداخلية لبناء مؤسسة أكثر مرونة وقدرة على التكيف.",
+  },
+  {
+    title: "Verified Credentials",
+    title_ar: "مؤهلات موثقة",
+    body: "All engineers hold verified professional qualifications and active memberships with the relevant bodies. Your credentials matter here, and we back them.",
+    body_ar: "يحمل جميع المهندسين مؤهلات مهنية موثقة وعضويات فعالة لدى الجهات المختصة. مؤهلاتك مهمة هنا، ونحن ندعمها.",
+  },
+];
+
+const careerBenefits = [
+  {
+    body: "Work on a 300+ project legacy across residential, commercial, hospitality, healthcare, F&B and sports facilities.",
+    body_ar: "العمل ضمن إرث يضم أكثر من 300 مشروع في القطاعات السكنية والتجارية والضيافة والرعاية الصحية والمطاعم والمنشآت الرياضية.",
+  },
+  {
+    body: "ISO-certified quality, safety and environmental management systems.",
+    body_ar: "أنظمة إدارة جودة وسلامة وبيئة معتمدة بمواصفة الآيزو.",
+  },
+  {
+    body: "A structured 21-stage execution methodology, so you always know the standard.",
+    body_ar: "منهجية تنفيذ منظمة من 21 مرحلة، لتعرف دائمًا المعيار المطلوب.",
+  },
+  {
+    body: "Continuous mentorship between execution and supervision teams.",
+    body_ar: "إرشاد مستمر بين فرق التنفيذ والإشراف.",
+  },
+  {
+    body: "Multidisciplinary exposure across structural, architectural, electromechanical and interior works.",
+    body_ar: "احتكاك متعدد التخصصات في الأعمال الإنشائية والمعمارية والكهروميكانيكية والداخلية.",
+  },
+  {
+    body: "Alignment with Saudi Vision 2030 and the Kingdom's largest development programme.",
+    body_ar: "توافق مع رؤية السعودية 2030 وأكبر برنامج تنموي في المملكة.",
+  },
+];
+
+const careerPositions = [
+  { title: "Architect", title_ar: "مهندس معماري", discipline: "Architectural Works", discipline_ar: "الأعمال المعمارية", team_size: 8 },
+  { title: "Civil Engineer", title_ar: "مهندس مدني", discipline: "Structural & Construction Works", discipline_ar: "الأعمال الإنشائية والبناء", team_size: 5 },
+  { title: "Electrical Engineer", title_ar: "مهندس كهرباء", discipline: "Electromechanical Works", discipline_ar: "الأعمال الكهروميكانيكية", team_size: 2 },
+  { title: "Mechanical Engineer", title_ar: "مهندس ميكانيكا", discipline: "Electromechanical Works", discipline_ar: "الأعمال الكهروميكانيكية", team_size: 1 },
+  { title: "Interior Designer", title_ar: "مصمم داخلي", discipline: "Interior Design & Finishing", discipline_ar: "التصميم الداخلي والتشطيبات", team_size: 3 },
+  { title: "Survey Engineer", title_ar: "مهندس مساحة", discipline: "Structural & Construction Works", discipline_ar: "الأعمال الإنشائية والبناء", team_size: 1 },
+  { title: "Site Supervisor", title_ar: "مشرف موقع", discipline: "Site Operations", discipline_ar: "عمليات الموقع", team_size: 7 },
+  { title: "Site Worker", title_ar: "عامل موقع", discipline: "Site Operations", discipline_ar: "عمليات الموقع", team_size: 57 },
+].map((p) => ({
+  ...p,
+  employment_type: "Full-time",
+  employment_type_ar: "دوام كامل",
+  location: "Jeddah, KSA",
+  location_ar: "جدة، السعودية",
+}));
+
+const careerTrustItems = [
+  {
+    title: "Confidential",
+    title_ar: "سرّية تامة",
+    body: "Your project information is kept private.",
+    body_ar: "تبقى معلومات مشروعك خاصة.",
+  },
+  {
+    title: "Response time",
+    title_ar: "وقت الاستجابة",
+    body: "We typically respond within one business day.",
+    body_ar: "عادةً ما نستجيب خلال يوم عمل واحد.",
+  },
+  {
+    title: "Experienced engineers",
+    title_ar: "مهندسون ذوو خبرة",
+    body: "25+ years delivering complex projects.",
+    body_ar: "أكثر من 25 عامًا في تنفيذ مشاريع معقدة.",
+  },
+];
+
+const careerApplicationFields = [
+  {
+    field_key: "phone",
+    field_type: "tel",
+    label: "Phone",
+    label_ar: "الهاتف",
+    placeholder: "",
+    placeholder_ar: "",
+    options: "",
+    options_ar: "",
+    required: false,
+  },
+  {
+    field_key: "experience",
+    field_type: "textarea",
+    label: "Your experience",
+    label_ar: "خبراتك",
+    placeholder: "Tell us where you have worked and on what.",
+    placeholder_ar: "أخبرنا أين عملت وعلى ماذا.",
+    options: "",
+    options_ar: "",
+    required: false,
+  },
+];
+
+async function seedCareersPage() {
+  const supabase = createAdminClient();
+  console.log("Seeding careers page settings...");
+  await supabase.from("careers_page_settings").upsert({ id: 1, ...careersPageSettings });
+  await replaceAll(supabase, "career_culture_items", careerCultureItems.map((r, i) => ({ ...r, sort_order: i })));
+  await replaceAll(supabase, "career_benefits", careerBenefits.map((r, i) => ({ ...r, sort_order: i })));
+  await replaceAll(supabase, "career_positions", careerPositions.map((r, i) => ({ ...r, sort_order: i })));
+  await replaceAll(supabase, "career_trust_items", careerTrustItems.map((r, i) => ({ ...r, sort_order: i })));
+  await replaceAll(
+    supabase,
+    "career_application_fields",
+    careerApplicationFields.map((r, i) => ({ ...r, sort_order: i })),
+  );
+  console.log("Careers page seeded.");
+}
+
+const newsPageSettings = {
+  hero_image: "/images/project-hero-bg.avif",
+  hero_eyebrow: "News & Insights",
+  hero_eyebrow_ar: "الأخبار والرؤى",
+  hero_title1: "How We Build,",
+  hero_title1_ar: "كيف نبني،",
+  hero_title2: "Written Down.",
+  hero_title2_ar: "موثّقًا.",
+  hero_lede:
+    "Engineering guides, industry explainers and company news from the team that runs the sites. Written to be useful before it is persuasive.",
+  hero_lede_ar:
+    "أدلة هندسية وشروحات لقطاع المقاولات وأخبار الشركة من الفريق الذي يدير المواقع. نكتب لنكون مفيدين قبل أن نكون مقنعين.",
+  meta_author: "Fayez Amana Engineering Team",
+  meta_author_ar: "فريق فايز أمانة الهندسي",
+  meta_languages: "English & Arabic",
+  meta_languages_ar: "الإنجليزية والعربية",
+  seo_title: "News & Insights | Construction Guides from Fayez Amana",
+  seo_title_ar: "الأخبار والرؤى | أدلة إنشائية من فايز أمانة",
+  seo_description:
+    "Engineering guides, industry explainers and company news from Fayez Amana Construction Company's team in Jeddah, Saudi Arabia.",
+  seo_description_ar:
+    "أدلة هندسية وشروحات لقطاع المقاولات وأخبار الشركة من فريق فايز أمانة للمقاولات في جدة، السعودية.",
+};
+
+const AUTHOR_EN = "Fayez Amana Engineering Team";
+const AUTHOR_AR = "فريق فايز أمانة الهندسي";
+
+type BlockSeed = {
+  type: string;
+  heading?: string; heading_ar?: string;
+  body?: string; body_ar?: string;
+  callout_title?: string; callout_title_ar?: string;
+  table_headers?: string; table_headers_ar?: string;
+  table_rows?: string; table_rows_ar?: string;
+};
+
+function heading(en: string, ar: string): BlockSeed {
+  return { type: "heading", heading: en, heading_ar: ar };
+}
+function paragraph(en: string, ar: string): BlockSeed {
+  return { type: "paragraph", body: en, body_ar: ar };
+}
+function bullets(en: string[], ar: string[]): BlockSeed {
+  return { type: "bullets", body: en.join("\n"), body_ar: ar.join("\n") };
+}
+function steps(en: { title: string; body: string }[], ar: { title: string; body: string }[]): BlockSeed {
+  return {
+    type: "steps",
+    body: en.map((s) => `${s.title}|||${s.body}`).join("\n"),
+    body_ar: ar.map((s) => `${s.title}|||${s.body}`).join("\n"),
+  };
+}
+function callout(titleEn: string, bodyEn: string, titleAr: string, bodyAr: string): BlockSeed {
+  return { type: "callout", callout_title: titleEn, callout_title_ar: titleAr, body: bodyEn, body_ar: bodyAr };
+}
+function table(headersEn: string[], rowsEn: string[][], headersAr: string[], rowsAr: string[][]): BlockSeed {
+  return {
+    type: "table",
+    table_headers: headersEn.join("|"),
+    table_headers_ar: headersAr.join("|"),
+    table_rows: rowsEn.map((r) => r.join("|")).join("\n"),
+    table_rows_ar: rowsAr.map((r) => r.join("|")).join("\n"),
+  };
+}
+function processStagesBlock(): BlockSeed {
+  return { type: "process_stages" };
+}
+
+type FaqSeed = { question: string; question_ar: string; answer: string; answer_ar: string };
+function faq(question: string, answer: string, question_ar: string, answer_ar: string): FaqSeed {
+  return { question, question_ar, answer, answer_ar };
+}
+
+type ArticleSeed = {
+  slug: string;
+  category: string;
+  title: string; title_ar: string;
+  excerpt: string; excerpt_ar: string;
+  read_minutes: number;
+  published_at: string;
+  featured: boolean;
+  image: string;
+  blocks: BlockSeed[];
+  faqs: FaqSeed[];
+  relatedServiceSlugs: string[];
+  relatedProjectSlugs: string[];
+};
+
+const newsArticles: ArticleSeed[] = [
+  {
+    slug: "turnkey-construction-explained",
+    category: "Industry Insights",
+    title: "Turnkey Construction Explained: What Is and Is Not Included",
+    title_ar: "التسليم بنظام المفتاح في المقاولات: ماذا يشمل وماذا لا يشمل",
+    excerpt: "Turnkey means you turn a key and the building works. The real question is what the contractor had to do before you could.",
+    excerpt_ar: "تسليم المفتاح يعني أن تدير المفتاح والمبنى يعمل. السؤال المهم هو ماذا فعل المقاول قبل أن يصل إلى تلك اللحظة.",
+    read_minutes: 5,
+    published_at: "2026-03-25",
+    featured: true,
+    image: "/images/work-img3.avif",
+    blocks: [
+      callout(
+        "In short",
+        "Turnkey construction is a delivery model where one contractor takes a project from an early brief through to a completed, functioning building, handed over ready for use — carrying responsibility for design coordination, structural works, electromechanical systems, finishing and commissioning. Its value is a single point of accountability across every trade. Its risk sits at the edges of scope: loose furniture, landscaping, external works and operating permits are treated differently across contracts unless they are written down.",
+        "باختصار",
+        "التسليم بنظام المفتاح نموذج تعاقدي يتولى فيه مقاول واحد المشروع من الفكرة الأولى وحتى مبنى مكتمل وجاهز للاستخدام، ويكون مسؤولاً عن تنسيق التصميم والأعمال الإنشائية والأنظمة الكهروميكانيكية والتشطيبات والتشغيل. قيمته الأساسية أنه يمنحك جهة واحدة مسؤولة عن كل الأعمال. أما مخاطره فتكمن عند حدود النطاق: الأثاث المنقول وأعمال تنسيق الموقع الخارجية وتصاريح التشغيل تُعامل بشكل مختلف بين العقود ما لم تُكتب بوضوح.",
+      ),
+      heading("Key takeaways", "أهم النقاط"),
+      bullets(
+        [
+          "Turnkey describes the completeness of the handover, not who did the design.",
+          "Core scope — structure through finishing and commissioning — is rarely where disputes start.",
+          "Disputes happen at the edges: landscaping, external works, boundary walls, loose furniture, appliances, signage, operating permits.",
+          "Commissioning is part of the deliverable; installed is not the same as proven.",
+          "Fit-out projects benefit most, since concurrent trades in a small footprint punish fragmented contracts.",
+        ],
+        [
+          "التسليم بنظام المفتاح يصف مدى اكتمال التسليم، وليس من صمم المشروع.",
+          "النطاق الأساسي — من الإنشاء وحتى التشطيب والتشغيل — نادرًا ما يكون سبب الخلاف.",
+          "الخلافات تحدث عند حدود النطاق: تنسيق الموقع، الأعمال الخارجية، أسوار الحدود، الأثاث المنقول، الأجهزة، اللافتات، تصاريح التشغيل.",
+          "التشغيل جزء من التسليم؛ التركيب لا يعني الإثبات.",
+          "مشاريع التشطيب تستفيد أكثر، لأن تداخل الحرف في مساحة صغيرة يُعاقب العقود المجزأة.",
+        ],
+      ),
+      heading("What turnkey actually means", "ماذا يعني التسليم بنظام المفتاح فعليًا"),
+      paragraph(
+        "Under a turnkey contract, the client's involvement effectively ends at the brief and resumes at the key. In practice, that promise holds only as far as the scope document defines it — and disputes almost never happen in the middle of a clearly defined scope. They happen at its edges.",
+        "بموجب عقد تسليم المفتاح، ينتهي دور العميل عمليًا عند تسليم الفكرة ويعود عند استلام المفتاح. لكن هذا الوعد يصمد فقط بقدر ما يحدده مستند النطاق بوضوح — والخلافات نادرًا ما تحدث داخل نطاق محدد جيدًا، بل عند أطرافه.",
+      ),
+      heading("The scope table to settle before signing", "جدول النطاق الذي يجب الاتفاق عليه قبل التوقيع"),
+      paragraph(
+        "The items below are the ones that, in practice, get argued about. None of them is exotic — all are cheap to resolve on paper and expensive to resolve on site.",
+        "البنود التالية هي ما يُختلف عليه عمليًا. لا شيء منها استثنائي — وكلها رخيصة الحل على الورق ومكلفة الحل في الموقع.",
+      ),
+      table(
+        ["Item", "Commonly Included", "Commonly Excluded", "Settle in Writing"],
+        [
+          ["Structural works", "Yes", "—", "Rarely disputed"],
+          ["MEP installation", "Yes", "—", "Confirm commissioning is included, not just installation"],
+          ["Interior finishing", "Yes", "—", "Specify finish grades, not just 'high quality'"],
+          ["Fitted joinery", "Usually", "—", "Define which rooms"],
+          ["Loose furniture", "—", "Usually", "Almost always needs stating"],
+          ["Landscaping & external works", "Varies", "Often", "Define the boundary line"],
+          ["Signage", "—", "Usually", "Especially for commercial and F&B"],
+          ["Operating permits", "—", "Usually", "Occupancy differs from operating"],
+        ],
+        ["البند", "يُدرج عادة", "يُستثنى عادة", "يجب توضيحه كتابيًا"],
+        [
+          ["الأعمال الإنشائية", "نعم", "—", "نادرًا ما يُختلف عليه"],
+          ["تركيب الأنظمة الكهروميكانيكية", "نعم", "—", "تأكد أن التشغيل مُدرج وليس التركيب فقط"],
+          ["التشطيبات الداخلية", "نعم", "—", "حدد درجة التشطيب لا 'جودة عالية' فقط"],
+          ["الأعمال الخشبية المثبتة", "عادة", "—", "حدد الغرف المشمولة"],
+          ["الأثاث المنقول", "—", "عادة", "يحتاج ذكرًا صريحًا دائمًا"],
+          ["تنسيق الموقع والأعمال الخارجية", "متفاوت", "غالبًا", "حدد خط الحدود"],
+          ["اللافتات", "—", "عادة", "خصوصًا للمشاريع التجارية والمطاعم"],
+          ["تصاريح التشغيل", "—", "عادة", "الإشغال يختلف عن التشغيل"],
+        ],
+      ),
+      callout(
+        "Important — installed is not commissioned",
+        "A drainage line that exists is not the same as one tested under load. An AC system that is mounted is not the same as one that has been balanced. Write commissioning into the deliverable explicitly.",
+        "مهم — التركيب ليس تشغيلاً",
+        "خط صرف موجود لا يعني أنه اختُبر تحت الحمل. جهاز تكييف مُركّب لا يعني أنه ضُبط. اكتب التشغيل صراحة كجزء من التسليم.",
+      ),
+      heading("Where turnkey fits best", "أين يناسب تسليم المفتاح أكثر"),
+      bullets(
+        [
+          "Private villas, where the client wants a finished house, not a procurement process.",
+          "Restaurant, café and clinic fit-out, where interior works, MEP, joinery and lighting run concurrently on a short programme.",
+          "Hospitality refurbishment, where multiple similar units are upgraded to one consistent standard.",
+          "Commercial shells being taken to operational condition, where the tenant's opening date is the binding constraint.",
+        ],
+        [
+          "الفلل الخاصة، حيث يريد العميل منزلاً جاهزًا لا عملية شراء متعددة الأطراف.",
+          "تشطيب المطاعم والمقاهي والعيادات، حيث تتداخل الأعمال الداخلية والكهروميكانيكية والنجارة والإضاءة على جدول زمني قصير.",
+          "تجديد المنشآت الفندقية، حيث تُرفع عدة وحدات متشابهة إلى معيار واحد متسق.",
+          "الهياكل التجارية الجاهزة للتشغيل، حيث يكون تاريخ افتتاح المستأجر هو القيد الملزم.",
+        ],
+      ),
+      heading("Where it fits less well", "أين يناسب أقل"),
+      bullets(
+        [
+          "Projects with a mandated competitive tender against a completed design.",
+          "Highly specialised work where the client already holds an independent specialist designer.",
+          "Projects where the brief cannot be fixed at the outset, since the contractor prices that uncertainty.",
+        ],
+        [
+          "المشاريع التي تتطلب منافسة إلزامية على تصميم مكتمل.",
+          "الأعمال شديدة التخصص حيث يملك العميل بالفعل مصممًا مستقلاً متخصصًا.",
+          "المشاريع التي لا يمكن تثبيت فكرتها من البداية، لأن المقاول سيسعّر تلك الحالة من عدم اليقين.",
+        ],
+      ),
+      heading("Questions to ask a turnkey contractor", "أسئلة تُطرح على مقاول التسليم بنظام المفتاح"),
+      steps(
+        [
+          { title: "Which disciplines do you execute in-house?", body: "A contractor who subcontracts every trade is still turnkey, but the coordination benefit is thinner. Ask which of structural, architectural, MEP and finishing are carried directly." },
+          { title: "What is your handover definition?", body: "Ask for it as a document, not a sentence — commissioning records, testing evidence and as-built information." },
+          { title: "What sits outside the scope?", body: "A contractor who answers this quickly and specifically has run turnkey projects before." },
+          { title: "What are you classified for?", body: "Verify the classification covers structural, architectural and MEP works, and ask for ISO and Contractors Authority documentation." },
+        ],
+        [
+          { title: "ما التخصصات التي تنفذونها داخليًا؟", body: "المقاول الذي يسند كل حرفة لمقاول باطن لا يزال يُقدّم تسليم مفتاح، لكن فائدة التنسيق تقل. اسأل عن أي من الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات تُنفذ مباشرة." },
+          { title: "ما تعريفكم للتسليم؟", body: "اطلبه كمستند لا كجملة — سجلات تشغيل، أدلة اختبار، ومعلومات كما نُفذ." },
+          { title: "ما الذي يقع خارج النطاق؟", body: "المقاول الذي يجيب على هذا بسرعة ووضوح نفّذ مشاريع تسليم مفتاح من قبل." },
+          { title: "ما تصنيفكم؟", body: "تحقق أن التصنيف يغطي الأعمال الإنشائية والمعمارية والكهروميكانيكية، واطلب وثائق الآيزو والهيئة السعودية للمقاولين." },
+        ],
+      ),
+    ],
+    faqs: [
+      faq(
+        "What does turnkey construction include?",
+        "At minimum: structural works, the building envelope, electromechanical systems, interior and exterior finishing, and commissioning to a state ready for use. Loose furniture, landscaping, external works and operating permits vary by contract and should be written into the scope.",
+        "ماذا يشمل التسليم بنظام المفتاح؟",
+        "كحد أدنى: الأعمال الإنشائية، غلاف المبنى، الأنظمة الكهروميكانيكية، التشطيبات الداخلية والخارجية، والتشغيل حتى حالة الجاهزية للاستخدام. الأثاث المنقول وتنسيق الموقع والأعمال الخارجية وتصاريح التشغيل تختلف حسب العقد ويجب كتابتها في النطاق.",
+      ),
+      faq(
+        "Is turnkey the same as design-build?",
+        "They overlap but are not identical. Design-build describes who holds design responsibility; turnkey describes how complete the building is at handover.",
+        "هل التسليم بنظام المفتاح هو نفسه التصميم والبناء؟",
+        "يتداخلان لكنهما ليسا متطابقين. التصميم والبناء يصف من يتحمل مسؤولية التصميم؛ أما تسليم المفتاح فيصف مدى اكتمال المبنى عند التسليم.",
+      ),
+      faq(
+        "What is the main risk in a turnkey contract?",
+        "Scope ambiguity at the edges — landscaping, external works, loose furniture, appliances, signage and operating permits.",
+        "ما أكبر مخاطرة في عقد تسليم المفتاح؟",
+        "غموض النطاق عند الأطراف — تنسيق الموقع، الأعمال الخارجية، الأثاث المنقول، الأجهزة، اللافتات، وتصاريح التشغيل.",
+      ),
+      faq(
+        "Does turnkey work for fit-out projects?",
+        "Yes — it is one of the strongest fits, since interior works, MEP, joinery and lighting run concurrently in a small footprint on a short programme.",
+        "هل يناسب تسليم المفتاح مشاريع التشطيب؟",
+        "نعم — من أقوى الحالات المناسبة، لأن الأعمال الداخلية والكهروميكانيكية والنجارة والإضاءة تتداخل في مساحة صغيرة وجدول زمني قصير.",
+      ),
+      faq(
+        "Does Fayez Amana deliver turnkey projects?",
+        "Yes. Fayez Amana delivers structural, architectural, electromechanical and interior finishing works as a single general contractor, offering design-build and turnkey delivery from excavation through to handover.",
+        "هل تقدّم فايز أمانة مشاريع تسليم مفتاح؟",
+        "نعم. تنفّذ فايز أمانة الأعمال الإنشائية والمعمارية والكهروميكانيكية والتشطيبات الداخلية كمقاول عام واحد، وتقدّم التصميم والبناء والتسليم بنظام مفتاح من الحفر وحتى التسليم.",
+      ),
+    ],
+    relatedServiceSlugs: ["interior-finishing-works", "architectural-works"],
+    relatedProjectSlugs: ["chalets-durrat-al-arous", "asli-basha-restaurant"],
+  },
+  {
+    slug: "general-contractor-vs-design-build",
+    category: "Industry Insights",
+    title: "General Contractor vs Design-Build: Which Structure Fits Your Project",
+    title_ar: "المقاول العام مقابل التصميم والبناء: أي هيكل يناسب مشروعك",
+    excerpt: "Two ways to buy a building. One separates design from construction; the other puts both under one contract. The difference is where the risk sits.",
+    excerpt_ar: "طريقتان لتنفيذ مبنى. إحداهما تفصل التصميم عن التنفيذ، والأخرى تجمعهما في عقد واحد. الفرق هو أين تقع المخاطرة.",
+    read_minutes: 5,
+    published_at: "2026-03-04",
+    featured: false,
+    image: "/images/work-img5.avif",
+    blocks: [
+      callout(
+        "In short",
+        "Under traditional general contracting, the client appoints a designer first, completes the design, then appoints a contractor to build it — design risk stays with the client. Under design-build, one party carries both design and construction under a single contract, so coordination between architectural, structural and MEP disciplines happens inside that party. General contracting gives clearer competitive pricing; design-build gives a single point of responsibility.",
+        "باختصار",
+        "في المقاولة العامة التقليدية، يعيّن العميل مصممًا أولاً، يُكمل التصميم، ثم يعيّن مقاولاً لتنفيذه — وتبقى مخاطرة التصميم لدى العميل. في التصميم والبناء، تتحمل جهة واحدة التصميم والتنفيذ معًا بعقد واحد، فيتم التنسيق بين المعماري والإنشائي والكهروميكانيكي داخليًا. المقاولة العامة تمنح تسعيرًا تنافسيًا أوضح؛ والتصميم والبناء يمنح جهة مسؤولية واحدة.",
+      ),
+      heading("Key takeaways", "أهم النقاط"),
+      bullets(
+        [
+          "Traditional contracting separates design from construction; design-build combines them under one contract.",
+          "Under traditional contracting, design errors are the client's cost. Under design-build, they are the contractor's.",
+          "Traditional contracting prices a finished design, so tendering is more directly comparable.",
+          "Design-build overlaps design and construction, shortening the calendar but reducing the client's design control.",
+          "The choice is a risk-allocation decision, not a quality decision.",
+        ],
+        [
+          "المقاولة التقليدية تفصل التصميم عن التنفيذ؛ التصميم والبناء يجمعهما في عقد واحد.",
+          "في المقاولة التقليدية، أخطاء التصميم تكلفة على العميل. في التصميم والبناء، تصبح تكلفة على المقاول.",
+          "المقاولة التقليدية تسعّر تصميمًا مكتملاً، فتصبح المناقصات قابلة للمقارنة مباشرة.",
+          "التصميم والبناء يجعل التصميم والتنفيذ متداخلين، ما يقصّر الجدول الزمني لكنه يقلل سيطرة العميل على التصميم.",
+          "الاختيار قرار توزيع مخاطرة، وليس قرار جودة.",
+        ],
+      ),
+      heading("Traditional general contracting", "المقاولة العامة التقليدية"),
+      paragraph(
+        "The client appoints a design team, develops the design to a tender-ready state, and contractors price that same design — bids are directly comparable. Its central weakness is the seam: when architectural, structural and MEP drawings disagree, resolving it becomes a variation, and variations are where cost certainty erodes.",
+        "يعيّن العميل فريق تصميم، يُطوّر التصميم إلى مرحلة جاهزة للمناقصة، ويسعّر المقاولون التصميم نفسه — فتصبح العروض قابلة للمقارنة مباشرة. ضعفها الأساسي في نقطة الالتقاء: حين تتعارض المخططات المعمارية والإنشائية والكهروميكانيكية، يتحول الحل إلى أمر تغييري، وهناك تتآكل موثوقية التكلفة.",
+      ),
+      bullets(
+        [
+          "Comparable competitive bids against identical documents.",
+          "The client keeps full control of the design and the designer.",
+          "Suits public and institutional procurement.",
+          "An independent design authority can inspect the contractor's work.",
+        ],
+        [
+          "عروض تنافسية قابلة للمقارنة على نفس المستندات.",
+          "يحتفظ العميل بالسيطرة الكاملة على التصميم والمصمم.",
+          "يناسب المشتريات الحكومية والمؤسسية.",
+          "جهة تصميم مستقلة يمكنها تفتيش عمل المقاول.",
+        ],
+      ),
+      heading("Design-build", "التصميم والبناء"),
+      paragraph(
+        "The client contracts one party against a brief and performance specification. That party develops the design and builds it — a clash between a duct route and a beam is resolved internally, before anyone reaches site. The trade-off is control: the client buys an outcome rather than specifying a solution.",
+        "يتعاقد العميل مع جهة واحدة بناءً على فكرة ومواصفات أداء. تُطوّر تلك الجهة التصميم وتنفّذه — أي تعارض بين مسار مجرى وكمرة يُحل داخليًا قبل الوصول إلى الموقع. المقابل هو التحكم: يشتري العميل نتيجة بدلاً من تحديد حل.",
+      ),
+      bullets(
+        [
+          "One accountable party for design and execution.",
+          "Design and construction overlap, compressing the calendar.",
+          "Buildability is fed back into the design while it is still cheap to change.",
+          "Interdisciplinary clashes are resolved internally.",
+        ],
+        [
+          "جهة واحدة مسؤولة عن التصميم والتنفيذ.",
+          "تداخل التصميم والتنفيذ يقلّص الجدول الزمني.",
+          "تغذية قابلية التنفيذ للتصميم وهي لا تزال رخيصة التعديل.",
+          "التعارضات بين التخصصات تُحل داخليًا.",
+        ],
+      ),
+      heading("Side by side", "مقارنة جانبية"),
+      table(
+        ["Dimension", "General Contracting", "Design-Build"],
+        [
+          ["Design responsibility", "Client, through the design team", "Contractor"],
+          ["Number of contracts", "Two or more", "One"],
+          ["Programme shape", "Sequential", "Overlapping"],
+          ["Price basis", "A completed design", "A brief and performance spec"],
+          ["Bid comparability", "High", "Lower"],
+          ["Owner of a coordination error", "Usually the client", "The contractor"],
+          ["Typical fit", "Public/institutional, fully designed schemes", "Private villas, fit-out, fast-track commercial"],
+        ],
+        ["البُعد", "المقاولة العامة", "التصميم والبناء"],
+        [
+          ["مسؤولية التصميم", "العميل، عبر فريق التصميم", "المقاول"],
+          ["عدد العقود", "اثنان أو أكثر", "واحد"],
+          ["شكل الجدول الزمني", "تسلسلي", "متداخل"],
+          ["أساس التسعير", "تصميم مكتمل", "فكرة ومواصفات أداء"],
+          ["قابلية مقارنة العروض", "عالية", "أقل"],
+          ["مسؤول خطأ التنسيق", "غالبًا العميل", "المقاول"],
+          ["الملاءمة النموذجية", "مشاريع حكومية/مؤسسية مصممة بالكامل", "فلل خاصة، تشطيب، مشاريع تجارية سريعة"],
+        ],
+      ),
+      heading("How to choose", "كيف تختار"),
+      steps(
+        [
+          { title: "Decide how complete your design really is", body: "If you hold a coordinated, tender-ready set, traditional contracting gets you a sharper price. A concept and a wish is not a design to tender." },
+          { title: "Decide who should own coordination risk", body: "If you lack the internal capacity to arbitrate between a designer and a contractor, don't buy a structure that requires you to." },
+          { title: "Decide what matters more, control or certainty of responsibility", body: "You can have detailed design control or a single throat to hold — rarely both fully." },
+          { title: "Check the classification, not the claim", body: "Verify the contractor's classification covers the works, and ask for certifications rather than accepting the logo on the proposal." },
+        ],
+        [
+          { title: "قرر مدى اكتمال تصميمك فعليًا", body: "إذا كان لديك مستندات منسقة وجاهزة للمناقصة، ستمنحك المقاولة التقليدية سعرًا أدق. الفكرة والرغبة ليست تصميمًا جاهزًا للمناقصة." },
+          { title: "قرر من يجب أن يتحمل مخاطرة التنسيق", body: "إذا لم تملك القدرة الداخلية للفصل بين مصمم ومقاول، فلا تشترِ هيكلاً يتطلب منك ذلك." },
+          { title: "قرر ما الأهم: التحكم أم وضوح المسؤولية", body: "يمكنك امتلاك تحكم تفصيلي بالتصميم أو جهة واحدة مسؤولة — نادرًا ما تحصل على الاثنين معًا بالكامل." },
+          { title: "تحقق من التصنيف لا من الادعاء", body: "تأكد أن تصنيف المقاول يغطي الأعمال، واطلب الشهادات بدلاً من قبول الشعار في العرض." },
+        ],
+      ),
+      callout(
+        "Note — a hybrid is common and legitimate",
+        "Many projects run the shell under a general contract against a completed structural design, then let the finishing package design-build — putting competitive work where tendering is effective, and fast-moving, taste-driven work where a single accountable party is worth more.",
+        "ملاحظة — النموذج الهجين شائع ومشروع",
+        "تُنفّذ مشاريع كثيرة الهيكل الإنشائي بعقد مقاولة عامة على تصميم إنشائي مكتمل، ثم تُسند حزمة التشطيب بنظام التصميم والبناء — بحيث توضع الأعمال القابلة للمنافسة حيث تفيد المناقصة، والأعمال السريعة المرتبطة بالذوق حيث تفيد جهة مسؤولة واحدة.",
+      ),
+    ],
+    faqs: [
+      faq(
+        "What is the main difference between a general contractor and a design-build contractor?",
+        "A general contractor builds a design someone else produced. A design-build contractor produces the design and builds it. The practical consequence is where a coordination error lands: with design-build it is the contractor's problem, under traditional contracting it is usually the client's.",
+        "ما الفرق الأساسي بين المقاول العام ومقاول التصميم والبناء؟",
+        "المقاول العام ينفّذ تصميمًا أعدّته جهة أخرى. مقاول التصميم والبناء يُعِدّ التصميم وينفّذه. الأثر العملي هو أين يقع خطأ التنسيق: في التصميم والبناء يقع على المقاول، وفي المقاولة التقليدية يقع غالبًا على العميل.",
+      ),
+      faq(
+        "Which is faster, general contracting or design-build?",
+        "Design-build is normally faster because construction can begin on early design packages while later ones are still being completed. Traditional contracting adds a full tender period after design completion.",
+        "أيهما أسرع، المقاولة العامة أم التصميم والبناء؟",
+        "التصميم والبناء أسرع عادة لأن التنفيذ يمكن أن يبدأ على حزم تصميم مبكرة بينما لا تزال حزم لاحقة قيد الإعداد. المقاولة التقليدية تضيف فترة مناقصة كاملة بعد اكتمال التصميم.",
+      ),
+      faq(
+        "Does design-build cost more?",
+        "Design-build prices are usually agreed before the design is fully detailed, so the contractor prices the remaining design risk into the figure. Neither model is reliably cheaper; they distribute the same risk differently.",
+        "هل التصميم والبناء أغلى؟",
+        "عادة يُتفق على أسعار التصميم والبناء قبل تفصيل التصميم بالكامل، فيُدرج المقاول مخاطرة التصميم المتبقية في السعر. لا يوجد نموذج أرخص بشكل موثوق دائمًا؛ كلاهما يوزّع نفس المخاطرة بشكل مختلف.",
+      ),
+      faq(
+        "Can one company do both in Saudi Arabia?",
+        "Yes, provided it is classified for the relevant work. Fayez Amana delivers both structures: architectural, structural, electromechanical and finishing works under general contracting, and design-build where the client wants design and execution under one contract.",
+        "هل يمكن لشركة واحدة تنفيذ النموذجين في السعودية؟",
+        "نعم، بشرط أن تكون مصنّفة للأعمال المعنية. تنفّذ فايز أمانة كلا النموذجين: الأعمال المعمارية والإنشائية والكهروميكانيكية والتشطيبات بنظام المقاولة العامة، والتصميم والبناء حين يريد العميل التصميم والتنفيذ في عقد واحد.",
+      ),
+      faq(
+        "Which model suits a private villa?",
+        "Design-build usually suits a private villa, because the client is one decision-maker who wants one accountable party and a finished house, rather than a procurement function running a competitive tender against a completed design.",
+        "أي نموذج يناسب الفيلا الخاصة؟",
+        "التصميم والبناء يناسب الفيلا الخاصة عادة، لأن العميل صاحب قرار واحد يريد جهة مسؤولة واحدة ومنزلاً جاهزًا، بدلاً من إدارة مناقصة تنافسية على تصميم مكتمل.",
+      ),
+    ],
+    relatedServiceSlugs: ["structural-construction-works", "architectural-works"],
+    relatedProjectSlugs: ["chalets-durrat-al-arous", "sport-center-prince-sultan"],
+  },
+  {
+    slug: "villa-construction-stages-saudi-arabia",
+    category: "Construction Guides",
+    title: "How a Villa Is Built in Saudi Arabia: The 21 Structural Stages",
+    title_ar: "كيف يُبنى الفيلا في السعودية: 21 مرحلة إنشائية",
+    excerpt: "Site setup to a completed shell, stage by stage: what happens, why it happens in that order, and what is verified before the next stage starts.",
+    excerpt_ar: "من تجهيز الموقع إلى هيكل مكتمل، مرحلة بمرحلة: ماذا يحدث، ولماذا بهذا الترتيب، وماذا يُتحقق منه قبل بدء المرحلة التالية.",
+    read_minutes: 10,
+    published_at: "2026-02-10",
+    featured: false,
+    image: "/images/work-img7.avif",
+    blocks: [
+      callout(
+        "In short",
+        "Structural villa construction runs in 21 sequential stages, from site hoarding and excavation to the founding level, through plate load testing, blinding concrete, the reinforced raft, columns, tie beams, backfilling and compaction, and finally the columns, slabs and blockwork. Each stage carries its own verification — most structural defects trace back to a stage started before the one beneath it was proven.",
+        "باختصار",
+        "يمر البناء الإنشائي للفيلا بـ 21 مرحلة متسلسلة، من تسييج الموقع والحفر إلى منسوب التأسيس، مرورًا باختبار تحميل اللوح، وخرسانة النظافة، واللبشة المسلحة، والأعمدة، والروابط، والردم والدمك، وانتهاءً بالأعمدة والبلاطات والمباني. تحمل كل مرحلة تحققها الخاص — ومعظم العيوب الإنشائية سببها مرحلة بدأت قبل إثبات ما تحتها.",
+      ),
+      heading("Key takeaways", "أهم النقاط"),
+      bullets(
+        [
+          "The shell phase runs in 21 fixed stages; the order is a control mechanism, not a convention.",
+          "Soil is proven twice: once by the soil report, once by plate load test at the actual founding level.",
+          "Backfill is placed in thin layers and compacted, because settlement under a ground floor destroys the tiling above it.",
+          "Formwork timber is new, not reused — bowed formwork produces a column that cannot be corrected afterwards.",
+          "External wall block type is a thermal decision made during the shell phase that governs cooling load for the building's life.",
+        ],
+        [
+          "مرحلة الهيكل الإنشائي تسير في 21 مرحلة ثابتة؛ الترتيب آلية ضبط لا عرف متبع.",
+          "تُثبت خواص التربة مرتين: مرة بتقرير التربة، ومرة باختبار تحميل اللوح عند منسوب التأسيس الفعلي.",
+          "يُوضع الردم بطبقات رقيقة ويُدمك، لأن الهبوط تحت الدور الأرضي يُتلف البلاط فوقه.",
+          "خشب الشدة جديد لا مُعاد استخدامه — الشدة المنحنية تُنتج عمودًا لا يمكن تصحيحه لاحقًا.",
+          "نوع طوب الجدران الخارجية قرار حراري يُتخذ أثناء مرحلة الهيكل ويحكم حمل التبريد طوال عمر المبنى.",
+        ],
+      ),
+      processStagesBlock(),
+      callout(
+        "Key point — why three separate protective layers",
+        "Anti-termite treatment, the polythene membrane and blinding concrete each protect the raft from a different threat: one is biological, one hydraulic, one chemical. Omitting any of them saves a day and costs a decade.",
+        "نقطة مهمة — لماذا ثلاث طبقات حماية منفصلة",
+        "تحمي معالجة مكافحة النمل الأبيض وغشاء البولي إيثيلين وخرسانة النظافة اللبشة كل منها من خطر مختلف: أحدها بيولوجي، والآخر هيدروليكي، والثالث كيميائي. حذف أي منها يوفر يومًا ويكلّف عقدًا.",
+      ),
+      heading("What each stage should produce as a record", "ما الذي يجب أن تنتجه كل مرحلة كسجل"),
+      paragraph(
+        "Every stage should leave behind more than a finished pour — a soil test result, a formwork inspection sign-off, a compaction test reading. On a well-run site, the paperwork exists before the next stage starts, not after a dispute makes someone go looking for it.",
+        "يجب أن تترك كل مرحلة أكثر من مجرد صب مكتمل — نتيجة اختبار تربة، اعتماد تفتيش شدة، قراءة اختبار دمك. في الموقع المُدار جيدًا، توجد المستندات قبل بدء المرحلة التالية، لا بعد أن يدفع خلاف أحدهم للبحث عنها.",
+      ),
+      heading("How the shell phase relates to what comes next", "كيف ترتبط مرحلة الهيكل بما يليها"),
+      paragraph(
+        "The 21 stages described here are the shell — the structure a building depends on for the rest of its life. Finishing, MEP first fix and second fix, and interior works all build on the tolerances this phase sets. A shell built out of level or out of plumb turns into finishing problems that cost far more to fix than the stage that caused them.",
+        "المراحل الـ 21 الموصوفة هنا هي الهيكل — البنية التي يعتمد عليها المبنى طوال عمره. تُبنى أعمال التشطيب والتمديدات الأولية والثانوية والأعمال الداخلية جميعها على التفاوتات التي تحددها هذه المرحلة. الهيكل غير المستوي أو غير الرأسي يتحول إلى مشكلات تشطيب تكلفة إصلاحها أعلى بكثير من المرحلة التي سببتها.",
+      ),
+    ],
+    faqs: [],
+    relatedServiceSlugs: ["structural-construction-works"],
+    relatedProjectSlugs: [],
+  },
+  {
+    slug: "durrat-al-arous-chalets",
+    category: "Case Studies",
+    title: "24 Chalets Delivered at Durrat Al-Arous",
+    title_ar: "تسليم 24 شاليه في درة العروس",
+    excerpt: "Fully redesigned and executed for La Fontaine Hotels & Resorts.",
+    excerpt_ar: "إعادة تصميم وتنفيذ كاملة لصالح فندق لافونتين للفنادق والمنتجعات.",
+    read_minutes: 1,
+    published_at: "2026-01-25",
+    featured: false,
+    image: "/images/spotlight-img1.avif",
+    blocks: [
+      callout(
+        "In short",
+        "Fayez Amana redeveloped 24 chalets at Durrat Al-Arous, Jeddah, for La Fontaine Hotels & Resorts, designing and executing the works as a single design-build package covering architecture, finishing and integrated amenities.",
+        "باختصار",
+        "أعادت فايز أمانة تطوير 24 شاليه في درة العروس، جدة، لصالح لافونتين للفنادق والمنتجعات، وصممت ونفّذت الأعمال كحزمة تصميم وبناء واحدة شملت العمارة والتشطيب والمرافق المتكاملة.",
+      ),
+      paragraph(
+        "Delivering 24 units to one standard is a consistency problem before it is a construction problem. Where the same contractor holds design, architecture and finishing across every unit, the standard is set once rather than negotiated 24 times.",
+        "تسليم 24 وحدة بمعيار واحد مشكلة اتساق قبل أن تكون مشكلة إنشائية. حين تتولى نفس الجهة التصميم والعمارة والتشطيب في كل وحدة، يُحدد المعيار مرة واحدة بدلاً من التفاوض عليه 24 مرة.",
+      ),
+    ],
+    faqs: [],
+    relatedServiceSlugs: ["architectural-works", "interior-finishing-works"],
+    relatedProjectSlugs: ["chalets-durrat-al-arous"],
+  },
+  {
+    slug: "vision-2030-outlook",
+    category: "Company News",
+    title: "Future Outlook: Fayez Amana and Vision 2030",
+    title_ar: "نظرة مستقبلية: فايز أمانة ورؤية 2030",
+    excerpt: "Fayez Amana continues to expand its portfolio and contribute to Saudi Arabia's development in alignment with Vision 2030.",
+    excerpt_ar: "تواصل فايز أمانة توسيع أعمالها والمساهمة في تنمية المملكة العربية السعودية بما يتوافق مع رؤية 2030.",
+    read_minutes: 1,
+    published_at: "2026-01-20",
+    featured: false,
+    image: "/images/work-img2.avif",
+    blocks: [
+      callout(
+        "In short",
+        "Fayez Amana is aligning its growth with Saudi Vision 2030, strengthening the private sector's role in urban development across the Kingdom while sustaining quality on every project it delivers.",
+        "باختصار",
+        "تُواءم فايز أمانة نموها مع رؤية السعودية 2030، وتعزز دور القطاع الخاص في التنمية العمرانية في أنحاء المملكة مع الحفاظ على الجودة في كل مشروع تنفذه.",
+      ),
+      paragraph(
+        "Sustainable growth and consistent quality across every project underpin how Fayez Amana is scaling its contribution to the Kingdom's development programme.",
+        "النمو المستدام والجودة المتسقة في كل مشروع هما أساس توسيع مساهمة فايز أمانة في برنامج التنمية الوطني.",
+      ),
+    ],
+    faqs: [],
+    relatedServiceSlugs: [],
+    relatedProjectSlugs: ["sport-center-prince-sultan", "enaya-medical-building"],
+  },
+  {
+    slug: "company-profile-2026",
+    category: "Company News",
+    title: "Fayez Amana Releases Its 2026 Company Profile",
+    title_ar: "فايز أمانة تصدر ملفها التعريفي لعام 2026",
+    excerpt: "A comprehensive overview of Fayez Amana: our story, services, team and vision.",
+    excerpt_ar: "نظرة شاملة على فايز أمانة: قصتنا وخدماتنا وفريقنا ورؤيتنا.",
+    read_minutes: 1,
+    published_at: "2026-01-15",
+    featured: false,
+    image: "/images/work-img4.avif",
+    blocks: [
+      callout(
+        "In short",
+        "Fayez Amana has published its 2026 company profile, documenting 25 years of construction work in Saudi Arabia: more than 300 completed projects, a multidisciplinary team of over 80, the company's full certification set, and the 21-stage structural methodology that governs every site it runs.",
+        "باختصار",
+        "أصدرت فايز أمانة ملفها التعريفي لعام 2026، موثّقة 25 عامًا من العمل الإنشائي في السعودية: أكثر من 300 مشروع منجز، فريق متعدد التخصصات يفوق 80 موظفًا، مجموعة شهاداتها الكاملة، ومنهجية الـ 21 مرحلة الإنشائية التي تحكم كل موقع تديره.",
+      ),
+      paragraph(
+        "The methodology it sets out is published in full on the Process page of this site, in the original Arabic alongside its English rendering, and explained stage by stage in the villa construction guide.",
+        "المنهجية الموضحة فيه منشورة بالكامل في صفحة آلية العمل على هذا الموقع، بالعربية الأصلية إلى جانب ترجمتها الإنجليزية، ومشروحة مرحلة بمرحلة في دليل بناء الفيلات.",
+      ),
+    ],
+    faqs: [],
+    relatedServiceSlugs: ["structural-construction-works"],
+    relatedProjectSlugs: ["chalets-durrat-al-arous"],
+  },
+  {
+    slug: "iso-certification",
+    category: "Company News",
+    title: "ISO Certification Achieved for Quality, Safety and Environmental Management",
+    title_ar: "الحصول على شهادة الآيزو لإدارة الجودة والسلامة والبيئة",
+    excerpt: "International standards certification for quality management, safety and environmental responsibility.",
+    excerpt_ar: "شهادة معايير دولية لإدارة الجودة والسلامة والمسؤولية البيئية.",
+    read_minutes: 1,
+    published_at: "2019-01-15",
+    featured: false,
+    image: "/images/work-img6.avif",
+    blocks: [
+      callout(
+        "In short",
+        "Fayez Amana holds ISO certification for quality management, safety and environmental responsibility. The certification accompanied the company's evolution into a multidisciplinary contractor, adding engineering construction, project management and supervision services to its portfolio.",
+        "باختصار",
+        "تحمل فايز أمانة شهادة الآيزو لإدارة الجودة والسلامة والمسؤولية البيئية. رافقت الشهادة تطور الشركة إلى مقاول متعدد التخصصات، بإضافة خدمات الإنشاء الهندسي وإدارة المشاريع والإشراف إلى أعمالها.",
+      ),
+      paragraph(
+        "In practice, certification is what turns a quality intention into a quality record. Each of the 21 structural stages carries its own verification, and supervision re-inspects after every strike of formwork.",
+        "عمليًا، الشهادة هي ما يحوّل نية الجودة إلى سجل جودة. تحمل كل مرحلة من المراحل الإنشائية الـ 21 تحققها الخاص، ويعيد الإشراف التفتيش بعد كل فك للشدة.",
+      ),
+    ],
+    faqs: [],
+    relatedServiceSlugs: ["structural-construction-works"],
+    relatedProjectSlugs: [],
+  },
+];
+
+async function seedNewsPage() {
+  const supabase = createAdminClient();
+  console.log("Seeding news page settings...");
+  await supabase.from("news_page_settings").upsert({ id: 1, ...newsPageSettings });
+
+  const { data: allServices } = await supabase.from("services").select("id, slug");
+  const { data: allProjects } = await supabase.from("projects").select("id, slug");
+  const serviceIdBySlug = new Map((allServices ?? []).map((s) => [s.slug, s.id]));
+  const projectIdBySlug = new Map((allProjects ?? []).map((p) => [p.slug, p.id]));
+
+  console.log(`Seeding ${newsArticles.length} news articles...`);
+  for (const article of newsArticles) {
+    const { data: row, error } = await supabase
+      .from("news_articles")
+      .upsert(
+        {
+          slug: article.slug,
+          category: article.category,
+          title: article.title,
+          title_ar: article.title_ar,
+          excerpt: article.excerpt,
+          excerpt_ar: article.excerpt_ar,
+          author: AUTHOR_EN,
+          author_ar: AUTHOR_AR,
+          read_minutes: article.read_minutes,
+          published_at: article.published_at,
+          featured: article.featured,
+          image: article.image,
+        },
+        { onConflict: "slug" },
+      )
+      .select("id")
+      .single();
+    if (error) throw new Error(`Failed to upsert article "${article.slug}": ${error.message}`);
+    const articleId = row.id;
+
+    await supabase.from("news_article_blocks").delete().eq("article_id", articleId);
+    if (article.blocks.length) {
+      const { error: blocksError } = await supabase.from("news_article_blocks").insert(
+        article.blocks.map((b, i) => ({
+          article_id: articleId,
+          block_type: b.type,
+          heading: b.heading ?? "",
+          heading_ar: b.heading_ar ?? "",
+          body: b.body ?? "",
+          body_ar: b.body_ar ?? "",
+          callout_title: b.callout_title ?? "",
+          callout_title_ar: b.callout_title_ar ?? "",
+          table_headers: b.table_headers ?? "",
+          table_headers_ar: b.table_headers_ar ?? "",
+          table_rows: b.table_rows ?? "",
+          table_rows_ar: b.table_rows_ar ?? "",
+          sort_order: i,
+        })),
+      );
+      if (blocksError) throw new Error(`Failed to seed blocks for "${article.slug}": ${blocksError.message}`);
+    }
+
+    await supabase.from("news_article_faqs").delete().eq("article_id", articleId);
+    if (article.faqs.length) {
+      const { error: faqsError } = await supabase
+        .from("news_article_faqs")
+        .insert(article.faqs.map((f, i) => ({ article_id: articleId, ...f, sort_order: i })));
+      if (faqsError) throw new Error(`Failed to seed FAQs for "${article.slug}": ${faqsError.message}`);
+    }
+
+    await supabase.from("news_article_related_services").delete().eq("article_id", articleId);
+    const serviceRows = article.relatedServiceSlugs
+      .map((slug, i) => {
+        const serviceId = serviceIdBySlug.get(slug);
+        if (!serviceId) {
+          console.warn(`  ! related service "${slug}" not found for article "${article.slug}", skipping`);
+          return null;
+        }
+        return { article_id: articleId, service_id: serviceId, sort_order: i };
+      })
+      .filter((r): r is NonNullable<typeof r> => r !== null);
+    if (serviceRows.length) {
+      const { error: relServicesError } = await supabase.from("news_article_related_services").insert(serviceRows);
+      if (relServicesError) throw new Error(`Failed to seed related services for "${article.slug}": ${relServicesError.message}`);
+    }
+
+    await supabase.from("news_article_related_projects").delete().eq("article_id", articleId);
+    const projectRows = article.relatedProjectSlugs
+      .map((slug, i) => {
+        const projectId = projectIdBySlug.get(slug);
+        if (!projectId) {
+          console.warn(`  ! related project "${slug}" not found for article "${article.slug}", skipping`);
+          return null;
+        }
+        return { article_id: articleId, project_id: projectId, sort_order: i };
+      })
+      .filter((r): r is NonNullable<typeof r> => r !== null);
+    if (projectRows.length) {
+      const { error: relProjectsError } = await supabase.from("news_article_related_projects").insert(projectRows);
+      if (relProjectsError) throw new Error(`Failed to seed related projects for "${article.slug}": ${relProjectsError.message}`);
+    }
+  }
+  console.log("News page seeded.");
+}
+
 async function seedSiteChrome() {
   const supabase = createAdminClient();
   console.log("Seeding site-wide header/footer settings...");
@@ -1416,6 +2406,9 @@ async function main() {
   await seedRemainingContent();
   await seedHomeContent();
   await seedRemainingPagesContent();
+  await seedLocationPages();
+  await seedCareersPage();
+  await seedNewsPage();
   await seedSiteChrome();
 
   console.log("Done.");

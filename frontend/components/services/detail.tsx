@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import type { Service } from "@/lib/db/services";
 import type { Locale } from "@/lib/locale";
@@ -152,13 +153,13 @@ export default function ServicesDetail({ locale, services }: { locale: Locale; s
                       {t.discussScope}
                       <ArrowIcon />
                     </a>
-                    <a
+                    <Link
                       href="/projects"
                       className="btn-premium btn-premium-outline group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
                     >
                       {t.relatedWork}
                       <ArrowIcon />
-                    </a>
+                    </Link>
                   </Reveal>
                 </div>
 

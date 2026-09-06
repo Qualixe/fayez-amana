@@ -24,7 +24,7 @@ export default function MilestoneForm({
   return (
     <form action={action} className="flex max-w-2xl flex-col gap-4">
       <label className={labelClasses}>
-        Year (English, e.g. "2005 to 2017")
+        Year (English, e.g. &quot;2005 to 2017&quot;)
         <input name="year" required defaultValue={v.year} className={fieldClasses} />
       </label>
       <label className={labelClasses}>

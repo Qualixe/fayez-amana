@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import type { Locale } from "@/lib/locale";
 import type { HomeSettings, HeroStage, HomeStat } from "@/lib/db/home";
 
@@ -207,12 +208,12 @@ export default function Hero({
                                     {t.startProject}
                                     <ArrowIcon />
                                 </a>
-                                <a
+                                <Link
                                     href="/projects"
                                     className="btn-premium btn-premium-outline inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent bg-white/[0.03] px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-bone hover:bg-white/[0.06] sm:min-h-[56px] sm:px-9 sm:py-5"
                                 >
                                     {t.viewPortfolio}
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -233,12 +234,12 @@ export default function Hero({
                                 {t.handoverBody}
                             </p>
                             <div className="pointer-events-auto mt-8 flex flex-wrap gap-4">
-                                <a
+                                <Link
                                     href="/projects"
                                     className="btn-premium btn-premium-outline inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent bg-white/[0.03] px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-bone hover:bg-white/[0.06] sm:min-h-[56px] sm:px-9 sm:py-5"
                                 >
                                     {t.viewPortfolio}
-                                </a>
+                                </Link>
                                 <a
                                     href="/contact"
                                     className="btn-premium btn-premium-fill group inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/10 px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white hover:brightness-110 sm:min-h-[56px] sm:px-9 sm:py-5"

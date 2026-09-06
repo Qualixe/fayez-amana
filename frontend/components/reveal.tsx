@@ -8,9 +8,10 @@ type RevealProps = {
     tag?: ElementType;
     className?: string;
     clip?: boolean;
+    id?: string;
 };
 
-export default function Reveal({ children, delay = 0, tag: Tag = "div", className, clip = false }: RevealProps) {
+export default function Reveal({ children, delay = 0, tag: Tag = "div", className, clip = false, id }: RevealProps) {
     const ref = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -36,6 +37,7 @@ export default function Reveal({ children, delay = 0, tag: Tag = "div", classNam
     return (
         <Tag
             ref={ref}
+            id={id}
             {...(clip ? { "data-reveal-clip": "" } : { "data-reveal": "" })}
             style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
             className={className}

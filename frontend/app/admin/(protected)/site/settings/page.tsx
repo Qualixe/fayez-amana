@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { saveSiteSettings } from "./actions";
 
@@ -66,9 +67,9 @@ export default async function SiteSettingsPage() {
         <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Header & footer</h1>
         <p className="text-sm text-dust">
           Logos and footer-only copy. Navigation links are managed on the{" "}
-          <a href="/admin/site/nav-links" className="text-azure-glow hover:underline">
+          <Link href="/admin/site/nav-links" className="text-azure-glow hover:underline">
             Navigation
-          </a>{" "}
+          </Link>{" "}
           page. The phone, email, socials, location and brand name text shown in the header/footer come from Home
           settings and Contact page settings — edit them there.
         </p>

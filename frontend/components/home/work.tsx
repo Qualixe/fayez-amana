@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import { localize, categoryLabel, type Project } from "@/components/projects/data";
 import type { HomeSettings } from "@/lib/db/home";
@@ -66,13 +67,13 @@ export default function Work({
           </div>
 
           <Reveal tag="div" delay={220}>
-            <a
+            <Link
               href="/projects"
               className="btn-premium btn-premium-outline group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
             >
               {t.allProjects}
               <ArrowIcon />
-            </a>
+            </Link>
           </Reveal>
         </div>
 
@@ -85,7 +86,7 @@ export default function Work({
                 delay={(index % 3) * 110}
                 className="block"
               >
-                <a href={`/projects/${p.slug}`} className="group block">
+                <Link href={`/projects/${p.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-slab xl:aspect-[3/4]">
                     <img
                       src={p.image}
@@ -130,7 +131,7 @@ export default function Work({
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             );
           })}

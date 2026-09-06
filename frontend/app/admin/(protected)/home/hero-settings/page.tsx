@@ -12,7 +12,7 @@ export default async function HeroSettingsPage() {
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Home page — Hero</h1>
         <p className="text-sm text-dust">
-          The brand wordmark and "Start a Project" text here are also shown in the header and footer.
+          The brand wordmark and &quot;Start a Project&quot; text here are also shown in the header and footer.
         </p>
       </div>
 

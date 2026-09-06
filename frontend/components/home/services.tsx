@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import type { Service } from "@/lib/db/services";
 import type { HomeSettings } from "@/lib/db/home";
@@ -52,20 +53,20 @@ export default function Services({ settings, services }: { settings: HomeSetting
                     </Reveal>
 
                     <Reveal tag="div" delay={260}>
-                        <a
+                        <Link
                             href="/services"
                             className="btn-premium btn-premium-outline group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
                         >
                             {t.explore}
                             <ArrowIcon />
-                        </a>
+                        </Link>
                     </Reveal>
                 </div>
 
                 <ul className="flex flex-col">
                     {services.map((service, index) => (
                         <Reveal key={service.id} tag="li" delay={index * 90} className="list-none">
-                            <a href={`/services#${service.slug}`} className="group relative block border-t border-steel py-9 last:border-b">
+                            <Link href={`/services#${service.slug}`} className="group relative block border-t border-steel py-9 last:border-b">
                                 <div className="flex items-start gap-6">
                                     <span className="mt-2 shrink-0 font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ash transition-colors duration-500 group-hover:text-azure-glow">
                                         {service.number}
@@ -90,7 +91,7 @@ export default function Services({ settings, services }: { settings: HomeSetting
                                     aria-hidden="true"
                                     className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-azure transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
                                 />
-                            </a>
+                            </Link>
                         </Reveal>
                     ))}
                 </ul>

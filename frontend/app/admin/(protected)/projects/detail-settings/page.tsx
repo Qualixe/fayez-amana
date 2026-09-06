@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { saveProjectDetailSettings } from "./actions";
 
@@ -14,10 +15,10 @@ export default async function ProjectDetailSettingsPage() {
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Project detail page settings</h1>
         <p className="text-sm text-dust">
-          The "Method & Materials" section heading, shown identically on every individual project's page. See also{" "}
-          <a href="/admin/projects/method-articles" className="text-azure-glow hover:underline">
+          The &quot;Method &amp; Materials&quot; section heading, shown identically on every individual project&apos;s page. See also{" "}
+          <Link href="/admin/projects/method-articles" className="text-azure-glow hover:underline">
             method articles
-          </a>
+          </Link>
           .
         </p>
       </div>

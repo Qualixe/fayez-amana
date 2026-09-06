@@ -69,6 +69,37 @@ const navGroups = [
     ],
   },
   {
+    label: "Careers page",
+    links: [
+      { href: "/admin/careers/hero-settings", label: "Hero settings" },
+      { href: "/admin/careers/culture-settings", label: "Culture settings" },
+      { href: "/admin/careers/benefits-settings", label: "Benefits settings" },
+      { href: "/admin/careers/positions-settings", label: "Positions settings" },
+      { href: "/admin/careers/application-settings", label: "Application settings" },
+      { href: "/admin/careers/seo-settings", label: "SEO settings" },
+      { href: "/admin/careers/culture", label: "Company culture" },
+      { href: "/admin/careers/benefits", label: "Benefits" },
+      { href: "/admin/careers/positions", label: "Open positions" },
+      { href: "/admin/careers/application-fields", label: "Application form fields" },
+      { href: "/admin/careers/trust-items", label: "Application trust badges" },
+      { href: "/admin/careers/applications", label: "Job applications" },
+    ],
+  },
+  {
+    label: "News page",
+    links: [
+      { href: "/admin/news/page-settings", label: "Page settings" },
+      { href: "/admin/news/articles", label: "Articles" },
+    ],
+  },
+  {
+    label: "Location pages",
+    links: [
+      { href: "/admin/locations/jeddah", label: "Jeddah page" },
+      { href: "/admin/locations/makkah", label: "Makkah page" },
+    ],
+  },
+  {
     label: "Site-wide",
     links: [
       { href: "/admin/site/nav-links", label: "Navigation" },
