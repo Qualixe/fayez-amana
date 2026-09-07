@@ -15,6 +15,7 @@ const cspHeader = `
   media-src 'self' ${supabaseUrl};
   font-src 'self' data:;
   connect-src 'self' ${supabaseUrl}${isDev ? " ws://localhost:* http://localhost:*" : ""};
+  frame-src 'self' https://www.google.com;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
