@@ -162,14 +162,15 @@ function PositionDropdown({
   );
 }
 
-function CvField({ label, hint }: { label: string; hint: string }) {
+function CvField({ label, hint, invalid }: { label: string; hint: string; invalid?: boolean }) {
   const [fileName, setFileName] = useState("");
 
   return (
-    <label className={fieldShellClasses}>
+    <label className={`${fieldShellClasses} ${invalid ? fieldShellInvalidClasses : ""}`}>
       <input
         type="file"
         name="cv"
+        required
         accept="application/pdf,.pdf"
         onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
         className="sr-only"
@@ -186,6 +187,7 @@ function CvField({ label, hint }: { label: string; hint: string }) {
         }`}
       >
         {label}
+        <RequiredDot />
       </span>
       <div className="mx-4 border-t border-edge/85 py-3">
         <p className="text-[12px] leading-relaxed text-ash">{fileName || hint}</p>
@@ -300,10 +302,12 @@ export default function ApplicationForm({
     const name = get("name");
     const email = get("email");
     const position = get("position");
+    const cv = data.get("cv");
     const errors: string[] = [];
     if (name.length < 2) errors.push("name");
     if (!EMAIL_RE.test(email)) errors.push("email");
     if (!position) errors.push("position");
+    if (!(cv instanceof File) || cv.size === 0) errors.push("cv");
     for (const field of fields) {
       if (field.required && !get(`field_${field.key}`)) errors.push(`field_${field.key}`);
     }
@@ -391,7 +395,7 @@ export default function ApplicationForm({
           <DynamicField key={field.id} field={field} invalid={isInvalid(`field_${field.key}`)} />
         ))}
 
-      <CvField label={t.cvLabel} hint={t.cvHint} />
+      <CvField label={t.cvLabel} hint={t.cvHint} invalid={isInvalid("cv")} />
 
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="sr-only" aria-hidden="true" />
 

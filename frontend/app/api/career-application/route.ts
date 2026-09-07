@@ -43,9 +43,10 @@ export async function POST(request: Request) {
   const email = get("email");
   const position = get("position");
 
-  if (name.length < 2 || !EMAIL_RE.test(email) || position.length < 1) {
+  const cvFile = formData.get("cv");
+  if (name.length < 2 || !EMAIL_RE.test(email) || position.length < 1 || !(cvFile instanceof File) || cvFile.size === 0) {
     return NextResponse.json(
-      { ok: false, message: "Please add your name, a valid email, and the position you're applying for." },
+      { ok: false, message: "Please add your name, a valid email, the position you're applying for, and attach your CV." },
       { status: 400 },
     );
   }
@@ -54,7 +55,7 @@ export async function POST(request: Request) {
 
   let cvPath: string | null = null;
   try {
-    cvPath = await uploadCv(supabase, formData.get("cv"));
+    cvPath = await uploadCv(supabase, cvFile);
   } catch (err) {
     return NextResponse.json(
       { ok: false, message: err instanceof Error ? err.message : "CV upload failed." },
