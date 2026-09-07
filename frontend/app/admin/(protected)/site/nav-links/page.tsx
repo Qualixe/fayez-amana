@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { deleteNavLink } from "./actions";
+import NavLinksTable from "./nav-links-table";
 
 export default async function AdminNavLinksPage() {
   const supabase = await createClient();
@@ -17,6 +17,7 @@ export default async function AdminNavLinksPage() {
           <h1 className="text-2xl font-semibold tracking-[-0.02em] text-bone">Navigation</h1>
           <p className="text-sm text-dust">
             Every link here shows in the full site menu. Check &quot;top bar&quot; ones also show in the desktop header.
+            Drag a row by its handle to reorder.
           </p>
         </div>
         <Link
@@ -27,37 +28,7 @@ export default async function AdminNavLinksPage() {
         </Link>
       </div>
 
-      <table className="w-full border-collapse text-start text-sm">
-        <thead>
-          <tr className="border-b border-steel font-mono text-[10px] uppercase tracking-[0.18em] text-dust">
-            <th className="py-2 pe-4 text-start font-medium">Label</th>
-            <th className="py-2 pe-4 text-start font-medium">Link</th>
-            <th className="py-2 pe-4 text-start font-medium">Top bar</th>
-            <th className="py-2 text-start font-medium" />
-          </tr>
-        </thead>
-        <tbody>
-          {(rows ?? []).map((row) => (
-            <tr key={row.id} className="border-b border-steel/60">
-              <td className="py-3 pe-4 text-bone">{row.label}</td>
-              <td className="py-3 pe-4 font-mono text-dust">{row.href}</td>
-              <td className="py-3 pe-4 text-dust">{row.show_in_primary_nav ? "Yes" : "—"}</td>
-              <td className="py-3 text-end">
-                <div className="flex justify-end gap-4">
-                  <Link href={`/admin/site/nav-links/${row.id}`} className="text-azure-glow hover:underline">
-                    Edit
-                  </Link>
-                  <form action={async () => { "use server"; await deleteNavLink(row.id); }}>
-                    <button type="submit" className="text-amber-soft hover:underline">
-                      Delete
-                    </button>
-                  </form>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <NavLinksTable initialRows={rows ?? []} />
     </div>
   );
 }

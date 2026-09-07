@@ -41,3 +41,13 @@ export async function deleteNavLink(id: string) {
   if (error) throw new Error(error.message);
   revalidateAll();
 }
+
+export async function reorderNavLinks(orderedIds: string[]) {
+  const supabase = await createClient();
+  const results = await Promise.all(
+    orderedIds.map((id, index) => supabase.from("site_nav_links").update({ sort_order: index }).eq("id", id)),
+  );
+  const failed = results.find((r) => r.error);
+  if (failed?.error) throw new Error(failed.error.message);
+  revalidateAll();
+}
