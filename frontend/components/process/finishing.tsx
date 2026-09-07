@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import { stageImages } from "@/lib/process-shared";
 import type { ProcessPageSettings } from "@/lib/db/process";
@@ -51,13 +52,13 @@ export default function ProcessFinishing({ settings }: { settings: ProcessPageSe
               {t.body}
             </Reveal>
             <Reveal tag="div" delay={140}>
-              <a
+              <Link
                 href="/services#interior-finishing-works"
                 className="btn-premium btn-premium-outline group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
               >
                 {t.cta}
                 <ArrowIcon />
-              </a>
+              </Link>
             </Reveal>
           </div>
         </div>

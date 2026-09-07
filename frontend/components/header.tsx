@@ -145,7 +145,7 @@ export default function Header({
                         {phone}
                     </a>
 
-                    <a
+                    <Link
                         href="/contact"
                         className="btn-premium btn-premium-fill hidden min-h-[44px] items-center justify-center px-6 py-3.5 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-white hover:brightness-110 sm:inline-flex"
                         style={{
@@ -154,7 +154,7 @@ export default function Header({
                         }}
                     >
                         {startProject}
-                    </a>
+                    </Link>
 
                     <button
                         type="button"

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import type { Certification } from "@/lib/db/about";
 import type { Locale } from "@/lib/locale";
@@ -74,13 +75,13 @@ export default function Certifications({ locale, certifications }: { locale: Loc
                 </ul>
 
                 <Reveal tag="div" delay={420} className="mt-10">
-                    <a
+                    <Link
                         href="/services#quality-assurance"
                         className="btn-premium btn-premium-outline group inline-flex min-h-[56px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
                     >
                         {t.cta}
                         <ArrowIcon />
-                    </a>
+                    </Link>
                 </Reveal>
             </div>
         </section>

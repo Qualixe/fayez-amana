@@ -226,6 +226,36 @@ body {
   }
 }
 
+@keyframes bru-curtain-reveal {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+
+.page-curtain {
+  transform-origin: top;
+  animation: bru-curtain-reveal 1200ms var(--ease-out-expo) forwards;
+}
+
+.page-curtain::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-azure-glow);
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain {
+    display: none;
+  }
+}
+
 @keyframes shake {
   10%,
   90% {

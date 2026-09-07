@@ -105,6 +105,9 @@ const navGroups = [
       { href: "/admin/site/nav-links", label: "Navigation" },
       { href: "/admin/site/settings", label: "Header & footer" },
       { href: "/admin/site/cta", label: "Bottom CTA" },
+      { href: "/admin/site/not-found-settings", label: "404 page" },
+      { href: "/admin/site/privacy-settings", label: "Privacy page settings" },
+      { href: "/admin/site/privacy-sections", label: "Privacy sections" },
     ],
   },
 ];

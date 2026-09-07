@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import type { ServicesPageSettings } from "@/lib/db/services";
 
@@ -55,7 +56,7 @@ export default function Compliance({ settings }: { settings: ServicesPageSetting
           </ul>
 
           <Reveal tag="div" delay={220} className="mt-4">
-            <a
+            <Link
               href="/contact"
               className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
               style={{
@@ -65,7 +66,7 @@ export default function Compliance({ settings }: { settings: ServicesPageSetting
             >
               {t.requestDocs}
               <ArrowIcon />
-            </a>
+            </Link>
           </Reveal>
         </div>
 
@@ -78,13 +79,13 @@ export default function Compliance({ settings }: { settings: ServicesPageSetting
             {t.certBody}
           </p>
           <div className="mt-8">
-            <a
+            <Link
               href="/about#certifications"
               className="btn-premium btn-premium-outline group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"
             >
               {t.certCta}
               <ArrowIcon />
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

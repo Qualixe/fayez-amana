@@ -142,7 +142,7 @@ export default function ServicesDetail({ locale, services }: { locale: Locale; s
                   </Reveal>
 
                   <Reveal tag="div" delay={260} className="mt-6 flex flex-wrap gap-4">
-                    <a
+                    <Link
                       href="/contact"
                       className="btn-premium btn-premium-fill group inline-flex min-h-[52px] items-center justify-center gap-3 px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
                       style={{
@@ -152,7 +152,7 @@ export default function ServicesDetail({ locale, services }: { locale: Locale; s
                     >
                       {t.discussScope}
                       <ArrowIcon />
-                    </a>
+                    </Link>
                     <Link
                       href="/projects"
                       className="btn-premium btn-premium-outline group inline-flex min-h-[52px] items-center justify-center gap-3 border border-rebar/80 bg-white/[0.04] px-7 py-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-bone hover:bg-white/[0.08]"

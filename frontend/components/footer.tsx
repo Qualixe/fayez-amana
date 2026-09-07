@@ -5,8 +5,8 @@ import type { Locale } from "@/lib/locale";
 type NavLink = { label: string; href: string };
 
 const ui = {
-  en: { navigate: "Navigate", disciplinesHeading: "Disciplines", sectorsHeading: "Sectors", contact: "Contact", instagramWord: "Instagram", twitterWord: "Twitter / X", designedBy: "designed & developed by", rights: "All rights reserved." },
-  ar: { navigate: "تصفح", disciplinesHeading: "التخصصات", sectorsHeading: "القطاعات", contact: "تواصل معنا", instagramWord: "انستغرام", twitterWord: "إكس (تويتر)", designedBy: "تصميم وتطوير", rights: "جميع الحقوق محفوظة." },
+  en: { navigate: "Navigate", disciplinesHeading: "Disciplines", sectorsHeading: "Sectors", contact: "Contact", instagramWord: "Instagram", twitterWord: "Twitter / X", designedBy: "designed & developed by", rights: "All rights reserved.", privacyPolicy: "Privacy Policy" },
+  ar: { navigate: "تصفح", disciplinesHeading: "التخصصات", sectorsHeading: "القطاعات", contact: "تواصل معنا", instagramWord: "انستغرام", twitterWord: "إكس (تويتر)", designedBy: "تصميم وتطوير", rights: "جميع الحقوق محفوظة.", privacyPolicy: "سياسة الخصوصية" },
 } as const;
 
 function MarqueeGroup({ items }: { items: readonly string[] }) {
@@ -214,7 +214,12 @@ export default function Footer({
           </a>
           . {t.rights}
         </span>
-        <span>{tagline}</span>
+        <span className="flex items-center gap-4">
+          <Link href="/privacy" className="transition-colors hover:text-bone">
+            {t.privacyPolicy}
+          </Link>
+          <span>{tagline}</span>
+        </span>
       </div>
     </footer>
   );

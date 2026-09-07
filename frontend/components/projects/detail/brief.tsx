@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import { Project, categoryLabel, localize } from "@/components/projects/data";
 import type { Locale } from "@/lib/locale";
@@ -88,7 +89,7 @@ export default function ProjectDetailBrief({ project, locale }: { project: Proje
             ))}
           </dl>
 
-          <a
+          <Link
             href="/contact"
             className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
             style={{
@@ -98,7 +99,7 @@ export default function ProjectDetailBrief({ project, locale }: { project: Proje
           >
             {t.cta}
             <ArrowIcon />
-          </a>
+          </Link>
         </div>
 
         <div className="flex flex-col gap-10">

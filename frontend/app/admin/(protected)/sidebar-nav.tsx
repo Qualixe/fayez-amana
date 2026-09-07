@@ -59,7 +59,7 @@ export default function SidebarNav({
                 type="button"
                 onClick={() => toggleGroup(i)}
                 aria-expanded={isOpen}
-                className={`flex items-center justify-between gap-2 px-3 pb-1 pt-3 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors hover:text-dust ${
+                className={`flex items-center justify-between gap-2 px-3 pb-1 pt-3 font-mono text-[10px] capitalize transition-colors hover:text-dust ${
                   isActiveGroup ? "text-azure-glow" : "text-ash"
                 }`}
               >
@@ -67,15 +67,16 @@ export default function SidebarNav({
                 <ChevronIcon open={isOpen} />
               </button>
             ) : null}
-            {isOpen
-              ? group.links.map((link) => {
+            {isOpen ? (
+              <div className={`flex flex-col gap-1 ${group.label ? "ps-[10px]" : ""}`}>
+                {group.links.map((link) => {
                   const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
                   return (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={onNavigate}
-                      className={`relative rounded-none px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                      className={`relative rounded-none px-3 py-2 font-mono text-[11px] capitalize transition-colors ${
                         isActive
                           ? "bg-slab text-bone before:absolute before:inset-y-1 before:start-0 before:w-0.5 before:bg-azure-glow"
                           : "text-dust hover:bg-slab hover:text-bone"
@@ -84,8 +85,9 @@ export default function SidebarNav({
                       {link.label}
                     </Link>
                   );
-                })
-              : null}
+                })}
+              </div>
+            ) : null}
           </div>
         );
       })}

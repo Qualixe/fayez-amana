@@ -197,7 +197,7 @@ export default function Hero({
                             </ul>
 
                             <div className="pointer-events-auto mt-8 flex flex-col gap-4 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center">
-                                <a
+                                <Link
                                     href="/contact"
                                     className="btn-premium btn-premium-fill group inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/10 px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white hover:brightness-110 sm:min-h-[56px] sm:px-9 sm:py-5"
                                     style={{
@@ -207,7 +207,7 @@ export default function Hero({
                                 >
                                     {t.startProject}
                                     <ArrowIcon />
-                                </a>
+                                </Link>
                                 <Link
                                     href="/projects"
                                     className="btn-premium btn-premium-outline inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent bg-white/[0.03] px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-bone hover:bg-white/[0.06] sm:min-h-[56px] sm:px-9 sm:py-5"
@@ -240,7 +240,7 @@ export default function Hero({
                                 >
                                     {t.viewPortfolio}
                                 </Link>
-                                <a
+                                <Link
                                     href="/contact"
                                     className="btn-premium btn-premium-fill group inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/10 px-8 py-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white hover:brightness-110 sm:min-h-[56px] sm:px-9 sm:py-5"
                                     style={{
@@ -250,7 +250,7 @@ export default function Hero({
                                 >
                                     {t.startProject}
                                     <ArrowIcon />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

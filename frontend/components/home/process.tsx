@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import type { WorkflowPhase } from "@/lib/process-shared";
 import type { HomeSettings } from "@/lib/db/home";
@@ -85,7 +86,7 @@ export default function Process({
                 </ol>
 
                 <Reveal tag="div" delay={480} className="mt-12">
-                    <a
+                    <Link
                         href="/process"
                         className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 border border-white/10 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
                         style={{
@@ -95,7 +96,7 @@ export default function Process({
                     >
                         {t.cta}
                         <ArrowIcon />
-                    </a>
+                    </Link>
                 </Reveal>
             </div>
         </section>

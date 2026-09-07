@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
 const stages = [
     { threshold: 0, label: "Survey" },
@@ -14,12 +13,18 @@ const stages = [
 const DURATION = 2200;
 
 export default function Preloader({ logo }: { logo: string }) {
-    const pathname = usePathname();
     const [progress, setProgress] = useState(0);
     const [visible, setVisible] = useState(true);
     const [hidden, setHidden] = useState(false);
 
     useEffect(() => {
+        if (window.location.hash || document.querySelector("[data-not-found-page]")) {
+            setProgress(100);
+            setVisible(false);
+            setHidden(true);
+            return;
+        }
+
         setProgress(0);
         setVisible(true);
         setHidden(false);
@@ -42,7 +47,11 @@ export default function Preloader({ logo }: { logo: string }) {
 
         rafId = requestAnimationFrame(tick);
         return () => cancelAnimationFrame(rafId);
-    }, [pathname]);
+        // Runs once on true initial load only — this component lives in the
+        // persistent site layout and is never remounted by client-side
+        // navigation, so it must not depend on pathname or it would replay
+        // on every internal Link click.
+    }, []);
 
     useEffect(() => {
         document.body.style.overflow = visible ? "hidden" : "";

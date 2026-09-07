@@ -63,6 +63,35 @@ export const getSiteSettings = cache(async function getSiteSettings(locale: Loca
   };
 });
 
+export type NotFoundPageSettings = {
+  eyebrow: string;
+  message: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  callPrefix: string;
+  emailPrefix: string;
+};
+
+export const getNotFoundPageSettings = cache(async function getNotFoundPageSettings(
+  locale: Locale,
+): Promise<NotFoundPageSettings> {
+  const supabase = await createClient();
+  const { data: row, error } = await supabase.from("site_not_found_settings").select("*").eq("id", 1).maybeSingle();
+  if (error) throw error;
+  const s = row ?? {};
+  const ar = locale === "ar";
+  const p = (key: string) => pick(s, key, ar);
+
+  return {
+    eyebrow: p("eyebrow"),
+    message: p("message"),
+    primaryLabel: p("primary_label"),
+    secondaryLabel: p("secondary_label"),
+    callPrefix: p("call_prefix"),
+    emailPrefix: p("email_prefix"),
+  };
+});
+
 export type NavLink = { label: string; href: string; showInPrimaryNav: boolean };
 
 export const getNavLinks = cache(async function getNavLinks(locale: Locale): Promise<NavLink[]> {

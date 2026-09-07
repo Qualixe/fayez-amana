@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/reveal";
 import type { Locale } from "@/lib/locale";
 import { getSiteCtaSettings } from "@/lib/db/site";
@@ -59,7 +60,7 @@ export default async function ContactCta({ locale }: { locale: Locale }) {
                     </Reveal>
 
                     <Reveal tag="div" delay={240} className="mt-10 flex flex-wrap items-center gap-5">
-                        <a
+                        <Link
                             href="/contact"
                             className="btn-premium btn-premium-fill group inline-flex min-h-[56px] items-center justify-center gap-3 border border-white/10 px-9 py-5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white hover:brightness-110"
                             style={{
@@ -69,7 +70,7 @@ export default async function ContactCta({ locale }: { locale: Locale }) {
                         >
                             {t.startProject}
                             <ArrowIcon />
-                        </a>
+                        </Link>
                         <a
                             href={`tel:${contactSettings.phone.replace(/\s+/g, "")}`}
                             dir="ltr"
