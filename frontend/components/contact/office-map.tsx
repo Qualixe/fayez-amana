@@ -35,7 +35,7 @@ export default function ContactOfficeMap({ locale, settings }: { locale: Locale;
       <div className="relative h-[60svh] min-h-[380px] w-full border-t border-steel">
         <iframe
           title={mapTitles[locale]}
-          src="https://www.google.com/maps?q=21.5996158,39.1377514&z=17&output=embed"
+          src={`https://www.google.com/maps?q=${t.latitude},${t.longitude}&z=${t.zoom}&output=embed`}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className="absolute inset-0 h-full w-full grayscale-[0.25] brightness-105"

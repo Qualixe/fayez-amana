@@ -25,7 +25,7 @@ export type ContactSettings = {
   xDisplay: string;
   marqueeItems: string[];
   hero: { eyebrow: string; heading: string[]; lede: string; image: string };
-  map: { eyebrow: string; heading: string[]; caption: string };
+  map: { eyebrow: string; heading: string[]; caption: string; latitude: number; longitude: number; zoom: number };
 };
 
 export const getContactOptions = cache(async function getContactOptions(): Promise<{
@@ -109,6 +109,9 @@ export const getContactSettings = cache(async function getContactSettings(locale
       eyebrow: (ar ? s.map_eyebrow_ar : s.map_eyebrow) ?? "",
       heading: [(ar ? s.map_heading1_ar : s.map_heading1) ?? "", (ar ? s.map_heading2_ar : s.map_heading2) ?? ""],
       caption: (ar ? s.map_caption_ar : s.map_caption) ?? "",
+      latitude: typeof s.map_latitude === "number" ? s.map_latitude : 21.5996158,
+      longitude: typeof s.map_longitude === "number" ? s.map_longitude : 39.1377514,
+      zoom: typeof s.map_zoom === "number" ? s.map_zoom : 17,
     },
   };
 });

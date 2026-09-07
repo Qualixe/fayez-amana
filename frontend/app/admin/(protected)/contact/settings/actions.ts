@@ -65,6 +65,9 @@ export async function saveContactSettings(formData: FormData) {
     map_heading2_ar: str(formData, "map_heading2_ar"),
     map_caption: str(formData, "map_caption"),
     map_caption_ar: str(formData, "map_caption_ar"),
+    map_latitude: Number(formData.get("map_latitude")) || 0,
+    map_longitude: Number(formData.get("map_longitude")) || 0,
+    map_zoom: Number(formData.get("map_zoom")) || 17,
     marquee_items: str(formData, "marquee_items"),
     marquee_items_ar: str(formData, "marquee_items_ar"),
   });

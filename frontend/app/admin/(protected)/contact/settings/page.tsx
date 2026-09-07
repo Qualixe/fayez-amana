@@ -180,6 +180,20 @@ export default async function ContactSettingsPage() {
               <input name="map_caption_ar" dir="rtl" defaultValue={s.map_caption_ar} className={fieldClasses} />
             </label>
           </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <label className={labelClasses}>
+              Latitude (from Google Maps: right-click the pin → the first number)
+              <input name="map_latitude" type="number" step="any" defaultValue={s.map_latitude} className={fieldClasses} />
+            </label>
+            <label className={labelClasses}>
+              Longitude (the second number)
+              <input name="map_longitude" type="number" step="any" defaultValue={s.map_longitude} className={fieldClasses} />
+            </label>
+            <label className={labelClasses}>
+              Zoom level (1–21, higher = closer)
+              <input name="map_zoom" type="number" min={1} max={21} defaultValue={s.map_zoom ?? 17} className={fieldClasses} />
+            </label>
+          </div>
         </fieldset>
 
         <fieldset className="flex flex-col gap-4">
