@@ -5,7 +5,7 @@ import SmoothScroll from "@/components/smoothScroll";
 import Preloader from "@/components/preloader";
 import PageTransition from "@/components/page-transition";
 import { getLocale } from "@/lib/locale";
-import { getSiteSettings, getNavLinks } from "@/lib/db/site";
+import { getSiteSettings, getNavLinks, getPreloaderSettings, getPreloaderStages } from "@/lib/db/site";
 import { getContactSettings } from "@/lib/db/contact";
 import { getHomeSettings } from "@/lib/db/home";
 import { getProjectsPageSettings } from "@/lib/db/projects";
@@ -13,13 +13,24 @@ import { getAboutPageSettings } from "@/lib/db/about";
 
 export default async function SiteLayout({ children }: { children: ReactNode }) {
   const locale = await getLocale();
-  const [siteSettings, contactSettings, homeSettings, projectsSettings, aboutSettings, allNavLinks] = await Promise.all([
+  const [
+    siteSettings,
+    contactSettings,
+    homeSettings,
+    projectsSettings,
+    aboutSettings,
+    allNavLinks,
+    preloaderSettings,
+    preloaderStages,
+  ] = await Promise.all([
     getSiteSettings(locale),
     getContactSettings(locale),
     getHomeSettings(locale),
     getProjectsPageSettings(locale),
     getAboutPageSettings(locale),
     getNavLinks(locale),
+    getPreloaderSettings(),
+    getPreloaderStages(),
   ]);
 
   const menuLinks = allNavLinks.map(({ label, href }) => ({ label, href }));
@@ -27,7 +38,13 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
 
   return (
     <>
-      <Preloader logo={siteSettings.headerLogo} />
+      <Preloader
+        logo={preloaderSettings.logo || siteSettings.headerLogo}
+        arabicName={preloaderSettings.arabicName}
+        englishName={preloaderSettings.englishName}
+        estLine={preloaderSettings.estLine}
+        stageLabels={preloaderStages.map((stage) => stage.label)}
+      />
       <PageTransition />
       <Header
         locale={locale}

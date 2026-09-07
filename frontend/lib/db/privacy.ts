@@ -16,6 +16,7 @@ export type PrivacyPageSettings = {
   footerNote: string;
   tocLabel: string;
   contactHeading: string;
+  heroImage: string;
 };
 
 export const getPrivacyPageSettings = cache(async function getPrivacyPageSettings(
@@ -37,6 +38,7 @@ export const getPrivacyPageSettings = cache(async function getPrivacyPageSetting
     footerNote: p("footer_note"),
     tocLabel: p("toc_label"),
     contactHeading: p("contact_heading"),
+    heroImage: (s.hero_image as string) ?? "",
   };
 });
 

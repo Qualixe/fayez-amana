@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+import { uploadImage } from "@/lib/supabase/storage";
 
 function str(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -9,9 +10,11 @@ function str(formData: FormData, key: string) {
 
 export async function savePrivacySettings(formData: FormData) {
   const supabase = await createClient();
+  const uploadedImage = await uploadImage(supabase, formData.get("hero_image_file"), "site");
 
   const { error } = await supabase.from("privacy_page_settings").upsert({
     id: 1,
+    hero_image: uploadedImage ?? str(formData, "hero_image"),
     eyebrow: str(formData, "eyebrow"),
     eyebrow_ar: str(formData, "eyebrow_ar"),
     heading: str(formData, "heading"),

@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useState } from "react";
+import Link from "next/link";
 import SidebarNav from "./sidebar-nav";
 import SignOutButton from "./sign-out-button";
 
@@ -10,10 +11,12 @@ type NavGroup = { label: string | null; links: { href: string; label: string }[]
 export default function AdminShell({
   navGroups,
   userEmail,
+  logo,
   children,
 }: {
   navGroups: NavGroup[];
   userEmail: string;
+  logo: string;
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
@@ -35,9 +38,9 @@ export default function AdminShell({
         }`}
       >
         <div className="flex shrink-0 items-center justify-between gap-2 border-b border-steel p-6">
-          <span className="text-xl font-bold tracking-[-0.02em]">
-            Fayez<span className="text-azure-glow">Amana</span>
-          </span>
+          <Link href="/">
+            <img src={logo} alt="Fayez Amana" className="h-8 w-auto object-contain" />
+          </Link>
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -76,9 +79,9 @@ export default function AdminShell({
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <span className="text-lg font-bold tracking-[-0.02em]">
-            Fayez<span className="text-azure-glow">Amana</span>
-          </span>
+          <Link href="/">
+            <img src={logo} alt="Fayez Amana" className="h-7 w-auto object-contain" />
+          </Link>
         </div>
 
         <main className="min-w-0 flex-1 overflow-x-auto p-4 sm:p-6 lg:p-8">{children}</main>

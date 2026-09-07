@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getSiteSettings } from "@/lib/db/site";
 import AdminShell from "./admin-shell";
 
 const navGroups = [
@@ -24,7 +25,11 @@ const navGroups = [
   {
     label: "About page",
     links: [
-      { href: "/admin/about/page-settings", label: "Page settings" },
+      { href: "/admin/about/hero-settings", label: "Hero settings" },
+      { href: "/admin/about/expertise-settings", label: "Expertise settings" },
+      { href: "/admin/about/journey-settings", label: "Journey settings" },
+      { href: "/admin/about/why-settings", label: "Why choose settings" },
+      { href: "/admin/about/vision-settings", label: "Vision & mission settings" },
       { href: "/admin/about/milestones", label: "Journey milestones" },
       { href: "/admin/about/vision-items", label: "Vision & mission" },
       { href: "/admin/about/team", label: "Team breakdown" },
@@ -36,7 +41,10 @@ const navGroups = [
   {
     label: "Services page",
     links: [
-      { href: "/admin/services/page-settings", label: "Page settings" },
+      { href: "/admin/services/hero-settings", label: "Hero settings" },
+      { href: "/admin/services/inspection-settings", label: "Inspection process settings" },
+      { href: "/admin/services/quality-metrics-settings", label: "Quality metrics settings" },
+      { href: "/admin/services/compliance-settings", label: "Compliance settings" },
       { href: "/admin/services", label: "Services" },
       { href: "/admin/services/inspection-steps", label: "Inspection steps" },
     ],
@@ -44,7 +52,10 @@ const navGroups = [
   {
     label: "Projects page",
     links: [
-      { href: "/admin/projects/page-settings", label: "Page settings" },
+      { href: "/admin/projects/hero-settings", label: "Hero settings" },
+      { href: "/admin/projects/summary-settings", label: "Summary settings" },
+      { href: "/admin/projects/sectors-settings", label: "Sectors settings" },
+      { href: "/admin/projects/spotlight-settings", label: "Spotlight settings" },
       { href: "/admin/projects", label: "Projects" },
       { href: "/admin/projects/detail-settings", label: "Project detail settings" },
       { href: "/admin/projects/method-articles", label: "Method articles" },
@@ -53,7 +64,9 @@ const navGroups = [
   {
     label: "Process page",
     links: [
-      { href: "/admin/process/page-settings", label: "Page settings" },
+      { href: "/admin/process/hero-settings", label: "Hero settings" },
+      { href: "/admin/process/intro-settings", label: "Bilingual intro settings" },
+      { href: "/admin/process/finishing-settings", label: "Finishing settings" },
       { href: "/admin/process/stages", label: "Structural stages" },
       { href: "/admin/process/categories", label: "Stage categories" },
       { href: "/admin/process/phases", label: "Workflow phases" },
@@ -88,7 +101,9 @@ const navGroups = [
   {
     label: "News page",
     links: [
-      { href: "/admin/news/page-settings", label: "Page settings" },
+      { href: "/admin/news/hero-settings", label: "Hero settings" },
+      { href: "/admin/news/hero-stats-settings", label: "Hero stats settings" },
+      { href: "/admin/news/seo-settings", label: "SEO settings" },
       { href: "/admin/news/articles", label: "Articles" },
     ],
   },
@@ -104,6 +119,8 @@ const navGroups = [
     links: [
       { href: "/admin/site/nav-links", label: "Navigation" },
       { href: "/admin/site/settings", label: "Header & footer" },
+      { href: "/admin/site/preloader-settings", label: "Preloader" },
+      { href: "/admin/site/preloader-stages", label: "Preloader stages" },
       { href: "/admin/site/cta", label: "Bottom CTA" },
       { href: "/admin/site/not-found-settings", label: "404 page" },
       { href: "/admin/site/privacy-settings", label: "Privacy page settings" },
@@ -122,8 +139,10 @@ export default async function AdminLayout({ children }: { children: ReactNode })
   // server-side data fetches, or if middleware's matcher is ever narrowed).
   if (!user) redirect("/admin/login");
 
+  const siteSettings = await getSiteSettings("en");
+
   return (
-    <AdminShell navGroups={navGroups} userEmail={user.email ?? ""}>
+    <AdminShell navGroups={navGroups} userEmail={user.email ?? ""} logo={siteSettings.headerLogo}>
       {children}
     </AdminShell>
   );

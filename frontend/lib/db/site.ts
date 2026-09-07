@@ -92,6 +92,36 @@ export const getNotFoundPageSettings = cache(async function getNotFoundPageSetti
   };
 });
 
+export type PreloaderSettings = {
+  logo: string;
+  arabicName: string;
+  englishName: string;
+  estLine: string;
+};
+
+export const getPreloaderSettings = cache(async function getPreloaderSettings(): Promise<PreloaderSettings> {
+  const supabase = await createClient();
+  const { data: row, error } = await supabase.from("preloader_settings").select("*").eq("id", 1).maybeSingle();
+  if (error) throw error;
+  const s = row ?? {};
+
+  return {
+    logo: (s.logo as string) ?? "",
+    arabicName: (s.arabic_name as string) ?? "",
+    englishName: (s.english_name as string) ?? "",
+    estLine: (s.est_line as string) ?? "",
+  };
+});
+
+export type PreloaderStage = { id: string; label: string };
+
+export const getPreloaderStages = cache(async function getPreloaderStages(): Promise<PreloaderStage[]> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.from("preloader_stages").select("*").order("sort_order", { ascending: true });
+  if (error) throw error;
+  return (data ?? []).map((row) => ({ id: row.id as string, label: row.label as string }));
+});
+
 export type NavLink = { label: string; href: string; showInPrimaryNav: boolean };
 
 export const getNavLinks = cache(async function getNavLinks(locale: Locale): Promise<NavLink[]> {

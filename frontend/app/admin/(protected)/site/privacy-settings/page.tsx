@@ -33,14 +33,21 @@ export default async function PrivacySettingsPage() {
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <label className={labelClasses}>
-            Heading (English)
-            <input name="heading" defaultValue={s.heading} className={fieldClasses} />
+            Heading (English — a line break splits it across two lines, like &quot;Privacy / Policy.&quot;)
+            <textarea name="heading" rows={2} defaultValue={s.heading} className={fieldClasses} />
           </label>
           <label className={labelClasses}>
-            العنوان (عربي)
-            <input name="heading_ar" dir="rtl" defaultValue={s.heading_ar} className={fieldClasses} />
+            العنوان (عربي — سطر جديد يقسمه إلى سطرين)
+            <textarea name="heading_ar" dir="rtl" rows={2} defaultValue={s.heading_ar} className={fieldClasses} />
           </label>
         </div>
+        <label className={labelClasses}>
+          Hero background image
+          {s.hero_image ? <img src={s.hero_image} alt="" className="h-32 w-auto border border-steel object-cover" /> : null}
+          <input type="file" name="hero_image_file" accept="image/*" className={fieldClasses} />
+          <span className="text-xs text-ash">Or paste a path/URL directly (used only if no file is chosen above):</span>
+          <input name="hero_image" defaultValue={s.hero_image} className={fieldClasses} />
+        </label>
         <div className="grid gap-4 sm:grid-cols-2">
           <label className={labelClasses}>
             Intro (English)

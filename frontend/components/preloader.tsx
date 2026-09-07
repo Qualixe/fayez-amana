@@ -2,17 +2,23 @@
 
 import { useEffect, useState } from "react";
 
-const stages = [
-    { threshold: 0, label: "Survey" },
-    { threshold: 20, label: "Foundation" },
-    { threshold: 45, label: "Structure" },
-    { threshold: 65, label: "Façade" },
-    { threshold: 85, label: "Finishing" },
-];
-
 const DURATION = 2200;
 
-export default function Preloader({ logo }: { logo: string }) {
+export default function Preloader({
+    logo,
+    arabicName,
+    englishName,
+    estLine,
+    stageLabels,
+}: {
+    logo: string;
+    arabicName: string;
+    englishName: string;
+    estLine: string;
+    stageLabels: string[];
+}) {
+    const labels = stageLabels.length > 0 ? stageLabels : [""];
+    const stages = labels.map((label, i) => ({ threshold: Math.round((i / labels.length) * 100), label }));
     const [progress, setProgress] = useState(0);
     const [visible, setVisible] = useState(true);
     const [hidden, setHidden] = useState(false);
@@ -75,15 +81,15 @@ export default function Preloader({ logo }: { logo: string }) {
             <div className="relative flex flex-col items-center gap-3 text-center">
                 <img src={logo} alt="Fayez Amana" className="h-12 w-auto object-contain" />
                 <span dir="rtl" className="text-sm text-dust">
-                    شركة فايز أمانة للمقاولات
+                    {arabicName}
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ash">
-                    Fayez Amana Construction Company
+                    {englishName}
                 </span>
             </div>
 
             <p className="relative mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-dust">
-                EST. 2000 · JEDDAH, KSA
+                {estLine}
             </p>
 
             <div className="relative mt-10 w-full max-w-md px-6">

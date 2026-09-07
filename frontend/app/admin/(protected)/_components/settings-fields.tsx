@@ -11,6 +11,7 @@ export function TextField({
   multiline,
   rows,
   type,
+  dir,
 }: {
   name: string;
   label: string;
@@ -18,14 +19,15 @@ export function TextField({
   multiline?: boolean;
   rows?: number;
   type?: string;
+  dir?: "rtl" | "ltr";
 }) {
   return (
     <label className={labelClasses}>
       {label}
       {multiline ? (
-        <textarea name={name} rows={rows ?? 3} defaultValue={defaultValue ?? ""} className={fieldClasses} />
+        <textarea name={name} dir={dir} rows={rows ?? 3} defaultValue={defaultValue ?? ""} className={fieldClasses} />
       ) : (
-        <input type={type} name={name} defaultValue={defaultValue ?? ""} className={fieldClasses} />
+        <input type={type} name={name} dir={dir} defaultValue={defaultValue ?? ""} className={fieldClasses} />
       )}
     </label>
   );
