@@ -84,11 +84,13 @@ export function ImageField({ name, label, row }: { name: string; label: string; 
 
 export function ColorField({ name, label, defaultValue }: { name: string; label: string; defaultValue?: string | null }) {
   const value = defaultValue || "#000000";
+  const id = `color-${name}`;
   return (
-    <label className={labelClasses}>
-      {label}
+    <div className={labelClasses}>
+      <label htmlFor={id}>{label}</label>
       <div className="flex items-center gap-3">
         <input
+          id={id}
           type="color"
           name={name}
           defaultValue={value}
@@ -96,7 +98,7 @@ export function ColorField({ name, label, defaultValue }: { name: string; label:
         />
         <span className="font-mono text-xs text-dust">{value}</span>
       </div>
-    </label>
+    </div>
   );
 }
 
