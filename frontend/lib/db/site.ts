@@ -122,6 +122,43 @@ export const getPreloaderStages = cache(async function getPreloaderStages(): Pro
   return (data ?? []).map((row) => ({ id: row.id as string, label: row.label as string }));
 });
 
+export const THEME_COLOR_KEYS = [
+  "void",
+  "ink",
+  "slab",
+  "concrete",
+  "steel",
+  "rebar",
+  "edge",
+  "bone",
+  "paper",
+  "dust",
+  "ash",
+  "azure",
+  "azure-lift",
+  "azure-glow",
+  "azure-deep",
+  "amber",
+  "amber-soft",
+] as const;
+
+export type ThemeColorKey = (typeof THEME_COLOR_KEYS)[number];
+export type ThemeSettings = Record<ThemeColorKey, string>;
+
+export const getThemeSettings = cache(async function getThemeSettings(): Promise<ThemeSettings> {
+  const supabase = await createClient();
+  const { data: row, error } = await supabase.from("theme_settings").select("*").eq("id", 1).maybeSingle();
+  if (error) throw error;
+  const s = row ?? {};
+
+  const result = {} as ThemeSettings;
+  for (const key of THEME_COLOR_KEYS) {
+    const column = `color_${key.replace(/-/g, "_")}`;
+    result[key] = (s[column] as string) ?? "";
+  }
+  return result;
+});
+
 export type NavLink = { label: string; href: string; showInPrimaryNav: boolean };
 
 export const getNavLinks = cache(async function getNavLinks(locale: Locale): Promise<NavLink[]> {

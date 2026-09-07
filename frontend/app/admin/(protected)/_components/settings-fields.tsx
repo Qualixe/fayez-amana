@@ -82,6 +82,24 @@ export function ImageField({ name, label, row }: { name: string; label: string; 
   );
 }
 
+export function ColorField({ name, label, defaultValue }: { name: string; label: string; defaultValue?: string | null }) {
+  const value = defaultValue || "#000000";
+  return (
+    <label className={labelClasses}>
+      {label}
+      <div className="flex items-center gap-3">
+        <input
+          type="color"
+          name={name}
+          defaultValue={value}
+          className="h-10 w-14 shrink-0 cursor-pointer border border-steel bg-void p-1"
+        />
+        <span className="font-mono text-xs text-dust">{value}</span>
+      </div>
+    </label>
+  );
+}
+
 export function VideoField({ name, label, row }: { name: string; label: string; row: Row }) {
   const value = row[name] as string | undefined;
   return (

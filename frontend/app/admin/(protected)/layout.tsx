@@ -118,6 +118,7 @@ const navGroups = [
     label: "Site-wide",
     links: [
       { href: "/admin/site/nav-links", label: "Navigation" },
+      { href: "/admin/site/theme-settings", label: "Colors" },
       { href: "/admin/site/settings", label: "Header & footer" },
       { href: "/admin/site/preloader-settings", label: "Preloader" },
       { href: "/admin/site/preloader-stages", label: "Preloader stages" },

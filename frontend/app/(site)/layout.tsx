@@ -1,11 +1,11 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SmoothScroll from "@/components/smoothScroll";
 import Preloader from "@/components/preloader";
 import PageTransition from "@/components/page-transition";
 import { getLocale } from "@/lib/locale";
-import { getSiteSettings, getNavLinks, getPreloaderSettings, getPreloaderStages } from "@/lib/db/site";
+import { getSiteSettings, getNavLinks, getPreloaderSettings, getPreloaderStages, getThemeSettings } from "@/lib/db/site";
 import { getContactSettings } from "@/lib/db/contact";
 import { getHomeSettings } from "@/lib/db/home";
 import { getProjectsPageSettings } from "@/lib/db/projects";
@@ -22,6 +22,7 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
     allNavLinks,
     preloaderSettings,
     preloaderStages,
+    theme,
   ] = await Promise.all([
     getSiteSettings(locale),
     getContactSettings(locale),
@@ -31,13 +32,38 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
     getNavLinks(locale),
     getPreloaderSettings(),
     getPreloaderStages(),
+    getThemeSettings(),
   ]);
 
   const menuLinks = allNavLinks.map(({ label, href }) => ({ label, href }));
   const navLinks = allNavLinks.filter((link) => link.showInPrimaryNav).map(({ label, href }) => ({ label, href }));
 
+  // display:contents keeps this div out of the flex layout entirely, while
+  // still scoping these CSS variable overrides to every page underneath —
+  // the admin dashboard renders outside this tree, so it always keeps the
+  // fixed default palette no matter what an admin picks here.
+  const themeStyle = {
+    "--void": theme.void,
+    "--ink": theme.ink,
+    "--slab": theme.slab,
+    "--concrete": theme.concrete,
+    "--steel": theme.steel,
+    "--rebar": theme.rebar,
+    "--edge": theme.edge,
+    "--bone": theme.bone,
+    "--paper": theme.paper,
+    "--dust": theme.dust,
+    "--ash": theme.ash,
+    "--azure": theme.azure,
+    "--azure-lift": theme["azure-lift"],
+    "--azure-glow": theme["azure-glow"],
+    "--azure-deep": theme["azure-deep"],
+    "--amber": theme.amber,
+    "--amber-soft": theme["amber-soft"],
+  } as CSSProperties;
+
   return (
-    <>
+    <div className="contents" style={themeStyle}>
       <Preloader
         logo={preloaderSettings.logo || siteSettings.headerLogo}
         arabicName={preloaderSettings.arabicName}
@@ -84,6 +110,6 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
         xDisplay={contactSettings.xDisplay}
         location={contactSettings.location}
       />
-    </>
+    </div>
   );
 }
