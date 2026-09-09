@@ -15,6 +15,14 @@ const REWARD_FADE_START = 0.85;
 
 const PLAYBACK_CONST = 500;
 
+// On a fast scroll, the target time can jump far ahead of the video's actual
+// position in a single animation frame. Capping how much the video is
+// allowed to advance per frame means a fast scroll plays quickly through
+// every intermediate second instead of cutting straight to the target —
+// still catching up fast (up to ~30x normal speed at 60fps), just never
+// skipping footage outright.
+const MAX_CATCH_UP_PER_FRAME = 0.5;
+
 function ArrowIcon() {
     return (
         <svg
@@ -64,14 +72,32 @@ export default function Hero({
         let rafId: number;
         let lastStageIndex = -1;
         let hintHidden = false;
+        let seeking = false;
+        let displayTime = 0;
+
+        // A video seek is asynchronous — it doesn't finish before the next
+        // animation frame, especially with a sparse keyframe interval. Firing
+        // a new seek every frame regardless queues them up faster than the
+        // decoder can keep up, so playback lags further and further behind
+        // the actual scroll position. Waiting for "seeked" before issuing the
+        // next one keeps the video always seeking toward the latest scroll
+        // position instead of working through a backlog of stale ones.
+        const onSeeked = () => {
+            seeking = false;
+        };
+        video.addEventListener("seeked", onSeeked);
 
         const scrollPlay = () => {
             const scrollTop = window.scrollY || window.pageYOffset;
             const maxTime = video.duration || 0;
             const currentTime = Math.min(Math.max(scrollTop / PLAYBACK_CONST, 0), maxTime);
 
-            if (Math.abs(video.currentTime - currentTime) > 0.01) {
-                video.currentTime = currentTime;
+            const gap = currentTime - displayTime;
+            displayTime += Math.abs(gap) > MAX_CATCH_UP_PER_FRAME ? Math.sign(gap) * MAX_CATCH_UP_PER_FRAME : gap;
+
+            if (!seeking && Math.abs(video.currentTime - displayTime) > 0.01) {
+                seeking = true;
+                video.currentTime = displayTime;
             }
 
             const progress = maxTime > 0 ? currentTime / maxTime : 0;
@@ -116,6 +142,13 @@ export default function Hero({
         };
 
         const onLoadedMetadata = () => {
+            // A video with malformed metadata can report duration as NaN or
+            // Infinity, which would make this an invalid (silently ignored)
+            // CSS height — the section would keep its default height and the
+            // scroll-driven playback would never engage. Bail out instead of
+            // leaving that half-working.
+            if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+
             section.style.height = `${video.duration * PLAYBACK_CONST + window.innerHeight}px`;
             video.currentTime = 0;
             // Lenis caches the scrollable content height and only recalculates it on a
@@ -133,6 +166,7 @@ export default function Hero({
 
         return () => {
             video.removeEventListener("loadedmetadata", onLoadedMetadata);
+            video.removeEventListener("seeked", onSeeked);
             cancelAnimationFrame(rafId);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps

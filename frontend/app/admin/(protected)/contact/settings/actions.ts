@@ -57,6 +57,7 @@ export async function saveContactSettings(formData: FormData) {
     instagram_display: str(formData, "instagram_display"),
     x_url: str(formData, "x_url"),
     x_display: str(formData, "x_display"),
+    whatsapp_url: str(formData, "whatsapp_url"),
     map_eyebrow: str(formData, "map_eyebrow"),
     map_eyebrow_ar: str(formData, "map_eyebrow_ar"),
     map_heading1: str(formData, "map_heading1"),

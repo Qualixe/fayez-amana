@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import SmoothScroll from "@/components/smoothScroll";
 import Preloader from "@/components/preloader";
 import PageTransition from "@/components/page-transition";
+import WhatsappButton from "@/components/whatsapp-button";
 import { getLocale } from "@/lib/locale";
 import { getSiteSettings, getNavLinks, getPreloaderSettings, getPreloaderStages, getThemeSettings } from "@/lib/db/site";
 import { getContactSettings } from "@/lib/db/contact";
@@ -110,6 +111,7 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
         xDisplay={contactSettings.xDisplay}
         location={contactSettings.location}
       />
+      <WhatsappButton url={contactSettings.whatsappUrl} />
     </div>
   );
 }
