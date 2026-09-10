@@ -6,12 +6,14 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-export default function WhatsappButton({ url }: { url: string }) {
+export default function WhatsappButton({ url, message }: { url: string; message?: string }) {
   if (!url) return null;
+
+  const href = message ? `${url}${url.includes("?") ? "&" : "?"}text=${encodeURIComponent(message)}` : url;
 
   return (
     <a
-      href={url}
+      href={href}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"

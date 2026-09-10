@@ -24,6 +24,7 @@ export type ContactSettings = {
   xUrl: string;
   xDisplay: string;
   whatsappUrl: string;
+  whatsappMessage: string;
   marqueeItems: string[];
   hero: { eyebrow: string; heading: string[]; lede: string; image: string };
   map: { eyebrow: string; heading: string[]; caption: string; latitude: number; longitude: number; zoom: number };
@@ -100,6 +101,7 @@ export const getContactSettings = cache(async function getContactSettings(locale
     xUrl: s.x_url ?? "",
     xDisplay: s.x_display ?? "",
     whatsappUrl: s.whatsapp_url ?? "",
+    whatsappMessage: (ar ? s.whatsapp_message_ar : s.whatsapp_message) ?? "",
     marqueeItems: ((ar ? s.marquee_items_ar : s.marquee_items) ?? "").split("\n").map((l: string) => l.trim()).filter(Boolean),
     hero: {
       eyebrow: (ar ? s.hero_eyebrow_ar : s.hero_eyebrow) ?? "",

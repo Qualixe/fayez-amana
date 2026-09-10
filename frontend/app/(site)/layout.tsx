@@ -111,7 +111,7 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
         xDisplay={contactSettings.xDisplay}
         location={contactSettings.location}
       />
-      <WhatsappButton url={contactSettings.whatsappUrl} />
+      <WhatsappButton url={contactSettings.whatsappUrl} message={contactSettings.whatsappMessage} />
     </div>
   );
 }

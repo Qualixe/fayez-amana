@@ -134,11 +134,21 @@ export default async function ContactSettingsPage() {
               <input name="x_display" dir="ltr" defaultValue={s.x_display} className={fieldClasses} />
             </label>
           </div>
-          <div className="border border-steel p-4">
+          <div className="flex flex-col gap-4 border border-steel p-4">
             <label className={labelClasses}>
               WhatsApp link (a wa.me link, e.g. https://wa.me/966501234567 — leave empty to hide the sticky button)
               <input name="whatsapp_url" dir="ltr" defaultValue={s.whatsapp_url} className={fieldClasses} />
             </label>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <label className={labelClasses}>
+                Pre-filled message (English — leave empty for no pre-filled message)
+                <input name="whatsapp_message" defaultValue={s.whatsapp_message} className={fieldClasses} />
+              </label>
+              <label className={labelClasses}>
+                الرسالة الجاهزة (عربي)
+                <input name="whatsapp_message_ar" dir="rtl" defaultValue={s.whatsapp_message_ar} className={fieldClasses} />
+              </label>
+            </div>
           </div>
         </fieldset>
 
